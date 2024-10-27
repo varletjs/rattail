@@ -118,3 +118,7 @@ export function getGlobalThis() {
 
   return typeof global !== 'undefined' ? global : self
 }
+
+export function isNonEmptyArray(val: unknown): val is Array<any> {
+  return isArray(val) && !!val.length
+}

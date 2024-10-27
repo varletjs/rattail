@@ -88,7 +88,3 @@ export function sum(arr: number[]) {
 export function sumBy<T>(arr: T[], fn: (val: T) => number) {
   return arr.reduce((ret, val) => ret + fn(val), 0)
 }
-
-export function isNonEmptyArray(val: unknown): boolean {
-  return isArray(val) && !!val.length
-}
