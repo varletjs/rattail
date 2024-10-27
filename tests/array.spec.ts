@@ -12,7 +12,6 @@ import {
   shuffle,
   sum,
   sumBy,
-  isNonEmptyArray,
 } from '../src'
 
 it('uniq', () => {
@@ -94,9 +93,4 @@ it('sum', () => {
 
 it('sumBy', () => {
   expect(sumBy([{ value: 1 }, { value: 2 }, { value: 3 }], (item) => item.value)).toBe(6)
-})
-
-it('isNonEmptyArray', () => {
-  expect(isNonEmptyArray([])).toBe(false)
-  expect(isNonEmptyArray([1, 2])).toBe(true)
 })
