@@ -32,7 +32,7 @@ export default defineConfig({
     },
   },
   themeConfig: {
-    logo: { src: '/logo.svg', style: { height: '44px' } },
+    logo: { src: '/logo.svg', style: { height: '28px' } },
     nav: [{ text: 'Home', link: '/' }],
 
     sidebar: [
