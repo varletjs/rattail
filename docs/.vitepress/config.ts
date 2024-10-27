@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Rattail',
   description: 'A utilities library for front-end developers, lightweight and ts-friendly',
-  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+  head: [['link', { rel: 'icon', href: '/logo.svg' }]],
   locales: {
     root: {
       label: 'English',
