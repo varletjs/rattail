@@ -6,6 +6,8 @@ hero:
   text: 'A Utilities Library'
   tagline: A utilities library for front-end developers, lightweight and ts-friendly
   logo: /logo.svg
+  image:
+    src: /logo.svg
   actions:
     - theme: brand
       text: Get Started
