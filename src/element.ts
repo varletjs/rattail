@@ -1,5 +1,5 @@
 import { getGlobalThis, isArray, isWindow } from './general'
-import { bigCamelize } from './string'
+import { pascalCase } from './string'
 
 export function requestAnimationFrame(fn: FrameRequestCallback): number {
   const globalThis = getGlobalThis()
@@ -165,7 +165,7 @@ export function createNamespaceFn<N extends string>(namespace: N) {
     }
 
     return {
-      name: bigCamelize(componentName),
+      name: pascalCase(componentName),
       n: createBEM,
       classes,
     }
