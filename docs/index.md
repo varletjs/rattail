@@ -5,6 +5,7 @@ hero:
   name: 'Rattail'
   text: 'A Utilities Library'
   tagline: A utilities library for front-end developers, lightweight and ts-friendly
+  logo: /logo.svg
   actions:
     - theme: brand
       text: Get Started
