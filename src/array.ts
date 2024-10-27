@@ -43,13 +43,13 @@ export const removeArrayEmpty = <T>(arr: Array<T | null | undefined | ''>) =>
 
 export function find<T>(
   arr: Array<T>,
-  callback: (item: T, index: number, array: Array<T>) => any,
+  fn: (item: T, index: number, array: Array<T>) => any,
   from: 'start' | 'end' = 'start',
 ): [T, number] | [null, -1] {
   let i = from === 'start' ? 0 : arr.length - 1
 
   while (arr.length > 0 && i >= 0 && i <= arr.length - 1) {
-    const flag = callback(arr[i], i, arr)
+    const flag = fn(arr[i], i, arr)
 
     if (flag) {
       return [arr[i], i]

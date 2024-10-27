@@ -1,4 +1,4 @@
-export function bigCamelize(s: string): string {
+export function pascalCase(s: string): string {
   return camelize(s).replace(s.charAt(0), s.charAt(0).toUpperCase())
 }
 

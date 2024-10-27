@@ -1,6 +1,7 @@
 lib/**
 .github/**
 .history/**
+coverage/**
 
 pnpm-lock.yaml
 pnpm-workspace.yaml
