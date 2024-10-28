@@ -1,4 +1,13 @@
-## 0.0.1 (2024-10-28)
+## [0.0.2](https://github.com/varletjs/rattail/compare/v0.0.1...v0.0.2) (2024-10-28)
+
+
+### Features
+
+* support vitesse theme for markdown ([c90908a](https://github.com/varletjs/rattail/commit/c90908ab051edb395320021e896d5573ce5d6668))
+
+
+
+## [0.0.1](https://github.com/varletjs/rattail/compare/65964000b92b4ee6a8c4ff7045dc5bf3f44b9c2a...v0.0.1) (2024-10-28)
 
 
 ### Bug Fixes
