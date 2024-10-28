@@ -1,14 +1,14 @@
-# isString
+# isMap
 
-判断输入值是否是字符串
+判断输入值是否是 Map
 
 ### 使用
 
 ```ts
-import { isString } from 'rattail'
+import { isMap } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isMap(new Map()) // return true
+isMap({}) // return false
 ```
 
 ### 参数列表

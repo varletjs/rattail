@@ -1,14 +1,14 @@
-# isString
+# isArray
 
-Determine whether the input value is a string
+Determine whether the input value is an array
 
 ### Usage
 
 ```ts
-import { isString } from 'rattail'
+import { isArray } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isArray([]) // return true
+isArray({}) // return false
 ```
 
 ### Arguments

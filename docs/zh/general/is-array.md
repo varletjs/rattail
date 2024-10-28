@@ -1,14 +1,14 @@
-# isString
+# isArray
 
-判断输入值是否是字符串
+判断输入值是否是数组
 
 ### 使用
 
 ```ts
-import { isString } from 'rattail'
+import { isArray } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isArray([]) // return true
+isArray({}) // return false
 ```
 
 ### 参数列表

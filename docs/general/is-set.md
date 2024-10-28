@@ -1,14 +1,14 @@
-# isString
+# isSet
 
-Determine whether the input value is a string
+Determine whether the input value is a Set
 
 ### Usage
 
 ```ts
-import { isString } from 'rattail'
+import { isSet } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isSet(new Set()) // return true
+isSet({}) // return false
 ```
 
 ### Arguments

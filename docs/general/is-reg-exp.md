@@ -1,14 +1,14 @@
-# isString
+# isRegExp
 
-Determine whether the input value is a string
+Determine whether the input value is a RegExp
 
 ### Usage
 
 ```ts
-import { isString } from 'rattail'
+import { isRegExp } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isRegExp(/abc/) // return true
+isRegExp('abc') // return false
 ```
 
 ### Arguments

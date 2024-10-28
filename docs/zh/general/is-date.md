@@ -1,14 +1,14 @@
-# isString
+# isDate
 
-判断输入值是否是字符串
+判断输入值是否是 Date
 
 ### 使用
 
 ```ts
-import { isString } from 'rattail'
+import { isDate } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isDate(new Date()) // return true
+isDate('2024-01-01') // return false
 ```
 
 ### 参数列表

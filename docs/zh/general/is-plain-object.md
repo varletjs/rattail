@@ -1,14 +1,14 @@
-# isString
+# isPlainObject
 
-判断输入值是否是字符串
+判断输入值是否是普通对象
 
 ### 使用
 
 ```ts
-import { isString } from 'rattail'
+import { isPlainObject } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isPlainObject({}) // return true
+isPlainObject([]) // return false
 ```
 
 ### 参数列表

@@ -18,7 +18,6 @@ import {
   isEmpty,
   isFunction,
   isNullish,
-  isURL,
   isWindow,
   isTruthy,
   toRawType,
@@ -188,17 +187,6 @@ it('isTruthy', () => {
   expect(isTruthy(null)).toBe(false)
   expect(isTruthy(undefined)).toBe(false)
   expect(isTruthy('')).toBe(false)
-})
-
-it('isURL', () => {
-  expect(isURL('http://example.com')).toBe(true)
-  expect(isURL('https://example.com')).toBe(true)
-  expect(isURL('/relative/path')).toBe(true)
-  expect(isURL('relative/path')).toBe(true)
-  expect(isURL('example.com')).toBe(false)
-  expect(isURL('')).toBe(false)
-  expect(isURL(null)).toBe(false)
-  expect(isURL(undefined)).toBe(false)
 })
 
 it('isEmpty', () => {

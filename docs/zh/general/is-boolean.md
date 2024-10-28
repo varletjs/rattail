@@ -1,14 +1,14 @@
-# isString
+# isBoolean
 
-判断输入值是否是字符串
+判断输入值是否是布尔值
 
 ### 使用
 
 ```ts
-import { isString } from 'rattail'
+import { isBoolean } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isBoolean(true) // return true
+isBoolean('rattail') // return false
 ```
 
 ### 参数列表

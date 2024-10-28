@@ -1,14 +1,14 @@
-# isString
+# isRegExp
 
-判断输入值是否是字符串
+判断输入值是否是 RegExp
 
 ### 使用
 
 ```ts
-import { isString } from 'rattail'
+import { isRegExp } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isRegExp(/abc/) // return true
+isRegExp('abc') // return false
 ```
 
 ### 参数列表

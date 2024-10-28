@@ -1,14 +1,15 @@
-# isString
+# isObject
 
-判断输入值是否是字符串
+判断输入值是否是对象（不包括 null）
 
 ### 使用
 
 ```ts
-import { isString } from 'rattail'
+import { isObject } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isObject({}) // return true
+isObject([]) // return true
+isObject(null) // return false
 ```
 
 ### 参数列表

@@ -34,5 +34,6 @@ pnpm add rattail
 ```ts
 import { isString } from 'rattail'
 
-console.log(isString('rattail'))
+isString('rattail') // return true
+isString(123) // return false
 ```

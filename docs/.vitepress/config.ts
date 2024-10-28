@@ -1,5 +1,43 @@
 import { defineConfig } from 'vitepress'
 
+function withI18n(items: { link: string; text: string }[], locale: 'zh') {
+  return items.map((item) => {
+    return {
+      ...item,
+      link: `/${locale}${item.link}`,
+    }
+  })
+}
+
+const generalItems = [
+  { text: 'isString', link: '/general/is-string' },
+  { text: 'isNumber', link: '/general/is-number' },
+  { text: 'isNumeric', link: '/general/is-numeric' },
+  { text: 'isBoolean', link: '/general/is-boolean' },
+  { text: 'isTruthy', link: '/general/is-truthy' },
+  { text: 'isPlainObject', link: '/general/is-plain-object' },
+  { text: 'isObject', link: '/general/is-object' },
+  { text: 'isArray', link: '/general/is-array' },
+  { text: 'isNullish', link: '/general/is-nullish' },
+  { text: 'isPromise', link: '/general/is-promise' },
+  { text: 'isFunction', link: '/general/is-function' },
+  { text: 'isDate', link: '/general/is-date' },
+  { text: 'isSet', link: '/general/is-set' },
+  { text: 'isMap', link: '/general/is-map' },
+  { text: 'isSymbol', link: '/general/is-symbol' },
+  { text: 'isWindow', link: '/general/is-window' },
+  { text: 'isRegExp', link: '/general/is-reg-exp' },
+  { text: 'isEmpty', link: '/general/is-empty' },
+  { text: 'isNonEmptyArray', link: '/general/is-non-empty-array' },
+  { text: 'inBrowser', link: '/general/in-browser' },
+  { text: 'inMobile', link: '/general/in-mobile' },
+  { text: 'hasOwn', link: '/general/has-own' },
+  { text: 'supportTouch', link: '/general/support-touch' },
+  { text: 'toTypeString', link: '/general/to-type-string' },
+  { text: 'toRawType', link: '/general/to-raw-type' },
+  { text: 'getGlobalThis', link: '/general/get-global-this' },
+]
+
 export default defineConfig({
   title: 'Rattail',
   description: 'A utilities library for front-end developers, lightweight and ts-friendly',
@@ -23,7 +61,7 @@ export default defineConfig({
           },
           {
             text: '通用',
-            items: [{ text: 'isString', link: '/zh/general/is-string' }],
+            items: withI18n(generalItems, 'zh'),
           },
         ],
 
@@ -48,7 +86,7 @@ export default defineConfig({
       },
       {
         text: 'General',
-        items: [{ text: 'isString', link: '/general/is-string' }],
+        items: generalItems,
       },
     ],
 

@@ -1,14 +1,14 @@
-# isString
+# isNumber
 
-Determine whether the input value is a string
+Determine whether the input value is a number
 
 ### Usage
 
 ```ts
-import { isString } from 'rattail'
+import { isNumber } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isNumber(123) // return true
+isNumber('rattail') // return false
 ```
 
 ### Arguments

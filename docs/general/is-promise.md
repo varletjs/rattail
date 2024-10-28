@@ -1,14 +1,14 @@
-# isString
+# isPromise
 
-Determine whether the input value is a string
+Determine whether the input value is a Promise
 
 ### Usage
 
 ```ts
-import { isString } from 'rattail'
+import { isPromise } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isPromise(Promise.resolve()) // return true
+isPromise({}) // return false
 ```
 
 ### Arguments

@@ -1,14 +1,14 @@
-# isString
+# isWindow
 
-Determine whether the input value is a string
+Determine whether the input value is the global `window` object
 
 ### Usage
 
 ```ts
-import { isString } from 'rattail'
+import { isWindow } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isWindow(window) // return true
+isWindow({}) // return false
 ```
 
 ### Arguments

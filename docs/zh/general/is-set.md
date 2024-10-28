@@ -1,14 +1,14 @@
-# isString
+# isSet
 
-判断输入值是否是字符串
+判断输入值是否是 Set
 
 ### 使用
 
 ```ts
-import { isString } from 'rattail'
+import { isSet } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isSet(new Set()) // return true
+isSet({}) // return false
 ```
 
 ### 参数列表

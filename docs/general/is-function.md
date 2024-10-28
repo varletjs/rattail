@@ -1,14 +1,14 @@
-# isString
+# isFunction
 
-Determine whether the input value is a string
+Determine whether the input value is a function
 
 ### Usage
 
 ```ts
-import { isString } from 'rattail'
+import { isFunction } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isFunction(() => {}) // return true
+isFunction(123) // return false
 ```
 
 ### Arguments

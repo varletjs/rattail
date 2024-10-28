@@ -1,14 +1,14 @@
-# isString
+# isPlainObject
 
-Determine whether the input value is a string
+Determine whether the input value is a plain object
 
 ### Usage
 
 ```ts
-import { isString } from 'rattail'
+import { isPlainObject } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isPlainObject({}) // return true
+isPlainObject([]) // return false
 ```
 
 ### Arguments

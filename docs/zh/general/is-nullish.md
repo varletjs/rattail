@@ -1,14 +1,15 @@
-# isString
+# isNullish
 
-判断输入值是否是字符串
+判断输入值是否为 null 或 undefined
 
 ### 使用
 
 ```ts
-import { isString } from 'rattail'
+import { isNullish } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isNullish(null) // return true
+isNullish(undefined) // return true
+isNullish(123) // return false
 ```
 
 ### 参数列表

@@ -1,14 +1,14 @@
-# isString
+# isSymbol
 
-Determine whether the input value is a string
+Determine whether the input value is a symbol
 
 ### Usage
 
 ```ts
-import { isString } from 'rattail'
+import { isSymbol } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isSymbol(Symbol('test')) // return true
+isSymbol('rattail') // return false
 ```
 
 ### Arguments

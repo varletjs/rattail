@@ -1,14 +1,14 @@
-# isString
+# isBoolean
 
-Determine whether the input value is a string
+Determine whether the input value is a boolean
 
 ### Usage
 
 ```ts
-import { isString } from 'rattail'
+import { isBoolean } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isBoolean(true) // return true
+isBoolean('rattail') // return false
 ```
 
 ### Arguments

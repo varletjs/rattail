@@ -1,14 +1,15 @@
-# isString
+# isNumeric
 
-判断输入值是否是字符串
+判断输入值是否是数字或数字字符串
 
 ### 使用
 
 ```ts
-import { isString } from 'rattail'
+import { isNumeric } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isNumeric(123) // return true
+isNumeric('456') // return true
+isNumeric('rattail') // return false
 ```
 
 ### 参数列表

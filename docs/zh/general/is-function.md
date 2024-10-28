@@ -1,14 +1,14 @@
-# isString
+# isFunction
 
-判断输入值是否是字符串
+判断输入值是否是函数
 
 ### 使用
 
 ```ts
-import { isString } from 'rattail'
+import { isFunction } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isFunction(() => {}) // return true
+isFunction(123) // return false
 ```
 
 ### 参数列表

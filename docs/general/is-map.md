@@ -1,14 +1,14 @@
-# isString
+# isMap
 
-Determine whether the input value is a string
+Determine whether the input value is a Map
 
 ### Usage
 
 ```ts
-import { isString } from 'rattail'
+import { isMap } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isMap(new Map()) // return true
+isMap({}) // return false
 ```
 
 ### Arguments

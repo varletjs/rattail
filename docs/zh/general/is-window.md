@@ -1,14 +1,14 @@
-# isString
+# isWindow
 
-判断输入值是否是字符串
+判断输入值是否是全局 `window` 对象
 
 ### 使用
 
 ```ts
-import { isString } from 'rattail'
+import { isWindow } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isWindow(window) // return true
+isWindow({}) // return false
 ```
 
 ### 参数列表

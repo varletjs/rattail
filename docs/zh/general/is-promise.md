@@ -1,14 +1,14 @@
-# isString
+# isPromise
 
-判断输入值是否是字符串
+判断输入值是否是 Promise
 
 ### 使用
 
 ```ts
-import { isString } from 'rattail'
+import { isPromise } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+isPromise(Promise.resolve()) // return true
+isPromise({}) // return false
 ```
 
 ### 参数列表

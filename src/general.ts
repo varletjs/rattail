@@ -73,14 +73,6 @@ export function isTruthy<T>(v: T): v is NonNullable<T> {
   return Boolean(v)
 }
 
-export function isURL(val: string | undefined | null) {
-  if (!val) {
-    return false
-  }
-
-  return /^(http)|(\.*\/)/.test(val)
-}
-
 export function isEmpty(val: unknown) {
   return val === undefined || val === null || val === '' || (isArray(val) && !val.length)
 }
