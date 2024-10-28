@@ -21,7 +21,7 @@ export function throttle(fn: any, delay = 200): () => void {
   let start = 0
 
   return function loop(this: unknown, ...args) {
-    const now = Date.now()
+    const now = performance.now()
     const elapsed = now - start
 
     if (!start) {
