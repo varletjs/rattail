@@ -3,7 +3,8 @@ export function pascalCase(s: string): string {
 }
 
 export function camelize(s: string): string {
-  return s.replace(/-(\w)/g, (_: any, p: string) => p.toUpperCase())
+  s = s.replace(/-(\w)/g, (_: any, p: string) => p.toUpperCase())
+  return s.replace(s.charAt(0), s.charAt(0).toLowerCase())
 }
 
 export function kebabCase(s: string): string {
@@ -24,7 +25,7 @@ export function slash(path: string) {
 let key = 0
 
 export function genStringKey() {
-  return `${key++}`
+  return `generated-key-${key++}`
 }
 
 export function capitalizeFirstLetter(s: string) {

@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { generalItems, numberItems, stringItems } from './items'
 
 function withI18n(items: { link: string; text: string }[], locale: 'zh') {
   return items.map((item) => {
@@ -8,43 +9,6 @@ function withI18n(items: { link: string; text: string }[], locale: 'zh') {
     }
   })
 }
-
-const generalItems = [
-  { text: 'isString', link: '/general/is-string' },
-  { text: 'isNumber', link: '/general/is-number' },
-  { text: 'isNumeric', link: '/general/is-numeric' },
-  { text: 'isBoolean', link: '/general/is-boolean' },
-  { text: 'isTruthy', link: '/general/is-truthy' },
-  { text: 'isPlainObject', link: '/general/is-plain-object' },
-  { text: 'isObject', link: '/general/is-object' },
-  { text: 'isArray', link: '/general/is-array' },
-  { text: 'isNullish', link: '/general/is-nullish' },
-  { text: 'isPromise', link: '/general/is-promise' },
-  { text: 'isFunction', link: '/general/is-function' },
-  { text: 'isDate', link: '/general/is-date' },
-  { text: 'isSet', link: '/general/is-set' },
-  { text: 'isMap', link: '/general/is-map' },
-  { text: 'isSymbol', link: '/general/is-symbol' },
-  { text: 'isWindow', link: '/general/is-window' },
-  { text: 'isRegExp', link: '/general/is-reg-exp' },
-  { text: 'isEmpty', link: '/general/is-empty' },
-  { text: 'isNonEmptyArray', link: '/general/is-non-empty-array' },
-  { text: 'inBrowser', link: '/general/in-browser' },
-  { text: 'inMobile', link: '/general/in-mobile' },
-  { text: 'hasOwn', link: '/general/has-own' },
-  { text: 'supportTouch', link: '/general/support-touch' },
-  { text: 'toTypeString', link: '/general/to-type-string' },
-  { text: 'toRawType', link: '/general/to-raw-type' },
-  { text: 'getGlobalThis', link: '/general/get-global-this' },
-]
-
-const numberItems = [
-  { text: 'toNumber', link: '/number/to-number' },
-  { text: 'genNumberKey', link: '/number/gen-number-key' },
-  { text: 'randomNumber', link: '/number/random-number' },
-  { text: 'clamp', link: '/number/clamp' },
-  { text: 'clampArrayRange', link: '/number/clamp-array-range' },
-]
 
 export default defineConfig({
   title: 'Rattail',
@@ -69,13 +33,22 @@ export default defineConfig({
           },
           {
             text: '通用',
-            items: withI18n(numberItems, 'zh'),
+            items: withI18n(generalItems, 'zh'),
           },
           {
             text: '数字',
-            items: withI18n(generalItems, 'zh'),
+            items: withI18n(numberItems, 'zh'),
+          },
+          {
+            text: '字符串',
+            items: withI18n(stringItems, 'zh'),
           },
         ],
+
+        docFooter: {
+          prev: '上一篇',
+          next: '下一篇',
+        },
 
         socialLinks: [{ icon: 'github', link: 'https://github.com/varletjs/rattail' }],
       },
@@ -103,6 +76,10 @@ export default defineConfig({
       {
         text: 'Number',
         items: numberItems,
+      },
+      {
+        text: 'String',
+        items: stringItems,
       },
     ],
 

@@ -7,9 +7,9 @@
 ```ts
 import { getGlobalThis } from 'rattail'
 
+getGlobalThis()
 // 在浏览器中 return `window`，在 Node.js 中 return `global`，
-// 在 web worker 返回 `self`
-const globalThis = getGlobalThis()
+// 在 web worker return `self`
 ```
 
 ### Return
