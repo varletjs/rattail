@@ -12,6 +12,10 @@ hero:
     - theme: brand
       text: Get Started
       link: /getting-started
+    - theme: alt
+      text: View On Github
+      link: https://github.com/varletjs/rattail
+     
 
 features:
   - title: General

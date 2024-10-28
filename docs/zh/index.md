@@ -9,6 +9,9 @@ hero:
     - theme: brand
       text: 快速开始
       link: /zh/getting-started
+    - theme: alt
+      text: 查看源码
+      link: https://github.com/varletjs/rattail
 
 features:
   - title: 通用

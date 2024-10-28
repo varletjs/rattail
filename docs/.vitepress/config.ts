@@ -31,6 +31,12 @@ export default defineConfig({
       },
     },
   },
+  markdown: {
+    theme: {
+      light: 'vitesse-light',
+      dark: 'vitesse-dark',
+    },
+  },
   themeConfig: {
     logo: { src: '/logo.svg', style: { height: '28px' } },
     nav: [{ text: 'Home', link: '/' }],
