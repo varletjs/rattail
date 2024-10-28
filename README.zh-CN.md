@@ -8,6 +8,13 @@
     <a href="https://rattail.pages.dev/zh">文档</a> |
     <a href="https://github.com/varletjs/rattail/blob/main/README.md">ENGLISH README</a>
   </p>
+  <p>
+    <img src="https://img.shields.io/npm/v/rattail?style=flat-square" alt="version">
+    <img src="https://img.shields.io/github/stars/varletjs/rattail" alt="stars">
+    <img src="https://img.shields.io/npm/l/rattail.svg" alt="license">
+    <img src="https://img.shields.io/codecov/c/github/varletjs/rattail" alt="coverage">
+    <img src="https://github.com/varletjs/varlet/workflows/CI/badge.svg" alt="ci">
+  </p>
 </div>
 
 ---
