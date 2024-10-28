@@ -1,4 +1,4 @@
-import { it, expect } from 'vitest'
+import { it, expect, beforeEach } from 'vitest'
 import {
   isNonEmptyArray,
   isString,
@@ -22,6 +22,10 @@ import {
   isTruthy,
   toRawType,
   hasOwn,
+  supportTouch,
+  inBrowser,
+  inMobile,
+  getGlobalThis,
 } from '../src'
 
 it('isNonEmptyArray', () => {
@@ -210,4 +214,22 @@ it('hasOwn', () => {
   expect(hasOwn({ foo: 1 }, 'foo')).toBe(true)
   expect(hasOwn({ foo: 1 }, 'bar')).toBe(false)
   expect(hasOwn(Object.create({ foo: 1 }), 'foo')).toBe(false)
+})
+
+it('supportTouch', () => {
+  expect(supportTouch()).toBe(true)
+})
+
+it('inBrowser', () => {
+  expect(inBrowser()).toBe(true)
+})
+
+it('inMobile', () => {
+  expect(inMobile()).toBe(false)
+})
+
+it('getGlobalThis', () => {
+  expect(getGlobalThis()).toBe(global)
+  expect(getGlobalThis()).toBe(window)
+  expect(getGlobalThis()).toBe(self)
 })

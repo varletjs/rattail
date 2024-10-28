@@ -1,9 +1,9 @@
-import { isArray } from './general'
+import { hasOwn, isArray, isObject } from './general'
 
 export function mergeWith<TObject extends Record<string, any>, TSource extends Record<string, any>>(
   object: TObject,
   source: TSource,
-  callback: (
+  callback?: (
     objValue: any,
     srcValue: any,
     key: string | number | symbol,
@@ -11,18 +11,14 @@ export function mergeWith<TObject extends Record<string, any>, TSource extends R
     source?: TSource,
   ) => any | void,
 ): TObject & TSource {
-  type AnyObject = Record<string | number | symbol, any>
-
-  const isObject = (obj: any): obj is AnyObject => obj !== null && typeof obj === 'object'
-
-  function baseMerge(target: AnyObject, src: AnyObject): AnyObject {
+  function baseMerge(target: any, src: any): any {
     // eslint-disable-next-line no-restricted-syntax
     for (const key in src) {
-      if (Object.prototype.hasOwnProperty.call(src, key)) {
+      if (hasOwn(src, key)) {
         const srcValue = src[key]
         const targetValue = target[key]
 
-        const customResult = callback(targetValue, srcValue, key, object, source)
+        const customResult = callback?.(targetValue, srcValue, key, object, source)
 
         if (customResult !== undefined) {
           target[key] = customResult
@@ -40,5 +36,5 @@ export function mergeWith<TObject extends Record<string, any>, TSource extends R
     return target
   }
 
-  return baseMerge(object as AnyObject, source as AnyObject) as TObject & TSource
+  return baseMerge(object as any, source as any) as TObject & TSource
 }
