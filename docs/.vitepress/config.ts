@@ -38,6 +38,14 @@ const generalItems = [
   { text: 'getGlobalThis', link: '/general/get-global-this' },
 ]
 
+const numberItems = [
+  { text: 'toNumber', link: '/number/to-number' },
+  { text: 'genNumberKey', link: '/number/gen-number-key' },
+  { text: 'randomNumber', link: '/number/random-number' },
+  { text: 'clamp', link: '/number/clamp' },
+  { text: 'clampArrayRange', link: '/number/clamp-array-range' },
+]
+
 export default defineConfig({
   title: 'Rattail',
   description: 'A utilities library for front-end developers, lightweight and ts-friendly',
@@ -61,6 +69,10 @@ export default defineConfig({
           },
           {
             text: '通用',
+            items: withI18n(numberItems, 'zh'),
+          },
+          {
+            text: '数字',
             items: withI18n(generalItems, 'zh'),
           },
         ],
@@ -87,6 +99,10 @@ export default defineConfig({
       {
         text: 'General',
         items: generalItems,
+      },
+      {
+        text: 'Number',
+        items: numberItems,
       },
     ],
 
