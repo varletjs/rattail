@@ -19,6 +19,6 @@ console.log(isString(123)) // return false
 
 ### Return
 
-| Type |
-| :--: |
+|   Type    |
+| :-------: |
 | `boolean` |
