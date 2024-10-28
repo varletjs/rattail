@@ -19,6 +19,8 @@ hero:
 features:
   - title: General
     details: Provide utilities frequently used in daily development
+  - title: Tests Coverage
+    details: Make sure more than 90% unit test coverage, providing stability assurance
   - title: Lightweight
     details: Utilities implementation is very lightweight
   - title: Ts-friendly

@@ -16,6 +16,8 @@ hero:
 features:
   - title: 通用
     details: 提供日常开发中经常使用的实用工具
+  - title: 测试覆盖
+    details: 确保 90% 以上单元测试覆盖率，提供稳定性保证
   - title: 轻量
     details: 工具实现非常轻量
   - title: Ts 友好
