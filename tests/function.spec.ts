@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
-import { debounce, throttle, call } from '../src/function'
+import { debounce, throttle, call } from '../src'
 
 describe('Utility Functions', () => {
   describe('debounce', () => {
