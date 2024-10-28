@@ -3,6 +3,7 @@
 ### Installation
 
 ::: code-group
+
 ```shell [npm]
 npm i rattail -S
 ```
@@ -14,6 +15,7 @@ yarn add rattail
 ```shell [pnpm]
 pnpm add rattail
 ```
+
 :::
 
 ### Usage

@@ -15,7 +15,6 @@ hero:
     - theme: alt
       text: View On Github
       link: https://github.com/varletjs/rattail
-     
 
 features:
   - title: General
