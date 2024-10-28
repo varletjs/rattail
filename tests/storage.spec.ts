@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
-import { createStorage, sessionStorage, localStorage } from '../src/storage'
+import { createStorage, sessionStorage, localStorage } from '../src'
 
 describe('Storage utility functions', () => {
   let mockStorage: Storage
@@ -9,7 +9,7 @@ describe('Storage utility functions', () => {
     mockStorage = {
       length: 0,
       clear: vi.fn(() => {
-        Object.keys(store).forEach(key => {
+        Object.keys(store).forEach((key) => {
           delete store[key]
         })
       }),

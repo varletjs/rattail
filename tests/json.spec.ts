@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { tryParseJSON, prettyJSONObject } from '../src/json'
+import { tryParseJSON, prettyJSONObject } from '../src'
 
 describe('JSON utility functions', () => {
   it('should parse valid JSON strings', () => {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { pascalCase, camelize, kebabCase, slash, genStringKey, capitalizeFirstLetter } from '../src/string'
+import { pascalCase, camelize, kebabCase, slash, genStringKey, capitalizeFirstLetter } from '../src'
 
 describe('string utility functions', () => {
   it('should convert string to pascal case', () => {

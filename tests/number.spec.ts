@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { toNumber, clamp, clampArrayRange, genNumberKey, randomNumber } from '../src/number'
+import { toNumber, clamp, clampArrayRange, genNumberKey, randomNumber } from '../src'
 
 describe('Number utility functions', () => {
   it('should convert various types to number', () => {

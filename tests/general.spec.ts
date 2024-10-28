@@ -23,7 +23,7 @@ import {
   isTruthy,
   toRawType,
   hasOwn,
-} from '../src/general'
+} from '../src'
 
 it('isNonEmptyArray', () => {
   expect(isNonEmptyArray([])).toBe(false)

@@ -12,7 +12,7 @@ import {
   shuffle,
   sum,
   sumBy,
-} from '../src/array'
+} from '../src'
 
 it('uniq', () => {
   const arr = uniq([1, 2, 2, 3, 4, 4])
