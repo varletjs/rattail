@@ -7,7 +7,7 @@ Calculates the sum of values in an `array` of numbers.
 ```ts
 import { sum } from 'rattail'
 
-sum([1, 2, 3]) // returns 6
+sum([1, 2, 3]) // return 6
 ```
 
 ### Arguments
