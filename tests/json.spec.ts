@@ -20,4 +20,3 @@ describe('JSON utility functions', () => {
     expect(prettyString).toBe('{\n  "key": "value",\n  "number": 42\n}')
   })
 })
- 

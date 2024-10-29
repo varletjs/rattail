@@ -13,8 +13,8 @@ kebabCase('fooBar') // return 'foo-bar'
 
 ### Arguments
 
-| Arg |  Type  | Defaults |
-| --- | :----: | -------: |
+| Arg     |   Type   | Defaults |
+| ------- | :------: | -------: |
 | `value` | `string` |          |
 
 ### Return
