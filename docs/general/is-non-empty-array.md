@@ -1,6 +1,6 @@
 # isNonEmptyArray
 
-Determine whether the input value is a non-empty array
+Determine whether the input value is a `non-empty array`.
 
 ### Usage
 

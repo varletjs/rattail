@@ -1,6 +1,6 @@
 pascalCase
 
-Convert a string to `PascalCase`
+Convert a string to `PascalCase`.
 
 ### Usage
 

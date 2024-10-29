@@ -1,6 +1,6 @@
 # isDate
 
-Determine whether the input value is a Date
+Determine whether the input value is a `Date`.
 
 ### Usage
 

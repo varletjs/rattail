@@ -1,6 +1,6 @@
 # kebabCase
 
-将字符串转换为 `kebab-case` 格式
+将字符串转换为 `kebab-case` 格式。
 
 ### 使用
 

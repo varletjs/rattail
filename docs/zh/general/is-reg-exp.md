@@ -1,6 +1,6 @@
 # isRegExp
 
-判断输入值是否是 RegExp
+判断输入值是否是 `RegExp`。
 
 ### 使用
 

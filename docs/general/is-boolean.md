@@ -1,6 +1,6 @@
 # isBoolean
 
-Determine whether the input value is a boolean
+Determine whether the input value is a `boolean`.
 
 ### Usage
 

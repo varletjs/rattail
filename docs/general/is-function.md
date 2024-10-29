@@ -1,6 +1,6 @@
 # isFunction
 
-Determine whether the input value is a function
+Determine whether the input value is a `function`.
 
 ### Usage
 

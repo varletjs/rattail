@@ -1,6 +1,6 @@
 # toTypeString
 
-Return the type string of the input value
+Return the `type string` of the input value.
 
 ### Usage
 

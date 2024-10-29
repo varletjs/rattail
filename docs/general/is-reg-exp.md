@@ -1,6 +1,6 @@
 # isRegExp
 
-Determine whether the input value is a RegExp
+Determine whether the input value is a `RegExp`.
 
 ### Usage
 

@@ -1,6 +1,6 @@
 # camelize
 
-Convert a string to `camelCase`
+Convert a string to `camelCase`.
 
 ### Usage
 

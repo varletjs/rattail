@@ -1,6 +1,6 @@
 # isEmpty
 
-Determine whether the input value is empty (undefined, null, an empty string, or an empty array)
+Determine whether the input value is empty (`undefined`, `null`, an `empty string`, or an `empty array`).
 
 ### Usage
 

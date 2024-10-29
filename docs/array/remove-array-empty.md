@@ -1,13 +1,13 @@
 # removeArrayEmpty
 
-Removes `null`, `undefined`, or empty string (`''`) values from an array.
+Removes `null`, `undefined`, or empty string (`''`) values from an `array`.
 
 ### Usage
 
 ```ts
 import { removeArrayEmpty } from 'rattail'
 
-removeArrayEmpty([1, null, '', 3]) // returns [1, 3]
+removeArrayEmpty([1, null, undefined, '', 3]) // return [1, 3]
 ```
 
 ### Arguments

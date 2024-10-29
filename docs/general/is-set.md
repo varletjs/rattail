@@ -1,6 +1,6 @@
 # isSet
 
-Determine whether the input value is a Set
+Determine whether the input value is a `Set`.
 
 ### Usage
 

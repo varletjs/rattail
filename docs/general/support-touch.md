@@ -1,6 +1,6 @@
 # supportTouch
 
-Determine whether the current environment supports touch events
+Determine whether the current environment supports `touch events`.
 
 ### Usage
 

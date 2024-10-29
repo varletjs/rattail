@@ -1,6 +1,6 @@
 # capitalizeFirstLetter
 
-Capitalize the first letter of a string, leaving the rest of the string unchanged.
+Capitalize the `first letter` of a `string`, leaving the rest of the string unchanged.
 
 ### Usage
 

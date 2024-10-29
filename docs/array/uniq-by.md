@@ -1,13 +1,14 @@
 # uniqBy
 
-Creates a duplicate-free version of an array, using a custom comparison function to determine uniqueness.
+Creates a duplicate-free version of an `array`, using a custom comparison function to determine uniqueness.
 
 ### Usage
 
 ```ts
 import { uniqBy } from 'rattail'
 
-uniqBy([{ id: 1 }, { id: 2 }, { id: 1 }], (a, b) => a.id === b.id) // returns [{ id: 1 }, { id: 2 }]
+uniqBy([{ id: 1 }, { id: 2 }, { id: 1 }], (a, b) => a.id === b.id)
+// return [{ id: 1 }, { id: 2 }]
 ```
 
 ### Arguments

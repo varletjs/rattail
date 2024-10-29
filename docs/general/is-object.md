@@ -1,6 +1,6 @@
 # isObject
 
-Determine whether the input value is an object (excluding null)
+Determine whether the input value is an `object` (excluding `null`).
 
 ### Usage
 

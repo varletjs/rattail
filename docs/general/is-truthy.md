@@ -1,6 +1,6 @@
 # isTruthy
 
-Determine whether the input value is truthy
+Determine whether the input value is `truthy`.
 
 ### Usage
 

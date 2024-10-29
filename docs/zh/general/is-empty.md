@@ -1,6 +1,6 @@
 # isEmpty
 
-判断输入值是否为空（undefined、null、空字符串或空数组）
+判断输入值是否为空（`undefined`、`null`、`空字符串`或`空数组`）。
 
 ### 使用
 

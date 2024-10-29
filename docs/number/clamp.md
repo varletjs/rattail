@@ -1,6 +1,6 @@
 # clamp
 
-Clamp a number within the inclusive `min` and `max` bounds. If the number is less than `min`, it returns `min`; if it's greater than `max`, it returns `max`
+Clamp a number within the inclusive `min` and `max` bounds. If the number is less than `min`, it returns `min`; if it's greater than `max`, it returns `max`.
 
 ### Usage
 

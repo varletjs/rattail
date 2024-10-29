@@ -1,6 +1,6 @@
 # isSymbol
 
-Determine whether the input value is a symbol
+Determine whether the input value is a `symbol`.
 
 ### Usage
 

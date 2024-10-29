@@ -1,6 +1,6 @@
 # isWindow
 
-Determine whether the input value is the global `window` object
+Determine whether the input value is the global `window` object.
 
 ### Usage
 

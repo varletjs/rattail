@@ -1,6 +1,6 @@
 # genStringKey
 
-Generate a unique string key by incrementing a numeric value and converting it to a string
+Generate a unique `string` key by incrementing a numeric value and converting it to a string.
 
 ### Usage
 

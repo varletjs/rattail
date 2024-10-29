@@ -1,6 +1,6 @@
 # isArray
 
-Determine whether the input value is an array
+Determine whether the input value is an `array`.
 
 ### Usage
 

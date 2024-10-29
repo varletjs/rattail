@@ -1,6 +1,6 @@
 # inMobile
 
-Determine whether the code is running in a mobile browser environment
+Determine whether the code is running in a `mobile` browser environment.
 
 ### Usage
 

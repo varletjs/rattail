@@ -1,6 +1,6 @@
 # removeItem
 
-Removes the first occurrence of a specific item from an array and returns the removed item.
+Removes the first occurrence of a specific item from an `array` and returns the `removed item`.
 
 ### Usage
 

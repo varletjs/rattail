@@ -1,6 +1,6 @@
 # isPromise
 
-Determine whether the input value is a Promise
+Determine whether the input value is a `Promise`.
 
 ### Usage
 

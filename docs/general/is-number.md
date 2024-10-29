@@ -1,6 +1,6 @@
 # isNumber
 
-Determine whether the input value is a number
+Determine whether the input value is a `number`.
 
 ### Usage
 

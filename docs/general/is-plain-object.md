@@ -1,6 +1,6 @@
 # isPlainObject
 
-Determine whether the input value is a plain object
+Determine whether the input value is a `plain object`.
 
 ### Usage
 

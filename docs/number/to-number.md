@@ -1,6 +1,6 @@
 # toNumber
 
-Convert the input value to a number. If the value is `null` or `undefined`, it returns `0`. If the value is a boolean, it converts `true` to `1` and `false` to `0`. If the value is a string that cannot be parsed as a number, it returns `0`
+Convert the input value to a `number`. If the value is `null` or `undefined`, it returns `0`. If the value is a boolean, it converts `true` to `1` and `false` to `0`. If the value is a string that cannot be parsed as a number, it returns `0`.
 
 ### Usage
 

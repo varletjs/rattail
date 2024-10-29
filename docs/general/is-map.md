@@ -1,6 +1,6 @@
 # isMap
 
-Determine whether the input value is a Map
+Determine whether the input value is a `Map`.
 
 ### Usage
 

@@ -1,6 +1,6 @@
 # pascalCase
 
-将字符串转换为 PascalCase
+将字符串转换为 `PascalCase`。
 
 ### 使用
 

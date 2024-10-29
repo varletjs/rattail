@@ -1,13 +1,14 @@
 # at
 
-Retrieves the element at a specified index in an array, supporting negative indices.
+Retrieves the element at a specified index in an `array`, supporting negative indices.
 
 ### Usage
 
 ```ts
 import { at } from 'rattail'
 
-at([1, 2, 3], -1) // returns 3
+at([1, 2, 3], 0) // return 1
+at([1, 2, 3], -1) // return 3
 ```
 
 ### Arguments

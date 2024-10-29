@@ -1,6 +1,6 @@
 # sum
 
-Calculates the sum of values in an array of numbers.
+Calculates the sum of values in an `array` of numbers.
 
 ### Usage
 

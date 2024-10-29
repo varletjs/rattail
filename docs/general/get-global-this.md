@@ -1,6 +1,6 @@
 # getGlobalThis
 
-Retrieve the global object based on the current environment
+Retrieve the global object based on the current environment.
 
 ### Usage
 

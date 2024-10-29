@@ -1,6 +1,6 @@
 # toRawType
 
-Return the raw type of the input value
+Return the `raw type` of the input value.
 
 ### Usage
 

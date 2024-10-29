@@ -1,6 +1,6 @@
 # isNumeric
 
-Determine whether the input value is a number or a numeric string
+Determine whether the input value is a `number` or a `numeric string`.
 
 ### Usage
 

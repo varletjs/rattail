@@ -1,6 +1,6 @@
 # clampArrayRange
 
-Clamp an index within the bounds of an array's length. Ensures the index is at least `0` and at most `arr.length - 1`
+Clamp an index within the bounds of an array's length. Ensures the index is at least `0` and at most `arr.length - 1`.
 
 ### Usage
 

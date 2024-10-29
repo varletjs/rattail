@@ -1,6 +1,6 @@
 # genNumberKey
 
-Generate a unique numeric key, incrementing with each call
+Generate a unique numeric key, `incrementing` with each call.
 
 ### Usage
 

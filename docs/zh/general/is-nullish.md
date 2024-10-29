@@ -1,6 +1,6 @@
 # isNullish
 
-判断输入值是否为 null 或 undefined
+判断输入值是否为 `null` 或 `undefined`。
 
 ### 使用
 

@@ -1,6 +1,6 @@
 # inBrowser
 
-Determine whether the code is running in a browser environment
+Determine whether the code is running in a `browser` environment.
 
 ### Usage
 

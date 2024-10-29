@@ -1,6 +1,6 @@
 # toggleItem
 
-Adds or removes an item from an array, based on its existence in the array.
+Adds or removes an item from an `array`, based on its existence in the array.
 
 ### Usage
 

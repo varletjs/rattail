@@ -1,6 +1,6 @@
 # isNullish
 
-Determine whether the input value is null or undefined
+Determine whether the input value is `null` or `undefined`.
 
 ### Usage
 

@@ -9,7 +9,6 @@ import { slash } from 'rattail'
 
 slash('C:\\path\\to\\file')
 // return 'C:/path/to/file'
-
 slash('\\\\?\\C:\\path\\to\\file')
 // return '\\\\?\\C:\\path\\to\\file' (保持不变)
 ```

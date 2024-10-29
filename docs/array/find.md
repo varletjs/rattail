@@ -1,13 +1,16 @@
 # find
 
-Finds the first or last element in an array that meets a specified condition, returning the element and its index.
+Finds the `first` or `last` element in an array that meets a specified condition, returning the element and its index.
 
 ### Usage
 
 ```ts
 import { find } from 'rattail'
 
-find([1, 2, 3], (item) => item > 1) // returns [2, 1]
+find(['a', 'b', 'c'], (item) => item === 'a') 
+// return ['a', 0]
+find(['a', 'b', 'a'], (item) => item === 'a', 'end') 
+// return ['a', 2]
 ```
 
 ### Arguments

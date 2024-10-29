@@ -1,6 +1,6 @@
 # camelize
 
-将字符串转换为 camelCase 格式
+将字符串转换为 `camelCase` 格式。
 
 ### 使用
 

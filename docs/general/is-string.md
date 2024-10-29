@@ -1,6 +1,6 @@
 # isString
 
-Determine whether the input value is a string
+Determine whether the input value is a `string`.
 
 ### Usage
 

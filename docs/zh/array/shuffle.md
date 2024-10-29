@@ -1,13 +1,13 @@
 # shuffle
 
-随机打乱数组中的元素。
+随机打乱`数组`中的元素。
 
 ### 使用
 
 ```ts
 import { shuffle } from 'rattail'
 
-shuffle([1, 2, 3]) // return [2, 1, 3] (输出可能不同)
+shuffle([1, 2, 3]) // return 打乱后的数组
 ```
 
 ### 参数

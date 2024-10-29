@@ -1,6 +1,6 @@
 # isPromise
 
-判断输入值是否是 Promise
+判断输入值是否是 `Promise`。
 
 ### 使用
 

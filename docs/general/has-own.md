@@ -1,6 +1,6 @@
 # hasOwn
 
-Determine whether an object has a specific property as its own (not inherited)
+Determine whether an `object` has a specific property as its own (not inherited).
 
 ### Usage
 
