@@ -11,7 +11,9 @@ describe('Utility Functions', () => {
       debouncedFn()
       debouncedFn()
 
-      await new Promise((resolve) => setTimeout(resolve, 150))
+      await new Promise((resolve) => {
+        setTimeout(resolve, 150)
+      })
 
       expect(fn).toHaveBeenCalledTimes(1)
     })
@@ -23,7 +25,9 @@ describe('Utility Functions', () => {
       debouncedFn()
       debouncedFn()
 
-      await new Promise((resolve) => setTimeout(resolve, 150))
+      await new Promise((resolve) => {
+        setTimeout(resolve, 150)
+      })
 
       expect(fn).toHaveBeenCalledTimes(1)
     })
@@ -36,9 +40,13 @@ describe('Utility Functions', () => {
 
       throttledFn()
       throttledFn()
-      await new Promise((resolve) => setTimeout(resolve, 50))
+      await new Promise((resolve) => {
+        setTimeout(resolve, 50)
+      })
       throttledFn()
-      await new Promise((resolve) => setTimeout(resolve, 100))
+      await new Promise((resolve) => {
+        setTimeout(resolve, 100)
+      })
       throttledFn()
 
       expect(fn).toHaveBeenCalledTimes(2)

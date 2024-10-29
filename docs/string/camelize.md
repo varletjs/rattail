@@ -13,8 +13,8 @@ camelize('FooBar') // return 'fooBar'
 
 ### Arguments
 
-| Arg |  Type  | Defaults |
-| --- | :----: | -------: |
+| Arg     |   Type   | Defaults |
+| ------- | :------: | -------: |
 | `value` | `string` |          |
 
 ### Return
