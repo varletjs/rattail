@@ -18,7 +18,7 @@ find(['a', 'b', 'a'], (item) => item === 'a', 'end')
 | 参数   | 类型                                              | 默认值    |
 | ------ | ------------------------------------------------- | --------- |
 | `arr`  | `Array`                                           |           |
-| `fn`   | `(item: any, index: number, array: Array) => any` |           |
+| `fn`   | `(item: any, index: number, array: Array) => boolean` |           |
 | `from` | `'start' \| 'end'`                                | `'start'` |
 
 ### 返回值

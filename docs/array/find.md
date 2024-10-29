@@ -18,7 +18,7 @@ find(['a', 'b', 'a'], (item) => item === 'a', 'end')
 | Arg    | Type                                              | Defaults  |
 | ------ | ------------------------------------------------- | --------- |
 | `arr`  | `Array`                                           |           |
-| `fn`   | `(item: any, index: number, array: Array) => any` |           |
+| `fn`   | `(item: any, index: number, array: Array) => boolean` |           |
 | `from` | `'start' \| 'end'`                                | `'start'` |
 
 ### Return
