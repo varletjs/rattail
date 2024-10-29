@@ -1,3 +1,12 @@
+## [0.0.4](https://github.com/varletjs/rattail/compare/v0.0.3...v0.0.4) (2024-10-29)
+
+
+### Performance Improvements
+
+* improve throttle ([63a5a76](https://github.com/varletjs/rattail/commit/63a5a7685cb0c479832424d87cde0598a8435f81))
+
+
+
 ## [0.0.3](https://github.com/varletjs/rattail/compare/v0.0.2...v0.0.3) (2024-10-28)
 
 
