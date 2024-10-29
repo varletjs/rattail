@@ -34,7 +34,7 @@
   "scripts": {
     "dev": "tsup src/index.ts --format esm --out-dir=lib --watch --dts",
     "build": "tsup src/index.ts --format esm,cjs --out-dir=lib --dts --clean",
-    "lint": "eslint --ext .ts,.js",
+    "lint": "eslint . --fix --ext .ts,.js",
     "format": "prettier --write .",
     "clean": "rimraf node_modules lib",
     "test:watch": "vitest --coverage",
