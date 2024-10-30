@@ -14,7 +14,7 @@ removeArrayBlank([1, null, 2, undefined, 3]) // return [1, 2, 3]
 
 | Arg   | Type    | Defaults |
 | ----- | ------- | -------- |
-| `arr` | `Array` |        |
+| `arr` | `Array` |          |
 
 ### Return
 
