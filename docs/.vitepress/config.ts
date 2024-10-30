@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { generalItems, numberItems, stringItems, arrayItems } from './items'
+import { generalItems, numberItems, stringItems, arrayItems, collectionItems } from './items'
 
 function withI18n(items: { link: string; text: string }[], locale: 'zh') {
   return items.map((item) => {
@@ -47,6 +47,10 @@ export default defineConfig({
             text: '数组',
             items: withI18n(arrayItems, 'zh'),
           },
+          {
+            text: '集合',
+            items: withI18n(collectionItems, 'zh'),
+          },
         ],
 
         docFooter: {
@@ -88,6 +92,10 @@ export default defineConfig({
       {
         text: 'Array',
         items: arrayItems,
+      },
+      {
+        text: 'Collection',
+        items: collectionItems,
       },
     ],
 
