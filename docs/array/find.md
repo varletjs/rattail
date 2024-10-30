@@ -7,19 +7,19 @@ Finds the `first` or `last` element in an array that meets a specified condition
 ```ts
 import { find } from 'rattail'
 
-find(['a', 'b', 'c'], (item) => item === 'a') 
+find(['a', 'b', 'c'], (item) => item === 'a')
 // return ['a', 0]
-find(['a', 'b', 'a'], (item) => item === 'a', 'end') 
+find(['a', 'b', 'a'], (item) => item === 'a', 'end')
 // return ['a', 2]
 ```
 
 ### Arguments
 
-| Arg    | Type                                              | Defaults  |
-| ------ | ------------------------------------------------- | --------- |
-| `arr`  | `Array`                                           |           |
+| Arg    | Type                                                  | Defaults  |
+| ------ | ----------------------------------------------------- | --------- |
+| `arr`  | `Array`                                               |           |
 | `fn`   | `(item: any, index: number, array: Array) => boolean` |           |
-| `from` | `'start' \| 'end'`                                | `'start'` |
+| `from` | `'start' \| 'end'`                                    | `'start'` |
 
 ### Return
 
