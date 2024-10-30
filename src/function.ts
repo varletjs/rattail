@@ -2,10 +2,10 @@ import { isArray } from './general'
 
 export function NOOP() {}
 
-export function debounce(fn: any, delay = 0) {
+export function debounce<F extends (...args: any[]) => any>(fn: F, delay = 0) {
   let timer: any
 
-  return function (this: unknown, ...args: any[]) {
+  return function (this: unknown, ...args: Parameters<F>) {
     if (timer) {
       clearTimeout(timer)
     }
@@ -16,11 +16,11 @@ export function debounce(fn: any, delay = 0) {
   }
 }
 
-export function throttle(fn: any, delay = 200): () => void {
+export function throttle<F extends (...args: any[]) => any>(fn: F, delay = 200) {
   let timer: any
   let start = 0
 
-  return function loop(this: unknown, ...args) {
+  return function loop(this: unknown, ...args: Parameters<F>) {
     const now = performance.now()
     const elapsed = now - start
 
