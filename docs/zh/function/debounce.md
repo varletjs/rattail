@@ -19,7 +19,7 @@ window.addEventListener('resize', debouncedFn)
 | 参数    |    类型    | 默认值 |
 | ------- | :--------: | -----: |
 | `fn`    | `Function` |        |
-| `delay` |  `number`  |      0 |
+| `delay` |  `number`  |    `0` |
 
 ### 返回值
 

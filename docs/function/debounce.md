@@ -19,7 +19,7 @@ window.addEventListener('resize', debouncedFn)
 | Arg     |    Type    | Defaults |
 | ------- | :--------: | -------: |
 | `fn`    | `Function` |          |
-| `delay` |  `number`  |        0 |
+| `delay` |  `number`  |      `0` |
 
 ### Return
 

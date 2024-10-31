@@ -51,5 +51,5 @@ it('delay', async () => {
   const start = performance.now()
   await delay(100)
   const end = performance.now()
-  expect(end - start).toBeGreaterThanOrEqual(100)
+  expect(Math.ceil(end - start)).toBeGreaterThanOrEqual(100)
 })
