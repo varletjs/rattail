@@ -1,5 +1,19 @@
-import { isArrayBuffer, isDataView, isRegExp, isTypedArray, isWeakMap } from 'util/types'
-import { hasOwn, isArray, isDate, isMap, isObject, isPlainObject, isSet, isWeakSet, toRawType } from './general'
+import {
+  hasOwn,
+  isArray,
+  isDate,
+  isMap,
+  isObject,
+  isPlainObject,
+  isSet,
+  isWeakSet,
+  toRawType,
+  isArrayBuffer,
+  isDataView,
+  isRegExp,
+  isTypedArray,
+  isWeakMap,
+} from './general'
 
 export function mergeWith<TObject extends Record<string, any>, TSource extends Record<string, any>>(
   object: TObject,
