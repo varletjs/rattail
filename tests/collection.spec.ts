@@ -161,6 +161,12 @@ describe('cloneDeep', () => {
     expect(value.valueOf()).toBe(result.valueOf())
   })
 
+  it('Promise', () => {
+    const value = Promise.resolve(1)
+    const result = cloneDeep(value)
+    expect(value).toBe(result)
+  })
+
   it('symbol', () => {
     const value = Symbol('abc')
     const result = cloneDeep(value)
