@@ -41,5 +41,7 @@ export function times<T>(num: number, fn: (index: number) => T) {
 }
 
 export function delay(time: number) {
-  return new Promise((resolve) => setTimeout(resolve, time))
+  return new Promise<void>((resolve) => {
+    setTimeout(resolve, time)
+  })
 }
