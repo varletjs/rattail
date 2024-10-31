@@ -16,13 +16,13 @@ window.addEventListener('resize', debouncedFn)
 
 ### 参数列表
 
-| 参数    |           类型            | 默认值 |
-| ------- | :-----------------------: | -----: |
-| `fn`    | `(...args: any[]) => any` |        |
-| `delay` |         `number`          |      0 |
+| 参数    |    类型    | 默认值 |
+| ------- | :--------: | -----: |
+| `fn`    | `Function` |        |
+| `delay` |  `number`  |      0 |
 
 ### 返回值
 
-|               类型                |
-| :-------------------------------: |
-| `(Parameters<typeof fn>) => void` |
+|    类型    |
+| :--------: |
+| `Function` |

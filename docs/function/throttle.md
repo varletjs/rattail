@@ -16,13 +16,13 @@ window.addEventListener('resize', throttledFn)
 
 ### Arguments
 
-| Arg     |           Type            | Defaults |
-| ------- | :-----------------------: | -------: |
-| `fn`    | `(...args: any[]) => any` |          |
-| `delay` |         `number`          |      200 |
+| Arg     |    Type    | Defaults |
+| ------- | :--------: | -------: |
+| `fn`    | `Function` |          |
+| `delay` |  `number`  |    `200` |
 
 ### Return
 
-|               Type                |
-| :-------------------------------: |
-| `(Parameters<typeof fn>) => void` |
+|    Type    |
+| :--------: |
+| `Function` |

@@ -4,4 +4,6 @@ export const numberItems = [
   { text: 'randomNumber', link: '/number/random-number' },
   { text: 'clamp', link: '/number/clamp' },
   { text: 'clampArrayRange', link: '/number/clamp-array-range' },
+  { text: 'times', link: '/number/times' },
+  { text: 'delay', link: '/number/delay' },
 ]

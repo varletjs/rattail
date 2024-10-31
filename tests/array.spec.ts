@@ -10,8 +10,6 @@ import {
   find,
   at,
   shuffle,
-  sum,
-  sumBy,
 } from '../src'
 
 it('uniq', () => {
@@ -85,12 +83,4 @@ it('shuffle', () => {
   const arr = [1, 2, 3, 4, 5]
   const shuffled = shuffle([...arr])
   expect(shuffled.sort()).toEqual(arr)
-})
-
-it('sum', () => {
-  expect(sum([1, 2, 3, 4])).toBe(10)
-})
-
-it('sumBy', () => {
-  expect(sumBy([{ value: 1 }, { value: 2 }, { value: 3 }], (item) => item.value)).toBe(6)
 })

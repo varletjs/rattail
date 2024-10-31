@@ -16,13 +16,13 @@ window.addEventListener('resize', throttledFn)
 
 ### 参数列表
 
-| 参数    |           类型            | 默认值 |
-| ------- | :-----------------------: | -----: |
-| `fn`    | `(...args: any[]) => any` |        |
-| `delay` |         `number`          |    200 |
+| 参数    |    类型    | 默认值 |
+| ------- | :--------: | -----: |
+| `fn`    | `Function` |        |
+| `delay` |  `number`  |  `200` |
 
 ### 返回值
 
-|               类型                |
-| :-------------------------------: |
-| `(Parameters<typeof fn>) => void` |
+|    类型    |
+| :--------: |
+| `Function` |

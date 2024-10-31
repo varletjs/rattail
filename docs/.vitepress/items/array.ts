@@ -1,7 +1,5 @@
 export const arrayItems = [
   { text: 'at', link: '/array/at' },
-  { text: 'sum', link: '/array/sum' },
-  { text: 'sumBy', link: '/array/sum-by' },
   { text: 'uniq', link: '/array/uniq' },
   { text: 'uniqBy', link: '/array/uniq-by' },
   { text: 'find', link: '/array/find' },

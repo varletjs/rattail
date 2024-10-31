@@ -3,7 +3,7 @@ import { hasOwn, isArray, isObject } from './general'
 export function mergeWith<TObject extends Record<string, any>, TSource extends Record<string, any>>(
   object: TObject,
   source: TSource,
-  callback?: (
+  callback: (
     objValue: any,
     srcValue: any,
     key: string | number | symbol,
@@ -18,7 +18,7 @@ export function mergeWith<TObject extends Record<string, any>, TSource extends R
         const srcValue = src[key]
         const targetValue = target[key]
 
-        const customResult = callback?.(targetValue, srcValue, key, object, source)
+        const customResult = callback(targetValue, srcValue, key, object, source)
 
         if (customResult !== undefined) {
           target[key] = customResult
@@ -37,4 +37,11 @@ export function mergeWith<TObject extends Record<string, any>, TSource extends R
   }
 
   return baseMerge(object as any, source as any) as TObject & TSource
+}
+
+export function merge<TObject extends Record<string, any>, TSource extends Record<string, any>>(
+  object: TObject,
+  source: TSource,
+) {
+  return mergeWith(object, source, () => undefined)
 }

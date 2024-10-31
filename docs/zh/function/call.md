@@ -7,18 +7,21 @@
 ```ts
 import { call } from 'rattail'
 
-const fns = [(a, b) => a + b, (a, b) => a * b]
-
-call(fns[0], 1, 2) // return 3
-call(fns, 1, 2) // return [3, 2]
-call(null) // return undefined
+call((a, b) => a + b, 1, 2) 
+// return 3
+call([(a, b) => a + b, (a, b) => a + b], 1, 2) 
+// return [3, 3]
 ```
 
-### 类型声明
+### 参数列表
 
-```ts
-export function call<P extends any[], R>(
-  fn?: ((...arg: P) => R) | ((...arg: P) => R)[] | null,
-  ...args: P
-): R | R[] | undefined
-```
+| 参数      |           类型           | 默认值 |
+| --------- | :----------------------: | -----: |
+| `fn`      | `Function \| Function[]` |        |
+| `...args` |         `any[]`          |        |
+
+### 返回值
+
+|    类型    |
+| :--------: |
+| `Function` |

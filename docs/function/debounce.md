@@ -16,13 +16,13 @@ window.addEventListener('resize', debouncedFn)
 
 ### Arguments
 
-| Arg     |           Type            | Defaults |
-| ------- | :-----------------------: | -------: |
-| `fn`    | `(...args: any[]) => any` |          |
-| `delay` |         `number`          |        0 |
+| Arg     |    Type    | Defaults |
+| ------- | :--------: | -------: |
+| `fn`    | `Function` |          |
+| `delay` |  `number`  |        0 |
 
 ### Return
 
-|               Type                |
-| :-------------------------------: |
-| `(Parameters<typeof fn>) => void` |
+|    Type    |
+| :--------: |
+| `Function` |
