@@ -132,6 +132,7 @@ describe('cloneDeep', () => {
   })
 
   it('String', () => {
+    // eslint-disable-next-line no-new-wrappers
     const value = new String('abc')
     const result = cloneDeep(value)
 
@@ -141,6 +142,7 @@ describe('cloneDeep', () => {
   })
 
   it('Number', () => {
+    // eslint-disable-next-line no-new-wrappers
     const value = new Number(1)
     const result = cloneDeep(value)
 
@@ -150,6 +152,7 @@ describe('cloneDeep', () => {
   })
 
   it('Boolean', () => {
+    // eslint-disable-next-line no-new-wrappers
     const value = new Boolean(true)
     const result = cloneDeep(value)
 

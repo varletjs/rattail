@@ -142,6 +142,7 @@ export function cloneDeepWith<T>(value: T, fn: (value: any) => any): T {
       const result: Record<string, any> = Object.create(Reflect.getPrototypeOf(value))
       cache.set(value, result)
 
+      // eslint-disable-next-line no-restricted-syntax
       for (const key in value) {
         if (hasOwn(value, key)) {
           result[key] = baseCloneDeep(value[key], cache)
