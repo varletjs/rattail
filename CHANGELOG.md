@@ -1,3 +1,12 @@
+## [0.0.6](https://github.com/varletjs/rattail/compare/v0.0.5...v0.0.6) (2024-10-31)
+
+
+### Bug Fixes
+
+* fix imported ([c7eabd3](https://github.com/varletjs/rattail/commit/c7eabd3c01373e317ce41f15057ba22e187116e6))
+
+
+
 ## [0.0.5](https://github.com/varletjs/rattail/compare/v0.0.3...v0.0.5) (2024-10-31)
 
 
