@@ -14,8 +14,8 @@ console.log('End after 1 second')
 
 ### Arguments
 
-| Arg                   |   Type   | Defaults |
-| --------------------- | :------: | -------: |
+| Arg         |   Type   | Defaults |
+| ----------- | :------: | -------: |
 | `time (ms)` | `number` |          |
 
 ### Return

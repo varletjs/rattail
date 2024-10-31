@@ -7,9 +7,9 @@
 ```ts
 import { call } from 'rattail'
 
-call((a, b) => a + b, 1, 2) 
+call((a, b) => a + b, 1, 2)
 // return 3
-call([(a, b) => a + b, (a, b) => a + b], 1, 2) 
+call([(a, b) => a + b, (a, b) => a + b], 1, 2)
 // return [3, 3]
 ```
 

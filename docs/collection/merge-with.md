@@ -7,19 +7,16 @@ Merge two objects recursively, allowing for custom merge logic through a callbac
 ```ts
 import { mergeWith } from 'rattail'
 
-mergeWith(
-  { a: [1, 2] }, { a: [3, 4] }, 
-  (objValue, srcValue) => [...objValue, ...srcValue]
-)
+mergeWith({ a: [1, 2] }, { a: [3, 4] }, (objValue, srcValue) => [...objValue, ...srcValue])
 // return: { a: [ 1, 2, 3, 4 ] }
 ```
 
 ### Arguments
 
-| Arg        | Type                                                                                      | Defaults |
-| ---------- | ----------------------------------------------------------------------------------------- | -------- |
-| `object`   | `object`                                                                                  |          |
-| `source`   | `object`                                                                                  |          |
+| Arg        | Type                                                                              | Defaults |
+| ---------- | --------------------------------------------------------------------------------- | -------- |
+| `object`   | `object`                                                                          |          |
+| `source`   | `object`                                                                          |          |
 | `callback` | `(objValue: any, srcValue: any, key: any, object: object, source: object) => any` |          |
 
 ### Return

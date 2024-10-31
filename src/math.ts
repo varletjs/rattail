@@ -13,7 +13,7 @@ export function minBy<T>(arr: T[], fn: (val: T) => number) {
     return
   }
 
-  return arr.reduce((result, item) => fn(result) < fn(item) ? result : item, arr[0])
+  return arr.reduce((result, item) => (fn(result) < fn(item) ? result : item), arr[0])
 }
 
 export function maxBy<T>(arr: T[], fn: (val: T) => number) {
@@ -21,7 +21,7 @@ export function maxBy<T>(arr: T[], fn: (val: T) => number) {
     return
   }
 
-  return arr.reduce((result, item) => fn(result) > fn(item) ? result : item, arr[0])
+  return arr.reduce((result, item) => (fn(result) > fn(item) ? result : item), arr[0])
 }
 
 export function mean(arr: number[]) {
