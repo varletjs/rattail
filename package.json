@@ -32,6 +32,7 @@
     "url": "https://github.com/varletjs/rattail/issues"
   },
   "scripts": {
+    "git-hooks": "simple-git-hooks",
     "dev": "tsup src/index.ts --format esm --out-dir=lib --watch --dts",
     "build": "tsup src/index.ts --format esm,cjs --out-dir=lib --dts --clean",
     "lint": "eslint . --fix --ext .ts,.js",
@@ -44,11 +45,23 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec nano-staged --allow-empty",
+    "commit-msg": "pnpm exec vr commit-lint -p $1"
+  },
+  "nano-staged": {
+    "*.{ts}": [
+      "pnpm format",
+      "pnpm lint"
+    ]
+  },
   "devDependencies": {
     "@types/node": "^22.8.1",
     "@varlet/eslint-config": "latest",
     "@varlet/release": "^0.3.0",
     "@vitest/coverage-istanbul": "^2.1.3",
+    "nano-staged": "0.8.0",
+    "simple-git-hooks": "^2.11.1",
     "eslint": "^8.53.0",
     "jsdom": "^25.0.1",
     "prettier": "^3.1.0",
