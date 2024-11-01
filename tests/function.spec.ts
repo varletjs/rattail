@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
-import { debounce, throttle, call } from '../src'
+import { debounce, throttle, call, once } from '../src'
 
 describe('Utility Functions', () => {
   describe('debounce', () => {
@@ -74,5 +74,17 @@ describe('Utility Functions', () => {
       const result = call(null, 1, 2)
       expect(result).toBeUndefined()
     })
+  })
+
+  it('once', () => {
+    const rt = {}
+    const fn = vi.fn(() => rt)
+    const onceFn = once(fn)
+
+    const r1 = onceFn()
+    const r2 = onceFn()
+    expect(fn).toHaveBeenCalledTimes(1)
+    expect(r1).toBe(rt)
+    expect(r1).toBe(r2)
   })
 })

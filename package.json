@@ -50,7 +50,8 @@
     "commit-msg": "pnpm exec vr commit-lint -p $1"
   },
   "nano-staged": {
-    "*.{ts,md}": [
+    "*.{md}": "pnpm format",
+    "*.{ts}": [
       "pnpm format",
       "pnpm lint"
     ]
