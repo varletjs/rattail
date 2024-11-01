@@ -1,6 +1,6 @@
 # mitt
 
-时间调度器，集成了 [mitt](https://github.com/developit/mitt)。
+事件调度器，集成了 [mitt](https://github.com/developit/mitt)。
 
 ### 用法
 
