@@ -7,9 +7,8 @@ Creates a Promise-based double `requestAnimationFrame` that resolves after two f
 ```ts
 import { doubleRaf } from 'rattail'
 
-doubleRaf().then(() => {
-  console.log('Two frames later')
-})
+await doubleRaf()
+console.log('Two frames later')
 ```
 
 ### Return

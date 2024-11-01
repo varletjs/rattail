@@ -1,15 +1,14 @@
 # raf
 
-创建一个基于 `Promise` 的 `requestAnimationFrame`，在下一帧时解析。
+创建一个基于 `Promise` 的 `requestAnimationFrame`，在下一帧时 `resolved`。
 
 ### 用法
 
 ```ts
 import { raf } from 'rattail'
 
-raf().then(() => {
-  console.log('下一帧动画')
-})
+await raf()
+console.log('下一帧')
 ```
 
 ### 返回值

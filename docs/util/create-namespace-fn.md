@@ -7,9 +7,14 @@ Creates a namespace function that allows BEM-style naming of components and clas
 ```ts
 import { createNamespaceFn } from 'rattail'
 
-const ns = createNamespaceFn('my-app')
-const bem = ns('button')
-console.log(bem.n('--active'))
+const createNamespace = createNamespaceFn('var')
+const { name, n, classes } = createNamespace('button')
+// name: 'VarButton', classes 与 rattail 提供的 classes 一致
+
+n() // return 'var-button'
+n('$-box') // return 'var-box'
+n('element') // return 'var-button__element'
+n('--modifier') // return 'var-button--modifier'
 ```
 
 ### Arguments

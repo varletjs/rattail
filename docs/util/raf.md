@@ -7,9 +7,8 @@ Creates a Promise-based `requestAnimationFrame` that resolves on the next frame.
 ```ts
 import { raf } from 'rattail'
 
-raf().then(() => {
-  console.log('Next animation frame')
-})
+await raf()
+console.log('Next animation frame')
 ```
 
 ### Return

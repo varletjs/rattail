@@ -7,10 +7,8 @@
 ```ts
 import { toText } from 'rattail'
 
-const file = new File(['Hello, world!'], 'hello.txt', { type: 'text/plain' })
-toText(file).then((text) => {
-  console.log(text)
-})
+await toText(new File(['Hello, world!'], 'hello.txt', { type: 'text/plain' }))
+// return 'Hello, world!'
 ```
 
 ### 参数

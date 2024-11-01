@@ -1,4 +1,4 @@
-import { getGlobalThis, isArray, isWindow } from './general'
+import { getGlobalThis, isArray, isWindow, isString } from './general'
 import { pascalCase } from './string'
 
 export function requestAnimationFrame(fn: FrameRequestCallback): number {
@@ -123,6 +123,18 @@ export function getScrollLeft(element: Element | Window) {
   return Math.max(left, 0)
 }
 
+export function tryParseJSON<T>(json: string): T | undefined {
+  try {
+    return JSON.parse(json)
+  } catch {
+    return undefined
+  }
+}
+
+export function prettyJSONObject(jsonObject: Record<string, any>) {
+  return JSON.stringify(jsonObject, null, 2)
+}
+
 export type ClassName = string | undefined | null
 
 export type Classes = (ClassName | [any, ClassName, ClassName?])[]
@@ -171,3 +183,45 @@ export function createNamespaceFn<N extends string>(namespace: N) {
     }
   }
 }
+
+export interface Storage extends globalThis.Storage {
+  set(key: string, value: any): void
+  get(key: string): any
+  remove(key: string): void
+}
+
+export function createStorage(storage: globalThis.Storage): Storage {
+  return {
+    ...storage,
+
+    set(key: string, value: unknown) {
+      if (value == null) {
+        return
+      }
+
+      if (!isString(value)) {
+        value = JSON.stringify(value)
+      }
+
+      storage.setItem(key, value as string)
+    },
+
+    get(key: string) {
+      const data = storage.getItem(key) as string
+
+      try {
+        return JSON.parse(data)
+      } catch (err) {
+        return data
+      }
+    },
+
+    remove(key: string): void {
+      storage.removeItem(key)
+    },
+  }
+}
+
+export const sessionStorage = createStorage(globalThis.sessionStorage)
+
+export const localStorage = createStorage(globalThis.localStorage)

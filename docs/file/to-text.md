@@ -7,10 +7,8 @@ Converts a `File` object to a text string.
 ```ts
 import { toText } from 'rattail'
 
-const file = new File(['Hello, world!'], 'hello.txt', { type: 'text/plain' })
-toText(file).then((text) => {
-  console.log(text)
-})
+await toText(new File(['Hello, world!'], 'hello.txt', { type: 'text/plain' }))
+// return 'Hello, world!'
 ```
 
 ### Arguments

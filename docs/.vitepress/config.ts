@@ -7,7 +7,7 @@ import {
   functionItems,
   collectionItems,
   mathItems,
-  elementItems,
+  utilItems,
   fileItems,
 } from './items'
 
@@ -70,12 +70,12 @@ export default defineConfig({
             items: withI18n(functionItems, 'zh'),
           },
           {
-            text: '元素',
-            items: withI18n(elementItems, 'zh'),
-          },
-          {
             text: '文件',
             items: withI18n(fileItems, 'zh'),
+          },
+          {
+            text: '工具',
+            items: withI18n(utilItems, 'zh'),
           },
         ],
 
@@ -132,12 +132,12 @@ export default defineConfig({
         items: functionItems,
       },
       {
-        text: 'Element',
-        items: elementItems,
-      },
-      {
         text: 'File',
         items: fileItems,
+      },
+      {
+        text: 'Util',
+        items: utilItems,
       },
     ],
 

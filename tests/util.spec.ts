@@ -1,4 +1,4 @@
-import { it, expect, vi } from 'vitest'
+import { it, expect, vi, beforeEach, describe } from 'vitest'
 import {
   requestAnimationFrame,
   cancelAnimationFrame,
@@ -14,8 +14,10 @@ import {
   getScrollLeft,
   classes,
   createNamespaceFn,
+  createStorage,
+  tryParseJSON,
+  prettyJSONObject,
 } from '../src'
-import { describe } from 'node:test'
 
 it('requestAnimationFrame', () => {
   const fn = vi.fn()
@@ -156,10 +158,89 @@ it('classes should return an array of classes based on conditions', () => {
 
 it('createNamespaceFn should create a BEM namespace function', () => {
   const createNamespace = createNamespaceFn('var')
-  const { n } = createNamespace('button')
+  const { n, name, classes } = createNamespace('button')
 
   expect(n()).toBe('var-button')
   expect(n('element')).toBe('var-button__element')
   expect(n('--modifier')).toBe('var-button--modifier')
   expect(n('$-box')).toBe('var-box')
+  expect(name).toBe('VarButton')
+  expect(classes('class1', [true, 'class2'], [false, 'class3', 'class4'])).toEqual(['class1', 'class2', 'class4'])
+})
+
+describe('Storage utility functions', () => {
+  let mockStorage: Storage
+
+  beforeEach(() => {
+    const store: Record<string, string> = {}
+    mockStorage = {
+      length: 0,
+      clear: vi.fn(() => {
+        Object.keys(store).forEach((key) => {
+          delete store[key]
+        })
+      }),
+      getItem: vi.fn((key: string) => store[key] || null),
+      key: vi.fn((index: number) => Object.keys(store)[index] || null),
+      removeItem: vi.fn((key: string) => {
+        delete store[key]
+      }),
+      setItem: vi.fn((key: string, value: string) => {
+        store[key] = value
+      }),
+    }
+  })
+
+  it('should set and get string values', () => {
+    const storage = createStorage(mockStorage)
+    storage.set('key1', 'value1')
+    expect(storage.get('key1')).toBe('value1')
+  })
+
+  it('should set and get object values', () => {
+    const storage = createStorage(mockStorage)
+    const obj = { a: 1 }
+    storage.set('key2', obj)
+    expect(storage.get('key2')).toEqual(obj)
+  })
+
+  it('should return null for non-existent keys', () => {
+    const storage = createStorage(mockStorage)
+    expect(storage.get('nonExistentKey')).toBeNull()
+  })
+
+  it('should remove items', () => {
+    const storage = createStorage(mockStorage)
+    storage.set('key3', 'value3')
+    storage.remove('key3')
+    expect(storage.get('key3')).toBeNull()
+  })
+
+  it('should handle null or undefined values gracefully', () => {
+    const storage = createStorage(mockStorage)
+    storage.set('key4', null)
+    expect(storage.get('key4')).toBeNull()
+    storage.set('key5', undefined)
+    expect(storage.get('key5')).toBeNull()
+  })
+})
+
+describe('JSON utility functions', () => {
+  it('should parse valid JSON strings', () => {
+    const jsonString = '{"key": "value"}'
+    const result = tryParseJSON(jsonString)
+    expect(result).toEqual({ key: 'value' })
+  })
+
+  it('should return undefined for invalid JSON strings', () => {
+    const invalidJsonString = '{"key": "value"'
+    const result = tryParseJSON(invalidJsonString)
+    expect(result).toBeUndefined()
+  })
+
+  it('should pretty print JSON objects', () => {
+    const jsonObject = { key: 'value', number: 42 }
+    const prettyString = prettyJSONObject(jsonObject)
+    expect(prettyString).toBe('{\n  "key": "value",\n  "number": 42\n}')
+  })
 })

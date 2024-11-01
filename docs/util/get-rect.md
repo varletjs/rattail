@@ -14,7 +14,7 @@ const rect = getRect(document.querySelector('div'))
 
 | Arg       | Type      | Defaults |
 | --------- | --------- | -------- |
-| `element` | `Element` | `Window` |
+| `element` | `Element` |          |
 
 ### Return
 

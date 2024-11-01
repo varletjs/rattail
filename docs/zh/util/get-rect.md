@@ -12,9 +12,9 @@ const rect = getRect(document.querySelector('div'))
 
 ### 参数
 
-| 参数      | 类型      | 默认值   |
-| --------- | --------- | -------- |
-| `element` | `Element` | `Window` |
+| 参数      | 类型      | 默认值 |
+| --------- | --------- | ------ |
+| `element` | `Element` |        |
 
 ### 返回值
 

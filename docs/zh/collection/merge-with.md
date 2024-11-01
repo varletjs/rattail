@@ -13,11 +13,11 @@ mergeWith({ a: [1, 2] }, { a: [3, 4] }, (objValue, srcValue) => [...objValue, ..
 
 ### 参数
 
-| 参数       | 类型                                                                              | 默认值 |
-| ---------- | --------------------------------------------------------------------------------- | ------ |
-| `object`   | `object`                                                                          |        |
-| `source`   | `object`                                                                          |        |
-| `callback` | `(objValue: any, srcValue: any, key: any, object: object, source: object) => any` |        |
+| 参数     | 类型                                                                              | 默认值 |
+| -------- | --------------------------------------------------------------------------------- | ------ |
+| `object` | `object`                                                                          |        |
+| `source` | `object`                                                                          |        |
+| `fn`     | `(objValue: any, srcValue: any, key: any, object: object, source: object) => any` |        |
 
 ### 返回值
 
