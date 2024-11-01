@@ -1,4 +1,5 @@
 export const utilItems = [
+  { text: 'mitt', link: '/util/mitt' },
   { text: 'classes', link: '/util/classes' },
   { text: 'createNamespaceFn', link: '/util/create-namespace-fn' },
   { text: 'raf', link: '/util/raf' },
