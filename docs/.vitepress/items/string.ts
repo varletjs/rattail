@@ -3,6 +3,7 @@ export const stringItems = [
   { text: 'camelize', link: '/string/camelize' },
   { text: 'kebabCase', link: '/string/kebab-case' },
   { text: 'pascalCase', link: '/string/pascal-case' },
-  { text: 'capitalizeFirstLetter', link: '/string/capitalize-first-letter' },
+  { text: 'upperFirst', link: '/string/upper-first' },
+  { text: 'lowerFirst', link: '/string/lower-first' },
   { text: 'slash', link: '/string/slash' },
 ]

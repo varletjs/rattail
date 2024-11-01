@@ -1,4 +1,4 @@
-# capitalizeFirstLetter
+# upperFirst
 
 将`字符串`的`首字母`大写，其余部分保持不变。
 

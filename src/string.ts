@@ -28,6 +28,10 @@ export function genStringKey() {
   return `generated-key-${key++}`
 }
 
-export function capitalizeFirstLetter(s: string) {
+export function upperFirst(s: string) {
   return s.charAt(0).toUpperCase() + s.slice(1)
+}
+
+export function lowerFirst(s: string) {
+  return s.charAt(0).toLowerCase() + s.slice(1)
 }

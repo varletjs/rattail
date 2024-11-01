@@ -1,4 +1,26 @@
-## [0.0.4](https://github.com/varletjs/rattail/compare/v0.0.3...v0.0.4) (2024-10-29)
+## [0.0.6](https://github.com/varletjs/rattail/compare/v0.0.5...v0.0.6) (2024-10-31)
+
+
+### Bug Fixes
+
+* fix imported ([c7eabd3](https://github.com/varletjs/rattail/commit/c7eabd3c01373e317ce41f15057ba22e187116e6))
+
+
+
+## [0.0.5](https://github.com/varletjs/rattail/compare/v0.0.3...v0.0.5) (2024-10-31)
+
+
+### Bug Fixes
+
+* fix lint error ([aad4f13](https://github.com/varletjs/rattail/commit/aad4f134e806dd8768f96fae2b28df61f0c824c6))
+* improve the type of parameter `fn` ([07922bf](https://github.com/varletjs/rattail/commit/07922bf5dbb173ddfcd9c27c5579ac3e290bea03))
+
+
+### Features
+
+* support clone ([9e42734](https://github.com/varletjs/rattail/commit/9e42734f187378c62645e66a09290f66095aab24))
+* support lowerFirst and upperFirst ([6d48399](https://github.com/varletjs/rattail/commit/6d4839989392fc495afd45bce2b7e02ae452bf35))
+* support more utils ([0d44ea9](https://github.com/varletjs/rattail/commit/0d44ea98e9c10ed5657b364c5f3ca55d9dea6403))
 
 
 ### Performance Improvements

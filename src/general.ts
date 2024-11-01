@@ -37,19 +37,51 @@ export function isPromise<T = any>(val: unknown): val is Promise<T> {
 }
 
 export function isMap(val: unknown): val is Map<any, any> {
-  return toTypeString(val) === '[object Map]'
+  return toRawType(val) === 'Map'
 }
 
 export function isSet(val: unknown): val is Set<any> {
-  return toTypeString(val) === '[object Set]'
+  return toRawType(val) === 'Set'
 }
 
 export function isDate(val: unknown): val is Date {
-  return toTypeString(val) === '[object Date]'
+  return toRawType(val) === 'Date'
 }
 
 export function isRegExp(val: unknown): val is RegExp {
-  return toTypeString(val) === '[object RegExp]'
+  return toRawType(val) === 'RegExp'
+}
+
+export function isWeakMap(val: unknown): val is WeakMap<any, any> {
+  return toRawType(val) === 'WeakMap'
+}
+
+export function isWeakSet(val: unknown): val is WeakSet<any> {
+  return toRawType(val) === 'WeakSet'
+}
+
+export function isArrayBuffer(val: unknown): val is ArrayBuffer {
+  return toRawType(val) === 'ArrayBuffer'
+}
+
+export function isTypedArray(val: unknown) {
+  return [
+    'Int8Array',
+    'Uint8Array',
+    'Uint8ClampedArray',
+    'Int16Array',
+    'Uint16Array',
+    'Int32Array',
+    'Uint32Array',
+    'Float32Array',
+    'Float64Array',
+    'BigInt64Array',
+    'BigUint64Array',
+  ].includes(toRawType(val))
+}
+
+export function isDataView(val: unknown): val is DataView {
+  return toRawType(val) === 'DataView'
 }
 
 export function toRawType(value: unknown): string {
