@@ -1,3 +1,13 @@
+## [0.0.7](https://github.com/varletjs/rattail/compare/v0.0.6...v0.0.7) (2024-11-01)
+
+
+### Features
+
+* support mitt ([1d2a5b4](https://github.com/varletjs/rattail/commit/1d2a5b431265961a7c94bf12b7fdc0da92f33d3d))
+* support once ([dd4e375](https://github.com/varletjs/rattail/commit/dd4e375bbc9592794ed0ad7fa3d7e7eb98fbd4b0))
+
+
+
 ## [0.0.6](https://github.com/varletjs/rattail/compare/v0.0.5...v0.0.6) (2024-10-31)
 
 
