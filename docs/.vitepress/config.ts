@@ -8,6 +8,7 @@ import {
   collectionItems,
   mathItems,
   elementItems,
+  fileItems,
 } from './items'
 
 function withI18n(items: { link: string; text: string }[], locale: 'zh') {
@@ -72,6 +73,10 @@ export default defineConfig({
             text: '元素',
             items: withI18n(elementItems, 'zh'),
           },
+          {
+            text: '文件',
+            items: withI18n(fileItems, 'zh'),
+          },
         ],
 
         docFooter: {
@@ -129,6 +134,10 @@ export default defineConfig({
       {
         text: 'Element',
         items: elementItems,
+      },
+      {
+        text: 'File',
+        items: fileItems,
       },
     ],
 
