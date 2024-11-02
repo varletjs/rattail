@@ -2,7 +2,7 @@
 
 事件调度器，集成了 [mitt](https://github.com/developit/mitt)。
 
-### 用法
+### 使用
 
 ```ts
 import mitt from 'mitt'

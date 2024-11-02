@@ -2,7 +2,7 @@
 
 创建一个命名空间函数，用于生成 BEM 样式的组件和类名。
 
-### 用法
+### 使用
 
 ```ts
 import { createNamespaceFn } from 'rattail'

@@ -2,7 +2,7 @@
 
 创建一个基于 `Promise` 的双重 `requestAnimationFrame`，在两帧之后 `resolved`。
 
-### 用法
+### 使用
 
 ```ts
 import { doubleRaf } from 'rattail'

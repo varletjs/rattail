@@ -2,7 +2,7 @@
 
 将 `File` 对象转换为 Data URL 字符串。
 
-### 用法
+### 使用
 
 ```ts
 import { toDataURL } from 'rattail'

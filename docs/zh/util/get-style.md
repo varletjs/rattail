@@ -2,7 +2,7 @@
 
 获取给定 DOM 元素的计算 CSS 样式。
 
-### 用法
+### 使用
 
 ```ts
 import { getStyle } from 'rattail'

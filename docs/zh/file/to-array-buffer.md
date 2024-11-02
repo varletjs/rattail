@@ -2,7 +2,7 @@
 
 将 `File` 对象转换为 `ArrayBuffer`。
 
-### 用法
+### 使用
 
 ```ts
 import { toArrayBuffer } from 'rattail'
