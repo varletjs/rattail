@@ -2,7 +2,7 @@
 
 阻止事件的默认行为（如果该事件可取消）。
 
-### 用法
+### 使用
 
 ```ts
 import { preventDefault } from 'rattail'

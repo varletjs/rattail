@@ -2,7 +2,7 @@
 
 根据给定条件生成类名列表，或直接返回类名。
 
-### 用法
+### 使用
 
 ```ts
 import { classes } from 'rattail'

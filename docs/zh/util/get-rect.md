@@ -2,7 +2,7 @@
 
 获取元素或窗口的尺寸和位置，返回一个 `DOMRect` 对象。
 
-### 用法
+### 使用
 
 ```ts
 import { getRect } from 'rattail'

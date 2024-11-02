@@ -2,7 +2,7 @@
 
 获取元素的所有可滚动父级元素，包含 `window` 作为最后一项。
 
-### 用法
+### 使用
 
 ```ts
 import { getAllParentScroller } from 'rattail'

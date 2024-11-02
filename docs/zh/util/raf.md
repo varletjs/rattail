@@ -2,7 +2,7 @@
 
 创建一个基于 `Promise` 的 `requestAnimationFrame`，在下一帧时 `resolved`。
 
-### 用法
+### 使用
 
 ```ts
 import { raf } from 'rattail'

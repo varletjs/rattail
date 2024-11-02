@@ -2,7 +2,7 @@
 
 递归合并两个对象，可通过回调函数自定义合并逻辑。
 
-### 用法
+### 使用
 
 ```ts
 import { mergeWith } from 'rattail'
