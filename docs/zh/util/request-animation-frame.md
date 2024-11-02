@@ -2,7 +2,7 @@
 
 提供跨浏览器兼容的 `requestAnimationFrame` 函数，并使用 `setTimeout` 作为回退选项。
 
-### 用法
+### 使用
 
 ```ts
 import { requestAnimationFrame } from 'rattail'

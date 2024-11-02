@@ -9,6 +9,7 @@ import {
   mathItems,
   utilItems,
   fileItems,
+  jsonItems,
 } from './items'
 
 function withI18n(items: { link: string; text: string }[], locale: 'zh') {
@@ -77,6 +78,10 @@ export default defineConfig({
             text: '工具',
             items: withI18n(utilItems, 'zh'),
           },
+          {
+            text: 'JSON',
+            items: withI18n(jsonItems, 'zh'),
+          },
         ],
 
         docFooter: {
@@ -138,6 +143,10 @@ export default defineConfig({
       {
         text: 'Util',
         items: utilItems,
+      },
+      {
+        text: 'JSON',
+        items: jsonItems,
       },
     ],
 

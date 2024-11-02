@@ -2,7 +2,7 @@
 
 递归合并两个对象。
 
-### 用法
+### 使用
 
 ```ts
 import { merge } from 'rattail'

@@ -2,7 +2,7 @@
 
 将 `File` 对象转换为文本字符串。
 
-### 用法
+### 使用
 
 ```ts
 import { toText } from 'rattail'
