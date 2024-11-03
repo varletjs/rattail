@@ -14,4 +14,6 @@ export const utilItems = [
   { text: 'getScrollLeft', link: '/util/get-scroll-left' },
   { text: 'getParentScroller', link: '/util/get-parent-scroller' },
   { text: 'getAllParentScroller', link: '/util/get-all-parent-scroller' },
+  { text: 'prettyJSONObject', link: '/util/pretty-JSON-object' },
+  { text: 'tryParseJSON', link: '/util/try-parse-JSON' },
 ]
