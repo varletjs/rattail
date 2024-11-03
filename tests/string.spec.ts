@@ -1,5 +1,15 @@
 import { it, expect } from 'vitest'
-import { pascalCase, camelize, kebabCase, slash, genStringKey, upperFirst, lowerFirst } from '../src'
+import {
+  pascalCase,
+  camelize,
+  kebabCase,
+  slash,
+  genStringKey,
+  upperFirst,
+  lowerFirst,
+  randomColor,
+  randomString,
+} from '../src'
 
 it('pascalCase', () => {
   expect(pascalCase('hello-world')).toBe('HelloWorld')
@@ -37,4 +47,13 @@ it('upperFirst', () => {
 it('lowerFirst', () => {
   expect(lowerFirst('Hello')).toBe('hello')
   expect(lowerFirst('World')).toBe('world')
+})
+
+it('randomColor', () => {
+  expect(randomColor()).toMatch(/^#[0-9a-f]{6}$/)
+})
+
+it('randomString', () => {
+  expect(randomString().length).toBe(10)
+  expect(randomString(30).length).toBe(30)
 })

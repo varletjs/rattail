@@ -25,7 +25,7 @@ export function isNumeric(val: unknown): val is number | string {
 }
 
 export function isPlainObject(val: unknown): val is Record<string, any> {
-  return Object.prototype.toString.call(val) === '[object Object]'
+  return toRawType(val) === 'Object'
 }
 
 export function isObject(val: unknown): val is Record<string, any> {

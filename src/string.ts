@@ -35,3 +35,28 @@ export function upperFirst(s: string) {
 export function lowerFirst(s: string) {
   return s.charAt(0).toLowerCase() + s.slice(1)
 }
+
+export function randomString(length = 10) {
+  let str = baseRandomString()
+
+  while (str.length < length) {
+    str += baseRandomString()
+  }
+
+  function baseRandomString() {
+    return Math.random().toString(36).slice(2)
+  }
+
+  return str.slice(0, length)
+}
+
+export function randomColor() {
+  const letters = '0123456789abcdef'
+  let color = '#'
+
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)]
+  }
+
+  return color
+}

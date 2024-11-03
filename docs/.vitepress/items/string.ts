@@ -1,4 +1,6 @@
 export const stringItems = [
+  { text: 'randomString', link: '/string/random-string' },
+  { text: 'randomColor', link: '/string/random-color' },
   { text: 'genStringKey', link: '/string/gen-string-key' },
   { text: 'camelize', link: '/string/camelize' },
   { text: 'kebabCase', link: '/string/kebab-case' },

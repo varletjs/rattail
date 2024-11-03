@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { sum, sumBy, minBy, maxBy, mean, meanBy, sample } from '../src'
+import { sum, sumBy, minBy, maxBy, mean, meanBy, sample, sumHash } from '../src'
 
 it('sum', () => {
   expect(sum([1, 2, 3, 4])).toBe(10)
@@ -31,4 +31,22 @@ it('sample', () => {
   expect(sample([1, 2, 3, 4])).toBeGreaterThanOrEqual(1)
   expect(sample([1, 2, 3, 4])).toBeLessThanOrEqual(4)
   expect(sample([])).toEqual(undefined)
+})
+
+it('sumHash', () => {
+  expect(sumHash(null)).toBe('9b7df12e')
+  expect(sumHash(undefined)).toBe('29172c1a')
+  expect(sumHash('123')).toBe('1a3a267c')
+  expect(sumHash(123)).toBe('64a57068')
+  expect(sumHash([1, 2, 3])).toBe('352dd8ea')
+  expect(sumHash({ a: '123' })).toBe('b1c920ac')
+  expect(
+    sumHash(() => {
+      console.log('123')
+    }),
+  ).toBe('7842a7e1')
+
+  const a: Record<string, any> = { a: '123', self: undefined }
+  a.self = a
+  expect(sumHash(a)).toBe('76b6e174')
 })
