@@ -167,3 +167,52 @@ export function cloneDeepWith<T>(value: T, fn: (value: any) => any): T {
 
   return baseCloneDeep(value, cache)
 }
+
+export function pick<T, K extends keyof T>(object: T, keys: K[]) {
+  return keys.reduce(
+    (result, key) => {
+      result[key] = object[key]
+      return result
+    },
+    {} as Pick<T, K>,
+  )
+}
+
+export function omit<T extends object, K extends keyof T>(obj: T, keys: K[]): { [K2 in Exclude<keyof T, K>]: T[K2] } {
+  const keysToOmit = new Set(keys)
+  const result = {} as { [K in keyof T]: T[K] }
+
+  ;(Object.keys(obj) as (keyof T)[]).forEach((key) => {
+    if (!keysToOmit.has(key as K)) {
+      result[key] = obj[key]
+    }
+  })
+
+  return result
+}
+
+export function pickBy<T extends object>(
+  object: T,
+  predicate: (value: T[keyof T], key: keyof T) => boolean,
+): Partial<T> {
+  return Object.keys(object).reduce((result, key) => {
+    const typedKey = key as keyof T
+    if (predicate(object[typedKey], typedKey)) {
+      result[typedKey] = object[typedKey]
+    }
+    return result
+  }, {} as Partial<T>)
+}
+
+export function omitBy<T extends object>(
+  object: T,
+  predicate: (value: T[keyof T], key: keyof T) => boolean,
+): Partial<T> {
+  return Object.keys(object).reduce((result, key) => {
+    const typedKey = key as keyof T
+    if (!predicate(object[typedKey], typedKey)) {
+      result[typedKey] = object[typedKey]
+    }
+    return result
+  }, {} as Partial<T>)
+}

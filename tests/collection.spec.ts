@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { merge, mergeWith, cloneDeep, cloneDeepWith, isNumber, hasOwn } from '../src'
+import { merge, mergeWith, cloneDeep, cloneDeepWith, isNumber, hasOwn, pick, omit, pickBy, omitBy } from '../src'
 
 it('should merge two objects', () => {
   const result = merge({ a: 1, b: { c: 2 } }, { b: { d: 3 }, e: 4 })
@@ -328,5 +328,61 @@ describe('cloneDeepWith', () => {
     })
 
     expect(result).toEqual({ a: 2, b: 3 })
+  })
+})
+
+const sampleObject = {
+  a: 1,
+  b: 'hello',
+  c: true,
+  d: null,
+  e: 5,
+}
+
+describe('pick', () => {
+  it('should pick specified keys from an object', () => {
+    const result = pick(sampleObject, ['a', 'b'])
+    expect(result).toEqual({ a: 1, b: 'hello' })
+  })
+
+  it('should return an empty object if no keys match', () => {
+    const result = pick(sampleObject, [])
+    expect(result).toEqual({})
+  })
+})
+
+describe('omit', () => {
+  it('should omit specified keys from an object', () => {
+    const result = omit(sampleObject, ['a', 'b'])
+    expect(result).toEqual({ c: true, d: null, e: 5 })
+  })
+
+  it('should return the full object if no keys are omitted', () => {
+    const result = omit(sampleObject, [])
+    expect(result).toEqual(sampleObject)
+  })
+})
+
+describe('pickBy', () => {
+  it('should pick properties based on a predicate function', () => {
+    const result = pickBy(sampleObject, (value) => typeof value === 'number')
+    expect(result).toEqual({ a: 1, e: 5 })
+  })
+
+  it('should return an empty object if no properties match the predicate', () => {
+    const result = pickBy(sampleObject, (value) => typeof value === 'object')
+    expect(result).toEqual({})
+  })
+})
+
+describe('omitBy', () => {
+  it('should omit properties based on a predicate function', () => {
+    const result = omitBy(sampleObject, (value) => value === null || value === true)
+    expect(result).toEqual({ a: 1, b: 'hello', e: 5 })
+  })
+
+  it('should return the full object if no properties match the predicate', () => {
+    const result = omitBy(sampleObject, (value) => typeof value === 'symbol')
+    expect(result).toEqual(sampleObject)
   })
 })
