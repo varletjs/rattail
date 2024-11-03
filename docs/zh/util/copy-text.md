@@ -20,4 +20,4 @@ copyText('Hello, clipboard!') // 字符串会被写入剪切板
 
 | 类型   |
 | ------ |
-| `void` |
+| `-` |
