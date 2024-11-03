@@ -2,7 +2,7 @@
 
 获取元素或窗口的垂直滚动位置。
 
-### 用法
+### 使用
 
 ```ts
 import { getScrollTop } from 'rattail'

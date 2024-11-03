@@ -2,7 +2,7 @@
 
 使用给定的句柄取消 `requestAnimationFrame` 请求，并使用 `clearTimeout` 作为回退选项。
 
-### 用法
+### 使用
 
 ```ts
 import { cancelAnimationFrame } from 'rattail'

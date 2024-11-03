@@ -2,7 +2,7 @@
 
 查找元素的最近可滚动父级元素。如果没有找到滚动父级，则返回 `window`。
 
-### 用法
+### 使用
 
 ```ts
 import { getParentScroller } from 'rattail'

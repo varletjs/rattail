@@ -2,7 +2,7 @@
 
 判断元素是否在视口内可见。
 
-### 用法
+### 使用
 
 ```ts
 import { inViewport } from 'rattail'
