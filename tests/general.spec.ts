@@ -279,6 +279,7 @@ it('isEqual', () => {
   expect(isEqual(true, true)).toBe(true)
   expect(isEqual(true, false)).toBe(false)
   expect(isEqual(NaN, NaN)).toBe(true)
+  expect(isEqual(Promise.resolve(), Promise.resolve())).toBe(false)
   expect(isEqual(/abc/, /abc/)).toBe(true)
   expect(isEqual(/abc/g, /abc/)).toBe(false)
   expect(isEqual(/abc/, /abcd/)).toBe(false)
@@ -324,6 +325,7 @@ it('isEqual', () => {
   expect(isEqual(new TextEncoder().encode('123').buffer, new TextEncoder().encode('1234').buffer)).toBe(false)
 
   expect(isEqual({ n: 1 }, { n: 1 })).toBe(true)
+  expect(isEqual({ a: 1, b: 2 }, { b: 2, a: 1 })).toBe(true)
   expect(isEqual({ n: 1 }, { n: 2 })).toBe(false)
   expect(isEqual({ n: 1, x: [1] }, { n: 1, x: [1] })).toBe(true)
   expect(isEqual({ n: 1, x: [1] }, { n: 1, x: [1, 2] })).toBe(false)
