@@ -17,6 +17,7 @@ import {
   createStorage,
   tryParseJSON,
   prettyJSONObject,
+  copyText,
 } from '../src'
 
 it('requestAnimationFrame', () => {
@@ -242,5 +243,23 @@ describe('JSON utility functions', () => {
     const jsonObject = { key: 'value', number: 42 }
     const prettyString = prettyJSONObject(jsonObject)
     expect(prettyString).toBe('{\n  "key": "value",\n  "number": 42\n}')
+  })
+})
+
+describe('copyText', () => {
+  it('should copy text successfully', () => {
+    const execCommandMock = vi.fn().mockImplementation(() => true)
+    document.execCommand = execCommandMock
+    copyText('Hello, world!')
+    expect(execCommandMock).toHaveBeenCalledWith('copy')
+    execCommandMock.mockRestore()
+  })
+
+  it('should not execute copy when no text is provided', () => {
+    const execCommandMock = vi.fn()
+    document.execCommand = execCommandMock
+    copyText('')
+    expect(execCommandMock).not.toHaveBeenCalled()
+    execCommandMock.mockRestore()
   })
 })
