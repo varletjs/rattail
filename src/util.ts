@@ -225,3 +225,29 @@ export function createStorage(storage: globalThis.Storage): Storage {
 export const sessionStorage = createStorage(globalThis.sessionStorage)
 
 export const localStorage = createStorage(globalThis.localStorage)
+
+
+type CopyResult = {
+  success: boolean
+  error?: Error
+}
+
+export function copyText(value: string): CopyResult | undefined {
+  if (!value) {
+    console.warn('No text provided to copy.')
+    return { success: false }
+  }
+
+  try {
+    const textArea = document.createElement('textarea')
+    textArea.value = value
+    textArea.style.position = 'fixed'
+    textArea.style.opacity = '0'
+    document.body.appendChild(textArea)
+    textArea.select()
+    document.execCommand('copy')
+    document.body.removeChild(textArea)
+  } catch (error) {
+    return { success: false, error: error as Error }
+  }
+}

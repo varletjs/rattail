@@ -1,4 +1,4 @@
-import { it, expect, vi, beforeEach, describe } from 'vitest'
+import { it, expect, vi, beforeEach, describe, afterEach, Mock } from 'vitest'
 import {
   requestAnimationFrame,
   cancelAnimationFrame,
@@ -17,6 +17,7 @@ import {
   createStorage,
   tryParseJSON,
   prettyJSONObject,
+  copyText,
 } from '../src'
 
 it('requestAnimationFrame', () => {
@@ -242,5 +243,56 @@ describe('JSON utility functions', () => {
     const jsonObject = { key: 'value', number: 42 }
     const prettyString = prettyJSONObject(jsonObject)
     expect(prettyString).toBe('{\n  "key": "value",\n  "number": 42\n}')
+  })
+})
+
+describe('copyText', () => {
+  beforeEach(() => {
+    Object.defineProperty(document, 'execCommand', {
+      value: vi.fn(),
+      configurable: true,
+    })
+  })
+
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
+
+  it('should return success true when text is copied successfully', () => {
+    ;(document.execCommand as Mock).mockImplementation(() => true)
+
+    const result = copyText('Hello, world!')
+    expect(result?.success).toBe(undefined)
+    expect(document.execCommand).toHaveBeenCalledWith('copy')
+  })
+
+  it('should return success false when no text is provided', () => {
+    const result = copyText('')
+    expect(result?.success).toBe(false)
+    expect(result?.error).toBeUndefined()
+  })
+
+  it('should return success false and capture error if copy command fails', () => {
+    ;(document.execCommand as Mock).mockImplementation(() => {
+      throw new Error('Copy command failed')
+    })
+
+    const result = copyText('Hello, world!')
+    expect(result?.success).toBe(false)
+    expect(result?.error).toBeInstanceOf(Error)
+    expect(result?.error?.message).toBe('Copy command failed')
+  })
+
+  it('should add and remove a textarea element during copy', () => {
+    const appendChildSpy = vi.spyOn(document.body, 'appendChild')
+    const removeChildSpy = vi.spyOn(document.body, 'removeChild')
+
+    copyText('Testing element manipulation')
+
+    expect(appendChildSpy).toHaveBeenCalled()
+    expect(removeChildSpy).toHaveBeenCalled()
+
+    appendChildSpy.mockRestore()
+    removeChildSpy.mockRestore()
   })
 })
