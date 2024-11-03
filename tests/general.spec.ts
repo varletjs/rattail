@@ -308,6 +308,34 @@ it('isEqual', () => {
       () => {},
     ),
   ).toBe(false)
+  // eslint-disable-next-line
+  expect(isEqual(new String('123'), new String('123'))).toBe(true)
+  // eslint-disable-next-line
+  expect(isEqual(new String('123'), new String('1234'))).toBe(false)
+  // eslint-disable-next-line
+  expect(isEqual(new Number(1), new Number(1))).toBe(true)
+  // eslint-disable-next-line
+  expect(isEqual(new Number(1), new Number(2))).toBe(false)
+  // eslint-disable-next-line
+  expect(isEqual(new Boolean(true), new Boolean(true))).toBe(true)
+  // eslint-disable-next-line
+  expect(isEqual(new Boolean(true), new Boolean(false))).toBe(false)
+  // eslint-disable-next-line
+  expect(isEqual(new Object(Symbol()), new Object(Symbol()))).toBe(false)
+  // eslint-disable-next-line
+  expect(isEqual(new Object(BigInt(1)), new Object(BigInt(1)))).toBe(true)
+  // eslint-disable-next-line
+  expect(isEqual(new Object(BigInt(1)), new Object(BigInt(2)))).toBe(false)
+  // eslint-disable-next-line
+  expect(isEqual('123', new String('123'))).toBe(false)
+  // eslint-disable-next-line
+  expect(isEqual(1, new Number(1))).toBe(false)
+  // eslint-disable-next-line
+  expect(isEqual(true, new Boolean(true))).toBe(false)
+  // eslint-disable-next-line
+  expect(isEqual(Symbol('test'), new Object(Symbol('test')))).toBe(false)
+  // eslint-disable-next-line
+  expect(isEqual(BigInt(1), new Object(BigInt(1)))).toBe(false)
 
   class A {}
   class B {}
