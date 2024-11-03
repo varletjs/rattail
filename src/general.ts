@@ -259,6 +259,16 @@ export function isEqualWith(value: any, other: any, fn: (value: any, other: any)
       return value.every((v, i) => baseIsEqual(v, other[i], cache))
     }
 
+    if (
+      (toRawType(value) === 'String' && toRawType(other) === 'String') ||
+      (toRawType(value) === 'Number' && toRawType(other) === 'Number') ||
+      (toRawType(value) === 'Boolean' && toRawType(other) === 'Boolean') ||
+      (toRawType(value) === 'BigInt' && toRawType(other) === 'BigInt') ||
+      (toRawType(value) === 'Symbol' && toRawType(other) === 'Symbol')
+    ) {
+      return value.valueOf() === other.valueOf()
+    }
+
     if (isPlainObject(value) && isPlainObject(other)) {
       const valueOwnKeys = [...Object.keys(value), ...Object.getOwnPropertySymbols(value)]
       const otherOwnKeys = [...Object.keys(other), ...Object.getOwnPropertySymbols(other)]
