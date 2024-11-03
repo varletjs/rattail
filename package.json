@@ -50,10 +50,10 @@
     "commit-msg": "pnpm exec vr commit-lint -p $1"
   },
   "nano-staged": {
-    "*.{md}": "pnpm format",
+    "*.{md}": "prettier --write",
     "*.{ts}": [
-      "pnpm format",
-      "pnpm lint"
+      "prettier --write",
+      "eslint --fix"
     ]
   },
   "devDependencies": {
