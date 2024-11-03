@@ -32,6 +32,8 @@ import {
   isDataView,
   isEqual,
   isEqualWith,
+  isError,
+  isDOMException,
   getGlobalThis,
 } from '../src'
 
@@ -200,6 +202,14 @@ it('isWeakMap', () => {
 
 it('isArrayBuffer', () => {
   expect(isArrayBuffer(new ArrayBuffer(1))).toBe(true)
+})
+
+it('isError', () => {
+  expect(isError(new Error())).toBe(true)
+})
+
+it('isDOMException', () => {
+  expect(isDOMException(new DOMException())).toBe(true)
 })
 
 it('isTypedArray', () => {
