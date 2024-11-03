@@ -52,13 +52,7 @@ export function sumHash(value: any): string {
     return hash < 0 ? hash * -2 : hash
   }
 
-  function sumObject(hash: number, object: Record<string, any>, seen: any[]): number {
-    return Object.keys(object)
-      .sort()
-      .reduce((hash, key) => sumValue(hash, (object as Record<string, any>)[key], key, seen), hash)
-  }
-
-  function sumValue(hash: number, value: any, key: string, seen: any[]): number {
+  function baseSumHash(hash: number, value: any, key: string, seen: any[]): number {
     hash = sum(hash, key)
     hash = sum(hash, toTypeString(value))
     hash = sum(hash, typeof value)
@@ -78,7 +72,9 @@ export function sumHash(value: any): string {
 
       seen.push(value)
 
-      hash = sumObject(hash, value, seen)
+      hash = Object.keys(value)
+        .sort()
+        .reduce((hash, key) => baseSumHash(hash, value[key], key, seen), hash)
 
       if (isFunction(value.valueOf)) {
         try {
@@ -94,5 +90,5 @@ export function sumHash(value: any): string {
     return sum(hash, value.toString())
   }
 
-  return sumValue(0, value, '', []).toString(16).padStart(8, '0')
+  return baseSumHash(0, value, '', []).toString(16).padStart(8, '0')
 }

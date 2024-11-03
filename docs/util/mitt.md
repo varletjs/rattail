@@ -5,7 +5,7 @@ Event emitter / pubsub. Integrated with [mitt](https://github.com/developit/mitt
 ### Usage
 
 ```ts
-import mitt from 'mitt'
+import { mitt } from 'rattail'
 
 const emitter = mitt()
 

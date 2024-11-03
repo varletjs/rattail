@@ -5,7 +5,7 @@
 ### 用法
 
 ```ts
-import mitt from 'mitt'
+import { mitt } from 'rattail'
 
 const emitter = mitt()
 
