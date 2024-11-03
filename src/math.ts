@@ -77,11 +77,7 @@ export function sumHash(value: any): string {
         .reduce((hash, key) => baseSumHash(hash, value[key], key, seen), hash)
 
       if (isFunction(value.valueOf)) {
-        try {
-          return sum(hash, String(value.valueOf()))
-        } catch (err) {
-          return sum(hash, `[valueOf exception]${(err as Error).message}`)
-        }
+        return sum(hash, String(value.valueOf()))
       }
 
       return hash

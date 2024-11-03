@@ -30,6 +30,8 @@ import {
   isWeakSet,
   isTypedArray,
   isDataView,
+  isEqual,
+  isEqualWith,
   getGlobalThis,
 } from '../src'
 
@@ -267,4 +269,86 @@ it('getGlobalThis', () => {
   expect(getGlobalThis()).toBe(global)
   expect(getGlobalThis()).toBe(window)
   expect(getGlobalThis()).toBe(self)
+})
+
+it('isEqual', () => {
+  expect(isEqual('123', '123')).toBe(true)
+  expect(isEqual('123', '1234')).toBe(false)
+  expect(isEqual(1, 1)).toBe(true)
+  expect(isEqual(1, 2)).toBe(false)
+  expect(isEqual(true, true)).toBe(true)
+  expect(isEqual(true, false)).toBe(false)
+  expect(isEqual(NaN, NaN)).toBe(true)
+  expect(isEqual(/abc/, /abc/)).toBe(true)
+  expect(isEqual(/abc/g, /abc/)).toBe(false)
+  expect(isEqual(/abc/, /abcd/)).toBe(false)
+  expect(isEqual(Symbol('test'), Symbol('test'))).toBe(false)
+  expect(isEqual(new WeakMap(), new WeakMap())).toBe(false)
+  expect(isEqual(new WeakSet(), new WeakSet())).toBe(false)
+  expect(isEqual(new Date('2024/11/03'), new Date('2024/11/03'))).toBe(true)
+  expect(isEqual(new Date('2024/11/03'), new Date('2024/11/04'))).toBe(false)
+  expect(isEqual(new Error('message'), new Error('message'))).toBe(true)
+  expect(isEqual(new Error('message'), new Error('mess'))).toBe(false)
+  expect(isEqual(new DOMException('message'), new DOMException('message'))).toBe(true)
+  expect(isEqual(new DOMException('message'), new DOMException('mess'))).toBe(false)
+  expect(
+    isEqual(
+      () => {},
+      () => {},
+    ),
+  ).toBe(false)
+
+  class A {}
+  class B {}
+
+  expect(isEqual(new A(), new A())).toBe(true)
+  expect(isEqual(new A(), new B())).toBe(false)
+
+  expect(isEqual(new Set([1]), new Set([1]))).toBe(true)
+  expect(isEqual(new Set([1]), new Set([]))).toBe(false)
+  expect(isEqual(new Set([{ n: 1 }]), new Set([{ n: 1 }]))).toBe(true)
+  expect(isEqual(new Set([{ n: 1 }]), new Set([{ n: 2 }]))).toBe(false)
+
+  expect(isEqual(new Map([['a', 1]]), new Map([['a', 1]]))).toBe(true)
+  expect(isEqual(new Map([['a', 1]]), new Map())).toBe(false)
+  expect(isEqual(new Map([['a', 1]]), new Map([['a', 2]]))).toBe(false)
+  expect(isEqual(new Map([['a', { n: 1 }]]), new Map([['a', { n: 1 }]]))).toBe(true)
+  expect(isEqual(new Map([[{ n: 1 }, { n: 1 }]]), new Map([[{ n: 1 }, { n: 1 }]]))).toBe(true)
+  expect(isEqual(new Map([[{ n: 1 }, { n: 1 }]]), new Map([[{ n: 2 }, { n: 1 }]]))).toBe(false)
+
+  expect(isEqual(new Int8Array(8), new Int8Array(8))).toBe(true)
+  expect(isEqual(new Int8Array(8), new Int8Array(10))).toBe(false)
+  expect(isEqual(new ArrayBuffer(8), new ArrayBuffer(8))).toBe(true)
+  expect(isEqual(new ArrayBuffer(8), new ArrayBuffer(10))).toBe(false)
+  expect(isEqual(new TextEncoder().encode('123').buffer, new TextEncoder().encode('123').buffer)).toBe(true)
+  expect(isEqual(new TextEncoder().encode('123').buffer, new TextEncoder().encode('1234').buffer)).toBe(false)
+
+  expect(isEqual({ n: 1 }, { n: 1 })).toBe(true)
+  expect(isEqual({ n: 1 }, { n: 2 })).toBe(false)
+  expect(isEqual({ n: 1, x: [1] }, { n: 1, x: [1] })).toBe(true)
+  expect(isEqual({ n: 1, x: [1] }, { n: 1, x: [1, 2] })).toBe(false)
+  expect(isEqual({ a: { b: { c: 1 } } }, { a: { b: { c: 1 } } })).toBe(true)
+  expect(isEqual({ a: { b: { c: 1 } } }, { a: { b: { c: 1 } }, a1: {} })).toBe(false)
+  expect(isEqual([{ a: { b: { c: 1 } } }], [{ a: { b: { c: 1 } } }])).toBe(true)
+
+  const a: Record<string, any> = { n: 1 }
+  a.self = a
+  const b: Record<string, any> = { n: 1 }
+  b.self = b
+  a.x = b
+  b.x = a
+
+  expect(isEqual(a, b)).toBe(true)
+})
+
+it('isEqualWith', () => {
+  expect(isEqualWith({}, [], (a, b) => typeof a === typeof b)).toBe(true)
+  expect(isEqualWith([1, 2, 3], [1, 2, 4], (a, b) => a.length === b.length)).toBe(true)
+  expect(
+    isEqualWith(
+      () => {},
+      () => {},
+      (a, b) => isFunction(a) === isFunction(b),
+    ),
+  ).toBe(true)
 })

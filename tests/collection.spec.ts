@@ -298,6 +298,20 @@ describe('cloneDeep', () => {
     expect(value).not.toBe(result)
   })
 
+  it('Error', () => {
+    const value = new Error()
+    const result = cloneDeep(value)
+    expect(result).toEqual({})
+    expect(value).not.toBe(result)
+  })
+
+  it('DOMException', () => {
+    const value = new DOMException()
+    const result = cloneDeep(value)
+    expect(result).toEqual({})
+    expect(value).not.toBe(result)
+  })
+
   it('class instance (prototype)', () => {
     class Person {
       name = 1

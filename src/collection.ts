@@ -13,6 +13,8 @@ import {
   isRegExp,
   isTypedArray,
   isWeakMap,
+  isError,
+  isDOMException,
 } from './general'
 
 export function mergeWith<TObject extends Record<string, any>, TSource extends Record<string, any>>(
@@ -111,7 +113,7 @@ export function cloneDeepWith<T>(value: T, fn: (value: any) => any): T {
       return newConstructor(value, value.valueOf())
     }
 
-    if (isWeakMap(value) || isWeakSet(value)) {
+    if (isWeakMap(value) || isWeakSet(value) || isError(value) || isDOMException(value)) {
       return {}
     }
 
@@ -139,15 +141,13 @@ export function cloneDeepWith<T>(value: T, fn: (value: any) => any): T {
     }
 
     if (isPlainObject(value)) {
-      const result: Record<string, any> = Object.create(Reflect.getPrototypeOf(value))
+      const result: Record<string | symbol, any> = Object.create(Reflect.getPrototypeOf(value))
       cache.set(value, result)
 
-      // eslint-disable-next-line no-restricted-syntax
-      for (const key in value) {
-        if (hasOwn(value, key)) {
-          result[key] = baseCloneDeep(value[key], cache)
-        }
-      }
+      const ownKeys = [...Object.keys(value), ...Object.getOwnPropertySymbols(value)]
+      ownKeys.forEach((key) => {
+        result[key] = baseCloneDeep(value[key as keyof typeof value], cache)
+      })
 
       return result
     }
