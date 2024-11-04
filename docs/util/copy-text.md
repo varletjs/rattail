@@ -18,6 +18,6 @@ copyText('Hello, clipboard!') // The string will be written to the clipboard
 
 ### Return
 
-| Type   |
-| ------ |
-| `-` |
+| Type |
+| ---- |
+| `-`  |
