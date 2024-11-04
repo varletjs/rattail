@@ -1,3 +1,12 @@
+## [0.0.10](https://github.com/varletjs/rattail/compare/v0.0.9...v0.0.10) (2024-11-04)
+
+
+### Features
+
+* support chunk ([80e4419](https://github.com/varletjs/rattail/commit/80e441936042cebc01309c54c034a4fccb2869b9))
+
+
+
 ## [0.0.9](https://github.com/varletjs/rattail/compare/v0.0.8...v0.0.9) (2024-11-04)
 
 
