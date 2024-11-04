@@ -363,6 +363,8 @@ it('isEqual', () => {
   expect(isEqual(new TextEncoder().encode('123').buffer, new TextEncoder().encode('1234').buffer)).toBe(false)
 
   expect(isEqual({ n: 1 }, { n: 1 })).toBe(true)
+  expect(isEqual([1, 2, 3], [1, 2, 3])).toBe(true)
+  expect(isEqual([1, 2, 3], { 0: 1, 1: 2, 2: 3 })).toBe(false)
   expect(isEqual({ a: 1, b: 2 }, { b: 2, a: 1 })).toBe(true)
   expect(isEqual({ n: 1 }, { n: 2 })).toBe(false)
   expect(isEqual({ n: 1, x: [1] }, { n: 1, x: [1] })).toBe(true)
@@ -379,8 +381,14 @@ it('isEqual', () => {
   const c = [a, b]
   const d = [b, a]
 
+  const x: Record<string, any> = { n: 1 }
+  const y: Record<string, any> = { n: 1 }
+  x.self = x
+  y.self = y
+
   expect(isEqual(a, b)).toBe(true)
   expect(isEqual(c, d)).toBe(true)
+  expect(isEqual(x, y)).toBe(true)
 })
 
 it('isEqualWith', () => {
@@ -392,5 +400,13 @@ it('isEqualWith', () => {
       () => {},
       (a, b) => isFunction(a) === isFunction(b),
     ),
+  ).toBe(true)
+
+  expect(
+    isEqualWith([1, 2], ['1', '2'], (v1, v2) => {
+      if (!isObject(v1) && !isObject(v2)) {
+        return String(v1) === String(v2)
+      }
+    }),
   ).toBe(true)
 })
