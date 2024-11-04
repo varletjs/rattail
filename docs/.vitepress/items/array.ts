@@ -1,5 +1,6 @@
 export const arrayItems = [
   { text: 'at', link: '/array/at' },
+  { text: 'chunk', link: '/array/chunk' },
   { text: 'uniq', link: '/array/uniq' },
   { text: 'uniqBy', link: '/array/uniq-by' },
   { text: 'find', link: '/array/find' },

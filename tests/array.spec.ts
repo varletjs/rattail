@@ -10,6 +10,7 @@ import {
   find,
   at,
   shuffle,
+  chunk,
 } from '../src'
 
 it('uniq', () => {
@@ -83,4 +84,13 @@ it('shuffle', () => {
   const arr = [1, 2, 3, 4, 5]
   const shuffled = shuffle([...arr])
   expect(shuffled.sort()).toEqual(arr)
+})
+
+it('chunk', () => {
+  expect(chunk([])).toEqual([])
+  expect(chunk([1, 2, 3, 4, 5])).toEqual([[1], [2], [3], [4], [5]])
+  expect(chunk([1, 2, 3, 4, 5], 0)).toEqual([[1], [2], [3], [4], [5]])
+  expect(chunk([1, 2, 3, 4, 5], 2)).toEqual([[1, 2], [3, 4], [5]])
+  expect(chunk([1, 2], 2)).toEqual([[1, 2]])
+  expect(chunk([1, 2], 3)).toEqual([[1, 2]])
 })
