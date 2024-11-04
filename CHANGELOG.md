@@ -1,3 +1,20 @@
+## [0.0.8](https://github.com/varletjs/rattail/compare/v0.0.7...v0.0.8) (2024-11-04)
+
+
+### Bug Fixes
+
+* fix isEqual ([4f6c4a8](https://github.com/varletjs/rattail/commit/4f6c4a8405ad3e0700d6f14cede236943bf0116d))
+
+
+### Features
+
+* add copyText util function ([#25](https://github.com/varletjs/rattail/issues/25)) ([178facd](https://github.com/varletjs/rattail/commit/178facd234898ad5dc77ddd43fbf6f55d844c89f))
+* support randomString, randomColor, sumHash ([72b398f](https://github.com/varletjs/rattail/commit/72b398f9b97b0ae9072aa1a825398c9600507ac8))
+* support sumHash and fix docs ([af238bd](https://github.com/varletjs/rattail/commit/af238bd0891c08cd40bb498ba136880fe2338885))
+* wip ([81e06c8](https://github.com/varletjs/rattail/commit/81e06c8f4f9bd7d28fe52565b996282c86580cb4))
+
+
+
 ## [0.0.7](https://github.com/varletjs/rattail/compare/v0.0.6...v0.0.7) (2024-11-01)
 
 
