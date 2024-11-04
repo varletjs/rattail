@@ -373,12 +373,14 @@ it('isEqual', () => {
 
   const a: Record<string, any> = { n: 1 }
   a.self = a
-  const b: Record<string, any> = { n: 1 }
-  b.self = b
-  a.x = b
-  b.x = a
+  const b: Record<string, any> = { n: 1, self: { n: 1 } }
+  b.self.self = a
+
+  const c = [a, b]
+  const d = [b, a]
 
   expect(isEqual(a, b)).toBe(true)
+  expect(isEqual(c, d)).toBe(true)
 })
 
 it('isEqualWith', () => {

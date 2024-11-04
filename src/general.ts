@@ -169,9 +169,10 @@ export function isNonEmptyArray(val: unknown): val is Array<any> {
 }
 
 export function isEqualWith(value: any, other: any, fn: (value: any, other: any) => any): boolean {
-  const cache = new WeakMap()
+  const valueStack = new WeakMap()
+  const otherStack = new WeakMap()
 
-  function baseIsEqual(value: any, other: any, cache: WeakMap<any, any>): boolean {
+  function baseIsEqual(value: any, other: any, valueStack: WeakMap<any, any>, otherStack: WeakMap<any, any>): boolean {
     const customEqual = fn(value, other)
 
     if (customEqual === true) {
@@ -193,6 +194,16 @@ export function isEqualWith(value: any, other: any, fn: (value: any, other: any)
 
     if (value.constructor !== other.constructor) {
       return false
+    }
+
+    if (
+      (toRawType(value) === 'String' && toRawType(other) === 'String') ||
+      (toRawType(value) === 'Number' && toRawType(other) === 'Number') ||
+      (toRawType(value) === 'Boolean' && toRawType(other) === 'Boolean') ||
+      (toRawType(value) === 'BigInt' && toRawType(other) === 'BigInt') ||
+      (toRawType(value) === 'Symbol' && toRawType(other) === 'Symbol')
+    ) {
+      return value.valueOf() === other.valueOf()
     }
 
     if (isDate(value) && isDate(other)) {
@@ -233,12 +244,12 @@ export function isEqualWith(value: any, other: any, fn: (value: any, other: any)
       return valueTypedArray.every((v, i) => v === otherTypedArray[i])
     }
 
-    if (cache.get(value) === other && cache.get(other) === value) {
+    if (valueStack.get(value) === other && otherStack.get(other) === value) {
       return true
     }
 
-    cache.set(value, other)
-    cache.set(other, value)
+    valueStack.set(value, other)
+    otherStack.set(other, value)
 
     if ((isMap(value) && isMap(other)) || (isSet(value) && isSet(other))) {
       if (value.size !== other.size) {
@@ -247,8 +258,11 @@ export function isEqualWith(value: any, other: any, fn: (value: any, other: any)
 
       const valueArray = [...value]
       const otherArray = [...other]
+      const result = valueArray.every((v, i) => baseIsEqual(v, otherArray[i], valueStack, otherStack))
+      valueStack.delete(value)
+      otherStack.delete(other)
 
-      return valueArray.every((v, i) => baseIsEqual(v, otherArray[i], cache))
+      return result
     }
 
     if (isArray(value) && isArray(other)) {
@@ -256,17 +270,11 @@ export function isEqualWith(value: any, other: any, fn: (value: any, other: any)
         return false
       }
 
-      return value.every((v, i) => baseIsEqual(v, other[i], cache))
-    }
+      const result = value.every((v, i) => baseIsEqual(v, other[i], valueStack, otherStack))
+      valueStack.delete(value)
+      otherStack.delete(other)
 
-    if (
-      (toRawType(value) === 'String' && toRawType(other) === 'String') ||
-      (toRawType(value) === 'Number' && toRawType(other) === 'Number') ||
-      (toRawType(value) === 'Boolean' && toRawType(other) === 'Boolean') ||
-      (toRawType(value) === 'BigInt' && toRawType(other) === 'BigInt') ||
-      (toRawType(value) === 'Symbol' && toRawType(other) === 'Symbol')
-    ) {
-      return value.valueOf() === other.valueOf()
+      return result
     }
 
     if (isPlainObject(value) && isPlainObject(other)) {
@@ -277,15 +285,20 @@ export function isEqualWith(value: any, other: any, fn: (value: any, other: any)
         return false
       }
 
-      return valueOwnKeys.every((k) =>
-        baseIsEqual(value[k as keyof typeof value], other[k as keyof typeof other], cache),
+      const result = valueOwnKeys.every((k) =>
+        baseIsEqual(value[k as keyof typeof value], other[k as keyof typeof other], valueStack, otherStack),
       )
+
+      valueStack.delete(value)
+      otherStack.delete(other)
+
+      return result
     }
 
     return false
   }
 
-  return baseIsEqual(value, other, cache)
+  return baseIsEqual(value, other, valueStack, otherStack)
 }
 
 export function isEqual(value: any, other: any): boolean {
