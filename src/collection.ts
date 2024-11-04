@@ -17,11 +17,11 @@ import {
   isDOMException,
 } from './general'
 
-export function mergeWith<TObject extends Record<string, any>, TSource extends Record<string, any>>(
-  object: TObject,
-  source: TSource,
-  fn: (objValue: any, srcValue: any, key: string | number | symbol, object?: TObject, source?: TSource) => any,
-): TObject & TSource {
+export function mergeWith<T extends Record<string, any>, K extends Record<string, any>>(
+  object: T,
+  source: K,
+  fn: (objValue: any, srcValue: any, key: string | number | symbol, object?: T, source?: K) => any,
+): T & K {
   function baseMerge(target: any, src: any): any {
     // eslint-disable-next-line no-restricted-syntax
     for (const key in src) {
@@ -47,13 +47,10 @@ export function mergeWith<TObject extends Record<string, any>, TSource extends R
     return target
   }
 
-  return baseMerge(object as any, source as any) as TObject & TSource
+  return baseMerge(object as any, source as any) as T & K
 }
 
-export function merge<TObject extends Record<string, any>, TSource extends Record<string, any>>(
-  object: TObject,
-  source: TSource,
-) {
+export function merge<T extends Record<string, any>, K extends Record<string, any>>(object: T, source: K) {
   return mergeWith(object, source, () => undefined)
 }
 
