@@ -9,6 +9,8 @@ import {
   lowerFirst,
   randomColor,
   randomString,
+  ensurePrefix,
+  ensureSuffix,
 } from '../src'
 
 it('pascalCase', () => {
@@ -56,4 +58,14 @@ it('randomColor', () => {
 it('randomString', () => {
   expect(randomString().length).toBe(10)
   expect(randomString(30).length).toBe(30)
+})
+
+it('ensurePrefix', () => {
+  expect(ensurePrefix('abc', 'a')).toBe('abc')
+  expect(ensurePrefix('bc', 'a')).toBe('abc')
+})
+
+it('ensureSuffix', () => {
+  expect(ensureSuffix('abc', 'c')).toBe('abc')
+  expect(ensureSuffix('ab', 'c')).toBe('abc')
 })

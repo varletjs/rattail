@@ -1,5 +1,7 @@
 export const utilItems = [
   { text: 'mitt', link: '/util/mitt' },
+  { text: 'copyText', link: '/util/copy-text' },
+  { text: 'storage', link: '/util/storage' },
   { text: 'classes', link: '/util/classes' },
   { text: 'createNamespaceFn', link: '/util/create-namespace-fn' },
   { text: 'raf', link: '/util/raf' },
@@ -16,5 +18,4 @@ export const utilItems = [
   { text: 'getAllParentScroller', link: '/util/get-all-parent-scroller' },
   { text: 'prettyJSONObject', link: '/util/pretty-JSON-object' },
   { text: 'tryParseJSON', link: '/util/try-parse-JSON' },
-  { text: 'copyText', link: '/util/copy-text' },
 ]
