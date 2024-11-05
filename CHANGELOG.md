@@ -1,3 +1,12 @@
+## [0.0.11](https://github.com/varletjs/rattail/compare/v0.0.10...v0.0.11) (2024-11-05)
+
+
+### Features
+
+* support ensureSuffix, ensurePrefix, refactor project structrue ([475cdde](https://github.com/varletjs/rattail/commit/475cdde2873f6d5314f844bdce1d09cfe66c65d6))
+
+
+
 ## [0.0.10](https://github.com/varletjs/rattail/compare/v0.0.9...v0.0.10) (2024-11-04)
 
 
