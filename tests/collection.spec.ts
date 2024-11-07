@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { merge, mergeWith, cloneDeep, cloneDeepWith, isNumber, hasOwn } from '../src'
+import { merge, mergeWith, cloneDeep, cloneDeepWith, isNumber, hasOwn, pick, omit, pickBy, omitBy } from '../src'
 
 it('should merge two objects', () => {
   const result = merge({ a: 1, b: { c: 2 } }, { b: { d: 3 }, e: 4 })
@@ -342,5 +342,120 @@ describe('cloneDeepWith', () => {
     })
 
     expect(result).toEqual({ a: 2, b: 3 })
+  })
+})
+
+describe('pick', () => {
+  it('should pick specified string keys from an object', () => {
+    const obj = { a: 1, b: 2, c: 3 }
+    const result = pick(obj, ['a', 'c'])
+    expect(result).toEqual({ a: 1, c: 3 })
+  })
+
+  it('should pick specified symbol keys from an object', () => {
+    const symA = Symbol('a')
+    const symB = Symbol('b')
+    const obj = {
+      [symA]: 'valueA',
+      [symB]: 'valueB',
+      c: 3,
+    }
+
+    const result = pick(obj, [symA])
+    expect(result).toEqual({
+      [symA]: 'valueA',
+    })
+  })
+
+  it('should pick elements by index from an array', () => {
+    const arr = [10, 20, 30, 40, 50]
+    const result = pick(arr, [0, 2, 4])
+    expect(result).toEqual({
+      '0': 10,
+      '2': 30,
+      '4': 50,
+    })
+  })
+})
+
+describe('omit', () => {
+  it('should omit specified string keys from an object', () => {
+    const obj = { a: 1, b: 2, c: 3 }
+    const result = omit(obj, ['b'])
+    expect(result).toEqual({ a: 1, c: 3 })
+  })
+
+  it('should omit specified symbol keys from an object', () => {
+    const symA = Symbol('a')
+    const symB = Symbol('b')
+    const obj = {
+      [symA]: 'valueA',
+      [symB]: 'valueB',
+      c: 3,
+    }
+
+    const result = omit(obj, [symA])
+    expect(result).toEqual({
+      [symB]: 'valueB',
+      c: 3,
+    })
+  })
+
+  it('should omit elements by index from an array', () => {
+    const arr = [10, 20, 30, 40, 50]
+    const result = omit(arr, [1, 3])
+    expect(result).toEqual([10, 30, 50])
+  })
+})
+
+describe('pickBy', () => {
+  it('should pick properties from an object based on the predicate for string keys', () => {
+    const obj = { a: 1, b: 2, c: 3 }
+    const result = pickBy(obj, (value) => value % 2 === 1)
+    expect(result).toEqual({ a: 1, c: 3 })
+  })
+
+  it('should pick properties from an object based on the predicate for symbol keys', () => {
+    const symA = Symbol('a')
+    const symB = Symbol('b')
+    const obj = {
+      [symA]: 1,
+      [symB]: 2,
+      c: 3,
+    }
+    const result = pickBy(obj, (value) => value === 2)
+    expect(result).toEqual({ [symB]: 2 })
+  })
+
+  it('should pick elements from an array based on the predicate', () => {
+    const arr: number[] = [10, 15, 20, 25, 30] // Explicitly specify the array as number[]
+    const result = pickBy(arr, (value) => value > 15)
+    expect(result).toEqual([20, 25, 30])
+  })
+})
+
+describe('omitBy', () => {
+  it('should omit properties from an object based on the predicate for string keys', () => {
+    const obj = { a: 1, b: 2, c: 3 }
+    const result = omitBy(obj, (value) => value % 2 === 1)
+    expect(result).toEqual({ b: 2 })
+  })
+
+  it('should omit properties from an object based on the predicate for symbol keys', () => {
+    const symA = Symbol('a')
+    const symB = Symbol('b')
+    const obj = {
+      [symA]: 1,
+      [symB]: 2,
+      c: 3,
+    }
+    const result = omitBy(obj, (value) => value === 2)
+    expect(result).toEqual({ [symA]: 1, c: 3 })
+  })
+
+  it('should omit elements from an array based on the predicate', () => {
+    const arr = [10, 15, 20, 25, 30]
+    const result = omitBy(arr, (value) => value < 20)
+    expect(result).toEqual([20, 25, 30])
   })
 })
