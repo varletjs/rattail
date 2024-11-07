@@ -1,4 +1,4 @@
-export function uniqBy<T>(arr: T[], fn: (a: T, b: T) => boolean): T[] {
+export function uniqBy<T>(arr: T[], fn: (a: T, b: T) => any): T[] {
   return arr.reduce((ret: T[], i: T) => {
     const index = ret.findIndex((j: T) => fn(i, j))
 

@@ -1,14 +1,14 @@
-# pick
+# omit
 
-Creates a new object by selecting specified keys from an existing object.
+Excludes object properties and constructs a new object.
 
 ### Usage
 
 ```ts
-import { pick } from 'rattail'
+import { omit } from 'rattail'
 
-pick({ a: 1, b: 2, c: 3 }, ['a', 'c'])
-// return { a: 1, c: 3 }
+omit({ a: 1, b: 2, c: 3 }, ['a', 'c'])
+// return { b: 2 }
 ```
 
 ### Arguments

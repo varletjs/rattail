@@ -13,10 +13,10 @@ uniqBy([{ id: 1 }, { id: 2 }, { id: 1 }], (a, b) => a.id === b.id)
 
 ### Arguments
 
-| Arg   | Type                          | Defaults |
-| ----- | ----------------------------- | -------- |
-| `arr` | `Array`                       |          |
-| `fn`  | `(a: any, b: any) => boolean` |          |
+| Arg   | Type                      | Defaults |
+| ----- | ------------------------- | -------- |
+| `arr` | `Array`                   |          |
+| `fn`  | `(a: any, b: any) => any` |          |
 
 ### Return
 

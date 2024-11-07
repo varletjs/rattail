@@ -1,4 +1,5 @@
 export * from './array'
+export * from './object'
 export * from './util'
 export * from './function'
 export * from './general'

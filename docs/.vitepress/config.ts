@@ -4,6 +4,7 @@ import {
   numberItems,
   stringItems,
   arrayItems,
+  objectItems,
   functionItems,
   collectionItems,
   mathItems,
@@ -56,6 +57,10 @@ export default defineConfig({
           {
             text: '数学',
             items: withI18n(mathItems, 'zh'),
+          },
+          {
+            text: '对象',
+            items: withI18n(objectItems, 'zh'),
           },
           {
             text: '数组',
@@ -118,6 +123,10 @@ export default defineConfig({
       {
         text: 'Math',
         items: mathItems,
+      },
+      {
+        text: 'Object',
+        items: objectItems,
       },
       {
         text: 'Array',

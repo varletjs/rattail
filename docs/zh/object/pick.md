@@ -1,14 +1,14 @@
-# omit
+# pick
 
-通过从现有对象中排除指定键来创建新对象。
+提取对象属性并构造成一个新的对象。
 
 ### 使用
 
 ```ts
-import { omit } from 'rattail'
+import { pick } from 'rattail'
 
-omit({ a: 1, b: 2, c: 3 }, ['a', 'c'])
-// return { b: 2 }
+pick({ a: 1, b: 2, c: 3 }, ['a', 'c'])
+// return { a: 1, c: 3 }
 ```
 
 ### 参数
