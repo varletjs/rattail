@@ -1,3 +1,12 @@
+## [0.0.12](https://github.com/varletjs/rattail/compare/v0.0.11...v0.0.12) (2024-11-07)
+
+
+### Features
+
+* add pick, omit, pickBy, and omitBy functions ([#27](https://github.com/varletjs/rattail/issues/27)) ([ee83029](https://github.com/varletjs/rattail/commit/ee830291c16cb3ebffcbe5313657cdeed933d101))
+
+
+
 ## [0.0.11](https://github.com/varletjs/rattail/compare/v0.0.10...v0.0.11) (2024-11-05)
 
 
