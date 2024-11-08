@@ -1,6 +1,6 @@
 {
   "name": "rattail",
-  "version": "0.0.12",
+  "version": "1.0.0",
   "type": "module",
   "main": "lib/index.cjs",
   "module": "lib/index.js",
