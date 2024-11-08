@@ -1,6 +1,6 @@
 # isWeakSet
 
-判断输入值是否是`WeakSet`。
+判断输入值是否是 `WeakSet`。
 
 ### 使用
 

@@ -1,6 +1,6 @@
 # isWeakMap
 
-判断输入值是否是`WeakMap`。
+判断输入值是否是 `WeakMap`。
 
 ### 使用
 

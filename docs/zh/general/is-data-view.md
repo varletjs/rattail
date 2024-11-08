@@ -1,6 +1,6 @@
 # isDataView
 
-判断输入值是否是`DataView`。
+判断输入值是否是 `DataView`。
 
 ### 使用
 

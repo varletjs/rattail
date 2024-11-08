@@ -1,6 +1,6 @@
 # isArrayBuffer
 
-判断输入值是否是`ArrayBuffer`。
+判断输入值是否是 `ArrayBuffer`。
 
 ### 使用
 

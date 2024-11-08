@@ -1,6 +1,6 @@
 # isTypedArray
 
-判断输入值是否是`TypedArray`。
+判断输入值是否是 `TypedArray`。
 
 ### 使用
 
