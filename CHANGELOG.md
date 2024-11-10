@@ -1,3 +1,12 @@
+## [1.0.1](https://github.com/varletjs/rattail/compare/v1.0.0...v1.0.1) (2024-11-10)
+
+
+### Features
+
+* isFile isBlob ([66c159c](https://github.com/varletjs/rattail/commit/66c159ceeef15bd264149e6db338b9d40c0cf869))
+
+
+
 # [1.0.0](https://github.com/varletjs/rattail/compare/v0.0.12...v1.0.0) (2024-11-08)
 
 
