@@ -24,7 +24,7 @@
 - 🛠️ &nbsp; Provide utilities frequently used in daily development
 - 🛠️ &nbsp; Utilities implementation is very lightweight
 - 🛠️ &nbsp; Written based on ts, providing complete ts types
-- 💪 &nbsp; Make sure more than 90% unit test coverage, providing stability assurance
+- 💪 &nbsp; Make sure more than 99% unit test coverage, providing stability assurance
 
 ### Installation
 

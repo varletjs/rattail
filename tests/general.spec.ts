@@ -1,4 +1,4 @@
-import { it, expect } from 'vitest'
+import { it, expect, vi } from 'vitest'
 import {
   isNonEmptyArray,
   isString,
@@ -20,6 +20,8 @@ import {
   isNullish,
   isWindow,
   isTruthy,
+  isFile,
+  isBlob,
   toRawType,
   hasOwn,
   supportTouch,
@@ -257,6 +259,16 @@ it('isWindow', () => {
   expect(isWindow(undefined)).toBe(false)
 })
 
+it('isFile', () => {
+  expect(isFile(new File([], 'test.txt'))).toBe(true)
+  expect(isFile(new Blob([]))).toBe(false)
+})
+
+it('isBlob', () => {
+  expect(isBlob(new Blob([]))).toBe(true)
+  expect(isBlob(new File([], 'test.txt'))).toBe(false)
+})
+
 it('hasOwn', () => {
   expect(hasOwn({ foo: 1 }, 'foo')).toBe(true)
   expect(hasOwn({ foo: 1 }, 'bar')).toBe(false)
@@ -276,7 +288,7 @@ it('inMobile', () => {
 })
 
 it('getGlobalThis', () => {
-  expect(getGlobalThis()).toBe(global)
+  expect(getGlobalThis()).toBe(globalThis)
   expect(getGlobalThis()).toBe(window)
   expect(getGlobalThis()).toBe(self)
 })

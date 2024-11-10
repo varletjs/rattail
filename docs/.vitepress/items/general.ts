@@ -17,6 +17,8 @@ export const generalItems = [
   { text: 'isSymbol', link: '/general/is-symbol' },
   { text: 'isWeakMap', link: '/general/is-weak-map' },
   { text: 'isWeakSet', link: '/general/is-weak-set' },
+  { text: 'isBlob', link: '/general/is-blob' },
+  { text: 'isFile', link: '/general/is-file' },
   { text: 'isArrayBuffer', link: '/general/is-array-buffer' },
   { text: 'isTypedArray', link: '/general/is-typed-array' },
   { text: 'isDataView', link: '/general/is-data-view' },

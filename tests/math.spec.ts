@@ -51,4 +51,8 @@ it('sumHash', () => {
   const a: Record<string, any> = { a: '123', self: undefined }
   a.self = a
   expect(sumHash(a)).toBe('76b6e174')
+
+  const b: any = { a: '123' }
+  b.valueOf = undefined
+  expect(sumHash(b)).toBe('4d3182a6')
 })
