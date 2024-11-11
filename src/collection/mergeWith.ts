@@ -1,5 +1,5 @@
 import { at } from '../array'
-import { hasOwn, isArray, isFunction, isObject } from '../general'
+import { hasOwn, isArray, isObject } from '../general'
 
 type Fn = (objValue: any, srcValue: any, key: string | number | symbol, object?: any, source?: any) => any
 
