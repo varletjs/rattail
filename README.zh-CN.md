@@ -1,11 +1,11 @@
 <div align="center">
-  <a href="https://rattail.pages.dev/zh">
-    <img src="https://rattail.pages.dev/logo.svg" width="150">
+  <a href="https://rattail.varletjs.org/zh">
+    <img src="https://rattail.varletjs.org/logo.svg" width="150">
   </a>
   <h1>Rattail</h1>
   <p>面向前端开发人员的实用工具库，轻量级且 ts 友好</p>
   <p>
-    <a href="https://rattail.pages.dev/zh">文档</a> |
+    <a href="https://rattail.varletjs.org/zh">文档</a> |
     <a href="https://github.com/varletjs/rattail/blob/main/README.md">ENGLISH README</a>
   </p>
   <p>
