@@ -1,3 +1,12 @@
+## [1.0.2](https://github.com/varletjs/rattail/compare/v1.0.1...v1.0.2) (2024-11-11)
+
+
+### Features
+
+* **merge:** support reset args ([fc14191](https://github.com/varletjs/rattail/commit/fc14191d35b85ff98c11803ba933f03d287862a0))
+
+
+
 ## [1.0.1](https://github.com/varletjs/rattail/compare/v1.0.0...v1.0.1) (2024-11-10)
 
 
