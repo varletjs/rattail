@@ -1,17 +1,23 @@
 import { describe, it, expect } from 'vitest'
 import { merge, mergeWith, cloneDeep, cloneDeepWith, isNumber, hasOwn } from '../src'
 
+it('should merge self', () => {
+  const obj = { a: 1 }
+  expect(merge(obj)).toBe(obj)
+})
+
 it('should merge two objects', () => {
-  const result = merge({ a: 1, b: { c: 2 } }, { b: { d: 3 }, e: 4 })
-  expect(result).toEqual({ a: 1, b: { c: 2, d: 3 }, e: 4 })
+  expect(merge({ a: 1, b: { c: 2 } }, { b: { d: 3 }, e: 4 })).toEqual({ a: 1, b: { c: 2, d: 3 }, e: 4 })
+})
+
+it('should merge rest objects', () => {
+  expect(merge({ a: 1 }, { b: 2 }, { c: 3 }, { a: 4 })).toEqual({ a: 4, b: 2, c: 3 })
 })
 
 it('should handle nested merges', () => {
-  const result = merge({ a: { b: 1 } }, { a: { c: 2 } })
-  expect(result).toEqual({ a: { b: 1, c: 2 } })
-
-  const result2 = merge({ a: 1 }, { b: { c: 1 } })
-  expect(result2).toEqual({ a: 1, b: { c: 1 } })
+  expect(merge({ a: { b: 1 } }, { a: { c: 2 } })).toEqual({ a: { b: 1, c: 2 } })
+  expect(merge({ a: 1 }, { b: { c: 1 } })).toEqual({ a: 1, b: { c: 1 } })
+  expect(merge({ a: 1 }, { b: { c: 1 } }, { a: 4, b: { d: 1 } })).toEqual({ a: 4, b: { c: 1, d: 1 } })
 })
 
 it('should create new properties if they don’t exist in the target', () => {
@@ -25,8 +31,20 @@ it('should handle array merging correctly', () => {
 })
 
 it('should use callback for array merging', () => {
-  const result = mergeWith({ a: [1, 2] }, { a: [3, 4] }, (objValue, srcValue) => [...objValue, ...srcValue])
-  expect(result).toEqual({ a: [1, 2, 3, 4] })
+  expect(mergeWith({ a: [1, 2] }, { a: [3, 4] }, (objValue, srcValue) => [...objValue, ...srcValue])).toEqual({
+    a: [1, 2, 3, 4],
+  })
+
+  expect(
+    mergeWith({ a: [1, 2] }, { a: [3, 4] }, { b: [5, 6] }, { b: [7, 8], d: [9, 10] }, (objValue, srcValue) => [
+      ...(objValue ?? []),
+      ...(srcValue ?? []),
+    ]),
+  ).toEqual({
+    a: [1, 2, 3, 4],
+    b: [5, 6, 7, 8],
+    d: [9, 10],
+  })
 })
 
 it('should use the callback to override values', () => {
