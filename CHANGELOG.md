@@ -1,3 +1,13 @@
+## [1.0.4](https://github.com/varletjs/rattail/compare/v1.0.3...v1.0.4) (2024-11-12)
+
+
+### Features
+
+* intersection, intersectionWith ([c8597e2](https://github.com/varletjs/rattail/commit/c8597e28be08857de4d7c03b02ab9d7ca0a50085))
+* support difference, differenceWith ([5064736](https://github.com/varletjs/rattail/commit/5064736cb3ab4a0540e93e3cfecdf567bb605d15))
+
+
+
 ## [1.0.3](https://github.com/varletjs/rattail/compare/v1.0.2...v1.0.3) (2024-11-11)
 
 
