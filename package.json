@@ -32,7 +32,7 @@
     "url": "https://github.com/varletjs/rattail/issues"
   },
   "scripts": {
-    "git-hooks": "simple-git-hooks",
+    "prepare": "simple-git-hooks",
     "dev": "tsup src/index.ts --format esm --out-dir=lib --watch --dts",
     "build": "tsup src/index.ts --format esm,cjs --out-dir=lib --dts --clean",
     "lint": "eslint . --fix --ext .ts,.js",

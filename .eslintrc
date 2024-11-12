@@ -1,5 +1,5 @@
 {
   "root": true,
   "ignorePatterns": ["lib", "coverage", "docs/.vitepress/cache", "docs/.vitepress/dist"],
-  "extends": ["@varlet"],
+  "extends": ["@varlet"]
 }
