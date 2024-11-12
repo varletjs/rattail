@@ -13,6 +13,8 @@ import {
   chunk,
   difference,
   differenceWith,
+  intersection,
+  intersectionWith,
 } from '../src'
 
 it('uniq', () => {
@@ -98,22 +100,61 @@ it('chunk', () => {
 })
 
 it('difference', () => {
-  expect(difference([1, 2, 3, 4])).toEqual([1, 2, 3, 4])
-  expect(difference([1, 2, 3, 4], [2, 3])).toEqual([1, 4])
-  expect(difference([1, 2, 3, 4], [2, 3], [3, 4])).toEqual([1])
+  const a = [1, 2, 3, 4]
+  expect(difference(a)).toEqual([1, 2, 3, 4])
+  expect(difference(a)).not.toBe(a)
+
+  const b = [1, 2, 3, 4]
+  expect(difference(b, [2, 3])).toEqual([1, 4])
+  expect(difference(b, [2, 3])).not.toBe(b)
+
+  const c = [1, 2, 3, 4]
+  expect(difference(c, [2, 3], [3, 4])).toEqual([1])
+  expect(difference(c, [2, 3], [3, 4])).not.toBe(c)
 })
 
 it('differenceWith', () => {
-  expect(differenceWith([{ num: 1 }, { num: 2 }, { num: 3 }], (a, b) => a.num === b.num)).toEqual([
-    { num: 1 },
-    { num: 2 },
-    { num: 3 },
-  ])
-  expect(differenceWith([{ num: 1 }, { num: 2 }, { num: 3 }], [{ num: 2 }], (a, b) => a.num === b.num)).toEqual([
-    { num: 1 },
-    { num: 3 },
-  ])
-  expect(
-    differenceWith([{ num: 1 }, { num: 2 }, { num: 3 }], [{ num: 2 }], [{ num: 3 }], (a, b) => a.num === b.num),
-  ).toEqual([{ num: 1 }])
+  const a = [{ num: 1 }, { num: 2 }, { num: 3 }]
+  expect(differenceWith(a, (a, b) => a.num === b.num)).toEqual([{ num: 1 }, { num: 2 }, { num: 3 }])
+  expect(differenceWith(a, (a, b) => a.num === b.num)).not.toBe(a)
+
+  const b = [{ num: 1 }, { num: 2 }, { num: 3 }]
+  expect(differenceWith(b, [{ num: 2 }], (a, b) => a.num === b.num)).toEqual([{ num: 1 }, { num: 3 }])
+  expect(differenceWith(b, [{ num: 2 }], (a, b) => a.num === b.num)).not.toBe(b)
+
+  const c = [{ num: 1 }, { num: 2 }, { num: 3 }]
+  expect(differenceWith(c, [{ num: 2 }], [{ num: 3 }], (a, b) => a.num === b.num)).toEqual([{ num: 1 }])
+  expect(differenceWith(c, [{ num: 2 }], [{ num: 3 }], (a, b) => a.num === b.num)).not.toBe(c)
+})
+
+it('intersection', () => {
+  expect(intersection()).toEqual([])
+
+  const a = [1, 2, 3, 3]
+  expect(intersection(a)).toEqual([1, 2, 3])
+  expect(intersection(a)).not.toBe(a)
+
+  const b = [1, 2, 3, 3]
+  expect(intersection(b, [2, 3, 4])).toEqual([2, 3])
+  expect(intersection(b, [2, 3, 4])).not.toBe(b)
+
+  const c = [1, 2, 3, 3]
+  expect(intersection(c, [2, 3, 4], [3, 4, 5])).toEqual([3])
+  expect(intersection(c, [2, 3, 4], [3, 4, 5])).not.toBe(c)
+})
+
+it('intersectionWith', () => {
+  expect(intersectionWith((a, b) => a === b)).toEqual([])
+
+  const a = [{ num: 1 }, { num: 2 }, { num: 3 }, { num: 3 }]
+  expect(intersectionWith(a, (a, b) => a.num === b.num)).toEqual([{ num: 1 }, { num: 2 }, { num: 3 }])
+  expect(intersectionWith(a, (a, b) => a.num === b.num)).not.toBe(a)
+
+  const b = [{ num: 1 }, { num: 2 }, { num: 3 }, { num: 3 }]
+  expect(intersectionWith(b, [{ num: 2 }], (a, b) => a.num === b.num)).toEqual([{ num: 2 }])
+  expect(intersectionWith(b, [{ num: 2 }], (a, b) => a.num === b.num)).not.toBe(b)
+
+  const c = [{ num: 1 }, { num: 2 }, { num: 3 }, { num: 3 }]
+  expect(intersectionWith(c, [{ num: 2 }], [{ num: 3 }], (a, b) => a.num === b.num)).toEqual([])
+  expect(intersectionWith(c, [{ num: 2 }], [{ num: 3 }], (a, b) => a.num === b.num)).not.toBe(c)
 })
