@@ -3,6 +3,8 @@ export const arrayItems = [
   { text: 'chunk', link: '/array/chunk' },
   { text: 'uniq', link: '/array/uniq' },
   { text: 'uniqBy', link: '/array/uniq-by' },
+  { text: 'difference', link: '/array/difference' },
+  { text: 'differenceWith', link: '/array/difference-with' },
   { text: 'find', link: '/array/find' },
   { text: 'shuffle', link: '/array/shuffle' },
   { text: 'removeItem', link: '/array/remove-item' },

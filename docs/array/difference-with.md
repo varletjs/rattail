@@ -1,6 +1,6 @@
 # differenceWith
 
-Creates an array of array values ​​that are not contained in other given arrays, and supports custom comparison functions.
+Creates an `array` of array values ​​that are not contained in other given arrays, and supports custom comparison functions.
 
 ### Usage
 
