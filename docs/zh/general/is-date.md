@@ -11,7 +11,7 @@ isDate(new Date()) // return true
 isDate('2024-01-01') // return false
 ```
 
-### 参数列表
+### 参数
 
 | 参数    | 类型  | 默认值 |
 | ------- | :---: | -----: |

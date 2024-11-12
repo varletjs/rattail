@@ -11,7 +11,7 @@ isSymbol(Symbol('test')) // return true
 isSymbol('rattail') // return false
 ```
 
-### 参数列表
+### 参数
 
 | 参数    | 类型  | 默认值 |
 | ------- | :---: | -----: |

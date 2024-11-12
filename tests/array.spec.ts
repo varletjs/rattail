@@ -11,6 +11,8 @@ import {
   at,
   shuffle,
   chunk,
+  difference,
+  differenceWith,
 } from '../src'
 
 it('uniq', () => {
@@ -93,4 +95,25 @@ it('chunk', () => {
   expect(chunk([1, 2, 3, 4, 5], 2)).toEqual([[1, 2], [3, 4], [5]])
   expect(chunk([1, 2], 2)).toEqual([[1, 2]])
   expect(chunk([1, 2], 3)).toEqual([[1, 2]])
+})
+
+it('difference', () => {
+  expect(difference([1, 2, 3, 4])).toEqual([1, 2, 3, 4])
+  expect(difference([1, 2, 3, 4], [2, 3])).toEqual([1, 4])
+  expect(difference([1, 2, 3, 4], [2, 3], [3, 4])).toEqual([1])
+})
+
+it('differenceWith', () => {
+  expect(differenceWith([{ num: 1 }, { num: 2 }, { num: 3 }], (a, b) => a.num === b.num)).toEqual([
+    { num: 1 },
+    { num: 2 },
+    { num: 3 },
+  ])
+  expect(differenceWith([{ num: 1 }, { num: 2 }, { num: 3 }], [{ num: 2 }], (a, b) => a.num === b.num)).toEqual([
+    { num: 1 },
+    { num: 3 },
+  ])
+  expect(
+    differenceWith([{ num: 1 }, { num: 2 }, { num: 3 }], [{ num: 2 }], [{ num: 3 }], (a, b) => a.num === b.num),
+  ).toEqual([{ num: 1 }])
 })

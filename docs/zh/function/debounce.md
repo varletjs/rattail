@@ -14,7 +14,7 @@ const debouncedFn = debounce(() => {
 window.addEventListener('resize', debouncedFn)
 ```
 
-### 参数列表
+### 参数
 
 | 参数    |    类型    | 默认值 |
 | ------- | :--------: | -----: |

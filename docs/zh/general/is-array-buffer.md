@@ -10,7 +10,7 @@ import { isArrayBuffer } from 'rattail'
 isArrayBuffer(new ArrayBuffer(8)) // return true
 ```
 
-### 参数列表
+### 参数
 
 | 参数    | 类型  | 默认值 |
 | ------- | :---: | -----: |

@@ -12,7 +12,7 @@ const value = cloneDeep(original)
 // value: { a: 1, b: { c: 2 } }
 ```
 
-### 参数列表
+### 参数
 
 | 参数    | 类型  | 默认值 |
 | ------- | :---: | -----: |

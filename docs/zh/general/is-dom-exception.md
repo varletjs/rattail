@@ -11,7 +11,7 @@ isDOMException(new DOMException('An error occurred')) // return true
 isDOMException(new Error('An error occurred')) // return false
 ```
 
-### 参数列表
+### 参数
 
 | 参数  | 类型  | 默认值 |
 | ----- | :---: | -----: |

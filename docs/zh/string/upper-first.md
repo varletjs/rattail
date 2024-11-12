@@ -11,7 +11,7 @@ capitalizeFirstLetter('hello world') // return 'Hello world'
 capitalizeFirstLetter('rattail') // return 'Rattail'
 ```
 
-### 参数列表
+### 参数
 
 | 参数    |   类型   | 默认值 |
 | ------- | :------: | -----: |

@@ -13,7 +13,7 @@ clampArrayRange(-1, arr) // return 0
 clampArrayRange(5, arr) // return 2
 ```
 
-### 参数列表
+### 参数
 
 | 参数    |   类型   | 默认值 |
 | ------- | :------: | -----: |

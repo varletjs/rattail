@@ -14,7 +14,7 @@ toNumber('abc') // return 0
 toNumber(null) // return 0
 ```
 
-### 参数列表
+### 参数
 
 | 参数    | 类型  | 默认值 |
 | ------- | :---: | -----: |

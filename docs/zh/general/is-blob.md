@@ -10,7 +10,7 @@ import { isBlob } from 'rattail'
 isBlob(new Blob(['Hello, World!'], { type: 'text/plain' })) // return true
 ```
 
-### 参数列表
+### 参数
 
 | 参数    | 类型  | 默认值 |
 | ------- | :---: | -----: |

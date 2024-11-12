@@ -12,7 +12,7 @@ hasOwn(obj, 'foo') // return true
 hasOwn(obj, 'bar') // return false
 ```
 
-### 参数列表
+### 参数
 
 | 参数    |   类型   | 默认值 |
 | ------- | :------: | -----: |

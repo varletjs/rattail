@@ -11,7 +11,7 @@ pascalCase('hello-world') // return 'HelloWorld'
 pascalCase('fooBar') // return 'FooBar'
 ```
 
-### 参数列表
+### 参数
 
 | 参数    |   类型   | 默认值 |
 | ------- | :------: | -----: |

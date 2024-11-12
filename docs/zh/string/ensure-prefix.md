@@ -11,7 +11,7 @@ ensurePrefix('prefix-hello-world', 'prefix-') // return 'prefix-hello-world'
 ensurePrefix('hello-world', 'prefix-') // return 'prefix-hello-world'
 ```
 
-### 参数列表
+### 参数
 
 | 参数     |   类型   | 默认值 |
 | -------- | :------: | -----: |

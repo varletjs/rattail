@@ -11,7 +11,7 @@ ensureSuffix('hello-world-suffix', '-suffix') // return 'hello-world-suffix'
 ensureSuffix('hello-world', '-suffix') // return 'hello-world-suffix'
 ```
 
-### 参数列表
+### 参数
 
 | 参数     |   类型   | 默认值 |
 | -------- | :------: | -----: |

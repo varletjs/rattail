@@ -10,7 +10,7 @@ import { isDataView } from 'rattail'
 isDataView(new DataView(new ArrayBuffer(1))) // return true
 ```
 
-### 参数列表
+### 参数
 
 | 参数    | 类型  | 默认值 |
 | ------- | :---: | -----: |
