@@ -21,7 +21,7 @@ export function mergeWith<T extends Record<string, any>, K extends Record<string
   function baseMergeWith<T extends Record<string, any>, K extends Record<string, any>>(
     object: T,
     source: K,
-    fn: (objValue: any, srcValue: any, key: string | number | symbol, object?: T, source?: K) => any,
+    fn: Fn,
   ): T & K {
     function baseMerge(target: any, src: any): any {
       // eslint-disable-next-line no-restricted-syntax
