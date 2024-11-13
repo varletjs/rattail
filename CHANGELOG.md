@@ -1,3 +1,7 @@
+## [1.0.6](https://github.com/varletjs/rattail/compare/v1.0.5...v1.0.6) (2024-11-13)
+
+
+
 ## [1.0.5](https://github.com/varletjs/rattail/compare/v1.0.4...v1.0.5) (2024-11-13)
 
 
