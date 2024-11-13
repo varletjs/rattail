@@ -1,3 +1,13 @@
+## [1.0.5](https://github.com/varletjs/rattail/compare/v1.0.4...v1.0.5) (2024-11-13)
+
+
+### Features
+
+* groupBy ([88d0744](https://github.com/varletjs/rattail/commit/88d0744d572e83fe0cc04377070fbd583cf9564f))
+* round ([d432849](https://github.com/varletjs/rattail/commit/d432849b44a31381492e82b446bbc2b274575842))
+
+
+
 ## [1.0.4](https://github.com/varletjs/rattail/compare/v1.0.3...v1.0.4) (2024-11-12)
 
 
