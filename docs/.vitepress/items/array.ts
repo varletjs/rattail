@@ -7,6 +7,7 @@ export const arrayItems = [
   { text: 'differenceWith', link: '/array/difference-with' },
   { text: 'intersection', link: '/array/intersection' },
   { text: 'intersectionWith', link: '/array/intersection-with' },
+  { text: 'groupBy', link: '/array/groupBy' },
   { text: 'find', link: '/array/find' },
   { text: 'shuffle', link: '/array/shuffle' },
   { text: 'removeItem', link: '/array/remove-item' },

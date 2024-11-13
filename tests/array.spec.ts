@@ -15,6 +15,7 @@ import {
   differenceWith,
   intersection,
   intersectionWith,
+  groupBy,
 } from '../src'
 
 it('uniq', () => {
@@ -157,4 +158,28 @@ it('intersectionWith', () => {
   const c = [{ num: 1 }, { num: 2 }, { num: 3 }, { num: 3 }]
   expect(intersectionWith(c, [{ num: 2 }], [{ num: 3 }], (a, b) => a.num === b.num)).toEqual([])
   expect(intersectionWith(c, [{ num: 2 }], [{ num: 3 }], (a, b) => a.num === b.num)).not.toBe(c)
+})
+
+it('groupBy', () => {
+  expect(groupBy([1, 2, 3, 4, 5], (val) => (val % 2 === 0 ? 'even' : 'odd'))).toEqual({
+    odd: [1, 3, 5],
+    even: [2, 4],
+  })
+
+  expect(
+    groupBy(
+      [
+        { name: 'a', gender: 'female' },
+        { name: 'b', gender: 'female' },
+        { name: 'c', gender: 'male' },
+      ],
+      (val) => val.gender,
+    ),
+  ).toEqual({
+    female: [
+      { name: 'a', gender: 'female' },
+      { name: 'b', gender: 'female' },
+    ],
+    male: [{ name: 'c', gender: 'male' }],
+  })
 })
