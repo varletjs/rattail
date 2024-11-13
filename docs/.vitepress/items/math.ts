@@ -7,4 +7,5 @@ export const mathItems = [
   { text: 'mean', link: '/math/mean' },
   { text: 'meanBy', link: '/math/mean-by' },
   { text: 'sample', link: '/math/sample' },
+  { text: 'round', link: '/math/round' },
 ]

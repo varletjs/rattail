@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { sum, sumBy, minBy, maxBy, mean, meanBy, sample, sumHash } from '../src'
+import { sum, sumBy, minBy, maxBy, mean, meanBy, sample, sumHash, round } from '../src'
 
 it('sum', () => {
   expect(sum([1, 2, 3, 4])).toBe(10)
@@ -55,4 +55,9 @@ it('sumHash', () => {
   const b: any = { a: '123' }
   b.valueOf = undefined
   expect(sumHash(b)).toBe('4d3182a6')
+})
+
+it('round', () => {
+  expect(round(1.005)).toBe(1)
+  expect(round(1.005, 2)).toBe(1.01)
 })
