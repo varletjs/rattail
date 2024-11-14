@@ -33,12 +33,11 @@
   },
   "scripts": {
     "prepare": "simple-git-hooks",
-    "dev": "tsup src/index.ts --format esm --out-dir=lib --watch --dts",
+    "dev": "vitest --coverage",
     "build": "tsup src/index.ts --format esm,cjs --out-dir=lib --dts --clean",
     "lint": "eslint . --fix --ext .ts,.js",
     "format": "prettier --write .",
     "clean": "rimraf node_modules lib",
-    "test:watch": "vitest --coverage",
     "test": "vitest run --coverage",
     "release": "pnpm build && vr release",
     "docs:dev": "vitepress dev docs",

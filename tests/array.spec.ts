@@ -16,6 +16,8 @@ import {
   intersection,
   intersectionWith,
   groupBy,
+  xor,
+  xorWith,
 } from '../src'
 
 it('uniq', () => {
@@ -182,4 +184,23 @@ it('groupBy', () => {
     ],
     male: [{ name: 'c', gender: 'male' }],
   })
+})
+
+it('xor', () => {
+  expect(xor([])).toEqual([])
+  expect(xor([1, 2])).toEqual([1, 2])
+  expect(xor([1, 2], [1, 2], [3])).toEqual([3])
+  expect(xor([1, 2, 2], [1, 3])).toEqual([2, 3])
+  expect(xor([], [1, 3])).toEqual([1, 3])
+  expect(xor([1, 3], [])).toEqual([1, 3])
+})
+
+it('xorWith', () => {
+  expect(xorWith([{ num: 1 }, { num: 2 }, { num: 2 }], [{ num: 1 }, { num: 3 }], (a, b) => a.num === b.num)).toEqual([
+    { num: 2 },
+    { num: 3 },
+  ])
+  expect(xorWith([{ num: 1 }, { num: 3 }], [{ num: 1 }, { num: 3 }], (a, b) => a.num === b.num)).toEqual([])
+  expect(xorWith([{ num: 1 }, { num: 3 }], [], (a, b) => a.num === b.num)).toEqual([{ num: 1 }, { num: 3 }])
+  expect(xorWith([], [{ num: 1 }, { num: 3 }], (a, b) => a.num === b.num)).toEqual([{ num: 1 }, { num: 3 }])
 })

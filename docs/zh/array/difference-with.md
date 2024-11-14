@@ -5,7 +5,7 @@
 ### 使用
 
 ```ts
-import { difference } from 'rattail'
+import { differenceWith } from 'rattail'
 
 differenceWith([{ num: 1 }, { num: 2 }, { num: 3 }], [{ num: 2 }], (a, b) => a.num === b.num)
 // return [{ num: 1 }, { num: 3 }]
