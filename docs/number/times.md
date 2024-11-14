@@ -15,13 +15,13 @@ times(5, (index) => `Item ${index}`)
 
 ### Arguments
 
-| Arg   |          Type          | Defaults |
-| ----- | :--------------------: | -------: |
-| `num` |        `number`        |          |
-| `fn`  | `(index: number) => T` |          |
+| Arg   |           Type           | Defaults |
+| ----- | :----------------------: | -------: |
+| `num` |         `number`         |          |
+| `fn`  | `(index: number) => any` |          |
 
 ### Return
 
-| Type  |
-| :---: |
-| `T[]` |
+|  Type   |
+| :-----: |
+| `Array` |
