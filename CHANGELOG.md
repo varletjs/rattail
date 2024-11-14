@@ -1,3 +1,12 @@
+## [1.0.7](https://github.com/varletjs/rattail/compare/v1.0.6...v1.0.7) (2024-11-14)
+
+
+### Features
+
+* xor, xorWith ([d732521](https://github.com/varletjs/rattail/commit/d732521bbd573a1660d6737c0363c649e4189eda))
+
+
+
 ## [1.0.6](https://github.com/varletjs/rattail/compare/v1.0.5...v1.0.6) (2024-11-13)
 
 
