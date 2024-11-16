@@ -1,3 +1,12 @@
+## [1.0.9](https://github.com/varletjs/rattail/compare/v1.0.8...v1.0.9) (2024-11-16)
+
+
+### Features
+
+* isPrimitive, mapObject, promiseWithResolvers ([1bec2db](https://github.com/varletjs/rattail/commit/1bec2db531f4a13b79d21b93c36b95b95e2fefa4))
+
+
+
 ## [1.0.8](https://github.com/varletjs/rattail/compare/v1.0.7...v1.0.8) (2024-11-14)
 
 
