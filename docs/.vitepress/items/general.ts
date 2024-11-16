@@ -4,6 +4,7 @@ export const generalItems = [
   { text: 'isNumeric', link: '/general/is-numeric' },
   { text: 'isBoolean', link: '/general/is-boolean' },
   { text: 'isTruthy', link: '/general/is-truthy' },
+  { text: 'isPrimitive', link: '/general/is-primitive' },
   { text: 'isPlainObject', link: '/general/is-plain-object' },
   { text: 'isObject', link: '/general/is-object' },
   { text: 'isArray', link: '/general/is-array' },
