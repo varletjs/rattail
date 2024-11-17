@@ -18,6 +18,7 @@ import {
   tryParseJSON,
   prettyJSONObject,
   copyText,
+  download,
 } from '../src'
 
 it('requestAnimationFrame', () => {
@@ -262,4 +263,27 @@ describe('copyText', () => {
     expect(execCommandMock).not.toHaveBeenCalled()
     execCommandMock.mockRestore()
   })
+})
+
+it('download', () => {
+  let href = ''
+
+  Reflect.defineProperty(HTMLAnchorElement.prototype, 'href', {
+    set(v) {
+      href = v
+    },
+    get() {
+      return href
+    },
+  })
+
+  URL.createObjectURL = vi.fn(() => 'mock')
+  URL.revokeObjectURL = vi.fn()
+  download(new Blob(['hello']), 'test.txt')
+  expect(href).toBe('mock')
+  expect(URL.createObjectURL).toHaveBeenCalled()
+  expect(URL.revokeObjectURL).toHaveBeenCalled()
+
+  download('/a.jpg', 'test.txt')
+  expect(href).toBe('/a.jpg')
 })

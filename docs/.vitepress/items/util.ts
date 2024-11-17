@@ -1,6 +1,7 @@
 export const utilItems = [
   { text: 'mitt', link: '/util/mitt' },
   { text: 'copyText', link: '/util/copy-text' },
+  { text: 'download', link: '/util/download' },
   { text: 'storage', link: '/util/storage' },
   { text: 'classes', link: '/util/classes' },
   { text: 'createNamespaceFn', link: '/util/create-namespace-fn' },
