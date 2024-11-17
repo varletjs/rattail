@@ -17,4 +17,4 @@ download(new File(['helle'], 'hello.txt', { type: 'text/plain' }), 'hello.txt')
 | Arg        | Type                     | Defaults |
 | ---------- | ------------------------ | -------- |
 | `value`    | `string \| Blob \| File` |          |
-| `filename` | `string`                 |          |
+| `filename` | `string`                 | `file`   |
