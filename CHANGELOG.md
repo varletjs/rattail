@@ -1,3 +1,12 @@
+## [1.0.10](https://github.com/varletjs/rattail/compare/v1.0.9...v1.0.10) (2024-11-17)
+
+
+### Features
+
+* download ([130d65a](https://github.com/varletjs/rattail/commit/130d65afdfcbf1de57efc96c2b1f2a5684b5980d))
+
+
+
 ## [1.0.9](https://github.com/varletjs/rattail/compare/v1.0.8...v1.0.9) (2024-11-16)
 
 
