@@ -4,6 +4,8 @@
   "type": "module",
   "main": "lib/index.cjs",
   "module": "lib/index.js",
+  "unpkg": "lib/index.global.js",
+  "jsdelivr": "lib/index.global.js",
   "types": "lib/index.d.ts",
   "sideEffects": false,
   "exports": {
@@ -34,7 +36,7 @@
   "scripts": {
     "prepare": "simple-git-hooks",
     "dev": "vitest --coverage",
-    "build": "tsup src/index.ts --format esm,cjs --out-dir=lib --dts --clean",
+    "build": "tsup src/index.ts --format esm,cjs,iife --out-dir=lib --global-name=Rattail --dts --clean",
     "lint": "eslint . --fix --ext .ts,.js",
     "format": "prettier --write .",
     "clean": "rimraf node_modules lib",
