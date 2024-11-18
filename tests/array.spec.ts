@@ -37,8 +37,12 @@ it('normalizeToArray', () => {
 
 it('removeItem', () => {
   const arr = [1, 2, 3, 4]
-  removeItem(arr, 2)
+  const removed = removeItem(arr, 2)
   expect(arr).toEqual([1, 3, 4])
+  expect(removed).toEqual([2])
+
+  expect(removeItem([], undefined)).toEqual(undefined)
+  expect(removeItem([1], 2)).toEqual(undefined)
 })
 
 it('toggleItem', () => {
@@ -72,8 +76,14 @@ describe('find', () => {
     expect(index).toBe(4)
   })
 
-  it('not found', () => {
+  it('not found from start', () => {
     const [item, index] = find([1, 2, 3, 4, 3], (item) => item === 5)
+    expect(item).toBe(null)
+    expect(index).toBe(-1)
+  })
+
+  it('not found from end', () => {
+    const [item, index] = find([1, 2, 3, 4, 3], (item) => item === 5, 'end')
     expect(item).toBe(null)
     expect(index).toBe(-1)
   })
