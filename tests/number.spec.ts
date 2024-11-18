@@ -40,6 +40,10 @@ it('randomNumber', () => {
   expect(random).toBeGreaterThanOrEqual(min)
   expect(random).toBeLessThanOrEqual(max)
   expect(randomNumber(0, 0)).toBe(0)
+
+  const randomDefault = randomNumber()
+  expect(randomDefault).toBeGreaterThanOrEqual(0)
+  expect(randomDefault).toBeLessThanOrEqual(100)
 })
 
 it('times', () => {
