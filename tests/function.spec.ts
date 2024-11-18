@@ -3,6 +3,21 @@ import { debounce, throttle, call, once } from '../src'
 
 describe('Utility Functions', () => {
   describe('debounce', () => {
+    it('should call the function with the default delay', async () => {
+      const fn = vi.fn()
+      const debouncedFn = debounce(fn)
+
+      debouncedFn()
+      debouncedFn()
+      debouncedFn()
+
+      await new Promise((resolve) => {
+        setTimeout(resolve, 250)
+      })
+
+      expect(fn).toHaveBeenCalledTimes(1)
+    })
+
     it('should call the function after the specified delay', async () => {
       const fn = vi.fn()
       const debouncedFn = debounce(fn, 100)
@@ -34,6 +49,24 @@ describe('Utility Functions', () => {
   })
 
   describe('throttle', () => {
+    it('should call the function immediately and then at default intervals', async () => {
+      const fn = vi.fn()
+      const throttledFn = throttle(fn)
+
+      throttledFn()
+      throttledFn()
+      await new Promise((resolve) => {
+        setTimeout(resolve, 50)
+      })
+      throttledFn()
+      await new Promise((resolve) => {
+        setTimeout(resolve, 200)
+      })
+      throttledFn()
+
+      expect(fn).toHaveBeenCalledTimes(2)
+    })
+
     it('should call the function immediately and then at specified intervals', async () => {
       const fn = vi.fn()
       const throttledFn = throttle(fn, 100)

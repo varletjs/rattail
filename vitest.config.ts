@@ -6,6 +6,7 @@ export default defineConfig({
     coverage: {
       provider: 'istanbul',
       include: ['src/**/*.ts'],
+      exclude: ['src/function/NOOP.ts'],
     },
   },
 })
