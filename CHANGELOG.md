@@ -1,3 +1,12 @@
+## [1.0.12](https://github.com/varletjs/rattail/compare/v1.0.11...v1.0.12) (2024-11-19)
+
+
+### Features
+
+* floor, ceil ([4f2ad26](https://github.com/varletjs/rattail/commit/4f2ad2626654a3d3f1b98f26cb91e1aebf98aa31))
+
+
+
 ## [1.0.11](https://github.com/varletjs/rattail/compare/v1.0.10...v1.0.11) (2024-11-17)
 
 
