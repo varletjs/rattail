@@ -1,12 +1,16 @@
 import { clamp } from '../number'
 
 export function round(val: number, precision: number = 0) {
+  return baseRound(val, precision, Math.round)
+}
+
+export function baseRound(val: number, precision: number = 0, fn: (val: number) => number) {
   precision = clamp(precision, -292, 292)
 
   if (!precision) {
-    return Math.round(val)
+    return fn(val)
   }
 
-  const value = Math.round(`${val}e${precision}` as any)
+  const value = fn(`${val}e${precision}` as any)
   return +`${value}e${-precision}`
 }

@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { sum, sumBy, minBy, maxBy, mean, meanBy, sample, sumHash, round } from '../src'
+import { sum, sumBy, minBy, maxBy, mean, meanBy, sample, sumHash, round, floor, ceil } from '../src'
 
 it('sum', () => {
   expect(sum([1, 2, 3, 4])).toBe(10)
@@ -60,4 +60,15 @@ it('sumHash', () => {
 it('round', () => {
   expect(round(1.005)).toBe(1)
   expect(round(1.005, 2)).toBe(1.01)
+})
+
+it('floor', () => {
+  expect(floor(1.005)).toBe(1)
+  expect(floor(1.005, 2)).toBe(1)
+  expect(floor(1.0015, 3)).toBe(1.001)
+})
+
+it('ceil', () => {
+  expect(ceil(1.004)).toBe(2)
+  expect(ceil(1.004, 2)).toBe(1.01)
 })

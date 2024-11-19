@@ -8,4 +8,6 @@ export const mathItems = [
   { text: 'meanBy', link: '/math/mean-by' },
   { text: 'sample', link: '/math/sample' },
   { text: 'round', link: '/math/round' },
+  { text: 'floor', link: '/math/floor' },
+  { text: 'ceil', link: '/math/ceil' },
 ]
