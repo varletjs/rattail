@@ -267,6 +267,7 @@ describe('copyText', () => {
 
 it('download', () => {
   let href = ''
+  let filename = ''
 
   Reflect.defineProperty(HTMLAnchorElement.prototype, 'href', {
     set(v) {
@@ -277,13 +278,24 @@ it('download', () => {
     },
   })
 
+  Reflect.defineProperty(HTMLAnchorElement.prototype, 'download', {
+    set(v) {
+      filename = v
+    },
+    get() {
+      return filename
+    },
+  })
+
   URL.createObjectURL = vi.fn(() => 'mock')
   URL.revokeObjectURL = vi.fn()
   download(new Blob(['hello']), 'test.txt')
   expect(href).toBe('mock')
+  expect(filename).toBe('test.txt')
   expect(URL.createObjectURL).toHaveBeenCalled()
   expect(URL.revokeObjectURL).toHaveBeenCalled()
 
-  download('/a.jpg', 'test.txt')
+  download('/a.jpg')
   expect(href).toBe('/a.jpg')
+  expect(filename).toBe('file')
 })

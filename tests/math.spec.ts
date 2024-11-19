@@ -17,6 +17,7 @@ it('minBy', () => {
 it('maxBy', () => {
   expect(maxBy([{ value: 1 }, { value: 2 }, { value: 3 }], (item) => item.value)).toEqual({ value: 3 })
   expect(maxBy<{ value: number }>([], (item) => item.value)).toEqual(undefined)
+  expect(maxBy([{ value: 3 }, { value: 2 }, { value: 1 }], (item) => item.value)).toEqual({ value: 3 })
 })
 
 it('mean', () => {
