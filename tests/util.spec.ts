@@ -19,6 +19,8 @@ import {
   prettyJSONObject,
   copyText,
   download,
+  motion,
+  delay,
 } from '../src'
 
 it('requestAnimationFrame', () => {
@@ -298,4 +300,146 @@ it('download', () => {
   download('/a.jpg')
   expect(href).toBe('/a.jpg')
   expect(filename).toBe('file')
+})
+
+describe('motion', () => {
+  it('start', async () => {
+    const frame = vi.fn()
+    const onStateChange = vi.fn()
+    const { start, getState } = motion({
+      from: 0,
+      to: 100,
+      frame,
+      onStateChange,
+    })
+
+    expect(getState()).toBe('pending')
+    start()
+    expect(getState()).toBe('running')
+    expect(onStateChange).toHaveBeenLastCalledWith('running')
+    await delay(299)
+    expect(getState()).toBe('running')
+    await delay(1 + 20)
+    expect(getState()).toBe('finished')
+    expect(onStateChange).toHaveBeenLastCalledWith('finished')
+    expect(frame).toHaveBeenLastCalledWith({ value: 100, done: true })
+  })
+
+  it('pause and restart', async () => {
+    const frame = vi.fn()
+    const onStateChange = vi.fn()
+    const { start, pause, getState } = motion({
+      from: 0,
+      to: 100,
+      frame,
+      onStateChange,
+    })
+
+    start()
+    expect(getState()).toBe('running')
+    pause()
+    expect(getState()).toBe('paused')
+    expect(onStateChange).toHaveBeenLastCalledWith('paused')
+    await delay(300 + 20)
+    expect(getState()).toBe('paused')
+    start()
+    await delay(299)
+    expect(getState()).toBe('running')
+    await delay(1 + 20)
+    expect(getState()).toBe('finished')
+    expect(onStateChange).toHaveBeenLastCalledWith('finished')
+    expect(frame).toHaveBeenLastCalledWith({ value: 100, done: true })
+  })
+
+  it('reset', async () => {
+    const frame = vi.fn()
+    const onStateChange = vi.fn()
+    const { start, reset, getState } = motion({
+      from: 0,
+      to: 100,
+      frame,
+      onStateChange,
+    })
+
+    start()
+    expect(getState()).toBe('running')
+    reset()
+    expect(getState()).toBe('pending')
+    expect(onStateChange).toHaveBeenLastCalledWith('pending')
+  })
+
+  it('duration', async () => {
+    const frame = vi.fn()
+    const onStateChange = vi.fn()
+    const { start, getState } = motion({
+      from: 0,
+      to: 100,
+      duration: 100,
+      frame,
+      onStateChange,
+    })
+
+    expect(getState()).toBe('pending')
+    start()
+    expect(getState()).toBe('running')
+    expect(onStateChange).toHaveBeenLastCalledWith('running')
+    await delay(99)
+    expect(getState()).toBe('running')
+    await delay(1 + 20)
+    expect(getState()).toBe('finished')
+    expect(onStateChange).toHaveBeenLastCalledWith('finished')
+    expect(frame).toHaveBeenLastCalledWith({ value: 100, done: true })
+  })
+
+  it('timingFunction', async () => {
+    const frame = vi.fn()
+    const { start } = motion({
+      from: 0,
+      to: 100,
+      frame,
+      timingFunction: () => 1,
+    })
+
+    start()
+    await delay(20)
+    expect(frame).toHaveBeenLastCalledWith({ value: 100, done: false })
+    await delay(300)
+    expect(frame).toHaveBeenLastCalledWith({ value: 100, done: true })
+  })
+
+  it('state', async () => {
+    const frame = vi.fn()
+    const onStateChange = vi.fn()
+    const { start, reset, pause } = motion({
+      from: 0,
+      to: 100,
+      duration: 100,
+      frame,
+      onStateChange,
+    })
+
+    start()
+    expect(onStateChange).toBeCalledTimes(1)
+    expect(onStateChange).toHaveBeenLastCalledWith('running')
+
+    start()
+    expect(onStateChange).toBeCalledTimes(1)
+    expect(onStateChange).toHaveBeenLastCalledWith('running')
+
+    await delay(100 + 20)
+    expect(onStateChange).toBeCalledTimes(2)
+    expect(onStateChange).toHaveBeenLastCalledWith('finished')
+
+    start()
+    expect(onStateChange).toBeCalledTimes(2)
+    expect(onStateChange).toHaveBeenLastCalledWith('finished')
+
+    reset()
+    expect(onStateChange).toBeCalledTimes(3)
+    expect(onStateChange).toHaveBeenLastCalledWith('pending')
+
+    pause()
+    expect(onStateChange).toBeCalledTimes(3)
+    expect(onStateChange).toHaveBeenLastCalledWith('pending')
+  })
 })
