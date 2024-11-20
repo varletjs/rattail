@@ -1,3 +1,12 @@
+## [1.0.13](https://github.com/varletjs/rattail/compare/v1.0.12...v1.0.13) (2024-11-20)
+
+
+### Features
+
+* isEmptyPlainObject ([d0392a1](https://github.com/varletjs/rattail/commit/d0392a1faeb13d6ca3a027e726591575e6d3b7cf))
+
+
+
 ## [1.0.12](https://github.com/varletjs/rattail/compare/v1.0.11...v1.0.12) (2024-11-19)
 
 
