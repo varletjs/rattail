@@ -1,6 +1,6 @@
 export function find<T>(
-  arr: Array<T>,
-  fn: (item: T, index: number, array: Array<T>) => any,
+  arr: T[],
+  fn: (item: T, index: number, array: T[]) => any,
   from: 'start' | 'end' = 'start',
 ): [T, number] | [null, -1] {
   let i = from === 'start' ? 0 : arr.length - 1
