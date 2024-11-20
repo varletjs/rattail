@@ -38,6 +38,7 @@ import {
   isDOMException,
   getGlobalThis,
   isPrimitive,
+  isEmptyPlainObject,
 } from '../src'
 
 it('isNonEmptyArray', () => {
@@ -459,4 +460,20 @@ it('isPrimitive', () => {
   expect(isPrimitive(new DataView(new ArrayBuffer(1)))).toBe(false)
   expect(isPrimitive(new Blob([]))).toBe(false)
   expect(isPrimitive(new File([], 'test.txt'))).toBe(false)
+})
+
+it('isEmptyPlainObject', () => {
+  expect(isEmptyPlainObject({})).toBe(true)
+  expect(isEmptyPlainObject(Object.create(null))).toBe(true)
+  expect(isEmptyPlainObject([])).toBe(false)
+  expect(isEmptyPlainObject({ a: 1 })).toBe(false)
+  expect(isEmptyPlainObject({ [Symbol()]: 1 })).toBe(false)
+
+  const a: Record<string, any> = {}
+  Object.defineProperty(a, 'x', {
+    enumerable: false,
+    value: 1,
+  })
+  expect(a.x).toBe(1)
+  expect(isEmptyPlainObject(a)).toBe(true)
 })
