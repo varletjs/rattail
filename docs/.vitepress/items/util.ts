@@ -1,5 +1,6 @@
 export const utilItems = [
   { text: 'mitt', link: '/util/mitt' },
+  { text: 'motion', link: '/util/motion' },
   { text: 'copyText', link: '/util/copy-text' },
   { text: 'download', link: '/util/download' },
   { text: 'storage', link: '/util/storage' },

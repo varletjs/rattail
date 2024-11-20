@@ -14,13 +14,13 @@ export interface MotionOptions {
 export type MotionState = 'running' | 'paused' | 'pending' | 'finished'
 
 export interface Motion {
-  state: MotionState
   start: () => void
   pause: () => void
   reset: () => void
+  getState: () => MotionState
 }
 
-export function motion(options: MotionOptions) {
+export function motion(options: MotionOptions): Motion {
   const {
     from,
     to,
