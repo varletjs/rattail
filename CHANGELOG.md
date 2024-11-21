@@ -1,3 +1,12 @@
+## [1.0.14](https://github.com/varletjs/rattail/compare/v1.0.13...v1.0.14) (2024-11-21)
+
+
+### Features
+
+* motion ([0091ddd](https://github.com/varletjs/rattail/commit/0091dddcc846fba6ee02f3e119887dd8b315892c))
+
+
+
 ## [1.0.13](https://github.com/varletjs/rattail/compare/v1.0.12...v1.0.13) (2024-11-20)
 
 
