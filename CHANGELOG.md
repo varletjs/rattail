@@ -1,3 +1,12 @@
+## [1.0.16](https://github.com/varletjs/rattail/compare/v1.0.15...v1.0.16) (2024-11-26)
+
+
+### Bug Fixes
+
+* export mitt ([da5fcaf](https://github.com/varletjs/rattail/commit/da5fcaf23516936ce0a604724b66becd96ea5481))
+
+
+
 ## [1.0.15](https://github.com/varletjs/rattail/compare/v1.0.14...v1.0.15) (2024-11-26)
 
 
