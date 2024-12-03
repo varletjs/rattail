@@ -4,8 +4,7 @@ export function groupBy<T, K extends PropertyKey>(arr: T[], fn: Fn<T, K>): Recor
   return arr.reduce(
     (result, item) => {
       const key = fn(item)
-      result[key] = result[key] ?? []
-      result[key].push(item)
+      ;(result[key] ??= []).push(item)
       return result
     },
     {} as Record<K, T[]>,
