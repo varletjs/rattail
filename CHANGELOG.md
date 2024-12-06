@@ -1,3 +1,12 @@
+## [1.0.17](https://github.com/varletjs/rattail/compare/v1.0.16...v1.0.17) (2024-12-06)
+
+
+### Features
+
+* assert ([5c48630](https://github.com/varletjs/rattail/commit/5c48630fde4610e5aa51f0c959c13a9b3922d790))
+
+
+
 ## [1.0.16](https://github.com/varletjs/rattail/compare/v1.0.15...v1.0.16) (2024-11-26)
 
 
