@@ -38,4 +38,5 @@ export const generalItems = [
   { text: 'toTypeString', link: '/general/to-type-string' },
   { text: 'toRawType', link: '/general/to-raw-type' },
   { text: 'getGlobalThis', link: '/general/get-global-this' },
+  { text: 'assert', link: '/general/assert' },
 ]

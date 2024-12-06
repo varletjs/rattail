@@ -39,6 +39,7 @@ import {
   getGlobalThis,
   isPrimitive,
   isEmptyPlainObject,
+  assert,
 } from '../src'
 
 it('isNonEmptyArray', () => {
@@ -476,4 +477,9 @@ it('isEmptyPlainObject', () => {
   })
   expect(a.x).toBe(1)
   expect(isEmptyPlainObject(a)).toBe(true)
+})
+
+it('assert', () => {
+  expect(() => assert(false, 'message')).toThrowError('message')
+  expect(() => assert(true, 'message')).not.toThrowError()
 })
