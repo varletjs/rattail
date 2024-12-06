@@ -13,7 +13,7 @@ assert(count < 100, 'error message')
 
 ### Arguments
 
-| Arg         |   Type   | Defaults |
-| ----------- | :------: | -------: |
-| `condition` |  `any`   |          |
-| `message`   | `string` |          |
+| Arg         |   Type    | Defaults |
+| ----------- | :-------: | -------: |
+| `condition` | `boolean` |          |
+| `message`   | `string`  |          |

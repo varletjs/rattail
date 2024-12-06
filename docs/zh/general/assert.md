@@ -13,7 +13,7 @@ assert(count < 100, 'error message')
 
 ### 参数
 
-| 参数        |   类型   | 默认值 |
-| ----------- | :------: | -----: |
-| `condition` |  `any`   |        |
-| `message`   | `string` |        |
+| 参数        |   类型    | 默认值 |
+| ----------- | :-------: | -----: |
+| `condition` | `boolean` |        |
+| `message`   | `string`  |        |
