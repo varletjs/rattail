@@ -1,6 +1,6 @@
 # assert
 
-Throws an error when the input value is not truthy, the second argument is the error message.
+Throws an error when the input value is not `true`, the second argument is the error message.
 
 ### Usage
 
