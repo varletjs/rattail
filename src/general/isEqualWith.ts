@@ -1,16 +1,16 @@
-import { isMap } from './isMap'
 import { isArray } from './isArray'
 import { isArrayBuffer } from './isArrayBuffer'
-import { isPlainObject } from './isPlainObject'
-import { isSet } from './isSet'
-import { toRawType } from './toRawType'
-import { isObject } from './isObject'
-import { isDate } from './isDate'
-import { isRegExp } from './isRegExp'
-import { isError } from './isError'
-import { isDOMException } from './isDOMException'
-import { isTypedArray } from './isTypedArray'
 import { isDataView } from './isDataView'
+import { isDate } from './isDate'
+import { isDOMException } from './isDOMException'
+import { isError } from './isError'
+import { isMap } from './isMap'
+import { isObject } from './isObject'
+import { isPlainObject } from './isPlainObject'
+import { isRegExp } from './isRegExp'
+import { isSet } from './isSet'
+import { isTypedArray } from './isTypedArray'
+import { toRawType } from './toRawType'
 
 export function isEqualWith(value: any, other: any, fn: (value: any, other: any) => any): boolean {
   const valueStack = new WeakMap()
@@ -27,7 +27,6 @@ export function isEqualWith(value: any, other: any, fn: (value: any, other: any)
       return true
     }
 
-    // eslint-disable-next-line no-self-compare
     if (value !== value && other !== other) {
       return true
     }

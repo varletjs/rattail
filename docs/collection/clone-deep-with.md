@@ -5,7 +5,7 @@ Create a deep clone of a value, applying a custom function for cloning on each v
 ### Usage
 
 ```ts
-import { isNumber, cloneDeepWith } from 'rattail'
+import { cloneDeepWith, isNumber } from 'rattail'
 
 const original = { a: 1, b: { c: 2 } }
 const value = cloneDeepWith(original, (val) => {

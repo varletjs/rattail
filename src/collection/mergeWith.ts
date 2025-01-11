@@ -24,7 +24,6 @@ export function mergeWith<T extends Record<string, any>, K extends Record<string
     fn: Fn,
   ): T & K {
     function baseMerge(target: any, src: any): any {
-      // eslint-disable-next-line no-restricted-syntax
       for (const key in src) {
         if (hasOwn(src, key)) {
           const srcValue = src[key]

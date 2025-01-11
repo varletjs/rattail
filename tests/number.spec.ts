@@ -1,5 +1,5 @@
-import { it, expect } from 'vitest'
-import { toNumber, clamp, clampArrayRange, genNumberKey, randomNumber, times, delay } from '../src'
+import { expect, it } from 'vitest'
+import { clamp, clampArrayRange, delay, genNumberKey, randomNumber, times, toNumber } from '../src'
 
 it('toNumber', () => {
   expect(toNumber(null)).toBe(0)

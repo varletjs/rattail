@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest'
-import { merge, mergeWith, cloneDeep, cloneDeepWith, isNumber, hasOwn } from '../src'
+import { describe, expect, it } from 'vitest'
+import { cloneDeep, cloneDeepWith, hasOwn, isNumber, merge, mergeWith } from '../src'
 
 it('should merge self', () => {
   const obj = { a: 1 }
@@ -150,7 +150,6 @@ describe('cloneDeep', () => {
   })
 
   it('String', () => {
-    // eslint-disable-next-line no-new-wrappers
     const value = new String('abc')
     const result = cloneDeep(value)
 
@@ -160,7 +159,6 @@ describe('cloneDeep', () => {
   })
 
   it('Number', () => {
-    // eslint-disable-next-line no-new-wrappers
     const value = new Number(1)
     const result = cloneDeep(value)
 
@@ -170,7 +168,6 @@ describe('cloneDeep', () => {
   })
 
   it('Boolean', () => {
-    // eslint-disable-next-line no-new-wrappers
     const value = new Boolean(true)
     const result = cloneDeep(value)
 
