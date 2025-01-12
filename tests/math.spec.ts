@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { sum, sumBy, minBy, maxBy, mean, meanBy, sample, sumHash, round, floor, ceil } from '../src'
+import { ceil, floor, maxBy, mean, meanBy, minBy, round, sample, sum, sumBy, sumHash } from '../src'
 
 it('sum', () => {
   expect(sum([1, 2, 3, 4])).toBe(10)

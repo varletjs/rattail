@@ -1,16 +1,16 @@
-import { it, expect } from 'vitest'
+import { expect, it } from 'vitest'
 import {
-  pascalCase,
   camelize,
-  kebabCase,
-  slash,
-  genStringKey,
-  upperFirst,
-  lowerFirst,
-  randomColor,
-  randomString,
   ensurePrefix,
   ensureSuffix,
+  genStringKey,
+  kebabCase,
+  lowerFirst,
+  pascalCase,
+  randomColor,
+  randomString,
+  slash,
+  upperFirst,
 } from '../src'
 
 it('pascalCase', () => {

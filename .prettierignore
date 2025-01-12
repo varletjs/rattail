@@ -1,5 +1,4 @@
 lib/**
-.github/**
 .history/**
 coverage/**
 docs/.vitepress/cache/**
@@ -7,8 +6,5 @@ docs/.vitepress/dist/**
 
 pnpm-lock.yaml
 pnpm-workspace.yaml
-package.json
 
 CHANGELOG.md
-README.md
-README.zh-CN.md

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { omit, omitBy, pick, pickBy, mapObject, promiseWithResolvers } from '../src'
+import { mapObject, omit, omitBy, pick, pickBy, promiseWithResolvers } from '../src'
 
 describe('pick', () => {
   it('should pick specified string keys from an object', () => {

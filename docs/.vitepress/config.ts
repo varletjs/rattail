@@ -1,15 +1,15 @@
 import { defineConfig } from 'vitepress'
 import {
-  generalItems,
-  numberItems,
-  stringItems,
   arrayItems,
-  objectItems,
-  functionItems,
   collectionItems,
-  mathItems,
-  utilItems,
   fileItems,
+  functionItems,
+  generalItems,
+  mathItems,
+  numberItems,
+  objectItems,
+  stringItems,
+  utilItems,
 } from './items'
 
 function withI18n(items: { link: string; text: string }[], locale: 'zh') {

@@ -1,8 +1,0 @@
-{
-  "root": true,
-  "ignorePatterns": ["lib", "coverage", "docs/.vitepress/cache", "docs/.vitepress/dist"],
-  "extends": ["@varlet"],
-  "rules": {
-    "@typescript-eslint/array-type": "error"
-  }
-}

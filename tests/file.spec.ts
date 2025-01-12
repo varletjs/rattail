@@ -1,5 +1,5 @@
-import { describe, it, expect, beforeEach } from 'vitest'
-import { toDataURL, toText, toArrayBuffer } from '../src'
+import { beforeEach, describe, expect, it } from 'vitest'
+import { toArrayBuffer, toDataURL, toText } from '../src'
 
 describe('file', () => {
   let file: File

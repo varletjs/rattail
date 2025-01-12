@@ -1,26 +1,26 @@
-import { it, expect, vi, beforeEach, describe } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import {
-  requestAnimationFrame,
   cancelAnimationFrame,
-  raf,
-  doubleRaf,
-  getStyle,
-  getRect,
-  inViewport,
-  getParentScroller,
-  getAllParentScroller,
-  preventDefault,
-  getScrollTop,
-  getScrollLeft,
   classes,
+  copyText,
   createNamespaceFn,
   createStorage,
-  tryParseJSON,
-  prettyJSONObject,
-  copyText,
-  download,
-  motion,
   delay,
+  doubleRaf,
+  download,
+  getAllParentScroller,
+  getParentScroller,
+  getRect,
+  getScrollLeft,
+  getScrollTop,
+  getStyle,
+  inViewport,
+  motion,
+  prettyJSONObject,
+  preventDefault,
+  raf,
+  requestAnimationFrame,
+  tryParseJSON,
 } from '../src'
 
 it('requestAnimationFrame', () => {
@@ -351,7 +351,7 @@ describe('motion', () => {
     expect(frame).toHaveBeenLastCalledWith({ value: 100, done: true })
   })
 
-  it('reset', async () => {
+  it('reset', () => {
     const frame = vi.fn()
     const onStateChange = vi.fn()
     const { start, reset, getState } = motion({
