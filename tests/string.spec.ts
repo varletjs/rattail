@@ -16,16 +16,28 @@ import {
 it('pascalCase', () => {
   expect(pascalCase('hello-world')).toBe('HelloWorld')
   expect(pascalCase('fooBar')).toBe('FooBar')
+  expect(pascalCase('hello_world')).toBe('HelloWorld')
+  expect(pascalCase('hello_worldFooBar')).toBe('HelloWorldFooBar')
+  expect(pascalCase('hello_world_FooBar')).toBe('HelloWorldFooBar')
+  expect(pascalCase('Hello_world_FooBar')).toBe('HelloWorldFooBar')
 })
 
 it('camelize', () => {
   expect(camelize('hello-world')).toBe('helloWorld')
   expect(camelize('FooBar')).toBe('fooBar')
+  expect(camelize('hello_world')).toBe('helloWorld')
+  expect(camelize('hello_worldFooBar')).toBe('helloWorldFooBar')
+  expect(camelize('hello_world_FooBar')).toBe('helloWorldFooBar')
+  expect(camelize('Hello_world_FooBar')).toBe('helloWorldFooBar')
 })
 
 it('kebabCase', () => {
   expect(kebabCase('HelloWorld')).toBe('hello-world')
   expect(kebabCase('fooBar')).toBe('foo-bar')
+  expect(kebabCase('hello_world')).toBe('hello-world')
+  expect(kebabCase('hello_worldFooBar')).toBe('hello-world-foo-bar')
+  expect(kebabCase('hello_world_FooBar')).toBe('hello-world-foo-bar')
+  expect(kebabCase('Hello_world_FooBar')).toBe('hello-world-foo-bar')
 })
 
 it('slash', () => {
