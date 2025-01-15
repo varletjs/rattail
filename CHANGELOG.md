@@ -1,3 +1,12 @@
+## [1.0.19](https://github.com/varletjs/rattail/compare/v1.0.18...v1.0.19) (2025-01-15)
+
+
+### Features
+
+* case conversion is compatible with snake case ([90d9b97](https://github.com/varletjs/rattail/commit/90d9b97645e853355b0cff4d92d3782e2694eb81))
+
+
+
 ## [1.0.18](https://github.com/varletjs/rattail/compare/v1.0.17...v1.0.18) (2024-12-07)
 
 
