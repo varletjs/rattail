@@ -1,4 +1,4 @@
-import { expect, it } from 'vitest'
+import { assertType, expect, it } from 'vitest'
 import {
   assert,
   getGlobalThis,
@@ -254,6 +254,40 @@ it('isEmpty', () => {
   expect(isEmpty('non-empty string')).toBe(false)
   expect(isEmpty(0)).toBe(false)
   expect(isEmpty({})).toBe(false)
+})
+
+it('isEmpty with type assertion', () => {
+  const str = Math.random() > 0.5 ? 'non-empty string' : ''
+  const foo: {
+    bar?: 'bar'
+    baz?: 'baz' | null
+  } = Math.random() > 0.5 ? { bar: 'bar' } : { baz: null }
+  const arr: number[] = Math.random() > 0.5 ? [1, 2, 3] : []
+
+  if (isEmpty(str)) {
+    assertType<''>(str)
+  } else {
+    assertType<'non-empty string'>(str)
+    assertType<string>(str)
+  }
+
+  if (!isEmpty(foo.bar)) {
+    assertType<'bar'>(foo.bar)
+  } else {
+    assertType<undefined>(foo.bar)
+  }
+
+  if (isEmpty(foo.baz)) {
+    assertType<null | undefined>(foo.baz)
+  } else {
+    assertType<'baz'>(foo.baz)
+  }
+
+  if (isEmpty(arr)) {
+    assertType<number[]>(arr)
+  } else {
+    assertType<number[]>(arr)
+  }
 })
 
 it('isWindow', () => {
