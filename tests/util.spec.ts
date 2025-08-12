@@ -8,6 +8,7 @@ import {
   delay,
   doubleRaf,
   download,
+  duration,
   getAllParentScroller,
   getParentScroller,
   getRect,
@@ -442,4 +443,31 @@ describe('motion', () => {
     expect(onStateChange).toBeCalledTimes(3)
     expect(onStateChange).toHaveBeenLastCalledWith('pending')
   })
+})
+
+it('duration', () => {
+  expect(duration().years(1).valueOf()).toBe(31536000000)
+  expect(duration().months(1).valueOf()).toBe(2592000000)
+  expect(duration().weeks(1).valueOf()).toBe(604800000)
+  expect(duration().days(1).valueOf()).toBe(86400000)
+  expect(duration().hours(1).valueOf()).toBe(3600000)
+  expect(duration().minutes(1).valueOf()).toBe(60000)
+  expect(duration().seconds(1).valueOf()).toBe(1000)
+  expect(duration().milliseconds(1).valueOf()).toBe(1)
+
+  expect(duration().years(1).months(2).days(3).hours(4).minutes(5).seconds(6).milliseconds(7).valueOf()).toBe(
+    31536000000 + 2592000000 * 2 + 86400000 * 3 + 3600000 * 4 + 60000 * 5 + 1000 * 6 + 7,
+  )
+
+  expect(
+    duration()
+      .years(1)
+      .months(2)
+      .days(3)
+      .hours(4)
+      .minutes(5)
+      .seconds(6)
+      .milliseconds(7)
+      .valueOf({ milliseconds: false }),
+  ).toBe((31536000000 + 2592000000 * 2 + 86400000 * 3 + 3600000 * 4 + 60000 * 5 + 1000 * 6 + 7) / 1000)
 })

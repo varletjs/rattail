@@ -3,6 +3,7 @@ export const utilItems = [
   { text: 'motion', link: '/util/motion' },
   { text: 'copyText', link: '/util/copy-text' },
   { text: 'download', link: '/util/download' },
+  { text: 'duration', link: '/util/duration' },
   { text: 'storage', link: '/util/storage' },
   { text: 'classes', link: '/util/classes' },
   { text: 'createNamespaceFn', link: '/util/create-namespace-fn' },
