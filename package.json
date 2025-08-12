@@ -1,6 +1,6 @@
 {
   "name": "rattail",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "A utilities library for front-end developers, lightweight and ts-friendly",
   "keywords": [
     "utilities library",

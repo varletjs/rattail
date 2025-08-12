@@ -1,3 +1,12 @@
+## [1.0.20](https://github.com/varletjs/rattail/compare/v1.0.19...v1.0.20) (2025-08-12)
+
+
+### Features
+
+* support duration ([e26e778](https://github.com/varletjs/rattail/commit/e26e77803fed315421dd47b5ad9ffb97e34d8dc5))
+
+
+
 ## [1.0.19](https://github.com/varletjs/rattail/compare/v1.0.18...v1.0.19) (2025-01-15)
 
 
