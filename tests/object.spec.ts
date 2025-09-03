@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { mapObject, omit, omitBy, pick, pickBy, promiseWithResolvers } from '../src'
+import { mapObject, omit, omitBy, pick, pickBy, promiseWithResolvers, set } from '../src'
 
 describe('pick', () => {
   it('should pick specified string keys from an object', () => {
@@ -92,4 +92,41 @@ describe('promiseWithResolvers', () => {
     setTimeout(() => reject(new Error('test')))
     await expect(promise).rejects.toThrow('test')
   })
+})
+
+it('set', () => {
+  const a = {}
+  set(a, ['b', 'c', 0, 'd'], 1)
+
+  const a1 = { b: 2 }
+  set(a1, ['b', 'c', 0, 'd'], 1)
+  expect(a1).toEqual({ b: { c: [{ d: 1 }] } })
+
+  const a2 = { b: { c: [{ e: 2 }] } }
+  set(a2, ['b', 'c', 0, 'd'], 1)
+  expect(a2).toEqual({ b: { c: [{ e: 2, d: 1 }] } })
+
+  const a3 = { b: { c: [] } }
+  set(a3, ['b', 'c', 0, 'd'], 1)
+  expect(a3).toEqual({ b: { c: [{ d: 1 }] } })
+
+  const a4 = { b: { c: [{ d: 2 }] } }
+  set(a4, ['b', 'c', 0, 'd'], 1)
+  expect(a4).toEqual({ b: { c: [{ d: 1 }] } })
+
+  const a5 = { b: { c: null } }
+  set(a5, ['b', 'c'], 1)
+  expect(a5).toEqual({ b: { c: 1 } })
+
+  const a6 = {}
+  set(a6, ['b'], 1)
+  expect(a6).toEqual({ b: 1 })
+
+  const a7 = [{ a: 1 }]
+  set(a7, [0, 'b'], 1)
+  expect(a7).toEqual([{ a: 1, b: 1 }])
+
+  const a8 = [{ a: 2 }]
+  set(a8, [0, 0, 0], 1)
+  expect(a8).toEqual([{ a: 2, 0: [1] }])
 })
