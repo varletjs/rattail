@@ -1,3 +1,12 @@
+## [1.0.23](https://github.com/varletjs/rattail/compare/v1.0.22...v1.0.23) (2025-09-03)
+
+
+### Features
+
+* support set ([3c8e33c](https://github.com/varletjs/rattail/commit/3c8e33c4d9857624d7663caed321fa5738453912))
+
+
+
 ## [1.0.22](https://github.com/varletjs/rattail/compare/v1.0.21...v1.0.22) (2025-08-14)
 
 
