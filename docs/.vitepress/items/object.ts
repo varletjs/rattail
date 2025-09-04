@@ -1,4 +1,5 @@
 export const objectItems = [
+  { text: 'set', link: '/object/set' },
   { text: 'pick', link: '/object/pick' },
   { text: 'pickBy', link: '/object/pick-by' },
   { text: 'omit', link: '/object/omit' },

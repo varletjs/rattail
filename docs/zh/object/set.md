@@ -17,11 +17,11 @@ set(obj, ['x', 0, 'y'], 'hello')
 
 ### 参数
 
-| 参数     | 类型          | 默认值   |
-| -------- | ------------- | -------- | --- |
-| `object` | `object       | any[]`   |     |
-| `path`   | `Array<string | number>` |     |
-| `value`  | `any`         |          |
+| 参数     | 类型                      | 默认值  |
+| -------- | ------------------------- | ------- |
+| `object` | `object`                  | `any[]` |
+| `path`   | `Array<string \| number>` |
+| `value`  | `any`                     |         |
 
 ### 返回值
 

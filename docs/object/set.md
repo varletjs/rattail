@@ -17,11 +17,11 @@ set(obj, ['x', 0, 'y'], 'hello')
 
 ### Arguments
 
-| Arg      | Type          | Defaults |
-| -------- | ------------- | -------- | --- |
-| `object` | `object       | any[]`   |     |
-| `path`   | `Array<string | number>` |     |
-| `value`  | `any`         |          |
+| Arg      | Type                      | Defaults |
+| -------- | ------------------------- | -------- |
+| `object` | `object`                  | `any[]`  |
+| `path`   | `Array<string \| number>` |
+| `value`  | `any`                     |          |
 
 ### Return
 
