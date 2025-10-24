@@ -1,3 +1,12 @@
+## [1.0.24](https://github.com/varletjs/rattail/compare/v1.0.23...v1.0.24) (2025-10-24)
+
+
+### Features
+
+* add objectEntries and objectKeys functions with TypeScript support ([204f538](https://github.com/varletjs/rattail/commit/204f5384aed9fd514cf0d48cf56ec626ab5b49b0))
+
+
+
 ## [1.0.23](https://github.com/varletjs/rattail/compare/v1.0.22...v1.0.23) (2025-09-03)
 
 
