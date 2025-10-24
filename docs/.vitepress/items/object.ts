@@ -5,5 +5,7 @@ export const objectItems = [
   { text: 'omit', link: '/object/omit' },
   { text: 'omitBy', link: '/object/omit-by' },
   { text: 'mapObject', link: '/object/map-object' },
+  { text: 'objectKeys', link: '/object/object-keys' },
+  { text: 'objectEntries', link: '/object/object-entries' },
   { text: 'promiseWithResolvers', link: '/object/promise-with-resolvers' },
 ]
