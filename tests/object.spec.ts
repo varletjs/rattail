@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { mapObject, omit, omitBy, pick, pickBy, promiseWithResolvers, set } from '../src'
+import { objectEntries } from '../src/object/objectEntries'
+import { objectKeys } from '../src/object/objectKeys'
 
 describe('pick', () => {
   it('should pick specified string keys from an object', () => {
@@ -129,4 +131,43 @@ it('set', () => {
   const a8 = [{ a: 2 }]
   set(a8, [0, 0, 0], 1)
   expect(a8).toEqual([{ a: 2, 0: [1] }])
+})
+
+describe('objectEntries', () => {
+  it('should return entries for a simple object', () => {
+    const obj = { a: 1, b: 2 }
+    expect(objectEntries(obj)).toEqual([
+      ['a', 1],
+      ['b', 2],
+    ])
+  })
+
+  it('should work with empty object', () => {
+    expect(objectEntries({})).toEqual([])
+  })
+
+  it('should preserve key types', () => {
+    const obj = { foo: 1, bar: 'baz' }
+    const entries = objectEntries(obj)
+    expect(entries).toContainEqual(['foo', 1])
+    expect(entries).toContainEqual(['bar', 'baz'])
+  })
+})
+
+describe('objectKeys', () => {
+  it('should return keys for a simple object', () => {
+    const obj = { a: 1, b: 2 }
+    expect(objectKeys(obj)).toEqual(['a', 'b'])
+  })
+
+  it('should work with empty object', () => {
+    expect(objectKeys({})).toEqual([])
+  })
+
+  it('should preserve key types', () => {
+    const obj = { foo: 1, bar: 'baz' }
+    const keys = objectKeys(obj)
+    expect(keys).toContain('foo')
+    expect(keys).toContain('bar')
+  })
 })
