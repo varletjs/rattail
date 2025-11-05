@@ -5,10 +5,10 @@
 ### 使用
 
 ```ts
-import { capitalizeFirstLetter } from 'rattail'
+import { upperFirst } from 'rattail'
 
-capitalizeFirstLetter('hello world') // return 'Hello world'
-capitalizeFirstLetter('rattail') // return 'Rattail'
+upperFirst('hello world') // return 'Hello world'
+upperFirst('rattail') // return 'Rattail'
 ```
 
 ### 参数
