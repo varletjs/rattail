@@ -1,3 +1,13 @@
+# [1.1.0](https://github.com/varletjs/rattail/compare/v1.0.24...v1.1.0) (2025-11-06)
+
+
+### Features
+
+* add objectKeys and objectEntries to objectItems ([e9eaef9](https://github.com/varletjs/rattail/commit/e9eaef96c2be80fb584b1d365188e15a8c26e380))
+* add removeItemBy and removeItemsBy functions with corresponding documentation ([4c0fd16](https://github.com/varletjs/rattail/commit/4c0fd16e8335ee4d1119a8027fc9651668b6ea84))
+
+
+
 ## [1.0.24](https://github.com/varletjs/rattail/compare/v1.0.23...v1.0.24) (2025-10-24)
 
 
