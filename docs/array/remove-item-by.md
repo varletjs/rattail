@@ -1,6 +1,6 @@
 # removeItemBy
 
-Removes all items from an array that match a predicate function, mutating the original array, and returns the removed items as a new array.
+Removes the first occurrence of a specific item from an array that match a predicate function, mutating the original array, and returns the removed items as a new array. Returns `undefined` if no item was removed.
 
 ### Usage
 
