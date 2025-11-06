@@ -12,6 +12,8 @@ import {
   removeArrayBlank,
   removeArrayEmpty,
   removeItem,
+  removeItemBy,
+  removeItemsBy,
   shuffle,
   toggleItem,
   uniq,
@@ -43,6 +45,24 @@ it('removeItem', () => {
 
   expect(removeItem([], undefined)).toEqual(undefined)
   expect(removeItem([1], 2)).toEqual(undefined)
+})
+
+it('removeItemBy', () => {
+  const arr = [1, 2, 3, 4]
+  const removed = removeItemBy(arr, (item) => item === 2)
+  expect(arr).toEqual([1, 3, 4])
+  expect(removed).toEqual([2])
+
+  expect(removeItemBy([], () => true)).toEqual(undefined)
+  expect(removeItemBy([1], () => false)).toEqual(undefined)
+})
+
+it('removeItemsBy', () => {
+  const arr = [1, 2, 3, 4, 5, 6]
+  const removed = removeItemsBy(arr, (item) => item % 2 === 0)
+  expect(arr).toEqual([1, 3, 5])
+  expect(removed).toEqual([2, 4, 6])
+  expect(removeItemsBy([1, 2, 3], (item) => item === 0)).toEqual([])
 })
 
 it('toggleItem', () => {

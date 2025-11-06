@@ -13,6 +13,8 @@ export const arrayItems = [
   { text: 'find', link: '/array/find' },
   { text: 'shuffle', link: '/array/shuffle' },
   { text: 'removeItem', link: '/array/remove-item' },
+  { text: 'removeItemBy', link: '/array/remove-item-by' },
+  { text: 'removeItemsBy', link: '/array/remove-items-by' },
   { text: 'toggleItem', link: '/array/toggle-item' },
   { text: 'removeArrayBlank', link: '/array/remove-array-blank' },
   { text: 'removeArrayEmpty', link: '/array/remove-array-empty' },
