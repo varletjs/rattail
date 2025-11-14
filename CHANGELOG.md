@@ -1,3 +1,13 @@
+# [1.2.0](https://github.com/varletjs/rattail/compare/v1.1.0...v1.2.0) (2025-11-14)
+
+
+### Features
+
+* support callOrReturn ([71ba352](https://github.com/varletjs/rattail/commit/71ba352d31afb0765a823ffadfe5b895153486cc))
+* support hasDuplicates and hasDuplicatesBy ([a163cf8](https://github.com/varletjs/rattail/commit/a163cf849379a2fd6af4256585af9f76f0cfb86e))
+
+
+
 # [1.1.0](https://github.com/varletjs/rattail/compare/v1.0.24...v1.1.0) (2025-11-06)
 
 
