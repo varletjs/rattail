@@ -2,6 +2,8 @@ import { expect, it } from 'vitest'
 import {
   assert,
   getGlobalThis,
+  hasDuplicates,
+  hasDuplicatesBy,
   hasOwn,
   inBrowser,
   inMobile,
@@ -484,4 +486,18 @@ it('isEmptyPlainObject', () => {
 it('assert', () => {
   expect(() => assert(false, 'message')).toThrowError('message')
   expect(() => assert(true, 'message')).not.toThrowError()
+})
+
+it('hasDuplicates', () => {
+  expect(hasDuplicates([1, 2, 3, 4])).toBe(false)
+  expect(hasDuplicates([1, 2, 3, 4, 2])).toBe(true)
+  expect(hasDuplicates(['a', 'b', 'c'])).toBe(false)
+  expect(hasDuplicates([{ a: 1 }, { a: 1 }])).toBe(false)
+})
+
+it('hasDuplicatesBy', () => {
+  expect(hasDuplicatesBy([1, 2, 3, 4], (a, b) => a === b)).toBe(false)
+  expect(hasDuplicatesBy([1, 2, 3, 4, 2], (a, b) => a === b)).toBe(true)
+  expect(hasDuplicatesBy(['a', 'b', 'c'], (a, b) => a === b)).toBe(false)
+  expect(hasDuplicatesBy([{ a: 1 }, { a: 1 }], (a, b) => a.a === b.a)).toBe(true)
 })

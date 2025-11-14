@@ -34,6 +34,8 @@ export const generalItems = [
   { text: 'inBrowser', link: '/general/in-browser' },
   { text: 'inMobile', link: '/general/in-mobile' },
   { text: 'hasOwn', link: '/general/has-own' },
+  { text: 'hasDuplicates', link: '/general/has-duplicates' },
+  { text: 'hasDuplicatesBy', link: '/general/has-duplicates-by' },
   { text: 'supportTouch', link: '/general/support-touch' },
   { text: 'toTypeString', link: '/general/to-type-string' },
   { text: 'toRawType', link: '/general/to-raw-type' },
