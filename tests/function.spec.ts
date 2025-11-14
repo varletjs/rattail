@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { call, debounce, once, throttle } from '../src'
+import { call, callOrReturn, debounce, once, throttle } from '../src'
 
 describe('Utility Functions', () => {
   describe('debounce', () => {
@@ -119,5 +119,16 @@ describe('Utility Functions', () => {
     expect(fn).toHaveBeenCalledTimes(1)
     expect(r1).toBe(rt)
     expect(r1).toBe(r2)
+  })
+
+  it('callOrReturn', () => {
+    const fn = vi.fn((x: number, y: number) => x + y)
+
+    const result1 = callOrReturn(fn, 2, 3)
+    expect(result1).toBe(5)
+    expect(fn).toHaveBeenCalledWith(2, 3)
+
+    const result2 = callOrReturn(10)
+    expect(result2).toBe(10)
   })
 })
