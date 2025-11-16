@@ -1,3 +1,3 @@
-export function isNullish<T>(val: T | null | undefined): val is NonNullable<T> {
+export function isNullish(val: unknown): val is null | undefined {
   return val == null
 }
