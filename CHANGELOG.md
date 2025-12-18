@@ -1,3 +1,7 @@
+# [1.3.0](https://github.com/varletjs/rattail/compare/v1.2.3...v1.3.0) (2025-12-18)
+
+
+
 ## [1.2.3](https://github.com/varletjs/rattail/compare/v1.2.2...v1.2.3) (2025-12-18)
 
 
@@ -84,6 +88,11 @@
 
 
 ## [1.0.17](https://github.com/varletjs/rattail/compare/v1.0.16...v1.0.17) (2024-12-06)
+
+
+### Code Refactoring
+
+* **array:** optimize groupBy function ([#38](https://github.com/varletjs/rattail/issues/38)) ([4cdaf41](https://github.com/varletjs/rattail/commit/4cdaf41ad396dfac7fccb2bafc103630bf221507))
 
 
 ### Features
@@ -225,6 +234,11 @@
 ## [0.0.12](https://github.com/varletjs/rattail/compare/v0.0.11...v0.0.12) (2024-11-07)
 
 
+### Code Refactoring
+
+* cleanup pick pickBy omit omitBy and update docs ([b12097a](https://github.com/varletjs/rattail/commit/b12097a17a4137ef652d20325b405eb5bca3dd09))
+
+
 ### Features
 
 * add pick, omit, pickBy, and omitBy functions ([#27](https://github.com/varletjs/rattail/issues/27)) ([ee83029](https://github.com/varletjs/rattail/commit/ee830291c16cb3ebffcbe5313657cdeed933d101))
@@ -259,6 +273,11 @@
 ### Bug Fixes
 
 * fix isEqual ([4f6c4a8](https://github.com/varletjs/rattail/commit/4f6c4a8405ad3e0700d6f14cede236943bf0116d))
+
+
+### Code Refactoring
+
+* ensure stack ([b070eab](https://github.com/varletjs/rattail/commit/b070eab9c5f43e2f7cf683c37d6abefd3dec6853))
 
 
 ### Features
@@ -312,6 +331,11 @@
 
 
 ## [0.0.3](https://github.com/varletjs/rattail/compare/v0.0.2...v0.0.3) (2024-10-28)
+
+
+### Code Refactoring
+
+* enhance camelize and genStringKey and update docs ([5f4fad5](https://github.com/varletjs/rattail/commit/5f4fad5f48268165402f6f4abe8e92758b2c7be4))
 
 
 
