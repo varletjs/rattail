@@ -22,8 +22,8 @@ importers:
         specifier: ^22.8.1
         version: 22.8.1
       '@varlet/release':
-        specifier: ^0.3.1
-        version: 0.3.1
+        specifier: ^0.4.4
+        version: 0.4.4
       '@vitest/coverage-istanbul':
         specifier: ^2.1.3
         version: 2.1.3(vitest@2.1.3(@types/node@22.8.1)(jsdom@25.0.1))
@@ -942,9 +942,9 @@ packages:
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
-  '@varlet/release@0.3.1':
-    resolution: {integrity: sha512-MVOc2mp9HtjMQFm/wzNrexJWzfqEaFRGQ4RiBmeC6yNtoV0fx0zoEKc1DBz5ZbbLzz/TTF9oEDjKmbB23lJ+Ow==}
-    engines: {node: '>=16.0.0', pnpm: '>=8.0'}
+  '@varlet/release@0.4.4':
+    resolution: {integrity: sha512-i3SLt649rLrAS/eKrXqnRx9A4+eWg7GaQWXx0dL9wV3Ggya9OZ+N2OG6nXf4X5WDincq85DRK+G7ioTb0bSsSQ==}
+    engines: {node: '>=16.0.0', pnpm: '>=9.0'}
     hasBin: true
 
   '@vitejs/plugin-vue@5.1.4':
@@ -2368,6 +2368,9 @@ packages:
 
   rrweb-cssom@0.7.1:
     resolution: {integrity: sha512-TrEMa7JGdVm0UThDJSx7ddw5nVm3UJS9o9CCIZ72B1vSyEZoziDqBYP3XIoi/12lKrJR8rE3jeFHMok2F/Mnsg==}
+
+  rslog@1.3.2:
+    resolution: {integrity: sha512-1YyYXBvN0a2b1MSIDLwDTqqgjDzRKxUg/S/+KO6EAgbtZW1B3fdLHAMhEEtvk1patJYMqcRvlp3HQwnxj7AdGQ==}
 
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
@@ -3863,7 +3866,7 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@varlet/release@0.3.1':
+  '@varlet/release@0.4.4':
     dependencies:
       '@inquirer/prompts': 6.0.1
       commander: 11.1.0
@@ -3871,7 +3874,7 @@ snapshots:
       fs-extra: 11.2.0
       glob: 10.4.5
       nanospinner: 1.1.0
-      picocolors: 1.1.1
+      rslog: 1.3.2
       semver: 7.6.3
       tinyexec: 0.3.1
 
@@ -5401,6 +5404,8 @@ snapshots:
       fsevents: 2.3.3
 
   rrweb-cssom@0.7.1: {}
+
+  rslog@1.3.2: {}
 
   run-parallel@1.2.0:
     dependencies:

@@ -64,7 +64,7 @@
     "@configurajs/eslint": "^0.0.14",
     "@configurajs/prettier": "^0.1.1",
     "@types/node": "^22.8.1",
-    "@varlet/release": "^0.3.1",
+    "@varlet/release": "^0.4.4",
     "@vitest/coverage-istanbul": "^2.1.3",
     "eslint": "9.17.0",
     "jsdom": "^25.0.1",
