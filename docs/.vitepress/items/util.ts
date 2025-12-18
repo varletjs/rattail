@@ -7,6 +7,7 @@ export const utilItems = [
   { text: 'storage', link: '/util/storage' },
   { text: 'classes', link: '/util/classes' },
   { text: 'createNamespaceFn', link: '/util/create-namespace-fn' },
+  { text: 'createCacheManager', link: '/util/create-cache-manager' },
   { text: 'raf', link: '/util/raf' },
   { text: 'doubleRaf', link: '/util/double-raf' },
   { text: 'requestAnimationFrame', link: '/util/request-animation-frame' },

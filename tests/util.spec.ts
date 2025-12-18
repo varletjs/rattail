@@ -3,6 +3,7 @@ import {
   cancelAnimationFrame,
   classes,
   copyText,
+  createCacheManager,
   createNamespaceFn,
   createStorage,
   delay,
@@ -470,4 +471,27 @@ it('duration', () => {
       .milliseconds(7)
       .valueOf({ milliseconds: false }),
   ).toBe((31536000000 + 2592000000 * 2 + 86400000 * 3 + 3600000 * 4 + 60000 * 5 + 1000 * 6 + 7) / 1000)
+})
+
+it('createCacheManager', async () => {
+  const cacheManager = createCacheManager<{ count: number }>({ ttl: 100 })
+
+  cacheManager.set('a', { count: 123 })
+  await delay(100)
+  expect(cacheManager.get('a')).toBeUndefined()
+
+  cacheManager.set('b', { count: 456 }, { ttl: 200 })
+  await delay(150)
+  expect(cacheManager.get('b')).toEqual({ count: 456 })
+  await delay(60)
+  expect(cacheManager.get('b')).toBeUndefined()
+
+  cacheManager.set('c', { count: 789 })
+  expect(cacheManager.has('c')).toBe(true)
+  cacheManager.remove('c')
+  expect(cacheManager.has('c')).toBe(false)
+
+  cacheManager.set('d', { count: 111 })
+  cacheManager.clear()
+  expect(cacheManager.has('d')).toBe(false)
 })
