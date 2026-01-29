@@ -73,11 +73,16 @@ export function cloneDeepWith<T>(value: T, fn: (value: any) => any): T {
     }
 
     if (isTypedArray(value)) {
-      return newConstructor(value, baseCloneArrayBuffer(value.buffer), value.byteOffset, value.length)
+      return newConstructor(value, baseCloneArrayBuffer(value.buffer as ArrayBuffer), value.byteOffset, value.length)
     }
 
     if (isDataView(value)) {
-      return newConstructor(value, baseCloneArrayBuffer(value.buffer), value.byteOffset, value.byteLength)
+      return newConstructor(
+        value,
+        baseCloneArrayBuffer(value.buffer as ArrayBuffer),
+        value.byteOffset,
+        value.byteLength,
+      )
     }
 
     if (isArrayBuffer(value)) {
