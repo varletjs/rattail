@@ -10,6 +10,7 @@ import {
   doubleRaf,
   download,
   duration,
+  enumOf,
   getAllParentScroller,
   getParentScroller,
   getRect,
@@ -494,4 +495,164 @@ it('createCacheManager', async () => {
   cacheManager.set('d', { count: 111 })
   cacheManager.clear()
   expect(cacheManager.has('d')).toBe(false)
+})
+
+describe('enumOf', () => {
+  it('exposes enum values as direct properties (primitive config)', () => {
+    const Status = enumOf({
+      Idle: 0,
+      Pending: 1,
+      Done: 2,
+    })
+    expect(Status.Idle).toBe(0)
+    expect(Status.Pending).toBe(1)
+    expect(Status.Done).toBe(2)
+  })
+
+  it('exposes enum values as direct properties (object config)', () => {
+    const Status = enumOf({
+      Success: { value: 1, label: 'Success' },
+      Warning: { value: 2, label: 'Warning' },
+    })
+    expect(Status.Success).toBe(1)
+    expect(Status.Warning).toBe(2)
+  })
+
+  it('values() returns array of all values', () => {
+    const Status = enumOf({
+      A: 1,
+      B: { value: 2, label: 'B' },
+      C: 'c',
+    })
+    const vals = Status.values()
+    expect(vals).toHaveLength(3)
+    expect(vals).toContain(1)
+    expect(vals).toContain(2)
+    expect(vals).toContain('c')
+  })
+
+  it('label(v) returns label for value (string)', () => {
+    const Status = enumOf({
+      Success: { value: 1, label: 'Success' },
+      Warning: { value: 2, label: 'Warning' },
+    })
+    expect(Status.label(1)).toBe('Success')
+    expect(Status.label(2)).toBe('Warning')
+  })
+
+  it('label(v) returns empty string for primitive config or missing label', () => {
+    const Status = enumOf({ Idle: 0, Done: 1 })
+    expect(Status.label(0)).toBe('')
+    expect(Status.label(1)).toBe('')
+  })
+
+  it('label(v) resolves getter function', () => {
+    const Status = enumOf({
+      Ok: { value: 1, label: () => 'Resolved OK' },
+    })
+    expect(Status.label(1)).toBe('Resolved OK')
+  })
+
+  it('labels() returns array of labels in config order', () => {
+    const Status = enumOf({
+      A: { value: 1, label: 'A' },
+      B: { value: 2, label: 'B' },
+      C: 3,
+    })
+    expect(Status.labels()).toEqual(['A', 'B', ''])
+  })
+
+  it('description(v) returns description for value', () => {
+    const Status = enumOf({
+      Success: { value: 1, label: 'S', description: 'Operation succeeded' },
+    })
+    expect(Status.description(1)).toBe('Operation succeeded')
+  })
+
+  it('description(v) returns empty string when missing', () => {
+    const Status = enumOf({ A: { value: 1, label: 'A' } })
+    expect(Status.description(1)).toBe('')
+  })
+
+  it('description(v) resolves getter function', () => {
+    const Status = enumOf({
+      Ok: { value: 1, description: () => 'Resolved desc' },
+    })
+    expect(Status.description(1)).toBe('Resolved desc')
+  })
+
+  it('descriptions() returns array of descriptions in config order', () => {
+    const Status = enumOf({
+      A: { value: 1, description: 'Desc A' },
+      B: { value: 2 },
+      C: 3,
+    })
+    expect(Status.descriptions()).toEqual(['Desc A', '', ''])
+  })
+
+  it('option(v) returns resolved option object for object config', () => {
+    const Status = enumOf({
+      Success: { value: 1, label: 'Success', description: 'Done' },
+    })
+    const opt = Status.option(1)
+    expect(opt).toEqual({ value: 1, label: 'Success', description: 'Done' })
+  })
+
+  it('option(v) returns { value, label, description } for primitive config', () => {
+    const Status = enumOf({ Idle: 0 })
+    const opt = Status.option(0)
+    expect(opt).toEqual({ value: 0, label: '', description: '' })
+  })
+
+  it('option(v) resolves label/description getters', () => {
+    const Status = enumOf({
+      Ok: { value: 1, label: () => 'OK', description: () => 'OK desc' },
+    })
+    const opt = Status.option(1)
+    expect(opt.label).toBe('OK')
+    expect(opt.description).toBe('OK desc')
+  })
+
+  it('option(v) resolves extended fields with callOrReturn', () => {
+    const Status = enumOf({
+      Success: { value: 1, label: 'S', color: 'green', icon: () => 'check' },
+    })
+    const opt = Status.option(1)
+    expect(opt.value).toBe(1)
+    expect(opt.label).toBe('S')
+    expect(opt.color).toBe('green')
+    expect(opt.icon).toBe('check')
+  })
+
+  it('options() returns array of all resolved options', () => {
+    const Status = enumOf({
+      A: { value: 1, label: 'A' },
+      B: { value: 2, label: 'B' },
+    })
+    const list = Status.options()
+    expect(list).toHaveLength(2)
+    expect(list[0]).toMatchObject({ value: 1, label: 'A' })
+    expect(list[1]).toMatchObject({ value: 2, label: 'B' })
+  })
+
+  it('options() resolves extended fields with callOrReturn', () => {
+    const Status = enumOf({
+      Success: { value: 1, color: () => 'green' },
+      Warning: { value: 2, color: 'yellow' },
+    })
+    const list = Status.options()
+    expect(list[0].color).toBe('green')
+    expect(list[1].color).toBe('yellow')
+  })
+
+  it('supports boolean and string enum values', () => {
+    const Bool = enumOf({ Yes: true, No: false })
+    expect(Bool.Yes).toBe(true)
+    expect(Bool.No).toBe(false)
+    expect(Bool.values()).toEqual([true, false])
+
+    const Str = enumOf({ Foo: 'foo', Bar: 'bar' })
+    expect(Str.Foo).toBe('foo')
+    expect(Str.values()).toContain('foo')
+  })
 })
