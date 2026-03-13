@@ -4,6 +4,7 @@ export const utilItems = [
   { text: 'copyText', link: '/util/copy-text' },
   { text: 'download', link: '/util/download' },
   { text: 'duration', link: '/util/duration' },
+  { text: 'enumOf', link: '/util/enum-of' },
   { text: 'storage', link: '/util/storage' },
   { text: 'classes', link: '/util/classes' },
   { text: 'createNamespaceFn', link: '/util/create-namespace-fn' },
