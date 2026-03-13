@@ -1,3 +1,13 @@
+# [1.4.0](https://github.com/varletjs/rattail/compare/v1.3.1...v1.4.0) (2026-03-13)
+
+
+### Features
+
+* add enumOf utility and corresponding tests ([54f8d7a](https://github.com/varletjs/rattail/commit/54f8d7a0f6f7ac34ee18c010a1d1e8b5a574db92))
+* add enumOf utility documentation in English and Chinese ([2213d87](https://github.com/varletjs/rattail/commit/2213d87c055eec43904682fc8958e1b6b95b3a50))
+
+
+
 ## [1.3.1](https://github.com/varletjs/rattail/compare/v1.3.0...v1.3.1) (2026-01-29)
 
 
