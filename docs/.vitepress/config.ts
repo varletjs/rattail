@@ -5,6 +5,7 @@ import {
   fileItems,
   functionItems,
   generalItems,
+  integratedItems,
   mathItems,
   numberItems,
   objectItems,
@@ -82,6 +83,10 @@ export default defineConfig({
             text: '工具',
             items: withI18n(utilItems, 'zh'),
           },
+          {
+            text: '集成',
+            items: withI18n(integratedItems, 'zh'),
+          },
         ],
 
         docFooter: {
@@ -147,6 +152,10 @@ export default defineConfig({
       {
         text: 'Util',
         items: utilItems,
+      },
+      {
+        text: 'Integrated',
+        items: integratedItems,
       },
     ],
 

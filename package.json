@@ -51,7 +51,8 @@
     ]
   },
   "dependencies": {
-    "mitt": "^3.0.1"
+    "mitt": "^3.0.1",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "@configurajs/eslint": "^0.0.14",
