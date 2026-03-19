@@ -1,3 +1,15 @@
+# [1.5.0](https://github.com/varletjs/rattail/compare/v1.4.0...v1.5.0) (2026-03-19)
+
+
+### Code Refactoring
+
+* update build output directory to 'dist' and adjust TypeScript configuration ([6beeafb](https://github.com/varletjs/rattail/commit/6beeafb2856f435652b6ba4ebe82a447bf938431))
+
+
+### Features
+
+* add integrated items for mitt and uuid with corresponding documentation ([0ddbf92](https://github.com/varletjs/rattail/commit/0ddbf924aaa7cd9beb6dc8071d854c51322fa0d4))
+
 # [1.4.0](https://github.com/varletjs/rattail/compare/v1.3.1...v1.4.0) (2026-03-13)
 
 
@@ -6,19 +18,11 @@
 * add enumOf utility and corresponding tests ([54f8d7a](https://github.com/varletjs/rattail/commit/54f8d7a0f6f7ac34ee18c010a1d1e8b5a574db92))
 * add enumOf utility documentation in English and Chinese ([2213d87](https://github.com/varletjs/rattail/commit/2213d87c055eec43904682fc8958e1b6b95b3a50))
 
-
-
 ## [1.3.1](https://github.com/varletjs/rattail/compare/v1.3.0...v1.3.1) (2026-01-29)
-
-
 
 # [1.3.0](https://github.com/varletjs/rattail/compare/v1.2.3...v1.3.0) (2025-12-18)
 
-
-
 ## [1.2.3](https://github.com/varletjs/rattail/compare/v1.2.2...v1.2.3) (2025-12-18)
-
-
 
 ## [1.2.2](https://github.com/varletjs/rattail/compare/v1.2.1...v1.2.2) (2025-12-18)
 
@@ -27,11 +31,7 @@
 
 * support createCacheManager ([aa5e628](https://github.com/varletjs/rattail/commit/aa5e62807840c51a5cf3de37ee614408ae8eb2fb))
 
-
-
 ## [1.2.1](https://github.com/varletjs/rattail/compare/v1.2.0...v1.2.1) (2025-11-16)
-
-
 
 # [1.2.0](https://github.com/varletjs/rattail/compare/v1.1.0...v1.2.0) (2025-11-14)
 
@@ -41,8 +41,6 @@
 * support callOrReturn ([71ba352](https://github.com/varletjs/rattail/commit/71ba352d31afb0765a823ffadfe5b895153486cc))
 * support hasDuplicates and hasDuplicatesBy ([a163cf8](https://github.com/varletjs/rattail/commit/a163cf849379a2fd6af4256585af9f76f0cfb86e))
 
-
-
 # [1.1.0](https://github.com/varletjs/rattail/compare/v1.0.24...v1.1.0) (2025-11-06)
 
 
@@ -51,16 +49,12 @@
 * add objectKeys and objectEntries to objectItems ([e9eaef9](https://github.com/varletjs/rattail/commit/e9eaef96c2be80fb584b1d365188e15a8c26e380))
 * add removeItemBy and removeItemsBy functions with corresponding documentation ([4c0fd16](https://github.com/varletjs/rattail/commit/4c0fd16e8335ee4d1119a8027fc9651668b6ea84))
 
-
-
 ## [1.0.24](https://github.com/varletjs/rattail/compare/v1.0.23...v1.0.24) (2025-10-24)
 
 
 ### Features
 
 * add objectEntries and objectKeys functions with TypeScript support ([204f538](https://github.com/varletjs/rattail/commit/204f5384aed9fd514cf0d48cf56ec626ab5b49b0))
-
-
 
 ## [1.0.23](https://github.com/varletjs/rattail/compare/v1.0.22...v1.0.23) (2025-09-03)
 
@@ -69,15 +63,9 @@
 
 * support set ([3c8e33c](https://github.com/varletjs/rattail/commit/3c8e33c4d9857624d7663caed321fa5738453912))
 
-
-
 ## [1.0.22](https://github.com/varletjs/rattail/compare/v1.0.21...v1.0.22) (2025-08-14)
 
-
-
 ## [1.0.21](https://github.com/varletjs/rattail/compare/v1.0.20...v1.0.21) (2025-08-14)
-
-
 
 ## [1.0.20](https://github.com/varletjs/rattail/compare/v1.0.19...v1.0.20) (2025-08-12)
 
@@ -86,8 +74,6 @@
 
 * support duration ([e26e778](https://github.com/varletjs/rattail/commit/e26e77803fed315421dd47b5ad9ffb97e34d8dc5))
 
-
-
 ## [1.0.19](https://github.com/varletjs/rattail/compare/v1.0.18...v1.0.19) (2025-01-15)
 
 
@@ -95,11 +81,7 @@
 
 * case conversion is compatible with snake case ([90d9b97](https://github.com/varletjs/rattail/commit/90d9b97645e853355b0cff4d92d3782e2694eb81))
 
-
-
 ## [1.0.18](https://github.com/varletjs/rattail/compare/v1.0.17...v1.0.18) (2024-12-07)
-
-
 
 ## [1.0.17](https://github.com/varletjs/rattail/compare/v1.0.16...v1.0.17) (2024-12-06)
 
@@ -113,16 +95,12 @@
 
 * assert ([5c48630](https://github.com/varletjs/rattail/commit/5c48630fde4610e5aa51f0c959c13a9b3922d790))
 
-
-
 ## [1.0.16](https://github.com/varletjs/rattail/compare/v1.0.15...v1.0.16) (2024-11-26)
 
 
 ### Bug Fixes
 
 * export mitt ([da5fcaf](https://github.com/varletjs/rattail/commit/da5fcaf23516936ce0a604724b66becd96ea5481))
-
-
 
 ## [1.0.15](https://github.com/varletjs/rattail/compare/v1.0.14...v1.0.15) (2024-11-26)
 
@@ -131,16 +109,12 @@
 
 * export mitt ([585a2e9](https://github.com/varletjs/rattail/commit/585a2e9597bd29455b2090874598ce8bdc1118ad))
 
-
-
 ## [1.0.14](https://github.com/varletjs/rattail/compare/v1.0.13...v1.0.14) (2024-11-21)
 
 
 ### Features
 
 * motion ([0091ddd](https://github.com/varletjs/rattail/commit/0091dddcc846fba6ee02f3e119887dd8b315892c))
-
-
 
 ## [1.0.13](https://github.com/varletjs/rattail/compare/v1.0.12...v1.0.13) (2024-11-20)
 
@@ -149,8 +123,6 @@
 
 * isEmptyPlainObject ([d0392a1](https://github.com/varletjs/rattail/commit/d0392a1faeb13d6ca3a027e726591575e6d3b7cf))
 
-
-
 ## [1.0.12](https://github.com/varletjs/rattail/compare/v1.0.11...v1.0.12) (2024-11-19)
 
 
@@ -158,11 +130,7 @@
 
 * floor, ceil ([4f2ad26](https://github.com/varletjs/rattail/commit/4f2ad2626654a3d3f1b98f26cb91e1aebf98aa31))
 
-
-
 ## [1.0.11](https://github.com/varletjs/rattail/compare/v1.0.10...v1.0.11) (2024-11-17)
-
-
 
 ## [1.0.10](https://github.com/varletjs/rattail/compare/v1.0.9...v1.0.10) (2024-11-17)
 
@@ -171,8 +139,6 @@
 
 * download ([130d65a](https://github.com/varletjs/rattail/commit/130d65afdfcbf1de57efc96c2b1f2a5684b5980d))
 
-
-
 ## [1.0.9](https://github.com/varletjs/rattail/compare/v1.0.8...v1.0.9) (2024-11-16)
 
 
@@ -180,11 +146,7 @@
 
 * isPrimitive, mapObject, promiseWithResolvers ([1bec2db](https://github.com/varletjs/rattail/commit/1bec2db531f4a13b79d21b93c36b95b95e2fefa4))
 
-
-
 ## [1.0.8](https://github.com/varletjs/rattail/compare/v1.0.7...v1.0.8) (2024-11-14)
-
-
 
 ## [1.0.7](https://github.com/varletjs/rattail/compare/v1.0.6...v1.0.7) (2024-11-14)
 
@@ -193,11 +155,7 @@
 
 * xor, xorWith ([d732521](https://github.com/varletjs/rattail/commit/d732521bbd573a1660d6737c0363c649e4189eda))
 
-
-
 ## [1.0.6](https://github.com/varletjs/rattail/compare/v1.0.5...v1.0.6) (2024-11-13)
-
-
 
 ## [1.0.5](https://github.com/varletjs/rattail/compare/v1.0.4...v1.0.5) (2024-11-13)
 
@@ -207,8 +165,6 @@
 * groupBy ([88d0744](https://github.com/varletjs/rattail/commit/88d0744d572e83fe0cc04377070fbd583cf9564f))
 * round ([d432849](https://github.com/varletjs/rattail/commit/d432849b44a31381492e82b446bbc2b274575842))
 
-
-
 ## [1.0.4](https://github.com/varletjs/rattail/compare/v1.0.3...v1.0.4) (2024-11-12)
 
 
@@ -217,11 +173,7 @@
 * intersection, intersectionWith ([c8597e2](https://github.com/varletjs/rattail/commit/c8597e28be08857de4d7c03b02ab9d7ca0a50085))
 * support difference, differenceWith ([5064736](https://github.com/varletjs/rattail/commit/5064736cb3ab4a0540e93e3cfecdf567bb605d15))
 
-
-
 ## [1.0.3](https://github.com/varletjs/rattail/compare/v1.0.2...v1.0.3) (2024-11-11)
-
-
 
 ## [1.0.2](https://github.com/varletjs/rattail/compare/v1.0.1...v1.0.2) (2024-11-11)
 
@@ -230,8 +182,6 @@
 
 * **merge:** support reset args ([fc14191](https://github.com/varletjs/rattail/commit/fc14191d35b85ff98c11803ba933f03d287862a0))
 
-
-
 ## [1.0.1](https://github.com/varletjs/rattail/compare/v1.0.0...v1.0.1) (2024-11-10)
 
 
@@ -239,11 +189,7 @@
 
 * isFile isBlob ([66c159c](https://github.com/varletjs/rattail/commit/66c159ceeef15bd264149e6db338b9d40c0cf869))
 
-
-
 # [1.0.0](https://github.com/varletjs/rattail/compare/v0.0.12...v1.0.0) (2024-11-08)
-
-
 
 ## [0.0.12](https://github.com/varletjs/rattail/compare/v0.0.11...v0.0.12) (2024-11-07)
 
@@ -257,16 +203,12 @@
 
 * add pick, omit, pickBy, and omitBy functions ([#27](https://github.com/varletjs/rattail/issues/27)) ([ee83029](https://github.com/varletjs/rattail/commit/ee830291c16cb3ebffcbe5313657cdeed933d101))
 
-
-
 ## [0.0.11](https://github.com/varletjs/rattail/compare/v0.0.10...v0.0.11) (2024-11-05)
 
 
 ### Features
 
 * support ensureSuffix, ensurePrefix, refactor project structrue ([475cdde](https://github.com/varletjs/rattail/commit/475cdde2873f6d5314f844bdce1d09cfe66c65d6))
-
-
 
 ## [0.0.10](https://github.com/varletjs/rattail/compare/v0.0.9...v0.0.10) (2024-11-04)
 
@@ -275,11 +217,7 @@
 
 * support chunk ([80e4419](https://github.com/varletjs/rattail/commit/80e441936042cebc01309c54c034a4fccb2869b9))
 
-
-
 ## [0.0.9](https://github.com/varletjs/rattail/compare/v0.0.8...v0.0.9) (2024-11-04)
-
-
 
 ## [0.0.8](https://github.com/varletjs/rattail/compare/v0.0.7...v0.0.8) (2024-11-04)
 
@@ -301,8 +239,6 @@
 * support sumHash and fix docs ([af238bd](https://github.com/varletjs/rattail/commit/af238bd0891c08cd40bb498ba136880fe2338885))
 * wip ([81e06c8](https://github.com/varletjs/rattail/commit/81e06c8f4f9bd7d28fe52565b996282c86580cb4))
 
-
-
 ## [0.0.7](https://github.com/varletjs/rattail/compare/v0.0.6...v0.0.7) (2024-11-01)
 
 
@@ -311,16 +247,12 @@
 * support mitt ([1d2a5b4](https://github.com/varletjs/rattail/commit/1d2a5b431265961a7c94bf12b7fdc0da92f33d3d))
 * support once ([dd4e375](https://github.com/varletjs/rattail/commit/dd4e375bbc9592794ed0ad7fa3d7e7eb98fbd4b0))
 
-
-
 ## [0.0.6](https://github.com/varletjs/rattail/compare/v0.0.5...v0.0.6) (2024-10-31)
 
 
 ### Bug Fixes
 
 * fix imported ([c7eabd3](https://github.com/varletjs/rattail/commit/c7eabd3c01373e317ce41f15057ba22e187116e6))
-
-
 
 ## [0.0.5](https://github.com/varletjs/rattail/compare/v0.0.3...v0.0.5) (2024-10-31)
 
@@ -342,8 +274,6 @@
 
 * improve throttle ([63a5a76](https://github.com/varletjs/rattail/commit/63a5a7685cb0c479832424d87cde0598a8435f81))
 
-
-
 ## [0.0.3](https://github.com/varletjs/rattail/compare/v0.0.2...v0.0.3) (2024-10-28)
 
 
@@ -351,16 +281,12 @@
 
 * enhance camelize and genStringKey and update docs ([5f4fad5](https://github.com/varletjs/rattail/commit/5f4fad5f48268165402f6f4abe8e92758b2c7be4))
 
-
-
 ## [0.0.2](https://github.com/varletjs/rattail/compare/v0.0.1...v0.0.2) (2024-10-28)
 
 
 ### Features
 
 * support vitesse theme for markdown ([c90908a](https://github.com/varletjs/rattail/commit/c90908ab051edb395320021e896d5573ce5d6668))
-
-
 
 ## [0.0.1](https://github.com/varletjs/rattail/compare/65964000b92b4ee6a8c4ff7045dc5bf3f44b9c2a...v0.0.1) (2024-10-28)
 
@@ -380,6 +306,4 @@
 * new utils and add vitest ([d8ef0f7](https://github.com/varletjs/rattail/commit/d8ef0f7669cdcfa6147671c9ab8df921e67cd541))
 * support vitepress ([d861865](https://github.com/varletjs/rattail/commit/d861865f9d5f39dbad1c467e0ec6e1116bbb28d9))
 * theme customization ([1a53c72](https://github.com/varletjs/rattail/commit/1a53c72365dca6efa54994b596c6772cb9448c96))
-
-
 
