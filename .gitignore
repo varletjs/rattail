@@ -1,6 +1,6 @@
 .vscode
 node_modules
-lib
+dist
 coverage
 .DS_Store
 docs/.vitepress/cache

@@ -19,23 +19,16 @@
   "author": "haoziqaq <357229046@qq.com>",
   "sideEffects": false,
   "type": "module",
-  "exports": {
-    ".": {
-      "import": "./lib/index.js",
-      "require": "./lib/index.cjs"
-    }
-  },
-  "main": "lib/index.cjs",
-  "jsdelivr": "lib/index.global.js",
-  "unpkg": "lib/index.global.js",
-  "module": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "exports": "./dist/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs,iife --out-dir=lib --global-name=Rattail --dts --clean",
-    "clean": "rimraf node_modules lib",
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "clean": "rimraf node_modules dist",
     "dev": "vitest --coverage",
     "docs:build": "vitepress build docs",
     "docs:dev": "vitepress dev docs",
