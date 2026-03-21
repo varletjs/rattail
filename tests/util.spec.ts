@@ -804,6 +804,11 @@ describe('navigation', () => {
       navigation.replace({ to: 'https://external.com/settings', hash: '#account' })
       expect(replace).toHaveBeenCalledWith('https://external.com/settings#account')
     })
+
+    it('should should URL with empty to and call location.replace', () => {
+      navigation.replace({ to: '', query: { q: 'test' }, hash: '#top' })
+      expect(replace).toHaveBeenCalledWith('?q=test#top')
+    })
   })
 
   describe('open', () => {
