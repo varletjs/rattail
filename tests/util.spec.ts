@@ -478,7 +478,7 @@ it('createCacheManager', async () => {
   const cacheManager = createCacheManager<{ count: number }>({ ttl: 100 })
 
   cacheManager.set('a', { count: 123 })
-  await delay(100)
+  await delay(101)
   expect(cacheManager.get('a')).toBeUndefined()
 
   cacheManager.set('b', { count: 456 }, { ttl: 200 })

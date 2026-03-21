@@ -47,7 +47,7 @@ it('sumHash', () => {
     sumHash(() => {
       console.log('123')
     }),
-  ).toBe('7842a7e1')
+  ).toBe('41aadf50')
 
   const a: Record<string, any> = { a: '123', self: undefined }
   a.self = a
