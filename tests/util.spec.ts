@@ -1,5 +1,6 @@
-import { beforeEach, describe, expect, it, vi } from 'vite-plus/test'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vite-plus/test'
 import {
+  buildNavigationUrl,
   cancelAnimationFrame,
   classes,
   copyText,
@@ -19,6 +20,7 @@ import {
   getStyle,
   inViewport,
   motion,
+  navigation,
   prettyJSONObject,
   preventDefault,
   raf,
@@ -654,5 +656,201 @@ describe('enumOf', () => {
     const Str = enumOf({ Foo: 'foo', Bar: 'bar' })
     expect(Str.Foo).toBe('foo')
     expect(Str.values()).toContain('foo')
+  })
+})
+
+describe('navigation', () => {
+  describe('buildNavigationUrl', () => {
+    it('should return string target as-is', () => {
+      expect(buildNavigationUrl('/dashboard')).toBe('/dashboard')
+      expect(buildNavigationUrl('https://external.com/login')).toBe('https://external.com/login')
+    })
+
+    it('should append query params', () => {
+      expect(buildNavigationUrl({ to: '/search', query: { q: 'vue', page: '1' } })).toBe('/search?q=vue&page=1')
+    })
+
+    it('should append query params to external URL', () => {
+      expect(buildNavigationUrl({ to: 'https://external.com/docs', query: { v: '1.0' } })).toBe(
+        'https://external.com/docs?v=1.0',
+      )
+    })
+
+    it('should merge query params with existing query in to', () => {
+      expect(buildNavigationUrl({ to: '/search?lang=en', query: { q: 'vue', page: '1' } })).toBe(
+        '/search?lang=en&q=vue&page=1',
+      )
+    })
+
+    it('should merge query params with existing query in external URL', () => {
+      expect(buildNavigationUrl({ to: 'https://external.com/docs?lang=en', query: { v: '1.0' } })).toBe(
+        'https://external.com/docs?lang=en&v=1.0',
+      )
+    })
+
+    it('should append hash', () => {
+      expect(buildNavigationUrl({ to: '/docs', hash: '#section' })).toBe('/docs#section')
+    })
+
+    it('should append query and hash', () => {
+      expect(buildNavigationUrl({ to: '/docs', query: { v: '1.0' }, hash: '#section' })).toBe('/docs?v=1.0#section')
+    })
+
+    it('should merge query with existing and append hash', () => {
+      expect(buildNavigationUrl({ to: '/docs?lang=en', query: { v: '1.0' }, hash: '#section' })).toBe(
+        '/docs?lang=en&v=1.0#section',
+      )
+    })
+
+    it('should override existing hash in to', () => {
+      expect(buildNavigationUrl({ to: '/docs#old', hash: '#new' })).toBe('/docs#new')
+    })
+
+    it('should override existing hash and merge query', () => {
+      expect(buildNavigationUrl({ to: '/docs?lang=en#old', query: { v: '1.0' }, hash: '#section' })).toBe(
+        '/docs?lang=en&v=1.0#section',
+      )
+    })
+
+    it('should append hash to external URL', () => {
+      expect(buildNavigationUrl({ to: 'https://external.com/docs', hash: '#api' })).toBe(
+        'https://external.com/docs#api',
+      )
+    })
+
+    it('should append query and hash to external URL', () => {
+      expect(buildNavigationUrl({ to: 'https://external.com/docs', query: { v: '1.0' }, hash: '#api' })).toBe(
+        'https://external.com/docs?v=1.0#api',
+      )
+    })
+
+    it('should merge query and append hash to external URL', () => {
+      expect(buildNavigationUrl({ to: 'https://external.com/docs?lang=en', query: { v: '1.0' }, hash: '#api' })).toBe(
+        'https://external.com/docs?lang=en&v=1.0#api',
+      )
+    })
+
+    it('should preserve existing hash when hash option is not provided', () => {
+      expect(buildNavigationUrl({ to: '/docs#section' })).toBe('/docs#section')
+      expect(buildNavigationUrl({ to: '/docs#section', query: { v: '1.0' } })).toBe('/docs?v=1.0#section')
+    })
+  })
+
+  describe('push', () => {
+    let originalLocation: Location
+    let assign: ReturnType<typeof vi.fn>
+
+    beforeEach(() => {
+      originalLocation = window.location
+      assign = vi.fn()
+      vi.stubGlobal('location', { ...originalLocation, assign })
+    })
+
+    afterEach(() => {
+      vi.stubGlobal('location', originalLocation)
+    })
+
+    it('should call location.assign for internal URL string', () => {
+      navigation.push('/dashboard')
+      expect(assign).toHaveBeenCalledWith('/dashboard')
+    })
+
+    it('should call location.assign for external URL string', () => {
+      navigation.push('https://external.com/login')
+      expect(assign).toHaveBeenCalledWith('https://external.com/login')
+    })
+
+    it('should build URL and call location.assign for internal target', () => {
+      navigation.push({ to: '/search', query: { q: 'vue', page: '1' } })
+      expect(assign).toHaveBeenCalledWith('/search?q=vue&page=1')
+    })
+
+    it('should build URL and call location.assign for external target', () => {
+      navigation.push({ to: 'https://external.com/docs', query: { v: '1.0' }, hash: '#api' })
+      expect(assign).toHaveBeenCalledWith('https://external.com/docs?v=1.0#api')
+    })
+  })
+
+  describe('replace', () => {
+    let originalLocation: Location
+    let replace: ReturnType<typeof vi.fn>
+
+    beforeEach(() => {
+      originalLocation = window.location
+      replace = vi.fn()
+      vi.stubGlobal('location', { ...originalLocation, replace })
+    })
+
+    afterEach(() => {
+      vi.stubGlobal('location', originalLocation)
+    })
+
+    it('should call location.replace for internal URL string', () => {
+      navigation.replace('/settings')
+      expect(replace).toHaveBeenCalledWith('/settings')
+    })
+
+    it('should call location.replace for external URL string', () => {
+      navigation.replace('https://external.com/profile')
+      expect(replace).toHaveBeenCalledWith('https://external.com/profile')
+    })
+
+    it('should build URL with query and hash for internal target', () => {
+      navigation.replace({ to: '/settings?mode=edit', query: { tab: 'info' }, hash: '#profile' })
+      expect(replace).toHaveBeenCalledWith('/settings?mode=edit&tab=info#profile')
+    })
+
+    it('should build URL and call location.replace for external target', () => {
+      navigation.replace({ to: 'https://external.com/settings', hash: '#account' })
+      expect(replace).toHaveBeenCalledWith('https://external.com/settings#account')
+    })
+  })
+
+  describe('open', () => {
+    it('should call window.open for internal URL', () => {
+      const spy = vi.spyOn(window, 'open').mockImplementation(() => null)
+      navigation.open('/help')
+      expect(spy).toHaveBeenCalledWith('/help')
+      spy.mockRestore()
+    })
+
+    it('should call window.open for external URL', () => {
+      const spy = vi.spyOn(window, 'open').mockImplementation(() => null)
+      navigation.open('https://external.com/help')
+      expect(spy).toHaveBeenCalledWith('https://external.com/help')
+      spy.mockRestore()
+    })
+
+    it('should build URL with query and hash then call window.open', () => {
+      const spy = vi.spyOn(window, 'open').mockImplementation(() => null)
+      navigation.open({ to: '/docs?lang=en', query: { v: '1.0' }, hash: '#getting-started' })
+      expect(spy).toHaveBeenCalledWith('/docs?lang=en&v=1.0#getting-started')
+      spy.mockRestore()
+    })
+  })
+
+  describe('back', () => {
+    it('should call history.back', () => {
+      const spy = vi.spyOn(window.history, 'back').mockImplementation(() => {})
+      navigation.back()
+      expect(spy).toHaveBeenCalled()
+      spy.mockRestore()
+    })
+  })
+
+  describe('go', () => {
+    it('should call history.go with positive delta', () => {
+      const spy = vi.spyOn(window.history, 'go').mockImplementation(() => {})
+      navigation.go(2)
+      expect(spy).toHaveBeenCalledWith(2)
+      spy.mockRestore()
+    })
+
+    it('should call history.go with negative delta', () => {
+      const spy = vi.spyOn(window.history, 'go').mockImplementation(() => {})
+      navigation.go(-3)
+      expect(spy).toHaveBeenCalledWith(-3)
+      spy.mockRestore()
+    })
   })
 })
