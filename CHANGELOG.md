@@ -1,3 +1,21 @@
+# [1.6.0](https://github.com/varletjs/rattail/compare/v1.5.0...v1.6.0) (2026-03-21)
+
+
+### Bug Fixes
+
+* **tests:** update expected hash in sumHash test and adjust delay in createCacheManager test ([141ca92](https://github.com/varletjs/rattail/commit/141ca92c2aa592186ee3bbb0a99bf73a469a5028))
+* update NavigationTarget query type to allow any value and ensure string conversion in buildNavigationUrl ([cb8c335](https://github.com/varletjs/rattail/commit/cb8c335ce40b50cfbcc7f4e2b4aec86b0ef81435))
+
+
+### Code Refactoring
+
+* update test imports from vitest to vite-plus/test ([cb313fb](https://github.com/varletjs/rattail/commit/cb313fb95f337271410fefbcf2285bed80bb61e5))
+
+
+### Features
+
+* implement navigation API with buildNavigationUrl function and corresponding documentation ([0f7ee46](https://github.com/varletjs/rattail/commit/0f7ee46165dfb71a0e0dd0f4f6d5d39fa9546559))
+
 # [1.5.0](https://github.com/varletjs/rattail/compare/v1.4.0...v1.5.0) (2026-03-19)
 
 
