@@ -1,4 +1,4 @@
-import { expect, it } from 'vitest'
+import { expect, it } from 'vite-plus/test'
 import { clamp, clampArrayRange, delay, genNumberKey, randomNumber, times, toNumber } from '../src'
 
 it('toNumber', () => {

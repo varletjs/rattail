@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it } from 'vite-plus/test'
 import { mapObject, omit, omitBy, pick, pickBy, promiseWithResolvers, set } from '../src'
 import { objectEntries } from '../src/object/objectEntries'
 import { objectKeys } from '../src/object/objectKeys'

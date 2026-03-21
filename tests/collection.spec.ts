@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it } from 'vite-plus/test'
 import { cloneDeep, cloneDeepWith, hasOwn, isNumber, merge, mergeWith } from '../src'
 
 it('should merge self', () => {

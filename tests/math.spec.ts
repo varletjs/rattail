@@ -1,4 +1,4 @@
-import { expect, it } from 'vitest'
+import { expect, it } from 'vite-plus/test'
 import { ceil, floor, maxBy, mean, meanBy, minBy, round, sample, sum, sumBy, sumHash } from '../src'
 
 it('sum', () => {

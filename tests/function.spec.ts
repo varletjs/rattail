@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it, vi } from 'vite-plus/test'
 import { call, callOrReturn, debounce, once, throttle } from '../src'
 
 describe('Utility Functions', () => {
