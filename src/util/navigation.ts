@@ -2,7 +2,7 @@ import { isString } from '../general'
 
 export interface NavigationTarget {
   to: string
-  query?: Record<string, string>
+  query?: Record<string, any>
   hash?: string
 }
 
@@ -25,7 +25,7 @@ export function buildNavigationUrl(target: string | NavigationTarget): string {
 
   if (query) {
     for (const [key, value] of Object.entries(query)) {
-      params.append(key, value)
+      params.append(key, String(value))
     }
   }
 
