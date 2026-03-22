@@ -1,3 +1,4 @@
+// @ts-expect-error overwrite type definition
 import Cookie from 'js-cookie'
 import { isString } from '../general'
 import { getGlobalThis } from '../general/getGlobalThis'
@@ -8,9 +9,16 @@ export interface Storage extends globalThis.Storage {
   remove(key: string): void
 }
 
-export type CookieAttributes = Parameters<typeof Cookie.set>[2]
+export interface CookieAttributes {
+  expires?: number | Date | undefined
+  path?: string | undefined
+  domain?: string | undefined
+  secure?: boolean | undefined
+  sameSite?: 'strict' | 'Strict' | 'lax' | 'Lax' | 'none' | 'None' | undefined
+  [property: string]: any
+}
 
-export type CookieStorage = Omit<typeof Cookie, 'set' | 'get' | 'remove'> & {
+export interface CookieStorage {
   set(key: string, value: any, options?: CookieAttributes): void
   get(key: string): any
   remove(key: string, options?: CookieAttributes): void

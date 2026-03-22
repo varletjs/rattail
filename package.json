@@ -58,7 +58,6 @@
   "devDependencies": {
     "@configurajs/eslint": "^0.0.14",
     "@configurajs/prettier": "^0.1.1",
-    "@types/js-cookie": "^3.0.6",
     "@types/node": "^22.8.1",
     "@varlet/release": "^1.0.2",
     "@vitest/coverage-istanbul": "^4.1.0",

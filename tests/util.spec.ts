@@ -1,3 +1,5 @@
+// @ts-expect-error overwrite type definition
+import Cookie from 'js-cookie'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vite-plus/test'
 import {
   buildNavigationUrl,
@@ -5,6 +7,7 @@ import {
   classes,
   copyText,
   createCacheManager,
+  createCookieStorage,
   createNamespaceFn,
   createStorage,
   delay,
@@ -231,6 +234,71 @@ describe('Storage utility functions', () => {
     expect(storage.get('key4')).toBeNull()
     storage.set('key5', undefined)
     expect(storage.get('key5')).toBeNull()
+  })
+})
+
+describe('createCookieStorage', () => {
+  beforeEach(() => {
+    vi.spyOn(Cookie, 'set').mockImplementation(() => 'mocked')
+    vi.spyOn(Cookie, 'remove').mockImplementation(() => {})
+  })
+
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
+
+  it('should set and get string values', () => {
+    vi.spyOn(Cookie, 'get').mockReturnValue('hello')
+    const storage = createCookieStorage()
+    storage.set('key', 'hello')
+    expect(Cookie.set).toHaveBeenCalledWith('key', 'hello', {})
+    expect(storage.get('key')).toBe('hello')
+  })
+
+  it('should set and get object values with auto JSON serialize/parse', () => {
+    const obj = { a: 1, b: 'test' }
+    vi.spyOn(Cookie, 'get').mockReturnValue(JSON.stringify(obj))
+    const storage = createCookieStorage()
+    storage.set('key', obj)
+    expect(Cookie.set).toHaveBeenCalledWith('key', JSON.stringify(obj), {})
+    expect(storage.get('key')).toEqual(obj)
+  })
+
+  it('should ignore null and undefined values on set', () => {
+    const storage = createCookieStorage()
+    storage.set('key', null)
+    storage.set('key2', undefined)
+    expect(Cookie.set).not.toHaveBeenCalled()
+  })
+
+  it('should return raw string when JSON.parse fails', () => {
+    vi.spyOn(Cookie, 'get').mockReturnValue('not-json')
+    const storage = createCookieStorage()
+    expect(storage.get('key')).toBe('not-json')
+  })
+
+  it('should merge default options with per-call options on set', () => {
+    const storage = createCookieStorage({ expires: 7, path: '/' })
+    storage.set('key', 'value', { secure: true })
+    expect(Cookie.set).toHaveBeenCalledWith('key', 'value', { expires: 7, path: '/', secure: true })
+  })
+
+  it('should allow per-call options to override default options on set', () => {
+    const storage = createCookieStorage({ expires: 7 })
+    storage.set('key', 'value', { expires: 1 })
+    expect(Cookie.set).toHaveBeenCalledWith('key', 'value', { expires: 1 })
+  })
+
+  it('should remove a cookie with merged options', () => {
+    const storage = createCookieStorage({ path: '/' })
+    storage.remove('key', { domain: 'example.com' })
+    expect(Cookie.remove).toHaveBeenCalledWith('key', { path: '/', domain: 'example.com' })
+  })
+
+  it('should remove a cookie with default options when no per-call options', () => {
+    const storage = createCookieStorage({ path: '/app' })
+    storage.remove('key')
+    expect(Cookie.remove).toHaveBeenCalledWith('key', { path: '/app' })
   })
 })
 
