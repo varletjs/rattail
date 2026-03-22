@@ -1,3 +1,18 @@
+## [1.6.1](https://github.com/varletjs/rattail/compare/v1.6.0...v1.6.1) (2026-03-22)
+
+
+### Bug Fixes
+
+* remove unnecessary spread of Cookie in createCookieStorage function ([4fccba6](https://github.com/varletjs/rattail/commit/4fccba6302e2b8f540088aef44de93fe0466043b))
+* update Node.js version in CI configuration from 18 to 20 ([2fba357](https://github.com/varletjs/rattail/commit/2fba35751d220b9011672e912fba35fbc55a67ed))
+
+
+### Features
+
+* add .npmrc file with shamefully-hoist configuration ([21335c9](https://github.com/varletjs/rattail/commit/21335c9c42375128a29084b9f1f49eb6812267b4))
+* add createCookieStorage for cookie-based storage management with JSON serialization ([d07518a](https://github.com/varletjs/rattail/commit/d07518ac30b9fb89734a83e33880daed23012f82))
+* add js-cookie integration for cookie storage management ([7b574ba](https://github.com/varletjs/rattail/commit/7b574bad8edbcecbb465dfd57141534e3e8ef6b1))
+
 # [1.6.0](https://github.com/varletjs/rattail/compare/v1.5.0...v1.6.0) (2026-03-21)
 
 
