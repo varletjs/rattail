@@ -60,7 +60,6 @@ export function createCookieStorage(options: CookieAttributes = {}): CookieStora
   const defaultOptions = options
 
   return {
-    ...Cookie,
     set(key: string, value: unknown, options: CookieAttributes = {}) {
       if (value == null) {
         return
