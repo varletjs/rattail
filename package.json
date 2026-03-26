@@ -69,7 +69,7 @@
     "simple-git-hooks": "^2.11.1",
     "typescript": "5.3.3",
     "vite": "^8.0.1",
-    "vite-plus": "^0.1.13",
+    "vite-plus": "^0.1.14",
     "vitepress": "^1.4.1"
   },
   "packageManager": "pnpm@10.0.0",
