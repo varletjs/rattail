@@ -1,20 +1,20 @@
-# maskText
+# maskString
 
-遮盖字符串的中间部分，仅保留前缀和后缀可见。适用于隐藏邀请码、令牌、手机号等敏感信息。
+遮盖字符串的中间部分，仅保留前缀和后缀可见。适用于隐藏邀请码、令牌、手机号等敏感信息。对于较短的字符串，会自动缩减 suffix 和 prefix 以确保至少遮盖一个字符。
 
 ### 用法
 
 ```ts
-import { maskText } from 'rattail'
+import { maskString } from 'rattail'
 
-maskText('abcdefgh') // 'ab****gh'
-maskText('abcdefgh', { prefix: 3, suffix: 1 }) // 'abc****h'
-maskText('abcdefgh', { mask: '#' }) // 'ab####gh'
-maskText('abcdefgh', { maskLength: 4 }) // 'ab****gh'
-maskText('abcdefghijkl', { maskLength: 4 }) // 'ab****kl'
-maskText('abcd') // 'ab*d'（短文本：自动缩减 suffix 以确保至少 mask 1 个字符）
-maskText('ab') // 'a*'（极短文本：prefix 也会缩减）
-maskText('a') // 'a'（长度 <= 1 时原样返回）
+maskString('abcdefgh') // 'ab****gh'
+maskString('abcdefgh', { prefix: 3, suffix: 1 }) // 'abc****h'
+maskString('abcdefgh', { mask: '#' }) // 'ab####gh'
+maskString('abcdefgh', { maskLength: 4 }) // 'ab****gh'
+maskString('abcdefghijkl', { maskLength: 4 }) // 'ab****kl'
+maskString('abcd') // 'ab*d'（短文本：自动缩减 suffix 以确保至少 mask 1 个字符）
+maskString('ab') // 'a*'（极短文本：prefix 也会缩减）
+maskString('a') // 'a'（长度 <= 1 时原样返回）
 ```
 
 ### 参数

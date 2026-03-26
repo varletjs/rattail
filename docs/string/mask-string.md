@@ -1,20 +1,20 @@
-# maskText
+# maskString
 
-Masks the middle part of a string, keeping only the prefix and suffix visible. Useful for hiding sensitive information like invite codes, tokens, or phone numbers.
+Masks the middle part of a string, keeping only the prefix and suffix visible. Useful for hiding sensitive information like invite codes, tokens, or phone numbers. For short strings, suffix and prefix are automatically reduced to ensure at least one character is masked.
 
 ### Usage
 
 ```ts
-import { maskText } from 'rattail'
+import { maskString } from 'rattail'
 
-maskText('abcdefgh') // 'ab****gh'
-maskText('abcdefgh', { prefix: 3, suffix: 1 }) // 'abc****h'
-maskText('abcdefgh', { mask: '#' }) // 'ab####gh'
-maskText('abcdefgh', { maskLength: 4 }) // 'ab****gh'
-maskText('abcdefghijkl', { maskLength: 4 }) // 'ab****kl'
-maskText('abcd') // 'ab*d' (short text: suffix reduced to ensure at least 1 mask)
-maskText('ab') // 'a*' (very short: prefix reduced too)
-maskText('a') // 'a' (length <= 1, returned as-is)
+maskString('abcdefgh') // 'ab****gh'
+maskString('abcdefgh', { prefix: 3, suffix: 1 }) // 'abc****h'
+maskString('abcdefgh', { mask: '#' }) // 'ab####gh'
+maskString('abcdefgh', { maskLength: 4 }) // 'ab****gh'
+maskString('abcdefghijkl', { maskLength: 4 }) // 'ab****kl'
+maskString('abcd') // 'ab*d' (short text: suffix reduced to ensure at least 1 mask)
+maskString('ab') // 'a*' (very short: prefix reduced too)
+maskString('a') // 'a' (length <= 1, returned as-is)
 ```
 
 ### Arguments

@@ -1,4 +1,3 @@
-export * from './maskText'
 export * from './cancelAnimationFrame'
 export * from './classes'
 export * from './copyText'

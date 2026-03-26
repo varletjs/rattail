@@ -1,11 +1,11 @@
-export interface MaskTextOptions {
+export interface MaskStringOptions {
   prefix?: number
   suffix?: number
   mask?: string
   maskLength?: number
 }
 
-export function maskText(text: string, { prefix = 2, suffix = 2, mask = '*', maskLength }: MaskTextOptions = {}) {
+export function maskString(text: string, { prefix = 2, suffix = 2, mask = '*', maskLength }: MaskStringOptions = {}) {
   if (text.length <= 1) {
     return text
   }

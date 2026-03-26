@@ -1,3 +1,4 @@
+export * from './maskString'
 export * from './camelize'
 export * from './ensurePrefix'
 export * from './ensureSuffix'

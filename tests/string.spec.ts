@@ -1,4 +1,4 @@
-import { expect, it } from 'vite-plus/test'
+import { describe, expect, it } from 'vite-plus/test'
 import {
   camelize,
   ensurePrefix,
@@ -6,12 +6,52 @@ import {
   genStringKey,
   kebabCase,
   lowerFirst,
+  maskString,
   pascalCase,
   randomColor,
   randomString,
   slash,
   upperFirst,
 } from '../src'
+
+describe('maskString', () => {
+  it('masks middle characters with default options', () => {
+    expect(maskString('abcdefgh')).toBe('ab****gh')
+  })
+
+  it('returns original text when length <= 1', () => {
+    expect(maskString('a')).toBe('a')
+    expect(maskString('')).toBe('')
+  })
+
+  it('falls back to reduced suffix for short texts', () => {
+    expect(maskString('ab')).toBe('a*')
+    expect(maskString('abc')).toBe('ab*')
+    expect(maskString('abcd')).toBe('ab*d')
+  })
+
+  it('masks single middle character', () => {
+    expect(maskString('abcde')).toBe('ab*de')
+  })
+
+  it('supports custom prefix and suffix', () => {
+    expect(maskString('abcdefgh', { prefix: 3, suffix: 1 })).toBe('abc****h')
+    expect(maskString('abcdefgh', { prefix: 1, suffix: 3 })).toBe('a****fgh')
+  })
+
+  it('supports custom mask character', () => {
+    expect(maskString('abcdefgh', { mask: '#' })).toBe('ab####gh')
+  })
+
+  it('supports fixed maskLength', () => {
+    expect(maskString('abcdefghijkl', { maskLength: 4 })).toBe('ab****kl')
+    expect(maskString('abcde', { maskLength: 4 })).toBe('ab****de')
+  })
+
+  it('supports maskLength with custom options', () => {
+    expect(maskString('abcdefgh', { prefix: 1, suffix: 1, maskLength: 3, mask: '#' })).toBe('a###h')
+  })
+})
 
 it('pascalCase', () => {
   expect(pascalCase('hello-world')).toBe('HelloWorld')

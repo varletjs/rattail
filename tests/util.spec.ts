@@ -22,7 +22,6 @@ import {
   getScrollTop,
   getStyle,
   inViewport,
-  maskText,
   motion,
   navigation,
   prettyJSONObject,
@@ -31,45 +30,6 @@ import {
   requestAnimationFrame,
   tryParseJSON,
 } from '../src'
-
-describe('maskText', () => {
-  it('masks middle characters with default options', () => {
-    expect(maskText('abcdefgh')).toBe('ab****gh')
-  })
-
-  it('returns original text when length <= 1', () => {
-    expect(maskText('a')).toBe('a')
-    expect(maskText('')).toBe('')
-  })
-
-  it('falls back to reduced suffix for short texts', () => {
-    expect(maskText('ab')).toBe('a*')
-    expect(maskText('abc')).toBe('ab*')
-    expect(maskText('abcd')).toBe('ab*d')
-  })
-
-  it('masks single middle character', () => {
-    expect(maskText('abcde')).toBe('ab*de')
-  })
-
-  it('supports custom prefix and suffix', () => {
-    expect(maskText('abcdefgh', { prefix: 3, suffix: 1 })).toBe('abc****h')
-    expect(maskText('abcdefgh', { prefix: 1, suffix: 3 })).toBe('a****fgh')
-  })
-
-  it('supports custom mask character', () => {
-    expect(maskText('abcdefgh', { mask: '#' })).toBe('ab####gh')
-  })
-
-  it('supports fixed maskLength', () => {
-    expect(maskText('abcdefghijkl', { maskLength: 4 })).toBe('ab****kl')
-    expect(maskText('abcde', { maskLength: 4 })).toBe('ab****de')
-  })
-
-  it('supports maskLength with custom options', () => {
-    expect(maskText('abcdefgh', { prefix: 1, suffix: 1, maskLength: 3, mask: '#' })).toBe('a###h')
-  })
-})
 
 it('requestAnimationFrame', () => {
   const fn = vi.fn()
