@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vite-plus/test'
-import { call, callOrReturn, debounce, once, throttle } from '../src'
+import { call, callOrReturn, debounce, once, throttle, tryAsyncCall, tryCall } from '../src'
 
 describe('Utility Functions', () => {
   describe('debounce', () => {
@@ -130,5 +130,74 @@ describe('Utility Functions', () => {
 
     const result2 = callOrReturn(10)
     expect(result2).toBe(10)
+  })
+
+  describe('tryCall', () => {
+    it('should return [undefined, result] on success', () => {
+      const [err, result] = tryCall(() => 42)
+      expect(err).toBeUndefined()
+      expect(result).toBe(42)
+    })
+
+    it('should return [error, undefined] on throw', () => {
+      const error = new Error('fail')
+      const [err, result] = tryCall(() => {
+        throw error
+      })
+      expect(err).toBe(error)
+      expect(result).toBeUndefined()
+    })
+
+    it('should catch non-Error throws', () => {
+      const [err, result] = tryCall(() => {
+        throw 'string error'
+      })
+      expect(err).toBe('string error')
+      expect(result).toBeUndefined()
+    })
+
+    it('should pass arguments to the function', () => {
+      const [err, result] = tryCall((a: number, b: number) => a + b, 1, 2)
+      expect(err).toBeUndefined()
+      expect(result).toBe(3)
+    })
+
+    it('should pass arguments and catch errors', () => {
+      const [err, result] = tryCall(JSON.parse, 'invalid')
+      expect(err).toBeInstanceOf(SyntaxError)
+      expect(result).toBeUndefined()
+    })
+  })
+
+  describe('tryAsyncCall', () => {
+    it('should return [undefined, result] on async success', async () => {
+      const [err, result] = await tryAsyncCall(() => Promise.resolve(42))
+      expect(err).toBeUndefined()
+      expect(result).toBe(42)
+    })
+
+    it('should return [error, undefined] on async rejection', async () => {
+      const error = new Error('async fail')
+      // eslint-disable-next-line require-await
+      const [err, result] = await tryAsyncCall(async () => {
+        throw error
+      })
+      expect(err).toBe(error)
+      expect(result).toBeUndefined()
+    })
+
+    it('should catch non-Error async throws', async () => {
+      const [err, result] = await tryAsyncCall(() => Promise.reject('rejected'))
+      expect(err).toBe('rejected')
+      expect(result).toBeUndefined()
+    })
+
+    it('should pass arguments to the async function', async () => {
+      // eslint-disable-next-line require-await
+      const asyncAdd = async (a: number, b: number) => a + b
+      const [err, result] = await tryAsyncCall(asyncAdd, 3, 4)
+      expect(err).toBeUndefined()
+      expect(result).toBe(7)
+    })
   })
 })

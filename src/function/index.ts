@@ -1,4 +1,6 @@
 export * from './call'
+export * from './tryCall'
+export * from './tryAsyncCall'
 export * from './once'
 export * from './debounce'
 export * from './throttle'
