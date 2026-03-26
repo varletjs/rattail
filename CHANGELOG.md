@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/varletjs/rattail/compare/v1.6.3...v1.7.0) (2026-03-26)
+
+
+### Features
+
+* add tryCall and tryAsyncCall functions with corresponding documentation ([705928d](https://github.com/varletjs/rattail/commit/705928d025848ece728b06480ffc6bc08f9f526a))
+
 ## [1.6.3](https://github.com/varletjs/rattail/compare/v1.6.2...v1.6.3) (2026-03-26)
 
 
