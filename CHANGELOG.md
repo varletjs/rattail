@@ -1,3 +1,10 @@
+## [1.6.3](https://github.com/varletjs/rattail/compare/v1.6.2...v1.6.3) (2026-03-26)
+
+
+### Features
+
+* add maskString function for masking string content and update documentation ([fb6f755](https://github.com/varletjs/rattail/commit/fb6f755131a1d70e22d3f7fbb72872edb6251fd0))
+
 ## [1.6.2](https://github.com/varletjs/rattail/compare/v1.6.1...v1.6.2) (2026-03-26)
 
 
