@@ -36,9 +36,6 @@ importers:
       nano-staged:
         specifier: 0.8.0
         version: 0.8.0
-      prettier:
-        specifier: ^3.1.0
-        version: 3.3.3
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
@@ -1913,11 +1910,6 @@ packages:
 
   preact@10.24.3:
     resolution: {integrity: sha512-Z2dPnBnMUfyQfSQ+GBdsGa16hz35YmLmtTLhM169uW944hYL6xzTYkJjC07j+Wosz733pMWx0fgON3JNw1jJQA==}
-
-  prettier@3.3.3:
-    resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
-    engines: {node: '>=14'}
-    hasBin: true
 
   property-information@6.5.0:
     resolution: {integrity: sha512-PgTgs/BlvHxOu8QuEN7wi5A0OmXaBcHpmCSTehcs6Uuu9IkDIEo13Hy7n898RHfrQ49vKCoGeWZSaAK01nwVig==}
@@ -4104,8 +4096,6 @@ snapshots:
       source-map-js: 1.2.1
 
   preact@10.24.3: {}
-
-  prettier@3.3.3: {}
 
   property-information@6.5.0: {}
 
