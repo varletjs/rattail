@@ -85,7 +85,7 @@
   },
   "dependencies": {
     "@configurajs/vite-plus": "0.2.0",
-    "@varlet/axle": "1.0.1",
+    "@varlet/axle": "1.0.2",
     "js-cookie": "3.0.5",
     "mitt": "3.0.1",
     "ruler-factory": "0.0.14",

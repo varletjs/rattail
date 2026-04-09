@@ -12,8 +12,8 @@ importers:
         specifier: 0.2.0
         version: 0.2.0
       '@varlet/axle':
-        specifier: 1.0.1
-        version: 1.0.1(vue@3.5.12(typescript@5.3.3))
+        specifier: 1.0.2
+        version: 1.0.2(vue@3.5.12(typescript@5.3.3))
       js-cookie:
         specifier: 3.0.5
         version: 3.0.5
@@ -935,6 +935,11 @@ packages:
 
   '@varlet/axle@1.0.1':
     resolution: {integrity: sha512-lSTbCDSdbuE6iwlOMxoU3lNGF/bWyVfOQe7+Zwc838zeOb5CslEldy/hG8BW6D7Sj9o59Rm+5bPUHyw8C2wQ+Q==}
+    peerDependencies:
+      vue: ^3.2.0
+
+  '@varlet/axle@1.0.2':
+    resolution: {integrity: sha512-psNrdMKU9X5pHPcFms7cZLXXnSO9cuHTXjYdBe9hJbVdWsYIs+RewueoD+VISvHSMbAY8Gk7cd+1tS1D+iVZVQ==}
     peerDependencies:
       vue: ^3.2.0
 
@@ -2012,6 +2017,10 @@ packages:
 
   rattail@1.7.0:
     resolution: {integrity: sha512-CDI0+yciXtrO0o1YdxEKYbU7QV+lz8AnxIv8+cdpsQB5UR8okMrA2d/nZ7emzMxFz1cFHNVoNnBFYZkm16xbUA==}
+    engines: {pnpm: '>=10.0.0'}
+
+  rattail@1.8.1:
+    resolution: {integrity: sha512-Fk+b2jEIOitvOnihQKdJyR2r6TJO9rX11Y7f8ez3BbtiBxBeGcSHtqWjq6gtgxc49vtqSByLYCFLSfqAMGH2Ew==}
     engines: {pnpm: '>=10.0.0'}
 
   read-pkg-up@10.1.0:
@@ -3231,6 +3240,17 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
+  '@varlet/axle@1.0.2(vue@3.5.12(typescript@5.3.3))':
+    dependencies:
+      axios: 1.7.3
+      crypto-js: 4.2.0
+      lodash: 4.17.21
+      qs: 6.15.1
+      rattail: 1.8.1(vue@3.5.12(typescript@5.3.3))
+      vue: 3.5.12(typescript@5.3.3)
+    transitivePeerDependencies:
+      - debug
+
   '@varlet/release@1.0.2':
     dependencies:
       '@clack/prompts': 1.1.0
@@ -4310,6 +4330,18 @@ snapshots:
       js-cookie: 3.0.5
       mitt: 3.0.1
       uuid: 13.0.0
+
+  rattail@1.8.1(vue@3.5.12(typescript@5.3.3)):
+    dependencies:
+      '@configurajs/vite-plus': 0.2.0
+      '@varlet/axle': 1.0.1(vue@3.5.12(typescript@5.3.3))
+      js-cookie: 3.0.5
+      mitt: 3.0.1
+      ruler-factory: 0.0.14
+      uuid: 13.0.0
+    transitivePeerDependencies:
+      - debug
+      - vue
 
   read-pkg-up@10.1.0:
     dependencies:
