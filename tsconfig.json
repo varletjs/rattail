@@ -9,7 +9,6 @@
     "jsx": "preserve",
     "lib": ["esnext", "dom"],
     "module": "esnext",
-    "moduleResolution": "bundler",
-    "outDir": "./lib"
+    "moduleResolution": "bundler"
   }
 }
