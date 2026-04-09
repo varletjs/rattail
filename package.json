@@ -78,7 +78,7 @@
     "docs:dev": "vitepress dev docs",
     "docs:preview": "vitepress preview docs",
     "format": "vp fmt",
-    "lint": "vp lint",
+    "lint": "vp lint --fix",
     "prepare": "vp config --hooks-dir .vite-hooks",
     "release": "pnpm build && vr release",
     "test": "vp test run --coverage"
