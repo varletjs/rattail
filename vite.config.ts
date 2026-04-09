@@ -1,3 +1,4 @@
+import { lint, fmt } from '@configurajs/vite-plus'
 import { defineConfig } from 'vite-plus'
 
 export default defineConfig({
@@ -22,4 +23,6 @@ export default defineConfig({
       exclude: ['src/function/NOOP.ts', 'src/general/getGlobalThis.ts'],
     },
   },
+  lint: lint(),
+  fmt: fmt(),
 })
