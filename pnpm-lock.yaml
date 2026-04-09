@@ -9,19 +9,19 @@ importers:
   .:
     dependencies:
       '@configurajs/vite-plus':
-        specifier: ^0.1.9
+        specifier: 0.1.9
         version: 0.1.9
       '@varlet/axle':
-        specifier: ^1.0.1
+        specifier: 1.0.1
         version: 1.0.1(vue@3.5.12(typescript@5.3.3))
       js-cookie:
-        specifier: ^3.0.5
+        specifier: 3.0.5
         version: 3.0.5
       mitt:
-        specifier: ^3.0.1
+        specifier: 3.0.1
         version: 3.0.1
       uuid:
-        specifier: ^13.0.0
+        specifier: 13.0.0
         version: 13.0.0
     devDependencies:
       '@types/node':
