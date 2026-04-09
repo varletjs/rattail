@@ -1,4 +1,4 @@
-import { lint, fmt } from '@configurajs/vite-plus'
+import { lint, fmt, staged } from '@configurajs/vite-plus'
 import { defineConfig } from 'vite-plus'
 
 export default defineConfig({
@@ -25,10 +25,7 @@ export default defineConfig({
     },
   },
 
-  staged: {
-    '*.{md}': 'vp fmt --no-error-on-unmatched-pattern',
-    '*.{ts}': ['vp fmt --no-error-on-unmatched-pattern', 'vp lint --fix'],
-  },
+  staged: staged(),
 
   lint: lint(),
 

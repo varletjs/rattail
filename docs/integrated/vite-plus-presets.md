@@ -10,6 +10,7 @@ Opinionated [Oxlint](https://oxc.rs/docs/guide/usage/linter) + [Oxfmt](https://o
 - Vitest (enabled by default)
 - Type-aware linting
 - Oxfmt formatting with import sorting and Tailwind CSS class sorting
+- Lint-staged preset out of the box
 
 ### Usage
 
@@ -37,11 +38,12 @@ If you are using [Vite+](https://viteplus.dev), you can configure lint and fmt i
 
 ```ts
 import { defineConfig } from 'vite-plus'
-import { lint, fmt } from 'rattail/vite-plus'
+import { lint, fmt, staged } from 'rattail/vite-plus'
 
 export default defineConfig({
   lint: lint(),
   fmt: fmt(),
+  staged: staged(),
 })
 ```
 
@@ -70,6 +72,31 @@ lint({
   ],
 })
 ```
+
+### Fmt Options
+
+```ts
+fmt({
+  // Ignore file patterns
+  ignores: ['**/generated/**'],
+})
+```
+
+### Staged
+
+`staged()` returns a preset lint-staged configuration:
+
+```ts
+staged()
+// Equivalent to:
+// {
+//   '*.{js,jsx,ts,tsx,vue}': ['vp fmt --no-error-on-unmatched-pattern', 'vp lint --fix'],
+//   '*.{md,json,yaml,yml,html,css,scss,less}': 'vp fmt --no-error-on-unmatched-pattern',
+// }
+```
+
+- `js / jsx / ts / tsx / vue` — Format and lint fix
+- `md / json / yaml / yml / html / css / scss / less` — Format only
 
 ### VSCode Settings
 

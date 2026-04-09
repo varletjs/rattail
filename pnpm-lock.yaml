@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@configurajs/vite-plus':
-        specifier: 0.1.9
-        version: 0.1.9
+        specifier: 0.2.0
+        version: 0.2.0
       '@varlet/axle':
         specifier: 1.0.1
         version: 1.0.1(vue@3.5.12(typescript@5.3.3))
@@ -219,8 +219,8 @@ packages:
   '@clack/prompts@1.1.0':
     resolution: {integrity: sha512-pkqbPGtohJAvm4Dphs2M8xE29ggupihHdy1x84HNojZuMtFsHiUlRvqD24tM2+XmI+61LlfNceM3Wr7U5QES5g==}
 
-  '@configurajs/vite-plus@0.1.9':
-    resolution: {integrity: sha512-gnXU+7HCXAWiBawEt85InVdomOh3f18bdNirxb4yz43HWVgFe28KnMtxIXmv6FXe1u4wwI65RU2D9QEr4ezjOg==}
+  '@configurajs/vite-plus@0.2.0':
+    resolution: {integrity: sha512-xwowRJQi+25eQiMr1wRh+/LJ+zHEzZ6WMRaga4W1FyXNmrfWz1FmCexG80VbUANeEBD9pHe7Kl/NuNDWHHlRVw==}
     engines: {node: '>=22.12.0', pnpm: '>=10.0'}
 
   '@docsearch/css@3.6.2':
@@ -2755,7 +2755,7 @@ snapshots:
       '@clack/core': 1.1.0
       sisteransi: 1.0.5
 
-  '@configurajs/vite-plus@0.1.9': {}
+  '@configurajs/vite-plus@0.2.0': {}
 
   '@docsearch/css@3.6.2': {}
 

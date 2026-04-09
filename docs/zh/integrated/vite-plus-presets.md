@@ -10,6 +10,7 @@
 - Vitest（默认开启）
 - 类型感知 lint
 - Oxfmt 格式化，支持 import 排序和 Tailwind CSS class 排序
+- 开箱即用的 lint-staged 预设
 
 ### 使用
 
@@ -37,11 +38,12 @@ export default fmt()
 
 ```ts
 import { defineConfig } from 'vite-plus'
-import { lint, fmt } from 'rattail/vite-plus'
+import { lint, fmt, staged } from 'rattail/vite-plus'
 
 export default defineConfig({
   lint: lint(),
   fmt: fmt(),
+  staged: staged(),
 })
 ```
 
@@ -70,6 +72,31 @@ lint({
   ],
 })
 ```
+
+### Fmt 选项
+
+```ts
+fmt({
+  // 忽略文件模式
+  ignores: ['**/generated/**'],
+})
+```
+
+### Staged
+
+`staged()` 返回一个预设的 lint-staged 配置：
+
+```ts
+staged()
+// 等同于：
+// {
+//   '*.{js,jsx,ts,tsx,vue}': ['vp fmt --no-error-on-unmatched-pattern', 'vp lint --fix'],
+//   '*.{md,json,yaml,yml,html,css,scss,less}': 'vp fmt --no-error-on-unmatched-pattern',
+// }
+```
+
+- `js / jsx / ts / tsx / vue` — 格式化 + lint 修复
+- `md / json / yaml / yml / html / css / scss / less` — 仅格式化
 
 ### VSCode 工作区配置
 
