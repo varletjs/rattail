@@ -25,6 +25,25 @@
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.mts",
+  "typesVersions": {
+    "*": {
+      "vite-plus": [
+        "dist/vite-plus/index.d.mts"
+      ],
+      "axle": [
+        "dist/axle/index.d.mts"
+      ],
+      "axle/use": [
+        "dist/axle/use.d.mts"
+      ],
+      "axle/api": [
+        "dist/axle/api.d.mts"
+      ],
+      "ruler-factory": [
+        "dist/ruler-factory/index.d.mts"
+      ]
+    }
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",
@@ -51,25 +70,6 @@
       "import": "./dist/ruler-factory/index.mjs"
     }
   },
-  "typesVersions": {
-    "*": {
-      "vite-plus": [
-        "dist/vite-plus/index.d.mts"
-      ],
-      "axle": [
-        "dist/axle/index.d.mts"
-      ],
-      "axle/use": [
-        "dist/axle/use.d.mts"
-      ],
-      "axle/api": [
-        "dist/axle/api.d.mts"
-      ],
-      "ruler-factory": [
-        "dist/ruler-factory/index.d.mts"
-      ]
-    }
-  },
   "scripts": {
     "build": "vp pack",
     "clean": "rimraf node_modules dist",
@@ -79,7 +79,7 @@
     "docs:preview": "vitepress preview docs",
     "format": "vp fmt",
     "lint": "vp lint",
-    "prepare": "simple-git-hooks",
+    "prepare": "vp config --hooks-dir .vite-hooks",
     "release": "pnpm build && vr release",
     "test": "vp test run --coverage"
   },
@@ -98,7 +98,6 @@
     "jsdom": "^25.0.1",
     "nano-staged": "0.8.0",
     "rimraf": "^6.0.1",
-    "simple-git-hooks": "^2.11.1",
     "typescript": "5.3.3",
     "vite": "^8.0.1",
     "vite-plus": "^0.1.16",
@@ -107,13 +106,6 @@
   "simple-git-hooks": {
     "pre-commit": "pnpm exec nano-staged --allow-empty",
     "commit-msg": "pnpm exec vr commit-lint -p $1"
-  },
-  "nano-staged": {
-    "*.{md}": "vp fmt --no-error-on-unmatched-pattern",
-    "*.{ts}": [
-      "vp fmt --no-error-on-unmatched-pattern",
-      "vp lint --fix"
-    ]
   },
   "engines": {
     "pnpm": ">=10.0.0"

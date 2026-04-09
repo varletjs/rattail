@@ -15,6 +15,7 @@ export default defineConfig({
     dts: true,
     clean: true,
   },
+
   test: {
     environment: 'jsdom',
     coverage: {
@@ -23,6 +24,13 @@ export default defineConfig({
       exclude: ['src/function/NOOP.ts', 'src/general/getGlobalThis.ts'],
     },
   },
+
+  staged: {
+    '*.{md}': 'vp fmt --no-error-on-unmatched-pattern',
+    '*.{ts}': ['vp fmt --no-error-on-unmatched-pattern', 'vp lint --fix'],
+  },
+
   lint: lint(),
+
   fmt: fmt(),
 })
