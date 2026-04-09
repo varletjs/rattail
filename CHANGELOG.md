@@ -1,3 +1,18 @@
+# [1.8.0](https://github.com/varletjs/rattail/compare/v1.7.0...v1.8.0) (2026-04-09)
+
+
+### Bug Fixes
+
+* update dependency specifiers to remove caret (^) for better version control ([3742923](https://github.com/varletjs/rattail/commit/3742923b71ee1d1c74addc2ea169aeaf039daa85))
+
+
+### Features
+
+* add axle and vite-plus-presets documentation in English and Chinese ([7065606](https://github.com/varletjs/rattail/commit/70656068f85c0050387afaaa8fe449d633f6f0ac))
+* add configuration files for formatting and linting using @configurajs/vite-plus ([783a02b](https://github.com/varletjs/rattail/commit/783a02b649fd68a7f1373f99f837baea07a0f051))
+* add ruler-factory integration and documentation in English and Chinese ([6e11252](https://github.com/varletjs/rattail/commit/6e11252a571415c2bc6d13217500e11abbe13575))
+* enhance package exports and add new entry points for axle and vite-plus ([4f70cb1](https://github.com/varletjs/rattail/commit/4f70cb1fa750e1a08268206b948f3ed6ced79cb4))
+
 # [1.7.0](https://github.com/varletjs/rattail/compare/v1.6.3...v1.7.0) (2026-03-26)
 
 
