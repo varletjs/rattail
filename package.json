@@ -25,7 +25,44 @@
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.mts",
-  "exports": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./vite-plus": {
+      "types": "./dist/vite-plus/index.d.mts",
+      "import": "./dist/vite-plus/index.mjs"
+    },
+    "./axle": {
+      "types": "./dist/axle/index.d.mts",
+      "import": "./dist/axle/index.mjs"
+    },
+    "./axle/use": {
+      "types": "./dist/axle/use.d.mts",
+      "import": "./dist/axle/use.mjs"
+    },
+    "./axle/api": {
+      "types": "./dist/axle/api.d.mts",
+      "import": "./dist/axle/api.mjs"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "vite-plus": [
+        "dist/vite-plus/index.d.mts"
+      ],
+      "axle": [
+        "dist/axle/index.d.mts"
+      ],
+      "axle/use": [
+        "dist/axle/use.d.mts"
+      ],
+      "axle/api": [
+        "dist/axle/api.d.mts"
+      ]
+    }
+  },
   "scripts": {
     "build": "vp pack",
     "clean": "rimraf node_modules dist",
@@ -40,12 +77,13 @@
     "test": "vp test run --coverage"
   },
   "dependencies": {
-    "js-cookie": "^3.0.5",
-    "mitt": "^3.0.1",
-    "uuid": "^13.0.0"
+    "@configurajs/vite-plus": "0.1.9",
+    "@varlet/axle": "1.0.1",
+    "js-cookie": "3.0.5",
+    "mitt": "3.0.1",
+    "uuid": "13.0.0"
   },
   "devDependencies": {
-    "@configurajs/vite-plus": "^0.1.9",
     "@types/node": "^22.8.1",
     "@varlet/release": "^1.0.2",
     "@vitest/coverage-istanbul": "^4.1.0",
