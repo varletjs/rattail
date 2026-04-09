@@ -1,3 +1,11 @@
+## [1.8.2](https://github.com/varletjs/rattail/compare/v1.8.1...v1.8.2) (2026-04-09)
+
+
+### Bug Fixes
+
+* update @varlet/axle dependency to version 1.0.2 ([771f071](https://github.com/varletjs/rattail/commit/771f071eefd4ed123ad153740d3480256e4884ce))
+* update lint script to automatically fix issues ([753558f](https://github.com/varletjs/rattail/commit/753558fd4a35237c3ef604868f95cbcf68b72c73))
+
 ## [1.8.1](https://github.com/varletjs/rattail/compare/v1.8.0...v1.8.1) (2026-04-09)
 
 
