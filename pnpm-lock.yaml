@@ -20,6 +20,9 @@ importers:
       mitt:
         specifier: 3.0.1
         version: 3.0.1
+      ruler-factory:
+        specifier: 0.0.14
+        version: 0.0.14
       uuid:
         specifier: 13.0.0
         version: 13.0.0
@@ -2010,6 +2013,10 @@ packages:
     resolution: {integrity: sha512-ccYN21TuJWxP4/XI0BfYcc9NFE+wvNk5tT4J4oyYMG3vUryiW218NZdXAbtp6C1L4IZLjdCW/dFz1Ym4WwBGFA==}
     engines: {pnpm: '>=9.0'}
 
+  rattail@1.7.0:
+    resolution: {integrity: sha512-CDI0+yciXtrO0o1YdxEKYbU7QV+lz8AnxIv8+cdpsQB5UR8okMrA2d/nZ7emzMxFz1cFHNVoNnBFYZkm16xbUA==}
+    engines: {pnpm: '>=10.0.0'}
+
   read-pkg-up@10.1.0:
     resolution: {integrity: sha512-aNtBq4jR8NawpKJQldrQcSW9y/d+KWH4v24HWkHljOZ7H0av+YTGANBzRh9A5pw7v/bLVsLVPpOhJ7gHNVy8lA==}
     engines: {node: '>=16'}
@@ -2045,6 +2052,10 @@ packages:
   rslog@2.0.1:
     resolution: {integrity: sha512-BdZYILSV4V5Ms7IweGZyo9udJZHQCeUm5cEzlA8KzeY4aEJr2QA6qYWGzgA7yShBU7Igp3qQM6krKUXzze5pqw==}
     engines: {node: ^20.19.0 || >=22.12.0}
+
+  ruler-factory@0.0.14:
+    resolution: {integrity: sha512-L67dHMHs6IWqCGYamELPd7sgORyzE2Wwn4wNePo6Dv4h5qLKt94srMCZdGf2PnzvY6b8I2DH2ccDf6idBWkp5g==}
+    engines: {pnpm: '>=9.0'}
 
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
@@ -4301,6 +4312,12 @@ snapshots:
     dependencies:
       mitt: 3.0.1
 
+  rattail@1.7.0:
+    dependencies:
+      js-cookie: 3.0.5
+      mitt: 3.0.1
+      uuid: 13.0.0
+
   read-pkg-up@10.1.0:
     dependencies:
       find-up: 6.3.0
@@ -4369,6 +4386,10 @@ snapshots:
   rrweb-cssom@0.7.1: {}
 
   rslog@2.0.1: {}
+
+  ruler-factory@0.0.14:
+    dependencies:
+      rattail: 1.7.0
 
   safer-buffer@2.1.2: {}
 

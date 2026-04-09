@@ -45,6 +45,10 @@
     "./axle/api": {
       "types": "./dist/axle/api.d.mts",
       "import": "./dist/axle/api.mjs"
+    },
+    "./ruler-factory": {
+      "types": "./dist/ruler-factory/index.d.mts",
+      "import": "./dist/ruler-factory/index.mjs"
     }
   },
   "typesVersions": {
@@ -60,6 +64,9 @@
       ],
       "axle/api": [
         "dist/axle/api.d.mts"
+      ],
+      "ruler-factory": [
+        "dist/ruler-factory/index.d.mts"
       ]
     }
   },
@@ -81,6 +88,7 @@
     "@varlet/axle": "1.0.1",
     "js-cookie": "3.0.5",
     "mitt": "3.0.1",
+    "ruler-factory": "0.0.14",
     "uuid": "13.0.0"
   },
   "devDependencies": {

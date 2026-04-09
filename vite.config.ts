@@ -2,7 +2,14 @@ import { defineConfig } from 'vite-plus'
 
 export default defineConfig({
   pack: {
-    entry: ['src/index.ts', 'src/vite-plus/index.ts', 'src/axle/index.ts', 'src/axle/use.ts', 'src/axle/api.ts'],
+    entry: [
+      'src/index.ts',
+      'src/vite-plus/index.ts',
+      'src/axle/index.ts',
+      'src/axle/use.ts',
+      'src/axle/api.ts',
+      'src/ruler-factory/index.ts',
+    ],
     format: ['esm'],
     dts: true,
     clean: true,
