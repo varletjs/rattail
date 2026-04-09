@@ -3,29 +3,29 @@
   "version": "1.7.0",
   "description": "A utilities library for front-end developers, lightweight and ts-friendly",
   "keywords": [
-    "utilities library",
     "front-end developers",
     "lightweight",
-    "ts-friendly"
+    "ts-friendly",
+    "utilities library"
   ],
   "bugs": {
     "url": "https://github.com/varletjs/rattail/issues"
   },
+  "license": "MIT",
+  "author": "haoziqaq <357229046@qq.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/varletjs/rattail.git"
   },
-  "license": "MIT",
-  "author": "haoziqaq <357229046@qq.com>",
-  "sideEffects": false,
-  "type": "module",
-  "exports": "./dist/index.mjs",
-  "main": "dist/index.mjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.mts",
   "files": [
     "dist"
   ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.mts",
+  "exports": "./dist/index.mjs",
   "scripts": {
     "build": "vp pack",
     "clean": "rimraf node_modules dist",
@@ -33,22 +33,11 @@
     "docs:build": "vitepress build docs",
     "docs:dev": "vitepress dev docs",
     "docs:preview": "vitepress preview docs",
-    "format": "prettier --write .",
-    "lint": "eslint --fix .",
+    "format": "vp fmt",
+    "lint": "vp lint",
     "prepare": "simple-git-hooks",
     "release": "pnpm build && vr release",
     "test": "vp test run --coverage"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "pnpm exec nano-staged --allow-empty",
-    "commit-msg": "pnpm exec vr commit-lint -p $1"
-  },
-  "nano-staged": {
-    "*.{md}": "prettier --write",
-    "*.{ts}": [
-      "prettier --write",
-      "eslint --fix"
-    ]
   },
   "dependencies": {
     "js-cookie": "^3.0.5",
@@ -56,12 +45,10 @@
     "uuid": "^13.0.0"
   },
   "devDependencies": {
-    "@configurajs/eslint": "^0.0.14",
-    "@configurajs/prettier": "^0.1.1",
+    "@configurajs/vite-plus": "^0.1.9",
     "@types/node": "^22.8.1",
     "@varlet/release": "^1.0.2",
     "@vitest/coverage-istanbul": "^4.1.0",
-    "eslint": "9.17.0",
     "jsdom": "^25.0.1",
     "nano-staged": "0.8.0",
     "prettier": "^3.1.0",
@@ -72,8 +59,19 @@
     "vite-plus": "^0.1.16",
     "vitepress": "^1.4.1"
   },
-  "packageManager": "pnpm@10.0.0",
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec nano-staged --allow-empty",
+    "commit-msg": "pnpm exec vr commit-lint -p $1"
+  },
+  "nano-staged": {
+    "*.{md}": "vp fmt --no-error-on-unmatched-pattern",
+    "*.{ts}": [
+      "vp fmt --no-error-on-unmatched-pattern",
+      "vp lint --fix"
+    ]
+  },
   "engines": {
     "pnpm": ">=10.0.0"
-  }
+  },
+  "packageManager": "pnpm@10.0.0"
 }
