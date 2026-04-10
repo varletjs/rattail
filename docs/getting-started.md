@@ -30,6 +30,10 @@ import { isString } from 'rattail'
 console.log(isString('rattail'))
 ```
 
+### Skills
+
+We provide [Agent Skills](https://github.com/varletjs/skills) for the Rattail ecosystem. By installing these skills, AI coding assistants can better understand and use `Rattail` and its related tools, helping you write code more efficiently.
+
 ### Why not Lodash?
 
 `Rattail` is not a replacement for [Lodash](https://lodash.com/) nor a functional programming solution. Rattail aims to provide practical tools for more application scenarios.
