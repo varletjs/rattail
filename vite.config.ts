@@ -11,9 +11,7 @@ export default defineConfig({
       'src/axle/api.ts',
       'src/ruler-factory/index.ts',
     ],
-    format: ['esm'],
     dts: true,
-    clean: true,
   },
 
   test: {
