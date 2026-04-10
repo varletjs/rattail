@@ -8,7 +8,6 @@ Opinionated [Oxlint](https://oxc.rs/docs/guide/usage/linter) + [Oxfmt](https://o
 - Vue 3 (enabled by default)
 - React (opt-in)
 - Vitest (enabled by default)
-- Type-aware linting
 - Oxfmt formatting with import sorting and Tailwind CSS class sorting
 - Lint-staged preset out of the box
 

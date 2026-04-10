@@ -8,7 +8,6 @@
 - Vue 3（默认开启）
 - React（按需开启）
 - Vitest（默认开启）
-- 类型感知 lint
 - Oxfmt 格式化，支持 import 排序和 Tailwind CSS class 排序
 - 开箱即用的 lint-staged 预设
 

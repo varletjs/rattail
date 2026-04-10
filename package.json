@@ -84,7 +84,7 @@
     "test": "vp test run --coverage"
   },
   "dependencies": {
-    "@configurajs/vite-plus": "0.2.0",
+    "@configurajs/vite-plus": "0.2.2",
     "@varlet/axle": "1.0.2",
     "js-cookie": "3.0.5",
     "mitt": "3.0.1",
