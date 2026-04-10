@@ -1,3 +1,10 @@
+## [1.8.3](https://github.com/varletjs/rattail/compare/v1.8.2...v1.8.3) (2026-04-10)
+
+
+### Bug Fixes
+
+* update @configurajs/vite-plus dependency to version 0.2.2 and remove type-aware linting mention from documentation ([214ccca](https://github.com/varletjs/rattail/commit/214ccca8f9cace0379703f5b6afda3604111b170))
+
 ## [1.8.2](https://github.com/varletjs/rattail/compare/v1.8.1...v1.8.2) (2026-04-09)
 
 
