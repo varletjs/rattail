@@ -96,11 +96,11 @@
     "@varlet/release": "^1.0.2",
     "@vitest/coverage-istanbul": "^4.1.0",
     "jsdom": "^25.0.1",
-    "nano-staged": "0.8.0",
+    "oxc-minify": "^0.124.0",
     "rimraf": "^6.0.1",
     "typescript": "5.3.3",
     "vite-plus": "0.1.16",
-    "vitepress": "^1.4.1",
+    "vitepress": "2.0.0-alpha.17",
     "vitest": "$vitest"
   },
   "engines": {
