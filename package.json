@@ -99,16 +99,17 @@
     "nano-staged": "0.8.0",
     "rimraf": "^6.0.1",
     "typescript": "5.3.3",
-    "vite": "^8.0.1",
-    "vite-plus": "^0.1.16",
+    "vite-plus": "0.1.16",
     "vitepress": "^1.4.1"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "pnpm exec nano-staged --allow-empty",
-    "commit-msg": "pnpm exec vr commit-lint -p $1"
   },
   "engines": {
     "pnpm": ">=10.0.0"
   },
-  "packageManager": "pnpm@10.0.0"
+  "packageManager": "pnpm@10.0.0",
+  "pnpm": {
+    "overrides": {
+      "vite": "npm:@voidzero-dev/vite-plus-core@0.1.16",
+      "vitest": "npm:@voidzero-dev/vite-plus-core@0.1.16"
+    }
+  }
 }
