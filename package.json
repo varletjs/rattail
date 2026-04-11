@@ -100,7 +100,8 @@
     "rimraf": "^6.0.1",
     "typescript": "5.3.3",
     "vite-plus": "0.1.16",
-    "vitepress": "^1.4.1"
+    "vitepress": "^1.4.1",
+    "vitest": "$vitest"
   },
   "engines": {
     "pnpm": ">=10.0.0"
