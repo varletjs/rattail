@@ -10,8 +10,11 @@ export default defineConfig({
       'src/axle/use.ts',
       'src/axle/api.ts',
       'src/ruler-factory/index.ts',
+      'src/cli/bin.ts',
+      'src/cli/index.ts',
     ],
     dts: true,
+    shims: true,
   },
 
   test: {

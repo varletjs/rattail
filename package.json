@@ -17,6 +17,9 @@
     "type": "git",
     "url": "git+https://github.com/varletjs/rattail.git"
   },
+  "bin": {
+    "rc": "dist/cli/bin.mjs"
+  },
   "files": [
     "dist"
   ],
@@ -41,6 +44,9 @@
       ],
       "ruler-factory": [
         "dist/ruler-factory/index.d.mts"
+      ],
+      "cli": [
+        "dist/cli/index.d.mts"
       ]
     }
   },
@@ -68,12 +74,16 @@
     "./ruler-factory": {
       "types": "./dist/ruler-factory/index.d.mts",
       "import": "./dist/ruler-factory/index.mjs"
+    },
+    "./cli": {
+      "types": "./dist/cli/index.d.mts",
+      "import": "./dist/cli/index.mjs"
     }
   },
   "scripts": {
+    "dev": "vp pack --watch",
     "build": "vp pack",
     "clean": "rimraf node_modules dist",
-    "dev": "vp test watch",
     "docs:build": "vitepress build docs",
     "docs:dev": "vitepress dev docs",
     "docs:preview": "vitepress preview docs",
@@ -81,14 +91,18 @@
     "lint": "vp lint --fix",
     "prepare": "vp config --hooks-dir .vite-hooks",
     "release": "pnpm build && vr release",
+    "test:watch": "vp test watch",
     "test": "vp test run --coverage"
   },
   "dependencies": {
     "@configurajs/vite-plus": "0.2.2",
     "@varlet/axle": "1.0.2",
+    "commander": "^13.0.0",
     "js-cookie": "3.0.5",
     "mitt": "3.0.1",
+    "rimraf": "^6.0.1",
     "ruler-factory": "0.0.14",
+    "unconfig": "^7.5.0",
     "uuid": "13.0.0"
   },
   "devDependencies": {
@@ -97,7 +111,6 @@
     "@vitest/coverage-istanbul": "^4.1.0",
     "jsdom": "^25.0.1",
     "oxc-minify": "^0.124.0",
-    "rimraf": "^6.0.1",
     "typescript": "5.3.3",
     "vite-plus": "0.1.16",
     "vitepress": "2.0.0-alpha.17",
