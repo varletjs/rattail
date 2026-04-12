@@ -23,7 +23,7 @@ export type RattailUserConfigExport = RattailUserConfig | Promise<RattailUserCon
 
 export { lint, fmt, staged } from '@configurajs/vite-plus'
 
-export function defineConfig(config: RattailUserConfigExport) {
+export function defineConfig(config: RattailUserConfigExport): RattailUserConfig {
   return defineVitePlusConfig(config as any)
 }
 
