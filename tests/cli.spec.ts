@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import { resolve } from 'node:path'
 import { afterEach, describe, expect, it } from 'vite-plus/test'
 import { clean } from '../src/cli'
+import { writeHooks } from '../src/cli/hook'
 import { getCliVersion } from '../src/cli/utils'
 
 const FIXTURES_DIR = resolve(__dirname, 'fixtures')
@@ -72,6 +73,31 @@ describe('cli', () => {
       expect(fs.existsSync(resolve(FIXTURES_DIR, 'clean/glob/a.log'))).toBe(false)
       expect(fs.existsSync(resolve(FIXTURES_DIR, 'clean/glob/b.log'))).toBe(false)
       expect(fs.existsSync(resolve(FIXTURES_DIR, 'clean/glob/c.txt'))).toBe(true)
+    })
+  })
+
+  describe('hook', () => {
+    it('should write hook scripts to hooksDir', () => {
+      const hooksDir = createFixtureDir('hook')
+
+      writeHooks(
+        {
+          'commit-msg': ['pnpm exec vr commit-lint -p $1'],
+          'pre-commit': ['vp staged'],
+        },
+        hooksDir,
+      )
+
+      expect(fs.readFileSync(resolve(hooksDir, 'commit-msg'), 'utf-8')).toBe('pnpm exec vr commit-lint -p $1\n')
+      expect(fs.readFileSync(resolve(hooksDir, 'pre-commit'), 'utf-8')).toBe('vp staged\n')
+    })
+
+    it('should write multiple commands joined by newline', () => {
+      const hooksDir = createFixtureDir('hook')
+
+      writeHooks({ 'pre-commit': ['vp staged', 'pnpm run lint'] }, hooksDir)
+
+      expect(fs.readFileSync(resolve(hooksDir, 'pre-commit'), 'utf-8')).toBe('vp staged\npnpm run lint\n')
     })
   })
 })
