@@ -18,6 +18,9 @@ importers:
       '@varlet/axle':
         specifier: 1.0.2
         version: 1.0.2(vue@3.5.32(typescript@5.3.3))
+      '@voidzero-dev/vite-plus-core':
+        specifier: '>=0.1.16'
+        version: 0.1.16(@types/node@22.8.1)(esbuild@0.25.12)(jiti@2.6.1)(tsx@4.21.0)(typescript@5.3.3)(yaml@2.8.3)
       api-farmer:
         specifier: ^0.1.4
         version: 0.1.4(typescript@5.3.3)(vue@3.5.32(typescript@5.3.3))
@@ -58,6 +61,9 @@ importers:
       oxc-minify:
         specifier: ^0.124.0
         version: 0.124.0(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)
+      tsx:
+        specifier: ^4.21.0
+        version: 4.21.0
       typescript:
         specifier: 5.3.3
         version: 5.3.3

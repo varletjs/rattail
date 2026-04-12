@@ -26,3 +26,9 @@ export { lint, fmt, staged } from '@configurajs/vite-plus'
 export function defineConfig(config: RattailUserConfigExport) {
   return defineVitePlusConfig(config as any)
 }
+
+export function clean({ patterns }: { patterns?: string[] } = {}) {
+  return {
+    patterns: ['**/node_modules', '**/dist', '**/coverage', ...(patterns ?? [])],
+  }
+}

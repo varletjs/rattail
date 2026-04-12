@@ -1,5 +1,5 @@
-import { lint, fmt, staged } from '@configurajs/vite-plus'
-import { defineConfig } from 'vite-plus'
+// @ts-expect-error vp fmt not allowed for example 'from ./src/vite-plus'
+import { lint, fmt, staged, clean, defineConfig } from './src/vite-plus/index.ts'
 
 export default defineConfig({
   pack: {
@@ -31,4 +31,12 @@ export default defineConfig({
   lint: lint(),
 
   fmt: fmt(),
+
+  rattail: {
+    clean: clean(),
+
+    hook: {
+      'commit-msg': ['pnpm exec vr commit-lint -p $1'],
+    },
+  },
 })
