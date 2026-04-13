@@ -20,10 +20,10 @@ export type GitHook =
 
 export type HookConfig = Partial<Record<GitHook, string[]>>
 
+export type CleanConfig = string | string[] | { patterns?: string[] }
+
 export type RattailConfig = {
-  clean?: {
-    patterns?: string[]
-  }
+  clean?: CleanConfig
 
   hook?: HookConfig
 
