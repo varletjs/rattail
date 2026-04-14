@@ -1,11 +1,27 @@
 # commit-lint
 
-Lint commit message. Typically used with a `commit-msg` git hook.
+Validate commit messages against conventions, automatically rejecting non-conforming commits to keep the team's commit history clean and consistent.
+
+### Rules
+
+Commit messages must follow the `type(scope?): message` format:
+
+```
+feat: add a new feature
+feat(ui/button): add a new feature in the ui/button scope
+
+fix: fix a bug
+fix(ui/button): fix a bug in the ui/button scope
+```
+
+Allowed types:
+
+`fix` `feat` `docs` `perf` `test` `types` `style` `build` `chore` `release` `refactor` `revert` `merge` `wip`
 
 ### Usage
 
 ```shell
-rt commit-lint -p $1
+rt commit-lint $1
 ```
 
 ### Config
@@ -16,7 +32,7 @@ import { defineConfig } from 'rattail/vite-plus'
 export default defineConfig({
   rattail: {
     hook: {
-      'commit-msg': ['rt commit-lint -p $1'],
+      'commit-msg': ['rt commit-lint $1'],
     },
   },
 })

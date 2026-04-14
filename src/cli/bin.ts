@@ -55,18 +55,18 @@ program
 program
   .command('commit-lint')
   .description('Lint commit message')
-  .option('-p, --commitMessagePath <path>', 'Git commit message path')
-  .action(async (options: { commitMessagePath: string }) => {
+  .argument('<commitMessagePath>', 'Git commit message path')
+  .action(async (commitMessagePath: string) => {
     const { commitLint } = await import('./commitLint')
 
-    return commitLint(options)
+    return commitLint({ commitMessagePath })
   })
 
 program
   .command('lockfile-check')
-  .description('Check if lockfile has been updated and optionally install dependencies')
+  .description('Check if lockfile has been updated and auto-install dependencies')
   .option('-m, --packageManager <manager>', 'Package manager (npm, yarn, pnpm)')
-  .option('-i, --install', 'Auto install dependencies if lockfile changed')
+  .option('-s, --skipInstall', 'Skip install dependencies when lockfile changed')
   .action(async (options: Record<string, unknown>) => {
     const { lockfileCheck } = await import('./lockfileCheck')
 

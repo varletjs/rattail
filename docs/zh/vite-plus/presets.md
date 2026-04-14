@@ -1,21 +1,25 @@
 # Presets
 
-提供开箱即用的工具预设，覆盖代码检查、格式化、提交暂存和构建清理。
+提供开箱即用的工具预设，覆盖代码检查、格式化、提交暂存、构建清理和 Git Hooks。
 
 ### 特性
 
 - `lint()`：[Oxlint](https://oxc.rs/docs/guide/usage/linter) 配置预设，内置 TypeScript、Vue 3、Vitest 支持，可选 React
 - `fmt()`：[Oxfmt](https://oxc.rs/docs/guide/usage/formatter) 格式化预设，支持 import 排序和 Tailwind CSS class 排序
 - `staged()`：开箱即用的 lint-staged 预设，自动对暂存文件执行格式化和 lint 修复
+- `hook()`：Git hooks 预设，默认启用 commit-lint 和 lockfile-check
 - `clean()`：默认清理路径预设，用于 CLI 的 `rt clean` 命令
-- `defineConfig()`：扩展 Vite+ 的 `defineConfig`，增加 `rattail` 字段用于 CLI 配置
 
 ### 在 Vite+ 中使用
 
-推荐在 [Vite+](https://viteplus.dev) 中使用，在 `vite.config.ts` 中统一配置，获得最一站式的开发体验：
+推荐在 [Vite+](https://viteplus.dev) 中使用，`defineConfig` 扩展了 Vite+ 的 `defineConfig`，增加了 `rattail` 字段用于 [CLI](/zh/cli/getting-started) 配置：
 
 ```ts
-import { defineConfig, lint, fmt, staged, clean } from 'rattail/vite-plus'
+import {
+  defineConfig,
+  lint, fmt, staged,
+  hook, clean,
+} from 'rattail/vite-plus'
 
 export default defineConfig({
   lint: lint(),
@@ -26,16 +30,11 @@ export default defineConfig({
 
   rattail: {
     clean: clean(),
-    hook: {
-      'pre-commit': ['vp lint --fix', 'vp fmt'],
-      'commit-msg': ['rt commit-lint -p $1'],
-      'post-merge': ['rt lockfile-check -i'],
-    },
+
+    hook: hook(),
   },
 })
 ```
-
-`defineConfig` 扩展了 Vite+ 的 `defineConfig`，增加了 `rattail` 字段用于 [CLI](/zh/cli/getting-started) 配置。
 
 ### 独立使用
 
@@ -98,13 +97,49 @@ fmt({
 staged()
 // 等同于：
 // {
-//   '*.{js,jsx,ts,tsx,vue}': ['vp fmt --no-error-on-unmatched-pattern', 'vp lint --fix'],
+//   '*.{js,jsx,ts,tsx}': ['vp fmt --no-error-on-unmatched-pattern', 'vp lint --fix'],
 //   '*.{md,json,yaml,yml,html,css,scss,less}': 'vp fmt --no-error-on-unmatched-pattern',
+//   '*.vue': ['vp fmt --no-error-on-unmatched-pattern', 'vp lint --fix'],
 // }
 ```
 
 - `js / jsx / ts / tsx / vue` — 格式化 + lint 修复
 - `md / json / yaml / yml / html / css / scss / less` — 仅格式化
+
+### hook
+
+`hook()` 返回一个预设的 git hooks 配置，默认启用 `commit-lint` 和 `lockfile-check`：
+
+```ts
+import { hook } from 'rattail/vite-plus'
+
+hook()
+// {
+//   'commit-msg': ['rt commit-lint $1'],
+//   'post-merge': ['rt lockfile-check'],
+// }
+```
+
+如果不需要某个 hook，可以通过选项关闭：
+
+```ts
+hook({ commitLint: false })
+hook({ lockfileCheck: false })
+```
+
+如果预设不满足需求，也可以完全自定义 `hook` 配置：
+
+```ts
+hook: {
+  'commit-msg': ['rt commit-lint $1'],
+  'pre-push': ['vp lint'],
+}
+```
+
+| 选项 | 类型 | 默认值 | 描述 |
+| --- | --- | --- | --- |
+| `commitLint` | `boolean` | `true` | 启用 commit-msg hook |
+| `lockfileCheck` | `boolean` | `true` | 启用 post-merge hook |
 
 ### clean
 

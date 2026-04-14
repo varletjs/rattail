@@ -1,6 +1,6 @@
 import type { UserConfig, ConfigEnv } from '@voidzero-dev/vite-plus-core'
 import { defineConfig as defineVitePlusConfig } from 'vite-plus'
-import type { RattailConfig } from '../cli/config'
+import type { HookConfig, RattailConfig } from '../cli/config'
 
 export type {
   LintOptions,
@@ -31,4 +31,26 @@ export function clean({ patterns }: { patterns?: string[] } = {}) {
   return {
     patterns: ['**/node_modules', '**/dist', '**/coverage', ...(patterns ?? [])],
   }
+}
+
+export type { HookConfig }
+
+export function hook({
+  commitLint = true,
+  lockfileCheck = true,
+}: {
+  commitLint?: boolean
+  lockfileCheck?: boolean
+} = {}): HookConfig {
+  const config: HookConfig = {}
+
+  if (commitLint) {
+    config['commit-msg'] = ['rt commit-lint $1']
+  }
+
+  if (lockfileCheck) {
+    config['post-merge'] = ['rt lockfile-check']
+  }
+
+  return config
 }

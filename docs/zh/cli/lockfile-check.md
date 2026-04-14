@@ -1,11 +1,17 @@
 # lockfile-check
 
-检查 lockfile 是否更新，并可选择自动安装依赖。通常配合 `post-merge` git hook 使用。
+在拉取代码后自动检测 lockfile 是否变更，如果有变更则自动安装依赖，避免因依赖不同步导致的运行报错。
+
+支持检测的 lockfile：
+
+- `pnpm-lock.yaml`
+- `yarn.lock`
+- `package-lock.json`
 
 ### 使用
 
 ```shell
-rt lockfile-check -m pnpm -i
+rt lockfile-check
 ```
 
 ### 配置
@@ -16,7 +22,7 @@ import { defineConfig } from 'rattail/vite-plus'
 export default defineConfig({
   rattail: {
     hook: {
-      'post-merge': ['rt lockfile-check -i'],
+      'post-merge': ['rt lockfile-check'],
     },
   },
 })
@@ -27,12 +33,12 @@ export default defineConfig({
 ```ts
 import { lockfileCheck } from 'rattail/cli'
 
-await lockfileCheck({ packageManager: 'pnpm', install: true })
+await lockfileCheck({ packageManager: 'pnpm' })
 ```
 
 ### 选项
 
 | 选项 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
-| `packageManager` | `'npm' \| 'yarn' \| 'pnpm'` | - | 包管理器 |
-| `install` | `boolean` | - | lockfile 变更时自动安装依赖 |
+| `packageManager` | `'npm' \| 'yarn' \| 'pnpm'` | `'pnpm'` | 包管理器 |
+| `skipInstall` | `boolean` | `false` | 跳过 lockfile 变更时的自动安装 |

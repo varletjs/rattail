@@ -23,7 +23,7 @@ features:
   - title: CLI Toolkit
     details: Release, changelog, git hooks, commit lint, API codegen — one command rt
     link: /cli/getting-started
-  - title: Rattail Presets
+  - title: Vite+ Presets
     details: Opinionated Oxlint + Oxfmt presets with Vite+ integration support
     link: /vite-plus/presets
   - title: Axle

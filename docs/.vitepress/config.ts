@@ -57,7 +57,7 @@ export default defineConfig({
             items: withI18n(cliItemsZh, 'zh'),
           },
           {
-            text: '工具预设',
+            text: 'Vite+ Presets',
             items: withI18n(vitePlusItems, 'zh'),
           },
           {
@@ -147,7 +147,7 @@ export default defineConfig({
         items: cliItems,
       },
       {
-        text: 'Presets',
+        text: 'Vite+ Presets',
         items: vitePlusItems,
       },
       {

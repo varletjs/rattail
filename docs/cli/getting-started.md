@@ -16,9 +16,8 @@ export default defineConfig({
     clean: ['dist', 'node_modules/.cache'],
 
     hook: {
-      'pre-commit': ['vp lint --fix', 'vp fmt'],
-      'commit-msg': ['rt commit-lint -p $1'],
-      'post-merge': ['rt lockfile-check -i'],
+      'commit-msg': ['rt commit-lint $1'],
+      'post-merge': ['rt lockfile-check'],
     },
 
     // rt api options, see rt api docs

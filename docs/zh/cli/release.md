@@ -1,6 +1,6 @@
 # release
 
-发布所有包并生成 changelogs。
+交互式版本发布工具，自动完成版本号更新、changelog 生成、git tag 和 npm 发布，支持 pnpm monorepo。
 
 ### 使用
 
@@ -38,10 +38,10 @@ await release({
 
 | 选项 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
-| `remote` | `string` | - | Git 远程仓库名称 |
-| `npmTag` | `string` | - | npm 发布标签 |
+| `npmTag` | `string` | - | npm 发布的 dist-tag，如 `beta`、`next`，不设置则默认为 `latest` |
 | `skipNpmPublish` | `boolean` | - | 跳过 npm 发布 |
 | `skipChangelog` | `boolean` | - | 跳过 changelog 生成 |
-| `skipGitTag` | `boolean` | - | 跳过 git 标签 |
-| `checkRemoteVersion` | `boolean` | - | 发布前检查远程版本 |
+| `skipGitTag` | `boolean` | - | 跳过 git tag |
+| `checkRemoteVersion` | `boolean` | - | 发布前检查 npm 远程版本，若版本已存在则跳过发布 |
 | `task` | `(newVersion, oldVersion) => Promise<void>` | - | 发布过程中运行的自定义任务 |
+| `remote` | `string` | `origin` | git push 使用的 remote 名称，多数情况下无需修改 |

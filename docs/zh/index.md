@@ -20,7 +20,7 @@ features:
   - title: CLI 工具链
     details: 发布、日志、Git Hooks、Commit Lint、API 生成，一个 rt 命令搞定
     link: /zh/cli/getting-started
-  - title: Rattail Presets
+  - title: Vite+ Presets
     details: 开箱即用的 Oxlint + Oxfmt 配置预设，支持 Vite+ 集成
     link: /zh/vite-plus/presets
   - title: Axle

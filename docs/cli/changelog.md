@@ -1,6 +1,6 @@
 # changelog
 
-Generate changelog independently. This configuration only affects the `rt changelog` command and does not affect the changelog process within `rt release`.
+Parse commit messages to generate a changelog.
 
 ### Usage
 
@@ -9,6 +9,8 @@ rt changelog
 ```
 
 ### Config
+
+This configuration only affects the `rt changelog` command and does not affect the changelog process within `rt release`.
 
 ```ts
 import { defineConfig } from 'rattail/vite-plus'
@@ -39,5 +41,5 @@ await changelog({
 | Option | Type | Default | Description |
 | --- | --- | --- | --- |
 | `file` | `string` | - | Output file path |
-| `releaseCount` | `number` | - | Number of releases to show |
+| `releaseCount` | `number` | `0` | Number of releases to generate, `0` means all |
 | `showTypes` | `string[]` | - | Commit types to include (e.g. `'feat'`, `'fix'`, `'perf'`) |

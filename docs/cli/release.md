@@ -1,6 +1,6 @@
 # release
 
-Release all packages and generate changelogs.
+Interactive release tool that automates version bumping, changelog generation, git tagging, and npm publishing, with pnpm monorepo support.
 
 ### Usage
 
@@ -38,10 +38,10 @@ await release({
 
 | Option | Type | Default | Description |
 | --- | --- | --- | --- |
-| `remote` | `string` | - | Git remote name |
-| `npmTag` | `string` | - | npm publish tag |
+| `npmTag` | `string` | - | npm dist-tag for publishing, e.g. `beta`, `next`. Defaults to `latest` if not set |
 | `skipNpmPublish` | `boolean` | - | Skip npm publish |
 | `skipChangelog` | `boolean` | - | Skip changelog generation |
 | `skipGitTag` | `boolean` | - | Skip git tag |
-| `checkRemoteVersion` | `boolean` | - | Check remote version before publish |
+| `checkRemoteVersion` | `boolean` | - | Check npm remote version before publishing, skip if version already exists |
 | `task` | `(newVersion, oldVersion) => Promise<void>` | - | Custom task to run during release |
+| `remote` | `string` | `origin` | Git remote name for pushing, rarely needs to be changed |

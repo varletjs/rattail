@@ -1,11 +1,17 @@
 # lockfile-check
 
-Check if lockfile has been updated and optionally install dependencies. Typically used with a `post-merge` git hook.
+Automatically detect lockfile changes after pulling code and install dependencies if needed, preventing runtime errors caused by out-of-sync dependencies.
+
+Supported lockfiles:
+
+- `pnpm-lock.yaml`
+- `yarn.lock`
+- `package-lock.json`
 
 ### Usage
 
 ```shell
-rt lockfile-check -m pnpm -i
+rt lockfile-check
 ```
 
 ### Config
@@ -16,7 +22,7 @@ import { defineConfig } from 'rattail/vite-plus'
 export default defineConfig({
   rattail: {
     hook: {
-      'post-merge': ['rt lockfile-check -i'],
+      'post-merge': ['rt lockfile-check'],
     },
   },
 })
@@ -27,12 +33,12 @@ export default defineConfig({
 ```ts
 import { lockfileCheck } from 'rattail/cli'
 
-await lockfileCheck({ packageManager: 'pnpm', install: true })
+await lockfileCheck({ packageManager: 'pnpm' })
 ```
 
 ### Options
 
 | Option | Type | Default | Description |
 | --- | --- | --- | --- |
-| `packageManager` | `'npm' \| 'yarn' \| 'pnpm'` | - | Package manager |
-| `install` | `boolean` | - | Auto install if lockfile changed |
+| `packageManager` | `'npm' \| 'yarn' \| 'pnpm'` | `'pnpm'` | Package manager |
+| `skipInstall` | `boolean` | `false` | Skip auto-install when lockfile changed |

@@ -1,11 +1,27 @@
 # commit-lint
 
-校验 commit 信息。通常配合 `commit-msg` git hook 使用。
+校验 commit 信息是否符合规范，在提交代码时自动拦截不规范的 commit，保持团队提交记录清晰一致。
+
+### 规则
+
+commit 信息需要遵循 `type(scope?): message` 格式：
+
+```
+feat: 添加新功能
+feat(ui/button): 在 ui/button 范围内添加新功能
+
+fix: 修复一个 bug
+fix(ui/button): 修复 ui/button 范围内的一个 bug
+```
+
+支持的 type：
+
+`fix` `feat` `docs` `perf` `test` `types` `style` `build` `chore` `release` `refactor` `revert` `merge` `wip`
 
 ### 使用
 
 ```shell
-rt commit-lint -p $1
+rt commit-lint $1
 ```
 
 ### 配置
@@ -16,7 +32,7 @@ import { defineConfig } from 'rattail/vite-plus'
 export default defineConfig({
   rattail: {
     hook: {
-      'commit-msg': ['rt commit-lint -p $1'],
+      'commit-msg': ['rt commit-lint $1'],
     },
   },
 })

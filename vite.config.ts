@@ -38,7 +38,7 @@ export default defineConfig({
     clean: clean(),
 
     hook: {
-      'commit-msg': ['pnpm exec vr commit-lint -p $1'],
+      'commit-msg': ['pnpm exec vr commit-lint $1'],
     },
   },
 })

@@ -13,7 +13,7 @@
 - <span style="font-size: 0.82em">📏</span> &nbsp; 链式校验规则工厂，适配任意 UI 框架
 - <span style="font-size: 0.82em">🏷️</span> &nbsp; 类型安全的枚举工具，内置 label、description，支持自定义字段扩展
 - <span style="font-size: 0.82em">🌲</span> &nbsp; 可 Tree-shake，轻量，TypeScript 完整类型支持
-- <span style="font-size: 0.82em">💪</span> &nbsp; 99%+ 单元测试覆盖率
+- <span style="font-size: 0.82em">💪</span> &nbsp; 99%+ 单元测试覆盖率。
 
 ### 安装
 
@@ -35,4 +35,4 @@ pnpm add rattail
 
 ### Skills
 
-我们提供了 [Agent Skills](https://github.com/varletjs/skills) 用于 Rattail 生态系统。通过安装这些 Skills，AI 编程助手可以更好地理解和使用 `Rattail` 及其相关工具，帮助你更高效地编写代码。
+我们提供了 [Agent Skills](https://github.com/varletjs/skills) 用于 Rattail 生态系统。通过安装这些 Skills，AI 编程助手可以更好地理解和使用 `Rattail` 及其相关工具。
