@@ -1,1 +1,1 @@
-pnpm exec vr commit-lint $1
+tsx src/cli/bin.ts commit-lint $1
