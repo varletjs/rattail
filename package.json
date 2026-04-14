@@ -95,7 +95,7 @@
     "test": "vp test run --coverage"
   },
   "dependencies": {
-    "@configurajs/vite-plus": "0.2.3",
+    "@configurajs/vite-plus": "0.2.4",
     "@varlet/axle": "1.0.2",
     "api-farmer": "0.1.5",
     "commander": "^13.0.0",

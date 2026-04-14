@@ -13,8 +13,8 @@ importers:
   .:
     dependencies:
       '@configurajs/vite-plus':
-        specifier: 0.2.3
-        version: 0.2.3
+        specifier: 0.2.4
+        version: 0.2.4
       '@varlet/axle':
         specifier: 1.0.2
         version: 1.0.2(vue@3.5.32(typescript@5.3.3))
@@ -171,8 +171,8 @@ packages:
     resolution: {integrity: sha512-xbofjcEGGbzWpiB7me03U/wJ0yC8RO6NIsgfPfiOK4pXlsO3gfutvnnri4NDn1vPErDjl9YBk1qRiLIOP4cB9Q==}
     engines: {node: '>=22.12.0', pnpm: '>=10.0'}
 
-  '@configurajs/vite-plus@0.2.3':
-    resolution: {integrity: sha512-CZ01WHCxUAHM8dJHGSkl1RREgKQGGVCOOPwibxCFlwpQqC/IabLiNIF8BRd3fuMSI5MvEP/Y/G6izOCUmxqmWA==}
+  '@configurajs/vite-plus@0.2.4':
+    resolution: {integrity: sha512-uR8BaR28XjiJB+eY/HBSfP7s0+2QHtXX7NbqA+k9pXtGhzq+2nRPbGKLjY78Ejsfzp3QjAyI5EgzKxAKqP2xPw==}
     engines: {node: '>=22.12.0', pnpm: '>=10.0'}
 
   '@docsearch/css@4.6.2':
@@ -2823,7 +2823,7 @@ snapshots:
 
   '@configurajs/vite-plus@0.2.2': {}
 
-  '@configurajs/vite-plus@0.2.3': {}
+  '@configurajs/vite-plus@0.2.4': {}
 
   '@docsearch/css@4.6.2': {}
 
