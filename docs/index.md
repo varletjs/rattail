@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: 'Rattail'
-  text: 'A Utilities Library'
-  tagline: A utilities library for front-end developers, lightweight and ts-friendly
+  text: 'Front-end Toolchain'
+  tagline: A front-end toolchain with utilities, presets, request tools, and CLI
   logo: /logo.svg
   image:
     src: /logo.svg
@@ -17,12 +17,22 @@ hero:
       link: https://github.com/varletjs/rattail
 
 features:
-  - title: General
-    details: Provide utilities frequently used in daily development
-  - title: Tests Coverage
-    details: Make sure more than 99% unit test coverage, providing stability assurance
-  - title: Lightweight
-    details: Utilities implementation is very lightweight
-  - title: Ts-friendly
-    details: Written based on ts, providing complete ts types
+  - title: Rich Utilities
+    details: 140+ tree-shakable utility functions covering general, string, number, array, object, math, and more
+    link: /getting-started
+  - title: CLI Toolkit
+    details: Release, changelog, git hooks, commit lint, API codegen — one command rt
+    link: /cli/getting-started
+  - title: Rattail Presets
+    details: Opinionated Oxlint + Oxfmt presets with Vite+ integration support
+    link: /vite-plus/presets
+  - title: Axle
+    details: Progressive HTTP client based on axios, with Vue Composition API support
+    link: /axle/getting-started
+  - title: Ruler Factory
+    details: Chainable validation rule factory that adapts to any UI framework
+    link: /ruler/ruler-factory
+  - title: enumOf
+    details: Type-safe enums with built-in label, description, and custom field support
+    link: /util/enum-of
 ---

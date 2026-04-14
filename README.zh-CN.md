@@ -3,7 +3,7 @@
     <img src="https://rattail.varletjs.org/logo.svg" width="150">
   </a>
   <h1>Rattail</h1>
-  <p>面向前端开发人员的实用工具库，轻量级且 ts 友好</p>
+  <p>前端工具链，包含工具函数、配置预设、请求工具和 CLI</p>
   <p>
     <a href="https://rattail.varletjs.org/zh">文档</a> |
     <a href="https://github.com/varletjs/rattail/blob/main/README.md">ENGLISH README</a>
@@ -21,10 +21,14 @@
 
 ### 特性
 
-- 🛠️ &nbsp; 提供日常开发中经常使用的实用工具
-- 🛠️ &nbsp; 工具实现非常轻量
-- 🛠️ &nbsp; 使用 ts 编写，提供完善的类型支持
-- 💪 &nbsp; 确保 99% 以上单元测试覆盖率，提供稳定性保证
+- 🧰 &nbsp; 140+ 工具函数，覆盖通用、字符串、数字、数组、对象、数学等场景
+- 🔧 &nbsp; CLI 工具链，支持发布、日志、Git Hooks、Commit Lint、API 生成
+- ⚙️ &nbsp; 开箱即用的 Oxlint + Oxfmt 配置预设，支持 Vite+ 集成
+- 🚀 &nbsp; 基于 axios 的渐进式请求工具，支持 Vue 组合式 API
+- 📏 &nbsp; 链式校验规则工厂，适配任意 UI 框架
+- 🏷️ &nbsp; 类型安全的枚举工具，内置 label、description，支持自定义字段扩展
+- 🌲 &nbsp; 可 Tree-shake，轻量，TypeScript 完整类型支持
+- 💪 &nbsp; 99%+ 单元测试覆盖率
 
 ### 安装
 

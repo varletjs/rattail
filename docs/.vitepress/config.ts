@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress'
 import {
   arrayItems,
+  axleItems,
+  axleItemsZh,
+  cliItems,
+  cliItemsZh,
   collectionItems,
   fileItems,
   functionItems,
@@ -9,8 +13,13 @@ import {
   mathItems,
   numberItems,
   objectItems,
+  enumOfItems,
+  enumOfItemsZh,
+  rulerItems,
+  rulerItemsZh,
   stringItems,
   utilItems,
+  vitePlusItems,
 } from './items'
 
 function withI18n(items: { link: string; text: string }[], locale: 'zh') {
@@ -24,7 +33,7 @@ function withI18n(items: { link: string; text: string }[], locale: 'zh') {
 
 export default defineConfig({
   title: 'Rattail',
-  description: 'A utilities library for front-end developers, lightweight and ts-friendly',
+  description: 'A front-end toolchain with utilities, presets, request tools, and CLI',
   head: [['link', { rel: 'icon', href: '/logo.svg' }]],
   locales: {
     root: {
@@ -42,6 +51,30 @@ export default defineConfig({
           {
             text: '简介',
             items: [{ text: '快速开始', link: '/zh/getting-started' }],
+          },
+          {
+            text: 'CLI',
+            items: withI18n(cliItemsZh, 'zh'),
+          },
+          {
+            text: '工具预设',
+            items: withI18n(vitePlusItems, 'zh'),
+          },
+          {
+            text: 'Axle',
+            items: withI18n(axleItemsZh, 'zh'),
+          },
+          {
+            text: '枚举工具',
+            items: withI18n(enumOfItemsZh, 'zh'),
+          },
+          {
+            text: '链式校验工具',
+            items: withI18n(rulerItemsZh, 'zh'),
+          },
+          {
+            text: '集成',
+            items: withI18n(integratedItems, 'zh'),
           },
           {
             text: '通用',
@@ -83,10 +116,6 @@ export default defineConfig({
             text: '工具',
             items: withI18n(utilItems, 'zh'),
           },
-          {
-            text: '集成',
-            items: withI18n(integratedItems, 'zh'),
-          },
         ],
 
         docFooter: {
@@ -112,6 +141,30 @@ export default defineConfig({
       {
         text: 'Introduction',
         items: [{ text: 'Getting Started', link: '/getting-started' }],
+      },
+      {
+        text: 'CLI',
+        items: cliItems,
+      },
+      {
+        text: 'Presets',
+        items: vitePlusItems,
+      },
+      {
+        text: 'Axle',
+        items: axleItems,
+      },
+      {
+        text: 'Enum Utils',
+        items: enumOfItems,
+      },
+      {
+        text: 'Chainable Validation',
+        items: rulerItems,
+      },
+      {
+        text: 'Integrated',
+        items: integratedItems,
       },
       {
         text: 'General',
@@ -152,10 +205,6 @@ export default defineConfig({
       {
         text: 'Util',
         items: utilItems,
-      },
-      {
-        text: 'Integrated',
-        items: integratedItems,
       },
     ],
 

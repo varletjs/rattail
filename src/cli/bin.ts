@@ -34,4 +34,43 @@ program
     return hook()
   })
 
+program
+  .command('release')
+  .description('Release all packages and generate changelogs')
+  .action(async () => {
+    const { release } = await import('./release')
+
+    return release()
+  })
+
+program
+  .command('changelog')
+  .description('Generate changelog')
+  .action(async () => {
+    const { changelog } = await import('./changelog')
+
+    return changelog()
+  })
+
+program
+  .command('commit-lint')
+  .description('Lint commit message')
+  .option('-p, --commitMessagePath <path>', 'Git commit message path')
+  .action(async (options: { commitMessagePath: string }) => {
+    const { commitLint } = await import('./commitLint')
+
+    return commitLint(options)
+  })
+
+program
+  .command('lockfile-check')
+  .description('Check if lockfile has been updated and optionally install dependencies')
+  .option('-m, --packageManager <manager>', 'Package manager (npm, yarn, pnpm)')
+  .option('-i, --install', 'Auto install dependencies if lockfile changed')
+  .action(async (options: Record<string, unknown>) => {
+    const { lockfileCheck } = await import('./lockfileCheck')
+
+    return lockfileCheck(options as any)
+  })
+
 program.parse()

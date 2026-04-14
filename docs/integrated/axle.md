@@ -1,6 +1,6 @@
 # axle
 
-Progressive request tool based on axios. Integrated with [@varlet/axle](https://github.com/varletjs/axle).
+Progressive request tool based on axios.
 
 ### Usage
 
@@ -10,6 +10,4 @@ import { createUseAxle } from 'rattail/axle/use'
 import { createApi } from 'rattail/axle/api'
 ```
 
-### API
-
-[Reference](https://axle.varletjs.org)
+See [Axle documentation](/axle/getting-started) for full details.

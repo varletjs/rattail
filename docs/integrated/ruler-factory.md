@@ -17,7 +17,7 @@ A flexible, chainable validation rule factory for TypeScript/JavaScript. Integra
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue'
-import { rulerFactory } from 'rattail/ruler-factory'
+import { rulerFactory } from 'rattail/ruler'
 
 const r = rulerFactory((validator) => {
   return (value) => {
@@ -49,7 +49,7 @@ const model = ref({
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue'
-import { rulerFactory } from 'rattail/ruler-factory'
+import { rulerFactory } from 'rattail/ruler'
 import type { FieldRule } from 'vant'
 
 const r = rulerFactory<FieldRule>((validator, params) => ({
@@ -89,7 +89,7 @@ const model = ref({
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { FormItemRule } from 'naive-ui'
-import { rulerFactory } from 'rattail/ruler-factory'
+import { rulerFactory } from 'rattail/ruler'
 
 const r = rulerFactory<FormItemRule>((validator, params = {}) => ({
   trigger: ['blur', 'change', 'input'],
@@ -121,7 +121,7 @@ const model = ref({
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { FormItemRule } from 'element-plus'
-import { rulerFactory } from 'rattail/ruler-factory'
+import { rulerFactory } from 'rattail/ruler'
 
 const r = rulerFactory<FormItemRule>((validator, params) => ({
   validator(_, value, callback) {
@@ -157,7 +157,7 @@ Take Naive UI as an example
 
 ```ts
 import { FormItemRule } from 'naive-ui'
-import { RulerContext, rulerFactory, RulerFactoryMessage } from 'rattail/ruler-factory'
+import { RulerContext, rulerFactory, RulerFactoryMessage } from 'rattail/ruler'
 
 interface RulerExtendedContext {
   ip(message: RulerFactoryMessage, params?: FormItemRule): RulerContext<FormItemRule, FormItemRule, this>
@@ -270,6 +270,3 @@ r().ip('ip format error').done()
 - `.toUpperCase()`
 - `.transform(fn)`
 
-### Reference
-
-[ruler-factory](https://github.com/varletjs/ruler-factory/blob/main/README.md)

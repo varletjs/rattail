@@ -2,7 +2,18 @@
 
 ## Overview
 
-`Rattail` is a utilities library for front-end developers, `lightweight` and `ts-friendly`.
+`Rattail` is an AI Agent friendly front-end toolchain.
+
+### Features
+
+- <span style="font-size: 0.82em">🧰</span> &nbsp; 140+ utility functions for general, string, number, array, object, math, and more
+- <span style="font-size: 0.82em">🔧</span> &nbsp; CLI toolkit for release, changelog, git hooks, commit lint, and API codegen
+- <span style="font-size: 0.82em">⚙️</span> &nbsp; Opinionated Oxlint + Oxfmt presets with Vite+ integration
+- <span style="font-size: 0.82em">🚀</span> &nbsp; Progressive HTTP client based on axios, with Vue Composition API support
+- <span style="font-size: 0.82em">📏</span> &nbsp; Chainable validation rule factory that adapts to any UI framework
+- <span style="font-size: 0.82em">🏷️</span> &nbsp; Type-safe enums with built-in label, description, and custom field support
+- <span style="font-size: 0.82em">🌲</span> &nbsp; Tree-shakable, lightweight, and fully typed with TypeScript
+- <span style="font-size: 0.82em">💪</span> &nbsp; 99%+ unit test coverage
 
 ### Installation
 
@@ -22,18 +33,6 @@ pnpm add rattail
 
 :::
 
-### Usage
-
-```ts
-import { isString } from 'rattail'
-
-console.log(isString('rattail'))
-```
-
 ### Skills
 
 We provide [Agent Skills](https://github.com/varletjs/skills) for the Rattail ecosystem. By installing these skills, AI coding assistants can better understand and use `Rattail` and its related tools, helping you write code more efficiently.
-
-### Why not Lodash?
-
-`Rattail` is not a replacement for [Lodash](https://lodash.com/) nor a functional programming solution. Rattail aims to provide practical tools for more application scenarios.

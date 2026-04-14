@@ -1,12 +1,13 @@
 {
   "name": "rattail",
   "version": "1.8.3",
-  "description": "A utilities library for front-end developers, lightweight and ts-friendly",
+  "description": "A front-end toolchain with utilities, presets, request tools, and CLI",
   "keywords": [
-    "front-end developers",
-    "lightweight",
-    "ts-friendly",
-    "utilities library"
+    "cli",
+    "presets",
+    "toolchain",
+    "typescript",
+    "utilities"
   ],
   "bugs": {
     "url": "https://github.com/varletjs/rattail/issues"
@@ -42,6 +43,9 @@
       "axle/api": [
         "dist/axle/api.d.mts"
       ],
+      "ruler": [
+        "dist/ruler-factory/index.d.mts"
+      ],
       "ruler-factory": [
         "dist/ruler-factory/index.d.mts"
       ],
@@ -71,6 +75,10 @@
       "types": "./dist/axle/api.d.mts",
       "import": "./dist/axle/api.mjs"
     },
+    "./ruler": {
+      "types": "./dist/ruler-factory/index.d.mts",
+      "import": "./dist/ruler-factory/index.mjs"
+    },
     "./ruler-factory": {
       "types": "./dist/ruler-factory/index.d.mts",
       "import": "./dist/ruler-factory/index.mjs"
@@ -97,6 +105,7 @@
   "dependencies": {
     "@configurajs/vite-plus": "0.2.4",
     "@varlet/axle": "1.0.2",
+    "@varlet/release": "^2.1.1",
     "api-farmer": "0.1.5",
     "commander": "^13.0.0",
     "js-cookie": "3.0.5",
@@ -108,7 +117,6 @@
   },
   "devDependencies": {
     "@types/node": "^22.8.1",
-    "@varlet/release": "^1.0.2",
     "@vitest/coverage-istanbul": "^4.1.0",
     "jsdom": "^25.0.1",
     "oxc-minify": "^0.124.0",

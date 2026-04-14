@@ -1,0 +1,31 @@
+export const axleItems = [
+  { text: 'Getting Started', link: '/axle/getting-started' },
+  { text: 'Request Functions', link: '/axle/request-functions' },
+  { text: 'Vue Composition API', link: '/axle/use-axle' },
+  { text: 'API Definition', link: '/axle/api' },
+  { text: 'Configuration', link: '/axle/configuration' },
+  { text: 'Utilities', link: '/axle/utilities' },
+  { text: 'Interceptors', link: '/axle/interceptors' },
+  { text: 'Custom Headers Interceptor', link: '/axle/request-headers-interceptor' },
+  { text: 'Mock Data Interceptor', link: '/axle/request-mock-interceptor' },
+  { text: 'MD5 Hashing Interceptor', link: '/axle/request-md5-interceptor' },
+  { text: 'Retry Interceptor', link: '/axle/response-retry-interceptor' },
+  { text: 'Status Interceptor', link: '/axle/response-status-interceptor' },
+  { text: 'Blob Interceptor', link: '/axle/response-blob-interceptor' },
+]
+
+export const axleItemsZh = [
+  { text: '快速开始', link: '/axle/getting-started' },
+  { text: '请求函数', link: '/axle/request-functions' },
+  { text: 'Vue 组合式 API', link: '/axle/use-axle' },
+  { text: 'API 定义', link: '/axle/api' },
+  { text: '配置', link: '/axle/configuration' },
+  { text: '实用工具', link: '/axle/utilities' },
+  { text: '拦截器', link: '/axle/interceptors' },
+  { text: '拦截 - 自定义请求头', link: '/axle/request-headers-interceptor' },
+  { text: '拦截 - 模拟数据', link: '/axle/request-mock-interceptor' },
+  { text: '拦截 - MD5 计算', link: '/axle/request-md5-interceptor' },
+  { text: '拦截 - 失败重试', link: '/axle/response-retry-interceptor' },
+  { text: '拦截 - 状态码处理', link: '/axle/response-status-interceptor' },
+  { text: '拦截 - Blob 处理', link: '/axle/response-blob-interceptor' },
+]

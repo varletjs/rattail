@@ -36,7 +36,7 @@ export default fmt()
 If you are using [Vite+](https://viteplus.dev), you can configure lint and fmt in `vite.config.ts` directly:
 
 ```ts
-import { defineConfig } from 'vite-plus'
+import { defineConfig } from 'rattail/vite-plus'
 import { lint, fmt, staged } from 'rattail/vite-plus'
 
 export default defineConfig({

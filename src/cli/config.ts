@@ -1,4 +1,5 @@
-import { GenerateOptions } from 'api-farmer'
+import type { ChangelogOptions, ReleaseCommandOptions } from '@varlet/release'
+import type { GenerateOptions } from 'api-farmer'
 import { loadConfig } from 'unconfig'
 import { callOrReturn } from '../function'
 
@@ -28,6 +29,10 @@ export type RattailConfig = {
   hook?: HookConfig
 
   api?: GenerateOptions
+
+  release?: ReleaseCommandOptions
+
+  changelog?: ChangelogOptions
 }
 
 export async function getConfig() {

@@ -30,7 +30,9 @@ export default defineConfig({
 
   lint: lint(),
 
-  fmt: fmt(),
+  fmt: fmt({
+    ignores: ['docs/**/*.md'],
+  }),
 
   rattail: {
     clean: clean(),

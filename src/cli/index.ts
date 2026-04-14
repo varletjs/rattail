@@ -1,3 +1,7 @@
 export * from './clean'
 export * from './api'
 export * from './hook'
+export * from './release'
+export * from './changelog'
+export * from './commitLint'
+export * from './lockfileCheck'

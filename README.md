@@ -3,7 +3,7 @@
     <img src="https://rattail.varletjs.org/logo.svg" width="150">
   </a>
   <h1>Rattail</h1>
-  <p>A utilities library for front-end developers, lightweight and ts-friendly.</p>
+  <p>A front-end toolchain with utilities, presets, request tools, and CLI</p>
   <p>
     <a href="https://rattail.varletjs.org">Documentation</a> |
     <a href="https://github.com/varletjs/rattail/blob/main/README.zh-CN.md">中文介绍</a>
@@ -21,10 +21,14 @@
 
 ### Features
 
-- 🛠️ &nbsp; Provide utilities frequently used in daily development
-- 🛠️ &nbsp; Utilities implementation is very lightweight
-- 🛠️ &nbsp; Written based on ts, providing complete ts types
-- 💪 &nbsp; Make sure more than 99% unit test coverage, providing stability assurance
+- 🧰 &nbsp; 140+ utility functions for general, string, number, array, object, math, and more
+- 🔧 &nbsp; CLI toolkit for release, changelog, git hooks, commit lint, and API codegen
+- ⚙️ &nbsp; Opinionated Oxlint + Oxfmt presets with Vite+ integration
+- 🚀 &nbsp; Progressive HTTP client based on axios, with Vue Composition API support
+- 📏 &nbsp; Chainable validation rule factory that adapts to any UI framework
+- 🏷️ &nbsp; Type-safe enums with built-in label, description, and custom field support
+- 🌲 &nbsp; Tree-shakable, lightweight, and fully typed with TypeScript
+- 💪 &nbsp; 99%+ unit test coverage
 
 ### Installation
 
@@ -37,11 +41,36 @@ yarn add rattail
 pnpm add rattail
 ```
 
-### Usage
+### Quick Examples
 
 ```ts
-import { isString } from 'rattail'
+import { enumOf } from 'rattail'
 
-isString('rattail') // return true
-isString(123) // return false
+const Status = enumOf({
+  Active: { value: 1, label: 'Active', color: 'green' },
+  Inactive: { value: 2, label: 'Inactive', color: 'gray' },
+})
+
+Status.Active // 1
+Status.label(1) // 'Active'
+Status.options() // [{ value: 1, label: 'Active', color: 'green' }, ...]
+```
+
+```ts
+import { rulerFactory } from 'rattail/ruler'
+
+const r = rulerFactory((validator) => (value) => {
+  const e = validator(value)
+  return e ? e.message : true
+})
+
+r().required('Required').email('Invalid email').done()
+```
+
+```ts
+import { createAxle } from 'rattail/axle'
+
+const axle = createAxle()
+axle.get('/users', { page: 1, size: 10 })
+axle.post('/users', { name: 'Rattail' })
 ```
