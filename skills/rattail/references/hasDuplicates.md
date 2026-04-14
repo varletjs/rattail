@@ -1,0 +1,48 @@
+---
+category: General
+---
+
+# hasDuplicates
+
+Checks if an array contains duplicate values.
+
+## Documentation
+
+- [English](https://rattail.varletjs.org/general/has-duplicates)
+- [Chinese docs](https://rattail.varletjs.org/zh/general/has-duplicates)
+
+### Usage
+
+```ts
+import { hasDuplicates } from 'rattail'
+
+hasDuplicates([1, 2, 3, 2]) // true
+hasDuplicates([1, 2, 3]) // false
+```
+
+### Arguments
+
+| Arg   | Type    | Defaults |
+| ----- | ------- | -------- |
+| `arr` | `Array` |          |
+
+### Return
+
+| Type      |
+| --------- |
+| `boolean` |
+
+### Notes
+
+- Returns `true` if any value appears more than once in the array.
+- Uses strict equality for comparison.
+
+## Type declarations
+
+```ts
+import { uniq } from '../array'
+
+export function hasDuplicates<T>(arr: T[]): boolean {
+  return uniq(arr).length !== arr.length
+}
+```

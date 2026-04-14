@@ -1,13 +1,15 @@
 {
   "name": "rattail",
-  "version": "1.8.3",
-  "description": "A front-end toolchain with utilities, presets, request tools, and CLI",
+  "version": "2.0.0-alpha.1776181857990",
+  "description": "A Vite+ oriented, AI Agent friendly front-end toolchain",
   "keywords": [
+    "ai-agent",
     "cli",
     "presets",
     "toolchain",
     "typescript",
-    "utilities"
+    "utilities",
+    "vite-plus"
   ],
   "bugs": {
     "url": "https://github.com/varletjs/rattail/issues"

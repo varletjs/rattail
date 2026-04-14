@@ -20,6 +20,7 @@ import {
   stringItems,
   utilItems,
   vitePlusItems,
+  vitePlusItemsZh,
 } from './items'
 
 function withI18n(items: { link: string; text: string }[], locale: 'zh') {
@@ -58,7 +59,7 @@ export default defineConfig({
           },
           {
             text: 'Vite+ Presets',
-            items: withI18n(vitePlusItems, 'zh'),
+            items: withI18n(vitePlusItemsZh, 'zh'),
           },
           {
             text: 'Axle',

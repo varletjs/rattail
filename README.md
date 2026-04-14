@@ -3,7 +3,7 @@
     <img src="https://rattail.varletjs.org/logo.svg" width="150">
   </a>
   <h1>Rattail</h1>
-  <p>A front-end toolchain with utilities, presets, request tools, and CLI</p>
+  <p>A Vite+ oriented, AI Agent friendly front-end toolchain</p>
   <p>
     <a href="https://rattail.varletjs.org">Documentation</a> |
     <a href="https://github.com/varletjs/rattail/blob/main/README.zh-CN.md">中文介绍</a>
@@ -21,14 +21,16 @@
 
 ### Features
 
-- 🧰 &nbsp; 140+ utility functions for general, string, number, array, object, math, and more
-- 🔧 &nbsp; CLI toolkit for release, changelog, git hooks, commit lint, and API codegen
-- ⚙️ &nbsp; Opinionated Oxlint + Oxfmt presets with Vite+ integration
-- 🚀 &nbsp; Progressive HTTP client based on axios, with Vue Composition API support
-- 📏 &nbsp; Chainable validation rule factory that adapts to any UI framework
-- 🏷️ &nbsp; Type-safe enums with built-in label, description, and custom field support
-- 🌲 &nbsp; Tree-shakable, lightweight, and fully typed with TypeScript
-- 💪 &nbsp; 99%+ unit test coverage
+- ⚙️ &nbsp; Out-of-the-box [Vite+](https://viteplus.dev) presets covering linting, formatting, staged linting, git hooks, and more.
+- 🔧 &nbsp; CLI toolkit for release, changelog, git hooks, commit lint, and API codegen.
+- 🧰 &nbsp; 140+ utility functions for general, string, number, array, object, math, and more.
+- 🚀 &nbsp; Progressive HTTP client based on axios, with Vue Composition API support.
+- 📏 &nbsp; Chainable validation rule factory that adapts to any UI framework.
+- 🏷️ &nbsp; Type-safe enum utility.
+- 🤖 &nbsp; Provides [Agent Skills](https://github.com/varletjs/skills) for AI coding assistants to understand and use Rattail.
+- 🌲 &nbsp; Tree-shakable, lightweight, and fully typed with TypeScript.
+- 💪 &nbsp; 90%+ unit test coverage.
+- 📄 &nbsp; MIT licensed.
 
 ### Installation
 
@@ -39,38 +41,4 @@ npm i rattail -S
 yarn add rattail
 # pnpm
 pnpm add rattail
-```
-
-### Quick Examples
-
-```ts
-import { enumOf } from 'rattail'
-
-const Status = enumOf({
-  Active: { value: 1, label: 'Active', color: 'green' },
-  Inactive: { value: 2, label: 'Inactive', color: 'gray' },
-})
-
-Status.Active // 1
-Status.label(1) // 'Active'
-Status.options() // [{ value: 1, label: 'Active', color: 'green' }, ...]
-```
-
-```ts
-import { rulerFactory } from 'rattail/ruler'
-
-const r = rulerFactory((validator) => (value) => {
-  const e = validator(value)
-  return e ? e.message : true
-})
-
-r().required('Required').email('Invalid email').done()
-```
-
-```ts
-import { createAxle } from 'rattail/axle'
-
-const axle = createAxle()
-axle.get('/users', { page: 1, size: 10 })
-axle.post('/users', { name: 'Rattail' })
 ```

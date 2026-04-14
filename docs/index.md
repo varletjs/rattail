@@ -4,7 +4,7 @@ layout: home
 hero:
   name: 'Rattail'
   text: 'Front-end Toolchain'
-  tagline: A front-end toolchain with utilities, presets, request tools, and CLI
+  tagline: A Vite+ oriented, AI Agent friendly front-end toolchain
   logo: /logo.svg
   image:
     src: /logo.svg
@@ -17,22 +17,27 @@ hero:
       link: https://github.com/varletjs/rattail
 
 features:
-  - title: Rich Utilities
-    details: 140+ tree-shakable utility functions covering general, string, number, array, object, math, and more
-    link: /getting-started
-  - title: CLI Toolkit
-    details: Release, changelog, git hooks, commit lint, API codegen — one command rt
-    link: /cli/getting-started
   - title: Vite+ Presets
-    details: Opinionated Oxlint + Oxfmt presets with Vite+ integration support
+    details: Out-of-the-box Vite+ presets covering linting, formatting, staged linting, git hooks, and more.
     link: /vite-plus/presets
+  - title: CLI Toolkit
+    details: Release, changelog, git hooks, commit lint, API codegen with one command rt.
+    link: /cli/getting-started
+  - title: Rich Utilities
+    details: 140+ tree-shakable utility functions covering general, string, number, array, object, math, and more.
+    link: /getting-started
   - title: Axle
-    details: Progressive HTTP client based on axios, with Vue Composition API support
+    details: Progressive HTTP client based on axios, with Vue Composition API support.
     link: /axle/getting-started
   - title: Ruler Factory
-    details: Chainable validation rule factory that adapts to any UI framework
+    details: Chainable validation rule factory that adapts to any UI framework.
     link: /ruler/ruler-factory
   - title: enumOf
-    details: Type-safe enums with built-in label, description, and custom field support
+    details: Type-safe enum utility.
     link: /util/enum-of
+  - title: Agent Skills
+    details: Provides Agent Skills for AI coding assistants to understand and use Rattail.
+    link: https://github.com/varletjs/skills
+  - title: MIT Licensed
+    details: Open source under the MIT license.
 ---
