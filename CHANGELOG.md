@@ -1,4 +1,17 @@
-## [2.0.1](https://github.com/varletjs/rattail/compare/v2.0.0...v2.0.1) (2026-04-15)
+## [2.0.2](https://github.com/varletjs/rattail/compare/v2.0.1...v2.0.2) (2026-04-15)
+
+
+### Bug Fixes
+
+* downgrade @varlet/release version from 2.2.1 to 2.2.0 in pnpm-lock.yaml ([c087796](https://github.com/varletjs/rattail/commit/c087796fcc64615265621f3346c50df4f0a78309))
+* update @varlet/release version from ^2.2.0 to ^2.2.1 in package.json and pnpm-lock.yaml ([5131f3f](https://github.com/varletjs/rattail/commit/5131f3ff2fdaebbaf5490f010024acbc56b780bf))
+
+
+### Features
+
+* add publish command to CLI and update configuration types ([4439e2a](https://github.com/varletjs/rattail/commit/4439e2acab7746687713fa07b9e7cd0162b95aaa))
+
+# [2.0.0](https://github.com/varletjs/rattail/compare/v1.8.3...v2.0.0) (2026-04-15)
 
 
 ### Bug Fixes
@@ -18,7 +31,6 @@
 
 * add "Why Rattail" section and links to documentation in English and Chinese ([a833839](https://github.com/varletjs/rattail/commit/a833839d5a23a8d1178c2089709d994cf311646c))
 * add CLI functionality with clean command and configuration loading ([c3746b7](https://github.com/varletjs/rattail/commit/c3746b701ccc6cb7e74e037ce17592ef8347e32e))
-* add publish command to CLI and update configuration types ([4439e2a](https://github.com/varletjs/rattail/commit/4439e2acab7746687713fa07b9e7cd0162b95aaa))
 * add return type to defineConfig function for improved type safety ([89c8696](https://github.com/varletjs/rattail/commit/89c8696d1b62f021d2d323b835cc24f4074efbef))
 * add utility functions for storage, math operations, and file handling ([f2433e3](https://github.com/varletjs/rattail/commit/f2433e362ac49ca8d32447de253d73b8147cc061))
 * **cli:** enhance CLI commands and add API generation ([1bddbf2](https://github.com/varletjs/rattail/commit/1bddbf2fbf4bedda6decc1202a0d83ddc9c10ac3))
