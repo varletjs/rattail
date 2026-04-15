@@ -1,9 +1,38 @@
-## [1.8.3](https://github.com/varletjs/rattail/compare/v1.8.2...v1.8.3) (2026-04-10)
+# [2.0.0](https://github.com/varletjs/rattail/compare/v1.8.3...v2.0.0) (2026-04-15)
 
 
 ### Bug Fixes
 
+* remove format and clean options from Vite configuration ([21f3827](https://github.com/varletjs/rattail/commit/21f3827f9f857afb38accfcab52ed7d65cb5c4d0))
+* revert version number to 1.8.3 in package.json ([b1c94cc](https://github.com/varletjs/rattail/commit/b1c94cc8ff705a8159e0b5b7f637f41df4318539))
 * update @configurajs/vite-plus dependency to version 0.2.2 and remove type-aware linting mention from documentation ([214ccca](https://github.com/varletjs/rattail/commit/214ccca8f9cace0379703f5b6afda3604111b170))
+* update @configurajs/vite-plus dependency to version 0.2.3 ([2e755c1](https://github.com/varletjs/rattail/commit/2e755c1f0d5bd7889d1f4dd557bd458c1d5f0dfa))
+* update @configurajs/vite-plus dependency to version 0.2.4 ([7681355](https://github.com/varletjs/rattail/commit/768135512120d24e0b938ded4aec8ef38a09154d))
+* update @varlet/release version to 2.2.1 in pnpm-lock.yaml ([ee08753](https://github.com/varletjs/rattail/commit/ee08753e7a06903cfd688f316c72d46829b9c530))
+* update api-farmer dependency to version 0.1.5 ([dcd2c22](https://github.com/varletjs/rattail/commit/dcd2c22507be7c4de09d88cb4a74135e475d765a))
+* update links to Agent Skills in README and Chinese translations ([4c42056](https://github.com/varletjs/rattail/commit/4c420565c4f2be004fc296cc62ddce7efbaf932e))
+* update vitest dependency to use vite-plus-test for compatibility ([e0cba43](https://github.com/varletjs/rattail/commit/e0cba439ce2675968914a4f14333ee00a7fb216e))
+* update vitest dependency version and ensure compatibility with vite-plus-core ([b1745a0](https://github.com/varletjs/rattail/commit/b1745a008b5765e871a1ee8c60dec819e0392dc4))
+
+
+### Features
+
+* add "Why Rattail" section and links to documentation in English and Chinese ([a833839](https://github.com/varletjs/rattail/commit/a833839d5a23a8d1178c2089709d994cf311646c))
+* add CLI functionality with clean command and configuration loading ([c3746b7](https://github.com/varletjs/rattail/commit/c3746b701ccc6cb7e74e037ce17592ef8347e32e))
+* add return type to defineConfig function for improved type safety ([89c8696](https://github.com/varletjs/rattail/commit/89c8696d1b62f021d2d323b835cc24f4074efbef))
+* add utility functions for storage, math operations, and file handling ([f2433e3](https://github.com/varletjs/rattail/commit/f2433e362ac49ca8d32447de253d73b8147cc061))
+* **cli:** enhance CLI commands and add API generation ([1bddbf2](https://github.com/varletjs/rattail/commit/1bddbf2fbf4bedda6decc1202a0d83ddc9c10ac3))
+* **cli:** refactor clean function and update CleanConfig type for better pattern resolution ([9adf27d](https://github.com/varletjs/rattail/commit/9adf27d0febf3900b7d57ef48339c57233d8f7ac))
+* **cli:** update CLI commands and enhance clean functionality ([0b962b6](https://github.com/varletjs/rattail/commit/0b962b6df42a11dc92849afc79c893088fddb3ce))
+* **cli:** update commit-msg hook to use tsx for linting ([08e747d](https://github.com/varletjs/rattail/commit/08e747dce6665337f26988abcd0bcb86d2d31bab))
+* update documentation and CLI commands for improved clarity and functionality ([9cef530](https://github.com/varletjs/rattail/commit/9cef5303d0dd1074eaac999ede127fd63c7b965d))
+
+
+### Refactoring
+
+* refactor code structure for improved readability and maintainability ([a7efb15](https://github.com/varletjs/rattail/commit/a7efb15907d0b550c7a2326d668f195b85abe039))
+* refactor code structure for improved readability and maintainability ([1c5741b](https://github.com/varletjs/rattail/commit/1c5741b0814b63baaee95b32ade880ea42c9faaa))
+* remove Vite+ presets and update CLI documentation for clarity ([737759e](https://github.com/varletjs/rattail/commit/737759e76f309d651263510ce57703c004354f56))
 
 ## [1.8.2](https://github.com/varletjs/rattail/compare/v1.8.1...v1.8.2) (2026-04-09)
 
@@ -87,26 +116,26 @@
 * update NavigationTarget query type to allow any value and ensure string conversion in buildNavigationUrl ([cb8c335](https://github.com/varletjs/rattail/commit/cb8c335ce40b50cfbcc7f4e2b4aec86b0ef81435))
 
 
-### Code Refactoring
-
-* update test imports from vitest to vite-plus/test ([cb313fb](https://github.com/varletjs/rattail/commit/cb313fb95f337271410fefbcf2285bed80bb61e5))
-
-
 ### Features
 
 * implement navigation API with buildNavigationUrl function and corresponding documentation ([0f7ee46](https://github.com/varletjs/rattail/commit/0f7ee46165dfb71a0e0dd0f4f6d5d39fa9546559))
 
+
+### Refactoring
+
+* update test imports from vitest to vite-plus/test ([cb313fb](https://github.com/varletjs/rattail/commit/cb313fb95f337271410fefbcf2285bed80bb61e5))
+
 # [1.5.0](https://github.com/varletjs/rattail/compare/v1.4.0...v1.5.0) (2026-03-19)
-
-
-### Code Refactoring
-
-* update build output directory to 'dist' and adjust TypeScript configuration ([6beeafb](https://github.com/varletjs/rattail/commit/6beeafb2856f435652b6ba4ebe82a447bf938431))
 
 
 ### Features
 
 * add integrated items for mitt and uuid with corresponding documentation ([0ddbf92](https://github.com/varletjs/rattail/commit/0ddbf924aaa7cd9beb6dc8071d854c51322fa0d4))
+
+
+### Refactoring
+
+* update build output directory to 'dist' and adjust TypeScript configuration ([6beeafb](https://github.com/varletjs/rattail/commit/6beeafb2856f435652b6ba4ebe82a447bf938431))
 
 # [1.4.0](https://github.com/varletjs/rattail/compare/v1.3.1...v1.4.0) (2026-03-13)
 
@@ -184,14 +213,14 @@
 ## [1.0.17](https://github.com/varletjs/rattail/compare/v1.0.16...v1.0.17) (2024-12-06)
 
 
-### Code Refactoring
-
-* **array:** optimize groupBy function ([#38](https://github.com/varletjs/rattail/issues/38)) ([4cdaf41](https://github.com/varletjs/rattail/commit/4cdaf41ad396dfac7fccb2bafc103630bf221507))
-
-
 ### Features
 
 * assert ([5c48630](https://github.com/varletjs/rattail/commit/5c48630fde4610e5aa51f0c959c13a9b3922d790))
+
+
+### Refactoring
+
+* **array:** optimize groupBy function ([#38](https://github.com/varletjs/rattail/issues/38)) ([4cdaf41](https://github.com/varletjs/rattail/commit/4cdaf41ad396dfac7fccb2bafc103630bf221507))
 
 ## [1.0.16](https://github.com/varletjs/rattail/compare/v1.0.15...v1.0.16) (2024-11-26)
 
@@ -292,14 +321,14 @@
 ## [0.0.12](https://github.com/varletjs/rattail/compare/v0.0.11...v0.0.12) (2024-11-07)
 
 
-### Code Refactoring
-
-* cleanup pick pickBy omit omitBy and update docs ([b12097a](https://github.com/varletjs/rattail/commit/b12097a17a4137ef652d20325b405eb5bca3dd09))
-
-
 ### Features
 
 * add pick, omit, pickBy, and omitBy functions ([#27](https://github.com/varletjs/rattail/issues/27)) ([ee83029](https://github.com/varletjs/rattail/commit/ee830291c16cb3ebffcbe5313657cdeed933d101))
+
+
+### Refactoring
+
+* cleanup pick pickBy omit omitBy and update docs ([b12097a](https://github.com/varletjs/rattail/commit/b12097a17a4137ef652d20325b405eb5bca3dd09))
 
 ## [0.0.11](https://github.com/varletjs/rattail/compare/v0.0.10...v0.0.11) (2024-11-05)
 
@@ -325,17 +354,17 @@
 * fix isEqual ([4f6c4a8](https://github.com/varletjs/rattail/commit/4f6c4a8405ad3e0700d6f14cede236943bf0116d))
 
 
-### Code Refactoring
-
-* ensure stack ([b070eab](https://github.com/varletjs/rattail/commit/b070eab9c5f43e2f7cf683c37d6abefd3dec6853))
-
-
 ### Features
 
 * add copyText util function ([#25](https://github.com/varletjs/rattail/issues/25)) ([178facd](https://github.com/varletjs/rattail/commit/178facd234898ad5dc77ddd43fbf6f55d844c89f))
 * support randomString, randomColor, sumHash ([72b398f](https://github.com/varletjs/rattail/commit/72b398f9b97b0ae9072aa1a825398c9600507ac8))
 * support sumHash and fix docs ([af238bd](https://github.com/varletjs/rattail/commit/af238bd0891c08cd40bb498ba136880fe2338885))
 * wip ([81e06c8](https://github.com/varletjs/rattail/commit/81e06c8f4f9bd7d28fe52565b996282c86580cb4))
+
+
+### Refactoring
+
+* ensure stack ([b070eab](https://github.com/varletjs/rattail/commit/b070eab9c5f43e2f7cf683c37d6abefd3dec6853))
 
 ## [0.0.7](https://github.com/varletjs/rattail/compare/v0.0.6...v0.0.7) (2024-11-01)
 
@@ -375,7 +404,7 @@
 ## [0.0.3](https://github.com/varletjs/rattail/compare/v0.0.2...v0.0.3) (2024-10-28)
 
 
-### Code Refactoring
+### Refactoring
 
 * enhance camelize and genStringKey and update docs ([5f4fad5](https://github.com/varletjs/rattail/commit/5f4fad5f48268165402f6f4abe8e92758b2c7be4))
 
@@ -404,4 +433,3 @@
 * new utils and add vitest ([d8ef0f7](https://github.com/varletjs/rattail/commit/d8ef0f7669cdcfa6147671c9ab8df921e67cd541))
 * support vitepress ([d861865](https://github.com/varletjs/rattail/commit/d861865f9d5f39dbad1c467e0ec6e1116bbb28d9))
 * theme customization ([1a53c72](https://github.com/varletjs/rattail/commit/1a53c72365dca6efa54994b596c6772cb9448c96))
-
