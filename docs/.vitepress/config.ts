@@ -49,7 +49,10 @@ export default defineConfig({
         sidebar: [
           {
             text: '简介',
-            items: [{ text: '快速开始', link: '/zh/getting-started' }],
+            items: [
+              { text: '快速开始', link: '/zh/getting-started' },
+              { text: '为什么选择 Rattail', link: '/zh/why-rattail' },
+            ],
           },
           {
             text: 'CLI',
@@ -135,7 +138,10 @@ export default defineConfig({
     sidebar: [
       {
         text: 'Introduction',
-        items: [{ text: 'Getting Started', link: '/getting-started' }],
+        items: [
+          { text: 'Getting Started', link: '/getting-started' },
+          { text: 'Why Rattail', link: '/why-rattail' },
+        ],
       },
       {
         text: 'CLI',

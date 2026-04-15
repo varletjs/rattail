@@ -10,6 +10,9 @@ hero:
     src: /logo.svg
   actions:
     - theme: brand
+      text: Why Rattail
+      link: /why-rattail
+    - theme: brand
       text: Get Started
       link: /getting-started
     - theme: alt
