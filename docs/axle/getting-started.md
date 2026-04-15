@@ -18,28 +18,23 @@ const axle = createAxle({
 
 The `createAxle` function accepts all [axios config](https://axios-http.com/) options.
 
-### Normalized Parameters
-
-Axle normalizes the parameters of request functions. For `GET` requests, the second argument is `params`; for `POST/PUT/PATCH`, the second argument is `data`. The third argument is always axios config.
+### Basic Usage
 
 ```ts
-axle.get('/url', { current: 1, pageSize: 10 }, { headers: {} })
+axle.get('/user', { current: 1, pageSize: 10 })
 
-axle.post('/url', { name: 'Axle' }, { headers: {} })
-
-axle.put('/url', { id: 1, name: 'Axle' }, { headers: {} })
-
-axle.delete('/url', { id: 1 }, { headers: {} })
-
-axle.patch('/url', { name: 'Axle' }, { headers: {} })
-
-axle.head('/url', { current: 1 }, { headers: {} })
-
-axle.options('/url', { current: 1 }, { headers: {} })
+axle.post('/user', { name: 'Axle' })
 ```
 
-### Access Axios Instance
+### Composition API
 
 ```ts
-axle.axios
+import { createUseAxle } from 'rattail/axle/use'
+
+const useAxle = createUseAxle({ axle })
+
+const [users, getUsers] = useAxle({
+  method: 'get',
+  url: '/user',
+})
 ```

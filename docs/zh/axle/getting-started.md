@@ -18,28 +18,23 @@ const axle = createAxle({
 
 `createAxle` 支持所有 [axios 配置](https://axios-http.com/) 选项。
 
-### 参数归一化
-
-Axle 归一化了请求函数的参数为 `(url, params/data, config)`。
+### 基本用法
 
 ```ts
-axle.get('/url', { current: 1, pageSize: 10 }, { headers: {} })
+axle.get('/user', { current: 1, pageSize: 10 })
 
-axle.post('/url', { name: 'Axle' }, { headers: {} })
-
-axle.put('/url', { id: 1, name: 'Axle' }, { headers: {} })
-
-axle.delete('/url', { id: 1 }, { headers: {} })
-
-axle.patch('/url', { name: 'Axle' }, { headers: {} })
-
-axle.head('/url', { current: 1 }, { headers: {} })
-
-axle.options('/url', { current: 1 }, { headers: {} })
+axle.post('/user', { name: 'Axle' })
 ```
 
-### 访问 Axios 实例
+### 组合式 API
 
 ```ts
-axle.axios
+import { createUseAxle } from 'rattail/axle/use'
+
+const useAxle = createUseAxle({ axle })
+
+const [users, getUsers] = useAxle({
+  method: 'get',
+  url: '/user',
+})
 ```
