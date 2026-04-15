@@ -19,7 +19,7 @@ hero:
 features:
   - title: Vite+ Presets
     details: Out-of-the-box Vite+ presets covering linting, formatting, staged linting, git hooks, and more.
-    link: /vite-plus/presets
+    link: /cli/getting-started
   - title: CLI Toolkit
     details: Release, changelog, git hooks, commit lint, API codegen with one command rt.
     link: /cli/getting-started

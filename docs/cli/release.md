@@ -43,5 +43,5 @@ await release({
 | `skipChangelog` | `boolean` | - | Skip changelog generation |
 | `skipGitTag` | `boolean` | - | Skip git tag |
 | `checkRemoteVersion` | `boolean` | - | Check npm remote version before publishing, skip if version already exists |
-| `task` | `(newVersion, oldVersion) => Promise<void>` | - | Custom task to run during release |
+| `task` | `(newVersion, oldVersion) => Promise<void>` | - | Custom task to run after version update but before npm publish, e.g. build |
 | `remote` | `string` | `origin` | Git remote name for pushing, rarely needs to be changed |

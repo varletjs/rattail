@@ -87,19 +87,6 @@ const [
 | `onError(error, refs)` | Called on request error | - |
 | `onAfter(refs)` | Called after request completes (success or error) | - |
 
-### Extra Properties
-
-The third element of the returned tuple, which contains the following properties:
-
-| Property | Description |
-| --- | --- |
-| `loading` | Loading state ref |
-| `error` | Error state ref |
-| `uploadProgress` | Upload progress ref |
-| `downloadProgress` | Download progress ref |
-| `abort` | Abort request function |
-| `resetValue` | Used to reset value |
-
 ### Runner Enhancement
 
 The runner (second element in the returned tuple) includes all extra properties, so you can access them directly without destructuring the third element.
@@ -135,3 +122,16 @@ const [users, getUsers] = useAxle({
   <button @click="getUsers">Send Request</button>
 </template>
 ```
+
+### Extra Properties
+
+The third element of the returned tuple, which contains the following properties:
+
+| Property | Description |
+| --- | --- |
+| `loading` | Loading state ref |
+| `error` | Error state ref |
+| `uploadProgress` | Upload progress ref |
+| `downloadProgress` | Download progress ref |
+| `abort` | Abort request function |
+| `resetValue` | Used to reset value |

@@ -16,7 +16,7 @@ hero:
 features:
   - title: Vite+ Presets
     details: 面向 Vite+ 的开箱即用配置预设，覆盖代码检查、格式化、暂存区检查和 Git Hooks 等。
-    link: /zh/vite-plus/presets
+    link: /zh/cli/getting-started
   - title: CLI 工具链
     details: 发布、日志、Git Hooks、Commit Lint、API 生成，一个 rt 命令搞定。
     link: /zh/cli/getting-started

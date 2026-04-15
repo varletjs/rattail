@@ -19,8 +19,6 @@ import {
   rulerItemsZh,
   stringItems,
   utilItems,
-  vitePlusItems,
-  vitePlusItemsZh,
 } from './items'
 
 function withI18n(items: { link: string; text: string }[], locale: 'zh') {
@@ -56,10 +54,6 @@ export default defineConfig({
           {
             text: 'CLI',
             items: withI18n(cliItemsZh, 'zh'),
-          },
-          {
-            text: 'Vite+ Presets',
-            items: withI18n(vitePlusItemsZh, 'zh'),
           },
           {
             text: 'Axle',
@@ -114,7 +108,7 @@ export default defineConfig({
             items: withI18n(fileItems, 'zh'),
           },
           {
-            text: '工具',
+            text: '实用工具',
             items: withI18n(utilItems, 'zh'),
           },
         ],
@@ -146,10 +140,6 @@ export default defineConfig({
       {
         text: 'CLI',
         items: cliItems,
-      },
-      {
-        text: 'Vite+ Presets',
-        items: vitePlusItems,
       },
       {
         text: 'Axle',

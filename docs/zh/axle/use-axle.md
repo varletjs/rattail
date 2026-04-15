@@ -87,19 +87,6 @@ const [
 | `onError(error, refs)` | 请求错误时调用 | - |
 | `onAfter(refs)` | 请求完成后调用（无论成功或失败） | - |
 
-### 额外属性
-
-返回值元组的第三个元素，包含以下属性：
-
-| 属性 | 描述 |
-| --- | --- |
-| `loading` | 加载状态 ref |
-| `error` | 错误状态 ref |
-| `uploadProgress` | 上传进度 ref |
-| `downloadProgress` | 下载进度 ref |
-| `abort` | 中止请求函数 |
-| `resetValue` | 用于 value 重置 |
-
 ### Runner 增强
 
 Runner（返回值元组的第二个元素）包含所有额外属性，因此可以直接访问而无需解构第三个元素。
@@ -135,3 +122,16 @@ const [users, getUsers] = useAxle({
   <button @click="getUsers">发送请求</button>
 </template>
 ```
+
+### 额外属性
+
+返回值元组的第三个元素，包含以下属性：
+
+| 属性 | 描述 |
+| --- | --- |
+| `loading` | 加载状态 ref |
+| `error` | 错误状态 ref |
+| `uploadProgress` | 上传进度 ref |
+| `downloadProgress` | 下载进度 ref |
+| `abort` | 中止请求函数 |
+| `resetValue` | 用于 value 重置 |

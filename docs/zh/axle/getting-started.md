@@ -16,11 +16,11 @@ const axle = createAxle({
 })
 ```
 
-`createAxle` 接收所有 [axios 配置](https://axios-http.com/) 选项。
+`createAxle` 支持所有 [axios 配置](https://axios-http.com/) 选项。
 
 ### 参数归一化
 
-Axle 归一化了请求函数的参数。对于 `GET` 请求，第二个参数为 `params`；对于 `POST/PUT/PATCH`，第二个参数为 `data`。第三个参数始终为 axios 配置。
+Axle 归一化了请求函数的参数为 `(url, params/data, config)`。
 
 ```ts
 axle.get('/url', { current: 1, pageSize: 10 }, { headers: {} })

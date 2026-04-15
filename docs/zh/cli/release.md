@@ -43,5 +43,5 @@ await release({
 | `skipChangelog` | `boolean` | - | 跳过 changelog 生成 |
 | `skipGitTag` | `boolean` | - | 跳过 git tag |
 | `checkRemoteVersion` | `boolean` | - | 发布前检查 npm 远程版本，若版本已存在则跳过发布 |
-| `task` | `(newVersion, oldVersion) => Promise<void>` | - | 发布过程中运行的自定义任务 |
+| `task` | `(newVersion, oldVersion) => Promise<void>` | - | 在版本号更新之后、npm 发布之前运行的自定义任务，如执行构建 |
 | `remote` | `string` | `origin` | git push 使用的 remote 名称，多数情况下无需修改 |
