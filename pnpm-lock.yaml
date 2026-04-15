@@ -19,8 +19,8 @@ importers:
         specifier: 1.0.2
         version: 1.0.2(vue@3.5.32(typescript@5.3.3))
       '@varlet/release':
-        specifier: ^2.2.0
-        version: 2.2.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)
+        specifier: ^2.2.1
+        version: 2.2.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)
       '@voidzero-dev/vite-plus-core':
         specifier: '>=0.1.16'
         version: 0.1.16(@types/node@22.8.1)(esbuild@0.25.12)(jiti@2.6.1)(tsx@4.21.0)(typescript@5.3.3)(yaml@2.8.3)
@@ -1045,8 +1045,8 @@ packages:
     peerDependencies:
       vue: ^3.2.0
 
-  '@varlet/release@2.2.0':
-    resolution: {integrity: sha512-V+MONlfspwsEXJCTMFX3/1QPE6H26qp28JWIWho4J2cZCLldgg4NEmB+8oeNoXohvCrA0rVhuZk07YQFXk2rnw==}
+  '@varlet/release@2.2.1':
+    resolution: {integrity: sha512-Vm/PVr/8fsQ26+Q+c1q4boRVxnKr2iqLWfiNRIlb1ynpd/IgvHjf5z4B5ggDXwCCIxa3UZgevXODuUcubdmOkg==}
     engines: {node: ^20.19.0 || >=22.12.0, pnpm: '>=10.0'}
     hasBin: true
 
@@ -3308,7 +3308,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@varlet/release@2.2.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)':
+  '@varlet/release@2.2.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)':
     dependencies:
       '@clack/prompts': 1.2.0
       cleye: 2.3.0
