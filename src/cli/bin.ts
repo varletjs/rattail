@@ -37,11 +37,36 @@ program
 program
   .command('release')
   .description('Release all packages and generate changelogs')
-  .action(async () => {
-    const { release } = await import('./release')
+  .option('-t, --npmTag <tag>', 'npm dist-tag (e.g. beta, next)')
+  .option('-r, --remote <remote>', 'Git remote name for pushing')
+  .option('--skip-npm-publish', 'Skip npm publish')
+  .option('--skip-changelog', 'Skip changelog generation')
+  .option('--skip-git-tag', 'Skip git tag')
+  .option('-c, --check-remote-version', 'Skip publish if the current version already exists on npm')
+  .action(
+    async (options: {
+      npmTag?: string
+      remote?: string
+      skipNpmPublish?: boolean
+      skipChangelog?: boolean
+      skipGitTag?: boolean
+      checkRemoteVersion?: boolean
+    }) => {
+      const { getConfig } = await import('./config')
+      const { release } = await import('./release')
+      const config = (await getConfig()).release ?? {}
 
-    return release()
-  })
+      return release({
+        ...config,
+        ...(options.npmTag != null ? { npmTag: options.npmTag } : {}),
+        ...(options.remote != null ? { remote: options.remote } : {}),
+        ...(options.skipNpmPublish ? { skipNpmPublish: true } : {}),
+        ...(options.skipChangelog ? { skipChangelog: true } : {}),
+        ...(options.skipGitTag ? { skipGitTag: true } : {}),
+        ...(options.checkRemoteVersion ? { checkRemoteVersion: true } : {}),
+      })
+    },
+  )
 
 program
   .command('publish')

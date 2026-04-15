@@ -6,7 +6,24 @@
 
 ```shell
 rt release
+rt release --skip-npm-publish
+rt release --npm-tag beta
+rt release --skip-changelog --skip-git-tag
+rt release --check-remote-version --remote upstream
 ```
+
+### 命令行参数
+
+所有选项均可通过命令行参数传递，命令行参数的优先级高于配置文件。
+
+| 参数 | 描述 |
+| --- | --- |
+| `-t, --npm-tag <tag>` | npm 发布的 dist-tag，如 `beta`、`next` |
+| `-r, --remote <remote>` | git push 使用的 remote 名称 |
+| `--skip-npm-publish` | 跳过 npm 发布 |
+| `--skip-changelog` | 跳过 changelog 生成 |
+| `--skip-git-tag` | 跳过 git tag |
+| `-c, --check-remote-version` | 发布前检查 npm 远程版本，若版本已存在则跳过发布 |
 
 ### 配置
 

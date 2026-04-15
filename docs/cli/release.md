@@ -6,7 +6,24 @@ Interactive package release.
 
 ```shell
 rt release
+rt release --skip-npm-publish
+rt release --npm-tag beta
+rt release --skip-changelog --skip-git-tag
+rt release --check-remote-version --remote upstream
 ```
+
+### CLI Arguments
+
+All options can be passed as command-line arguments. CLI arguments take priority over config file options.
+
+| Argument | Description |
+| --- | --- |
+| `-t, --npm-tag <tag>` | npm dist-tag for publishing, e.g. `beta`, `next` |
+| `-r, --remote <remote>` | Git remote name for pushing |
+| `--skip-npm-publish` | Skip npm publish |
+| `--skip-changelog` | Skip changelog generation |
+| `--skip-git-tag` | Skip git tag |
+| `-c, --check-remote-version` | Skip publish if the current version already exists on npm |
 
 ### Config
 

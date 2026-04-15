@@ -14,9 +14,24 @@ Release all packages, generate changelogs, tag, and optionally publish to npm. P
 
 ```bash
 rt release
+rt release --skip-npm-publish
+rt release --npm-tag beta
+rt release --skip-changelog --skip-git-tag
+rt release --check-remote-version --remote upstream
 ```
 
-This replaces the standalone `vr release` CLI. The command reads configuration from `rattail.release` in `vite.config.ts`.
+This replaces the standalone `vr release` CLI. The command reads configuration from `rattail.release` in `vite.config.ts`. All config options (except `task`) can also be passed as CLI arguments. CLI arguments take priority over config.
+
+## CLI Arguments
+
+| Argument                     | Description                                               |
+| ---------------------------- | --------------------------------------------------------- |
+| `-t, --npm-tag <tag>`        | npm dist-tag for publishing, e.g. `beta`, `next`          |
+| `-r, --remote <remote>`      | Git remote name for pushing                               |
+| `--skip-npm-publish`         | Skip npm publish                                          |
+| `--skip-changelog`           | Skip changelog generation                                 |
+| `--skip-git-tag`             | Skip git tag                                              |
+| `-c, --check-remote-version` | Skip publish if the current version already exists on npm |
 
 ## Configuration
 
@@ -52,6 +67,12 @@ export default defineConfig({
 | `npmTag`             | `string`                                    | npm publish tag (e.g. `next`)               |
 | `checkRemoteVersion` | `boolean`                                   | Abort if npm already has same version       |
 | `task`               | `(newVersion, oldVersion) => Promise<void>` | Hook to run after version bump (e.g. build) |
+
+## Priority
+
+CLI arguments > config file (`rattail.release` in `vite.config.ts`) > defaults.
+
+The merge logic in `src/cli/bin.ts` spreads config first, then overlays any CLI arguments on top.
 
 ## Programmatic
 

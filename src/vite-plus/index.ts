@@ -1,5 +1,4 @@
-import type { UserConfig, ConfigEnv } from '@voidzero-dev/vite-plus-core'
-import { defineConfig as defineVitePlusConfig } from 'vite-plus'
+import { defineConfig as defineVitePlusConfig, type UserConfig, type ConfigEnv } from 'vite-plus'
 import type { HookConfig, RattailConfig } from '../cli/config'
 
 export type {
