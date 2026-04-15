@@ -1,10 +1,17 @@
-## [2.0.2](https://github.com/varletjs/rattail/compare/v2.0.1...v2.0.2) (2026-04-15)
+## [2.0.3](https://github.com/varletjs/rattail/compare/v2.0.2...v2.0.3) (2026-04-15)
 
 
 ### Bug Fixes
 
 * downgrade @varlet/release version from 2.2.1 to 2.2.0 in pnpm-lock.yaml ([c087796](https://github.com/varletjs/rattail/commit/c087796fcc64615265621f3346c50df4f0a78309))
 * update @varlet/release version from ^2.2.0 to ^2.2.1 in package.json and pnpm-lock.yaml ([5131f3f](https://github.com/varletjs/rattail/commit/5131f3ff2fdaebbaf5490f010024acbc56b780bf))
+
+
+### Features
+
+* enhance CLI release command with additional options and update documentation ([8f6126c](https://github.com/varletjs/rattail/commit/8f6126c3a9da673ca92b7f2c320c58aee842c929))
+
+## [2.0.1](https://github.com/varletjs/rattail/compare/v2.0.0...v2.0.1) (2026-04-15)
 
 
 ### Features
