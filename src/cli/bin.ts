@@ -44,6 +44,25 @@ program
   })
 
 program
+  .command('publish')
+  .description('Publish workspace packages to npm (pnpm recursive publish)')
+  .option('-c, --checkRemoteVersion', 'Skip publish if the current version already exists on npm')
+  .option('-t, --npmTag <tag>', 'npm dist-tag (e.g. beta, next); ignored when --pre-release is set')
+  .option('--pre-release', 'Publish with alpha dist-tag')
+  .action(async (options: { checkRemoteVersion?: boolean; npmTag?: string; preRelease?: boolean }) => {
+    const { getConfig } = await import('./config')
+    const { publish } = await import('./publish')
+    const config = (await getConfig()).publish ?? {}
+
+    return publish({
+      ...config,
+      ...(options.checkRemoteVersion ? { checkRemoteVersion: true } : {}),
+      ...(options.npmTag != null ? { npmTag: options.npmTag } : {}),
+      ...(options.preRelease ? { preRelease: true } : {}),
+    })
+  })
+
+program
   .command('changelog')
   .description('Generate changelog')
   .action(async () => {

@@ -1,4 +1,4 @@
-import type { ChangelogOptions, ReleaseCommandOptions } from '@varlet/release'
+import type { ChangelogOptions, PublishCommandOptions, ReleaseCommandOptions } from '@varlet/release'
 import type { GenerateOptions } from 'api-farmer'
 import { loadConfig } from 'unconfig'
 import { callOrReturn } from '../function'
@@ -31,6 +31,8 @@ export type RattailConfig = {
   api?: GenerateOptions
 
   release?: ReleaseCommandOptions
+
+  publish?: PublishCommandOptions
 
   changelog?: ChangelogOptions
 }

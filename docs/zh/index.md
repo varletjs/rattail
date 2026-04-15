@@ -7,9 +7,6 @@ hero:
   tagline: 面向 Vite+、AI Agent 友好的前端工具链
   actions:
     - theme: brand
-      text: 为什么选择 Rattail
-      link: /zh/why-rattail
-    - theme: brand
       text: 快速开始
       link: /zh/getting-started
     - theme: alt
