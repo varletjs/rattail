@@ -1,6 +1,6 @@
 # lockfile-check
 
-Detect lockfile changes and auto-install dependencies.
+Check if lockfile is updated.
 
 Supported lockfiles:
 

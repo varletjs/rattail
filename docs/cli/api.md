@@ -1,6 +1,6 @@
 # api
 
-Generate API modules.
+Parse OpenAPI/Swagger schema to generate API modules.
 
 ### Usage
 

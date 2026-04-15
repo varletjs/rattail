@@ -1,6 +1,6 @@
 # api
 
-生成 API 模块。
+解析 OpenAPI/Swagger schema 生成 API 模块。
 
 ### 使用
 

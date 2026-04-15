@@ -1,6 +1,6 @@
 # release
 
-交互式发布包。
+发布工作区的 npm 包并生成 changelogs。
 
 ### 使用
 

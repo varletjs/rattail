@@ -1,6 +1,6 @@
 # release
 
-Interactive package release.
+Publish workspace npm packages and generate changelogs.
 
 ### Usage
 

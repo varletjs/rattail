@@ -1,6 +1,6 @@
 # lockfile-check
 
-检测 lockfile 变更并自动安装依赖。
+检查 lockfile 是否更新。
 
 支持检测的 lockfile：
 

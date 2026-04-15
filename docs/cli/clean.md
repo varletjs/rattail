@@ -1,6 +1,6 @@
 # clean
 
-Clean up files in the project.
+Clean files and directories.
 
 ### Usage
 

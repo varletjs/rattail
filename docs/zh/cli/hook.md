@@ -1,6 +1,6 @@
 # hook
 
-自动挂载 git hooks。
+从配置安装 git hooks。
 
 ### 使用
 

@@ -1,6 +1,6 @@
 # hook
 
-Automatically mount git hooks.
+Install git hooks from config.
 
 ### Usage
 

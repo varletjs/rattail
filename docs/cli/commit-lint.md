@@ -1,6 +1,6 @@
 # commit-lint
 
-Validate commit messages.
+Lint commit messages.
 
 ### Rules
 

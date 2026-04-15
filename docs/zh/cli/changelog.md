@@ -1,6 +1,6 @@
 # changelog
 
-生成变更日志。
+生成 changelog。
 
 ### 使用
 
