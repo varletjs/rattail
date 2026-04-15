@@ -1,11 +1,10 @@
-# [2.0.0](https://github.com/varletjs/rattail/compare/v1.8.3...v2.0.0) (2026-04-15)
+## [2.0.1](https://github.com/varletjs/rattail/compare/v2.0.0...v2.0.1) (2026-04-15)
 
 
 ### Bug Fixes
 
 * remove format and clean options from Vite configuration ([21f3827](https://github.com/varletjs/rattail/commit/21f3827f9f857afb38accfcab52ed7d65cb5c4d0))
 * revert version number to 1.8.3 in package.json ([b1c94cc](https://github.com/varletjs/rattail/commit/b1c94cc8ff705a8159e0b5b7f637f41df4318539))
-* update @configurajs/vite-plus dependency to version 0.2.2 and remove type-aware linting mention from documentation ([214ccca](https://github.com/varletjs/rattail/commit/214ccca8f9cace0379703f5b6afda3604111b170))
 * update @configurajs/vite-plus dependency to version 0.2.3 ([2e755c1](https://github.com/varletjs/rattail/commit/2e755c1f0d5bd7889d1f4dd557bd458c1d5f0dfa))
 * update @configurajs/vite-plus dependency to version 0.2.4 ([7681355](https://github.com/varletjs/rattail/commit/768135512120d24e0b938ded4aec8ef38a09154d))
 * update @varlet/release version to 2.2.1 in pnpm-lock.yaml ([ee08753](https://github.com/varletjs/rattail/commit/ee08753e7a06903cfd688f316c72d46829b9c530))
@@ -19,6 +18,7 @@
 
 * add "Why Rattail" section and links to documentation in English and Chinese ([a833839](https://github.com/varletjs/rattail/commit/a833839d5a23a8d1178c2089709d994cf311646c))
 * add CLI functionality with clean command and configuration loading ([c3746b7](https://github.com/varletjs/rattail/commit/c3746b701ccc6cb7e74e037ce17592ef8347e32e))
+* add publish command to CLI and update configuration types ([4439e2a](https://github.com/varletjs/rattail/commit/4439e2acab7746687713fa07b9e7cd0162b95aaa))
 * add return type to defineConfig function for improved type safety ([89c8696](https://github.com/varletjs/rattail/commit/89c8696d1b62f021d2d323b835cc24f4074efbef))
 * add utility functions for storage, math operations, and file handling ([f2433e3](https://github.com/varletjs/rattail/commit/f2433e362ac49ca8d32447de253d73b8147cc061))
 * **cli:** enhance CLI commands and add API generation ([1bddbf2](https://github.com/varletjs/rattail/commit/1bddbf2fbf4bedda6decc1202a0d83ddc9c10ac3))
@@ -33,6 +33,13 @@
 * refactor code structure for improved readability and maintainability ([a7efb15](https://github.com/varletjs/rattail/commit/a7efb15907d0b550c7a2326d668f195b85abe039))
 * refactor code structure for improved readability and maintainability ([1c5741b](https://github.com/varletjs/rattail/commit/1c5741b0814b63baaee95b32ade880ea42c9faaa))
 * remove Vite+ presets and update CLI documentation for clarity ([737759e](https://github.com/varletjs/rattail/commit/737759e76f309d651263510ce57703c004354f56))
+
+## [1.8.3](https://github.com/varletjs/rattail/compare/v1.8.2...v1.8.3) (2026-04-10)
+
+
+### Bug Fixes
+
+* update @configurajs/vite-plus dependency to version 0.2.2 and remove type-aware linting mention from documentation ([214ccca](https://github.com/varletjs/rattail/commit/214ccca8f9cace0379703f5b6afda3604111b170))
 
 ## [1.8.2](https://github.com/varletjs/rattail/compare/v1.8.1...v1.8.2) (2026-04-09)
 
