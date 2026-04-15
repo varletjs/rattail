@@ -1,6 +1,6 @@
 # hook
 
-Install git hooks from config. Automatically detects the Vite+ git hooks directory and mounts the hooks declared in the configuration.
+Automatically mount git hooks.
 
 ### Usage
 

@@ -1,4 +1,4 @@
-# requestMd5Interceptor
+# MD5 Hashing Interceptor
 
 Used to compute MD5 hashes for request parameters and headers.
 

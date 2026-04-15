@@ -9,24 +9,20 @@
 #### JSON（默认）
 
 ```ts
+// axle
 const data = await axle.get('/url', { id: 1 })
-```
 
-等效的 axios 调用：
-
-```ts
+// axios
 const { data } = await axios.get('/url', { params: { id: 1 } })
 ```
 
 #### Blob
 
 ```ts
+// axle
 const blob = await axle.getBlob('/url', { id: 1 })
-```
 
-等效的 axios 调用：
-
-```ts
+// axios
 const { data } = await axios.get('/url', {
   params: { id: 1 },
   responseType: 'blob',
@@ -36,12 +32,10 @@ const { data } = await axios.get('/url', {
 #### Text
 
 ```ts
+// axle
 const text = await axle.getText('/url', { id: 1 })
-```
 
-等效的 axios 调用：
-
-```ts
+// axios
 const { data } = await axios.get('/url', {
   params: { id: 1 },
   responseType: 'text',
@@ -51,12 +45,10 @@ const { data } = await axios.get('/url', {
 #### Document
 
 ```ts
+// axle
 const doc = await axle.getDocument('/url', { id: 1 })
-```
 
-等效的 axios 调用：
-
-```ts
+// axios
 const { data } = await axios.get('/url', {
   params: { id: 1 },
   responseType: 'document',
@@ -66,12 +58,10 @@ const { data } = await axios.get('/url', {
 #### ArrayBuffer
 
 ```ts
+// axle
 const buffer = await axle.getArrayBuffer('/url', { id: 1 })
-```
 
-等效的 axios 调用：
-
-```ts
+// axios
 const { data } = await axios.get('/url', {
   params: { id: 1 },
   responseType: 'arraybuffer',
@@ -81,12 +71,10 @@ const { data } = await axios.get('/url', {
 #### Stream
 
 ```ts
+// axle
 const stream = await axle.getStream('/url', { id: 1 })
-```
 
-等效的 axios 调用：
-
-```ts
+// axios
 const { data } = await axios.get('/url', {
   params: { id: 1 },
   responseType: 'stream',
@@ -98,24 +86,20 @@ const { data } = await axios.get('/url', {
 #### JSON（默认）
 
 ```ts
+// axle
 const data = await axle.post('/url', { name: 'foo' })
-```
 
-等效的 axios 调用：
-
-```ts
+// axios
 const { data } = await axios.post('/url', { name: 'foo' })
 ```
 
 #### application/x-www-form-urlencoded
 
 ```ts
+// axle
 const data = await axle.postUrlEncode('/url', { name: 'foo' })
-```
 
-等效的 axios 调用：
-
-```ts
+// axios
 const { data } = await axios.post('/url', qs.stringify({ name: 'foo' }), {
   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 })
@@ -124,15 +108,13 @@ const { data } = await axios.post('/url', qs.stringify({ name: 'foo' }), {
 #### multipart/form-data
 
 ```ts
+// axle
 const data = await axle.postMultipart('/url', {
   name: 'foo',
   file: new File(),
 })
-```
 
-等效的 axios 调用：
-
-```ts
+// axios
 const formData = new FormData()
 formData.append('name', 'foo')
 formData.append('file', new File())

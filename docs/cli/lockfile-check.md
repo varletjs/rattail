@@ -1,6 +1,6 @@
 # lockfile-check
 
-Automatically detect lockfile changes after pulling code and install dependencies if needed, preventing runtime errors caused by out-of-sync dependencies.
+Detect lockfile changes and auto-install dependencies.
 
 Supported lockfiles:
 

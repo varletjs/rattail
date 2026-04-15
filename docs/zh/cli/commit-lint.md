@@ -1,10 +1,10 @@
 # commit-lint
 
-校验 commit 信息是否符合规范，在提交代码时自动拦截不规范的 commit，保持团队提交记录清晰一致。
+校验 commit 信息。
 
 ### 规则
 
-commit 信息需要遵循 `type(scope?): message` 格式：
+commit 信息需要遵循 [Conventional Commits](https://www.conventionalcommits.org/) 规范，格式为 `type(scope?): message`：
 
 ```
 feat: 添加新功能

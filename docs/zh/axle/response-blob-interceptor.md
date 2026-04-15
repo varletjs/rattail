@@ -1,4 +1,4 @@
-# responseBlobInterceptor
+# 拦截 - Blob 处理
 
 用于拦截 blob 类型的响应。当响应的 `responseType` 为 `blob` 时，通过 `onResponse` 回调对响应进行转换，例如将 blob 数据包装为统一的响应结构。
 

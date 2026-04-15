@@ -1,6 +1,6 @@
 # release
 
-Interactive release tool that automates version bumping, changelog generation, git tagging, and npm publishing, with pnpm monorepo support.
+Interactive package release.
 
 ### Usage
 

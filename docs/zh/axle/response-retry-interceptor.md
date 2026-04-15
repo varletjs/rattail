@@ -1,4 +1,4 @@
-# responseRetryInterceptor
+# 拦截 - 失败重试
 
 用于请求失败时自动重试。
 

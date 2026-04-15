@@ -1,6 +1,6 @@
 # clean
 
-Remove files and directories using glob patterns.
+Clean up files in the project.
 
 ### Usage
 

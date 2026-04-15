@@ -27,7 +27,7 @@
 - 🚀 &nbsp; Progressive HTTP client based on axios, with Vue Composition API support.
 - 📏 &nbsp; Chainable validation rule factory that adapts to any UI framework.
 - 🏷️ &nbsp; Type-safe enum utility.
-- 🤖 &nbsp; Provides [Agent Skills](https://github.com/varletjs/skills) for AI coding assistants to understand and use Rattail.
+- 🤖 &nbsp; Provides [Agent Skills](https://github.com/varletjs/rattail/tree/main/skills) for AI coding assistants to understand and use Rattail.
 - 🌲 &nbsp; Tree-shakable, lightweight, and fully typed with TypeScript.
 - 💪 &nbsp; 90%+ unit test coverage.
 - 📄 &nbsp; MIT licensed.

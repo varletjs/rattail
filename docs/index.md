@@ -37,7 +37,7 @@ features:
     link: /util/enum-of
   - title: Agent Skills
     details: Provides Agent Skills for AI coding assistants to understand and use Rattail.
-    link: https://github.com/varletjs/skills
+    link: https://github.com/varletjs/rattail/tree/main/skills
   - title: MIT Licensed
     details: Open source under the MIT license.
 ---

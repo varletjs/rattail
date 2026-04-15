@@ -1,6 +1,6 @@
 # Vue Composition API
 
-Axle provides the usage of Vue Composition API style, which encapsulates the `loading status`, `error status`, `upload and download progress`, `return data`, `lifecycle`, etc.
+Axle provides the usage of Vue Composition API style.
 
 ### Import
 

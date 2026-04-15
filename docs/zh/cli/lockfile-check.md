@@ -1,6 +1,6 @@
 # lockfile-check
 
-在拉取代码后自动检测 lockfile 是否变更，如果有变更则自动安装依赖，避免因依赖不同步导致的运行报错。
+检测 lockfile 变更并自动安装依赖。
 
 支持检测的 lockfile：
 

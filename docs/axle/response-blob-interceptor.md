@@ -1,4 +1,4 @@
-# responseBlobInterceptor
+# Blob Interceptor
 
 Used to intercept blob-type responses. When the response `responseType` is `blob`, the `onResponse` callback is invoked to transform the response, e.g., wrapping the blob data into a unified response structure.
 

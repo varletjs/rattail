@@ -1,4 +1,4 @@
-# requestMockInterceptor
+# Mock Data Interceptor
 
 Used to mock data during development.
 

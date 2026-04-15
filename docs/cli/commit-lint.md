@@ -1,10 +1,10 @@
 # commit-lint
 
-Validate commit messages against conventions, automatically rejecting non-conforming commits to keep the team's commit history clean and consistent.
+Validate commit messages.
 
 ### Rules
 
-Commit messages must follow the `type(scope?): message` format:
+Commit messages must follow the [Conventional Commits](https://www.conventionalcommits.org/) specification, in the format `type(scope?): message`:
 
 ```
 feat: add a new feature

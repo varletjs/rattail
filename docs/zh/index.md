@@ -34,7 +34,7 @@ features:
     link: /zh/util/enum-of
   - title: Agent Skills
     details: 提供 Agent Skills，帮助 AI 编程助手理解和使用 Rattail。
-    link: https://github.com/varletjs/skills
+    link: https://github.com/varletjs/rattail/tree/main/skills
   - title: MIT 开源协议
     details: 基于 MIT 协议开源。
 ---

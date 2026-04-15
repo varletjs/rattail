@@ -1,6 +1,6 @@
 # Presets
 
-Out-of-the-box presets covering linting, formatting, commit staging, build cleanup, and Git Hooks.
+Out-of-the-box presets.
 
 ### Features
 

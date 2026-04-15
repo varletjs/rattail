@@ -2,8 +2,6 @@
 
 Axle is a progressive request tool based on [axios](https://axios-http.com/). It does not destroy the original abilities of axios, and helps you process requests more easily.
 
-Axle is integrated in rattail, no separate installation is needed.
-
 ### Import
 
 ```ts
@@ -26,11 +24,17 @@ Axle normalizes the parameters of request functions. For `GET` requests, the sec
 
 ```ts
 axle.get('/url', { current: 1, pageSize: 10 }, { headers: {} })
+
 axle.post('/url', { name: 'Axle' }, { headers: {} })
+
 axle.put('/url', { id: 1, name: 'Axle' }, { headers: {} })
+
 axle.delete('/url', { id: 1 }, { headers: {} })
+
 axle.patch('/url', { name: 'Axle' }, { headers: {} })
+
 axle.head('/url', { current: 1 }, { headers: {} })
+
 axle.options('/url', { current: 1 }, { headers: {} })
 ```
 

@@ -1,4 +1,4 @@
-# requestHeadersInterceptor
+# Custom Headers Interceptor
 
 Used to customize request headers.
 

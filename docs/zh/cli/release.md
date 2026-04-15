@@ -1,6 +1,6 @@
 # release
 
-交互式版本发布工具，自动完成版本号更新、changelog 生成、git tag 和 npm 发布，支持 pnpm monorepo。
+交互式发布包。
 
 ### 使用
 

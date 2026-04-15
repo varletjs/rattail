@@ -1,6 +1,6 @@
 # changelog
 
-Parse commit messages to generate a changelog.
+Generate changelog.
 
 ### Usage
 

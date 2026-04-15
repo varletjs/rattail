@@ -1,4 +1,4 @@
-# responseStatusInterceptor
+# Status Interceptor
 
 Used to intercept and handle responses based on HTTP status codes. Consistent with axios default behavior, status codes in the `200-299` range are considered valid, and all others are considered invalid.
 

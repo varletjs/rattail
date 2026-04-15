@@ -1,4 +1,4 @@
-# requestMd5Interceptor
+# 拦截 - MD5 计算
 
 用于对请求参数和请求头进行 MD5 计算。
 

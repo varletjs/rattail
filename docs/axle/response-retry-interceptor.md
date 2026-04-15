@@ -1,4 +1,4 @@
-# responseRetryInterceptor
+# Retry Interceptor
 
 Used for automatic request retry on failure.
 

@@ -1,6 +1,6 @@
-# ruler-factory
+# ruler
 
-一个灵活、可链式调用的 TypeScript/JavaScript 校验规则工厂，集成自 [ruler-factory](https://github.com/varletjs/ruler-factory)。
+一个灵活、可链式调用的 TypeScript/JavaScript 校验规则工厂。
 
 ### 特性
 

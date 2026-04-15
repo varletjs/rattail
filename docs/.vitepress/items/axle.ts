@@ -4,7 +4,7 @@ export const axleItems = [
   { text: 'Vue Composition API', link: '/axle/use-axle' },
   { text: 'API Definition', link: '/axle/api' },
   { text: 'Configuration', link: '/axle/configuration' },
-  { text: 'Utilities', link: '/axle/utilities' },
+
   { text: 'Interceptors', link: '/axle/interceptors' },
   { text: 'Custom Headers Interceptor', link: '/axle/request-headers-interceptor' },
   { text: 'Mock Data Interceptor', link: '/axle/request-mock-interceptor' },
@@ -20,7 +20,7 @@ export const axleItemsZh = [
   { text: 'Vue 组合式 API', link: '/axle/use-axle' },
   { text: 'API 定义', link: '/axle/api' },
   { text: '配置', link: '/axle/configuration' },
-  { text: '实用工具', link: '/axle/utilities' },
+
   { text: '拦截器', link: '/axle/interceptors' },
   { text: '拦截 - 自定义请求头', link: '/axle/request-headers-interceptor' },
   { text: '拦截 - 模拟数据', link: '/axle/request-mock-interceptor' },

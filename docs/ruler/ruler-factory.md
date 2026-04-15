@@ -1,6 +1,6 @@
-# ruler-factory
+# ruler
 
-A flexible, chainable validation rule factory for TypeScript/JavaScript. Integrated with [ruler-factory](https://github.com/varletjs/ruler-factory).
+A flexible, chainable validation rule factory for TypeScript/JavaScript.
 
 ### Features
 

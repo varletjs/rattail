@@ -1,4 +1,4 @@
-# responseStatusInterceptor
+# 拦截 - 状态码处理
 
 用于按 HTTP 状态码拦截和处理响应。与 axios 的默认行为一致，状态码在 `200-299` 范围内视为 valid，其余视为 invalid。
 

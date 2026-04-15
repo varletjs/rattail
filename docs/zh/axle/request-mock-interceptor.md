@@ -1,4 +1,4 @@
-# requestMockInterceptor
+# 拦截 - 模拟数据
 
 用于在开发阶段模拟数据。
 

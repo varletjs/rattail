@@ -27,7 +27,7 @@
 - 🚀 &nbsp; 基于 axios 的渐进式请求工具，支持 Vue 组合式 API。
 - 📏 &nbsp; 链式校验规则工厂，适配任意 UI 框架。
 - 🏷️ &nbsp; 类型安全的枚举工具。
-- 🤖 &nbsp; 提供 [Agent Skills](https://github.com/varletjs/skills)，帮助 AI 编程助手理解和使用 Rattail。
+- 🤖 &nbsp; 提供 [Agent Skills](https://github.com/varletjs/rattail/tree/main/skills)，帮助 AI 编程助手理解和使用 Rattail。
 - 🌲 &nbsp; 可 Tree-shake，轻量，TypeScript 完整类型支持。
 - 💪 &nbsp; 90%+ 单元测试覆盖率。
 - 📄 &nbsp; MIT 开源协议。

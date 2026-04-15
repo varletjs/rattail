@@ -1,6 +1,6 @@
 # hook
 
-从配置安装 git hooks。自动识别 Vite+ 的 git hooks 目录并挂载配置中声明的 hooks。
+自动挂载 git hooks。
 
 ### 使用
 

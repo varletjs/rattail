@@ -12,7 +12,7 @@
 - <span style="font-size: 0.82em">🚀</span> &nbsp; Progressive HTTP client based on axios, with Vue Composition API support.
 - <span style="font-size: 0.82em">📏</span> &nbsp; Chainable validation rule factory that adapts to any UI framework.
 - <span style="font-size: 0.82em">🏷️</span> &nbsp; Type-safe enum utility.
-- <span style="font-size: 0.82em">🤖</span> &nbsp; Provides [Agent Skills](https://github.com/varletjs/skills) for AI coding assistants to understand and use Rattail.
+- <span style="font-size: 0.82em">🤖</span> &nbsp; Provides [Agent Skills](https://github.com/varletjs/rattail/tree/main/skills) for AI coding assistants to understand and use Rattail.
 - <span style="font-size: 0.82em">🌲</span> &nbsp; Tree-shakable, lightweight, and fully typed with TypeScript.
 - <span style="font-size: 0.82em">💪</span> &nbsp; 90%+ unit test coverage.
 - <span style="font-size: 0.82em">📄</span> &nbsp; MIT licensed.

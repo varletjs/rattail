@@ -1,6 +1,6 @@
 # changelog
 
-根据 commit message 解析生成变更日志（changelog）。
+生成变更日志。
 
 ### 使用
 

@@ -1,4 +1,4 @@
-# requestHeadersInterceptor
+# 拦截 - 自定义请求头
 
 用于自定义请求头。
 

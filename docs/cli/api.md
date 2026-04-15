@@ -1,6 +1,6 @@
 # api
 
-Parse OpenAPI/Swagger schema to generate API modules. Recommended to use with [Axle](/axle/getting-started) to generate type-safe API call methods directly from the schema.
+Generate API modules.
 
 ### Usage
 
@@ -36,6 +36,82 @@ await api({
   preset: 'axle',
   ts: true,
 })
+```
+
+### Output Preview
+
+```ts
+import { api } from '@/request'
+import { type paths } from './_types'
+
+/**
+ * List Tenant's Users
+ * @url /users
+ * @method GET
+ */
+export const apiGetUsers = api<ApiGetUsersResponseBody, ApiGetUsersQuery, ApiGetUsersRequestBody>('/users', 'get')
+
+/**
+ * Create a Tenant's User
+ * @url /users
+ * @method POST
+ */
+export const apiCreateUser = api<ApiCreateUserResponseBody, ApiCreateUserRequestBody, ApiCreateUserRequestBody>(
+  '/users',
+  'post',
+)
+
+/**
+ * Get a Tenant's User
+ * @url /users/:uuid
+ * @method GET
+ */
+export const apiGetUser = api<ApiGetUserResponseBody, ApiGetUserQuery, ApiGetUserRequestBody>('/users/:uuid', 'get')
+
+/**
+ * Update a Tenant's User
+ * @url /users/:uuid
+ * @method PUT
+ */
+export const apiUpdateUser = api<ApiUpdateUserResponseBody, ApiUpdateUserRequestBody, ApiUpdateUserRequestBody>(
+  '/users/:uuid',
+  'put',
+)
+
+/**
+ * Delete a Tenant's User
+ * @url /users/:uuid
+ * @method DELETE
+ */
+export const apiDeleteUser = api<ApiDeleteUserResponseBody, ApiDeleteUserQuery, ApiDeleteUserRequestBody>(
+  '/users/:uuid',
+  'delete',
+)
+
+// ... more API functions
+
+export type ApiGetUsers = paths['/users']['get']
+export type ApiCreateUser = paths['/users']['post']
+export type ApiGetUser = paths['/users/{uuid}']['get']
+export type ApiUpdateUser = paths['/users/{uuid}']['put']
+export type ApiDeleteUser = paths['/users/{uuid}']['delete']
+// ...
+
+export type ApiGetUsersQuery = ApiGetUsers['parameters']['query']
+export type ApiGetUserQuery = ApiGetUser['parameters']['query']
+// ...
+
+export type ApiGetUsersRequestBody = undefined
+export type ApiCreateUserRequestBody =
+  | NonNullable<ApiCreateUser['requestBody']>['content']['application/json']
+  | undefined
+export type ApiUpdateUserRequestBody = ApiUpdateUser['requestBody']['content']['application/json']
+// ...
+
+export type ApiGetUsersResponseBody = ApiGetUsers['responses']['200']['content']['application/json']
+export type ApiCreateUserResponseBody = ApiCreateUser['responses']['200']['content']['application/json']
+export type ApiGetUserResponseBody = ApiGetUser['responses']['200']['content']['application/json']
+// ...
 ```
 
 ### Options
