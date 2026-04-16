@@ -23,7 +23,7 @@ rt release --check-remote-version --remote upstream
 | `--skip-npm-publish` | 跳过 npm 发布 |
 | `--skip-changelog` | 跳过 changelog 生成 |
 | `--skip-git-tag` | 跳过 git tag |
-| `-c, --check-remote-version` | 发布前检查 npm 远程版本，若版本已存在则跳过发布 |
+| `-c, --check-remote-version` | 发布前检查 npm 远程版本，若版本已存在则退出流程 |
 
 ### 配置
 

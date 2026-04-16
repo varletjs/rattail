@@ -42,4 +42,4 @@ await changelog({
 | --- | --- | --- | --- |
 | `file` | `string` | - | 输出文件路径 |
 | `releaseCount` | `number` | `0` | 生成的发布版本数量，`0` 表示全量生成 |
-| `showTypes` | `string[]` | - | 包含的 commit 类型 (如 `'feat'`、`'fix'`、`'perf'`) |
+| `showTypes` | `string[]` | `[feat, fix, perf, revert, refactor]` | 自定义在 `CHANGELOG.md` 中显示哪些类型的提交消息。例如，传入 `[feat, fix]` 将仅生成 `Features` 和 ` Bug Fixes` 类型的提交信息。可从从以下类型中自由组合：`['feat', 'fix', 'perf', 'revert', 'refactor', 'docs', 'style', 'test', 'build', 'ci']`。 |

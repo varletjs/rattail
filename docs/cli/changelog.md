@@ -42,4 +42,4 @@ await changelog({
 | --- | --- | --- | --- |
 | `file` | `string` | - | Output file path |
 | `releaseCount` | `number` | `0` | Number of releases to generate, `0` means all |
-| `showTypes` | `string[]` | - | Commit types to include (e.g. `'feat'`, `'fix'`, `'perf'`) |
+| `showTypes` | `string[]` | `[feat, fix, perf, revert, refactor]` | You can customize which types of commit messages are displayed in the `CHANGELOG.md`. For example, passing in `[feat, fix]` will only generate commit information for the `Features` and Bug `Fixes types`. You are free to combine any of the following types: `['feat', 'fix', 'perf', 'revert', 'refactor', 'docs', 'style', 'test', 'build', 'ci']` |
