@@ -23,7 +23,7 @@ All options can be passed as command-line arguments. CLI arguments take priority
 | `--skip-npm-publish` | Skip npm publish |
 | `--skip-changelog` | Skip changelog generation |
 | `--skip-git-tag` | Skip git tag |
-| `-c, --check-remote-version` | Skip publish if the current version already exists on npm |
+| `-c, --check-remote-version` | Exit if the current version already exists on npm |
 
 ### Config
 
