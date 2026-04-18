@@ -13,8 +13,8 @@ importers:
   .:
     dependencies:
       '@configurajs/vite-plus':
-        specifier: 0.2.4
-        version: 0.2.4
+        specifier: 0.2.5
+        version: 0.2.5
       '@varlet/axle':
         specifier: 1.0.2
         version: 1.0.2(vue@3.5.32(typescript@5.3.3))
@@ -163,8 +163,8 @@ packages:
     resolution: {integrity: sha512-xbofjcEGGbzWpiB7me03U/wJ0yC8RO6NIsgfPfiOK4pXlsO3gfutvnnri4NDn1vPErDjl9YBk1qRiLIOP4cB9Q==}
     engines: {node: '>=22.12.0', pnpm: '>=10.0'}
 
-  '@configurajs/vite-plus@0.2.4':
-    resolution: {integrity: sha512-uR8BaR28XjiJB+eY/HBSfP7s0+2QHtXX7NbqA+k9pXtGhzq+2nRPbGKLjY78Ejsfzp3QjAyI5EgzKxAKqP2xPw==}
+  '@configurajs/vite-plus@0.2.5':
+    resolution: {integrity: sha512-FhORvNGWhijuMUfmFB+7HmLb35oKs4hASzNnGG9Si40p+46nJVoDDHyp+oEu/OvhQDuDrr9rSIqFnuffE7it1g==}
     engines: {node: '>=22.12.0', pnpm: '>=10.0'}
 
   '@conventional-changelog/git-client@2.7.0':
@@ -2727,7 +2727,7 @@ snapshots:
 
   '@configurajs/vite-plus@0.2.2': {}
 
-  '@configurajs/vite-plus@0.2.4': {}
+  '@configurajs/vite-plus@0.2.5': {}
 
   '@conventional-changelog/git-client@2.7.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)':
     dependencies:
