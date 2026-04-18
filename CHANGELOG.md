@@ -1,9 +1,9 @@
-## [2.0.4](https://github.com/varletjs/rattail/compare/v2.0.3...v2.0.4) (2026-04-18)
+## [2.0.5](https://github.com/varletjs/rattail/compare/v2.0.3...v2.0.5) (2026-04-18)
 
 
 ### Bug Fixes
 
-* update @configurajs/vite-plus dependency to version 0.2.5 ([9cd3ab4](https://github.com/varletjs/rattail/commit/9cd3ab4a747715262580c9d7941cea62b3b37c6b))
+* update @configurajs/vite-plus dependency to version 0.2.5 ([8ee94e5](https://github.com/varletjs/rattail/commit/8ee94e5c04b8041506ce1f95882a894a793ad5b5))
 
 ## [2.0.3](https://github.com/varletjs/rattail/compare/v2.0.2...v2.0.3) (2026-04-15)
 

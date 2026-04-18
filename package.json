@@ -1,6 +1,6 @@
 {
   "name": "rattail",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "A Vite+ oriented, AI Agent friendly front-end toolchain",
   "keywords": [
     "ai-agent",
