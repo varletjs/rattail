@@ -132,9 +132,9 @@ fmt({
 staged()
 // Equivalent to:
 // {
-//   '*.{js,jsx,ts,tsx}': ['vp fmt --no-error-on-unmatched-pattern', 'vp lint --fix'],
+//   '*.{js,jsx,ts,tsx}': ['vp fmt --no-error-on-unmatched-pattern', 'vp lint --fix --no-error-on-unmatched-pattern'],
 //   '*.{md,json,yaml,yml,html,css,scss,less}': 'vp fmt --no-error-on-unmatched-pattern',
-//   '*.vue': ['vp fmt --no-error-on-unmatched-pattern', 'vp lint --fix'],
+//   '*.vue': ['vp fmt --no-error-on-unmatched-pattern', 'vp lint --fix --no-error-on-unmatched-pattern'],
 // }
 ```
 
