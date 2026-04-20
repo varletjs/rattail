@@ -42,3 +42,12 @@ yarn add rattail
 # pnpm
 pnpm add rattail
 ```
+
+### 官方文档
+
+- [文档首页](https://rattail.varletjs.org/zh)
+- [快速开始](https://rattail.varletjs.org/zh/getting-started)
+- [为什么选择 Rattail](https://rattail.varletjs.org/zh/why-rattail)
+- [Vite+ 预设 / CLI 快速开始](https://rattail.varletjs.org/zh/cli/getting-started)
+- [Axle 快速开始](https://rattail.varletjs.org/zh/axle/getting-started)
+- [Ruler Factory](https://rattail.varletjs.org/zh/ruler/ruler-factory)

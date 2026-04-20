@@ -42,3 +42,12 @@ yarn add rattail
 # pnpm
 pnpm add rattail
 ```
+
+### Official Docs
+
+- [Documentation Home](https://rattail.varletjs.org)
+- [Getting Started](https://rattail.varletjs.org/getting-started)
+- [Why Rattail](https://rattail.varletjs.org/why-rattail)
+- [Vite+ Presets / CLI Getting Started](https://rattail.varletjs.org/cli/getting-started)
+- [Axle Getting Started](https://rattail.varletjs.org/axle/getting-started)
+- [Ruler Factory](https://rattail.varletjs.org/ruler/ruler-factory)
