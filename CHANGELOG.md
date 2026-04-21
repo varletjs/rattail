@@ -1,3 +1,11 @@
+## [2.0.6](https://github.com/varletjs/rattail/compare/v2.0.5...v2.0.6) (2026-04-21)
+
+
+### Refactoring
+
+* refactor code structure for improved readability and maintainability ([cc63979](https://github.com/varletjs/rattail/commit/cc639795e7e47625bc7a18e5a60c7dfc8cb121d4))
+* update lint and format commands in documentation for consistency ([8b290cd](https://github.com/varletjs/rattail/commit/8b290cdb865989e210605959c8647145ab7f8a98))
+
 ## [2.0.5](https://github.com/varletjs/rattail/compare/v2.0.3...v2.0.5) (2026-04-18)
 
 
