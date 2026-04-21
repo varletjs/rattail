@@ -105,7 +105,7 @@
     "test": "vp test run --coverage"
   },
   "dependencies": {
-    "@configurajs/vite-plus": "0.2.5",
+    "@configurajs/vite-plus": "0.2.6",
     "@varlet/axle": "1.0.2",
     "@varlet/release": "^2.2.1",
     "api-farmer": "0.1.5",
@@ -124,7 +124,7 @@
     "oxc-minify": "^0.124.0",
     "tsx": "^4.21.0",
     "typescript": "5.3.3",
-    "vite-plus": "0.1.16",
+    "vite-plus": "0.1.19",
     "vitepress": "2.0.0-alpha.17",
     "vitest": "$vitest"
   },
@@ -146,8 +146,8 @@
   "packageManager": "pnpm@10.0.0",
   "pnpm": {
     "overrides": {
-      "vite": "npm:@voidzero-dev/vite-plus-core@0.1.16",
-      "vitest": "npm:@voidzero-dev/vite-plus-test@0.1.16"
+      "vite": "npm:@voidzero-dev/vite-plus-core@0.1.19",
+      "vitest": "npm:@voidzero-dev/vite-plus-test@0.1.19"
     }
   }
 }
