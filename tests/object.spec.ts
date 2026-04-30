@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vite-plus/test'
-import { mapObject, omit, omitBy, pick, pickBy, promiseWithResolvers, set } from '../src'
+import { mapObject, omit, omitBy, pick, pickBy, promiseWithResolvers, rekey, set } from '../src'
 import { objectEntries } from '../src/object/objectEntries'
 import { objectKeys } from '../src/object/objectKeys'
 
@@ -79,6 +79,38 @@ it('mapObject', () => {
   expect(mapObject({ a: 1, b: 2 }, (key, value) => [key, value * 2])).toEqual({ a: 2, b: 4 })
   expect(mapObject({ a: 1, b: 2 }, (key, value) => [`${key}${value}`, value])).toEqual({ a1: 1, b2: 2 })
   expect(mapObject({ a: 1, b: 2 }, (key, value) => (value === 1 ? [key, value] : undefined))).toEqual({ a: 1 })
+})
+
+describe('rekey', () => {
+  it('should rename specified string keys', () => {
+    expect(rekey({ a: 1, b: 2, c: 3 }, { a: 'x', c: 'z' })).toEqual({ x: 1, b: 2, z: 3 })
+  })
+
+  it('should preserve keys that are not in the mapping', () => {
+    expect(rekey({ a: 1, b: 2 }, { a: 'x' })).toEqual({ x: 1, b: 2 })
+  })
+
+  it('should support symbol keys', () => {
+    const a = Symbol('a')
+    const b = Symbol('b')
+
+    expect(
+      rekey(
+        {
+          [a]: 1,
+          c: 2,
+        },
+        { [a]: b },
+      ),
+    ).toEqual({
+      [b]: 1,
+      c: 2,
+    })
+  })
+
+  it('should let later keys overwrite when mappings collide', () => {
+    expect(rekey({ a: 1, b: 2 }, { a: 'x', b: 'x' })).toEqual({ x: 2 })
+  })
 })
 
 describe('promiseWithResolvers', () => {
