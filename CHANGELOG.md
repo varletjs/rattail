@@ -1,4 +1,10 @@
-## [2.0.6](https://github.com/varletjs/rattail/compare/v2.0.5...v2.0.6) (2026-04-21)
+## [2.0.7](https://github.com/varletjs/rattail/compare/v2.0.6...v2.0.7) (2026-05-03)
+
+
+### Features
+
+* add rekey documentation and tests for original object preservation and symbol key support ([e039964](https://github.com/varletjs/rattail/commit/e0399641f6fcfa607243f018578602dd970e8d98))
+* add rekey function to rename object keys with mapping and include documentation ([c385d42](https://github.com/varletjs/rattail/commit/c385d42486a236245210d60ffb9d756c7640b1e4))
 
 
 ### Refactoring
