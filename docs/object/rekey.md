@@ -11,6 +11,20 @@ rekey({ a: 1, b: 2, c: 3 }, { a: 'x', c: 'z' })
 // return { x: 1, b: 2, z: 3 }
 ```
 
+```ts
+const id = Symbol('id')
+const key = Symbol('key')
+
+rekey(
+  {
+    [id]: 1,
+    name: 'rattail',
+  },
+  { [id]: key, name: 'label' },
+)
+// return { [key]: 1, label: 'rattail' }
+```
+
 ### Arguments
 
 | Arg       | Type     | Defaults |
@@ -23,3 +37,10 @@ rekey({ a: 1, b: 2, c: 3 }, { a: 'x', c: 'z' })
 | Type     |
 | -------- |
 | `object` |
+
+### Notes
+
+- Returns a new object and does not mutate the original object.
+- Keys not present in `mapping` are preserved as-is.
+- Supports both string keys and `symbol` keys.
+- If multiple source keys map to the same target key, the later key overwrites the earlier one.

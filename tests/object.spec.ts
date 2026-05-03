@@ -90,6 +90,13 @@ describe('rekey', () => {
     expect(rekey({ a: 1, b: 2 }, { a: 'x' })).toEqual({ x: 1, b: 2 })
   })
 
+  it('should not mutate the original object', () => {
+    const source = { a: 1, b: 2 }
+
+    expect(rekey(source, { a: 'x' })).toEqual({ x: 1, b: 2 })
+    expect(source).toEqual({ a: 1, b: 2 })
+  })
+
   it('should support symbol keys', () => {
     const a = Symbol('a')
     const b = Symbol('b')
@@ -104,6 +111,23 @@ describe('rekey', () => {
       ),
     ).toEqual({
       [b]: 1,
+      c: 2,
+    })
+  })
+
+  it('should preserve symbol keys that are not in the mapping', () => {
+    const a = Symbol('a')
+
+    expect(
+      rekey(
+        {
+          [a]: 1,
+          b: 2,
+        },
+        { b: 'c' },
+      ),
+    ).toEqual({
+      [a]: 1,
       c: 2,
     })
   })
