@@ -115,7 +115,7 @@
     "rimraf": "^6.0.1",
     "ruler-factory": "0.0.14",
     "unconfig": "^7.5.0",
-    "uuid": "13.0.0"
+    "uuid": "14.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.8.1",
