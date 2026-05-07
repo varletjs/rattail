@@ -185,7 +185,9 @@ import { isString, debounce, cloneDeep /* ... */ } from 'rattail'
 | [`pickBy`](references/pickBy.md)                             | Extract object properties by a predicate function and construct a new object.             |
 | [`omit`](references/omit.md)                                 | Excludes object properties and constructs a new object.                                   |
 | [`omitBy`](references/omitBy.md)                             | Excludes object properties by a predicate function and constructs a new object.           |
+| [`deriveKey`](references/deriveKey.md)                       | Derive new object keys by a mapping while keeping the original keys.                      |
 | [`mapObject`](references/mapObject.md)                       | Maps an object into a new object.                                                         |
+| [`rekey`](references/rekey.md)                               | Rename object keys by a mapping and construct a new object.                               |
 | [`objectKeys`](references/objectKeys.md)                     | Get an array of keys from an object, with full TypeScript type support.                   |
 | [`objectEntries`](references/objectEntries.md)               | Get an array of key-value pairs from an object, with full TypeScript type support.        |
 | [`promiseWithResolvers`](references/promiseWithResolvers.md) | Returns an object containing a new Promise and two functions to `resolve` or `reject` it. |

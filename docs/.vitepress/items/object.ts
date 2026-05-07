@@ -4,6 +4,7 @@ export const objectItems = [
   { text: 'pickBy', link: '/object/pick-by' },
   { text: 'omit', link: '/object/omit' },
   { text: 'omitBy', link: '/object/omit-by' },
+  { text: 'deriveKey', link: '/object/derive-key' },
   { text: 'rekey', link: '/object/rekey' },
   { text: 'mapObject', link: '/object/map-object' },
   { text: 'objectKeys', link: '/object/object-keys' },

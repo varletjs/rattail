@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vite-plus/test'
-import { mapObject, omit, omitBy, pick, pickBy, promiseWithResolvers, rekey, set } from '../src'
+import { deriveKey, mapObject, omit, omitBy, pick, pickBy, promiseWithResolvers, rekey, set } from '../src'
 import { objectEntries } from '../src/object/objectEntries'
 import { objectKeys } from '../src/object/objectKeys'
 
@@ -134,6 +134,50 @@ describe('rekey', () => {
 
   it('should let later keys overwrite when mappings collide', () => {
     expect(rekey({ a: 1, b: 2 }, { a: 'x', b: 'x' })).toEqual({ x: 2 })
+  })
+})
+
+describe('deriveKey', () => {
+  it('should copy specified string keys', () => {
+    expect(deriveKey({ value: 1, label: 'A' }, { label: 'tooltip' })).toEqual({
+      value: 1,
+      label: 'A',
+      tooltip: 'A',
+    })
+  })
+
+  it('should preserve keys that are not in the mapping', () => {
+    expect(deriveKey({ a: 1, b: 2 }, { a: 'x' })).toEqual({ a: 1, b: 2, x: 1 })
+  })
+
+  it('should not mutate the original object', () => {
+    const source = { a: 1, b: 2 }
+
+    expect(deriveKey(source, { a: 'x' })).toEqual({ a: 1, b: 2, x: 1 })
+    expect(source).toEqual({ a: 1, b: 2 })
+  })
+
+  it('should support symbol keys', () => {
+    const a = Symbol('a')
+    const b = Symbol('b')
+
+    expect(
+      deriveKey(
+        {
+          [a]: 1,
+          c: 2,
+        },
+        { [a]: b },
+      ),
+    ).toEqual({
+      [a]: 1,
+      [b]: 1,
+      c: 2,
+    })
+  })
+
+  it('should let copied keys overwrite existing target keys', () => {
+    expect(deriveKey({ a: 1, x: 0 }, { a: 'x' })).toEqual({ a: 1, x: 1 })
   })
 })
 
