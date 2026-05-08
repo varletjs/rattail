@@ -13,7 +13,6 @@
     <img src="https://img.shields.io/github/stars/varletjs/rattail" alt="stars">
     <img src="https://img.shields.io/npm/l/rattail.svg" alt="license">
     <img src="https://img.shields.io/codecov/c/github/varletjs/rattail" alt="coverage">
-    <img src="https://github.com/varletjs/varlet/workflows/CI/badge.svg" alt="ci">
   </p>
 </div>
 
