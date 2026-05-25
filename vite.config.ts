@@ -13,7 +13,6 @@ export default defineConfig({
       'src/cli/bin.ts',
       'src/cli/index.ts',
     ],
-    unbundle: true,
     dts: true,
     shims: true,
   },
