@@ -1,9 +1,28 @@
+## [2.0.9](https://github.com/varletjs/rattail/compare/v2.0.8...v2.0.9) (2026-05-25)
+
+
+### Bug Fixes
+
+* correct export type syntax in mitt.ts and remove unbundle option from Vite config ([735944b](https://github.com/varletjs/rattail/commit/735944b85571d286c67b8e2ffd05197dbbd53573))
+* ensure unbundle option is correctly set in Vite configuration ([b86ebc2](https://github.com/varletjs/rattail/commit/b86ebc265cf12d8cb406db1fe020b47752e2ea6b))
+
+
+### Refactoring
+
+* remove type declarations and implementation details from deriveKey and rekey documentation ([c841a19](https://github.com/varletjs/rattail/commit/c841a1956a6fd5888d86b3d8f14011ef8b243b56))
+
 ## [2.0.8](https://github.com/varletjs/rattail/compare/v2.0.7...v2.0.8) (2026-05-07)
 
 
 ### Features
 
 * add deriveKey function and documentation for deriving object keys ([9e5a12c](https://github.com/varletjs/rattail/commit/9e5a12cb102cf4b1494862becaa2ef55a9668f6b))
+
+## [2.0.7](https://github.com/varletjs/rattail/compare/v2.0.6...v2.0.7) (2026-05-03)
+
+
+### Features
+
 * add rekey documentation and tests for original object preservation and symbol key support ([e039964](https://github.com/varletjs/rattail/commit/e0399641f6fcfa607243f018578602dd970e8d98))
 * add rekey function to rename object keys with mapping and include documentation ([c385d42](https://github.com/varletjs/rattail/commit/c385d42486a236245210d60ffb9d756c7640b1e4))
 
