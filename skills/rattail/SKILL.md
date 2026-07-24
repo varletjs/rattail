@@ -439,15 +439,13 @@ r().string('Not a string').required('Required').min(2, 'Too short').done()
 
 ---
 
-## First-party integration: Vite Plus (`rattail/vite-plus`)
+## Vite Plus (`rattail/vite-plus`)
 
-Preset lint (oxlint) and format (oxfmt) configuration for projects using [vite-plus](https://github.com/configurajs/vite-plus), re-exported as a first-party integration.
+Native preset lint (oxlint) and format (oxfmt) configuration for projects using [Vite+](https://viteplus.dev/).
 
 ```ts
 import { lint, fmt } from 'rattail/vite-plus'
 ```
-
-**Upstream:** [`@configurajs/vite-plus`](https://github.com/configurajs/vite-plus)
 
 ### Quick start
 

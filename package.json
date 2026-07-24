@@ -1,6 +1,6 @@
 {
   "name": "rattail",
-  "version": "2.0.9",
+  "version": "2.1.0",
   "description": "A Vite+ oriented, AI Agent friendly front-end toolchain",
   "keywords": [
     "ai-agent",
@@ -105,7 +105,6 @@
     "test": "vp test run --coverage"
   },
   "dependencies": {
-    "@configurajs/vite-plus": "0.2.6",
     "@varlet/axle": "1.0.2",
     "@varlet/release": "^2.2.1",
     "api-farmer": "0.1.5",
@@ -118,22 +117,28 @@
     "uuid": "13.0.0"
   },
   "devDependencies": {
-    "@types/node": "^22.8.1",
-    "@vitest/coverage-istanbul": "^4.1.0",
+    "@types/node": "^22.20.0",
+    "@vitest/coverage-istanbul": "^4.1.10",
+    "esbuild": "^0.28.1",
     "jsdom": "^25.0.1",
     "oxc-minify": "^0.124.0",
+    "oxfmt": "0.60.0",
+    "oxlint": "1.75.0",
     "tsx": "^4.21.0",
     "typescript": "5.3.3",
-    "vite-plus": "0.1.19",
-    "vitepress": "2.0.0-alpha.17",
-    "vitest": "$vitest"
+    "vite-plus": "0.2.6",
+    "vitepress": "2.0.0-alpha.17"
   },
   "peerDependencies": {
-    "@voidzero-dev/vite-plus-core": ">=0.1.16",
-    "vite-plus": ">=0.1.16"
+    "oxfmt": ">=0.60.0",
+    "oxlint": ">=1.75.0",
+    "vite-plus": ">=0.2.6"
   },
   "peerDependenciesMeta": {
-    "@voidzero-dev/vite-plus-core": {
+    "oxfmt": {
+      "optional": true
+    },
+    "oxlint": {
       "optional": true
     },
     "vite-plus": {
@@ -143,11 +148,5 @@
   "engines": {
     "pnpm": ">=10.0.0"
   },
-  "packageManager": "pnpm@10.0.0",
-  "pnpm": {
-    "overrides": {
-      "vite": "npm:@voidzero-dev/vite-plus-core@0.1.19",
-      "vitest": "npm:@voidzero-dev/vite-plus-test@0.1.19"
-    }
-  }
+  "packageManager": "pnpm@10.33.0"
 }

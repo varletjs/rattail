@@ -8,7 +8,7 @@ Creates an `OxlintConfig` with sensible defaults for TypeScript, Vue 3, and Vite
 
 ## Documentation
 
-- [Repository](https://github.com/configurajs/vite-plus)
+- [Rattail repository](https://github.com/varletjs/rattail)
 
 ## Import
 
