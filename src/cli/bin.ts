@@ -1,5 +1,14 @@
 #!/usr/bin/env node
 import { Command } from 'commander'
+import { api } from './api'
+import { changelog } from './changelog'
+import { clean } from './clean'
+import { commitLint } from './commitLint'
+import { getConfig } from './config'
+import { hook } from './hook'
+import { lockfileCheck } from './lockfileCheck'
+import { publish } from './publish'
+import { release } from './release'
 import { getCliVersion } from './utils'
 
 const program = new Command()
@@ -10,27 +19,21 @@ program
   .command('clean')
   .description('Remove files and directories')
   .argument('[patterns...]')
-  .action(async (patterns: string[]) => {
-    const { clean } = await import('./clean')
-
+  .action((patterns: string[]) => {
     return clean(patterns.length ? patterns : undefined)
   })
 
 program
   .command('api')
   .description('Generate API modules from OpenAPI/Swagger schema')
-  .action(async () => {
-    const { api } = await import('./api')
-
+  .action(() => {
     return api()
   })
 
 program
   .command('hook')
   .description('Install git hooks from config')
-  .action(async () => {
-    const { hook } = await import('./hook')
-
+  .action(() => {
     return hook()
   })
 
@@ -52,8 +55,6 @@ program
       skipGitTag?: boolean
       checkRemoteVersion?: boolean
     }) => {
-      const { getConfig } = await import('./config')
-      const { release } = await import('./release')
       const config = (await getConfig()).release ?? {}
 
       return release({
@@ -75,8 +76,6 @@ program
   .option('-t, --npmTag <tag>', 'npm dist-tag (e.g. beta, next); ignored when --pre-release is set')
   .option('--pre-release', 'Publish with alpha dist-tag')
   .action(async (options: { checkRemoteVersion?: boolean; npmTag?: string; preRelease?: boolean }) => {
-    const { getConfig } = await import('./config')
-    const { publish } = await import('./publish')
     const config = (await getConfig()).publish ?? {}
 
     return publish({
@@ -90,9 +89,7 @@ program
 program
   .command('changelog')
   .description('Generate changelog')
-  .action(async () => {
-    const { changelog } = await import('./changelog')
-
+  .action(() => {
     return changelog()
   })
 
@@ -100,9 +97,7 @@ program
   .command('commit-lint')
   .description('Lint commit message')
   .argument('<commitMessagePath>', 'Git commit message path')
-  .action(async (commitMessagePath: string) => {
-    const { commitLint } = await import('./commitLint')
-
+  .action((commitMessagePath: string) => {
     return commitLint({ commitMessagePath })
   })
 
@@ -111,9 +106,7 @@ program
   .description('Check if lockfile has been updated and auto-install dependencies')
   .option('-m, --packageManager <manager>', 'Package manager (npm, yarn, pnpm)')
   .option('-s, --skipInstall', 'Skip install dependencies when lockfile changed')
-  .action(async (options: Record<string, unknown>) => {
-    const { lockfileCheck } = await import('./lockfileCheck')
-
+  .action((options: Record<string, unknown>) => {
     return lockfileCheck(options as any)
   })
 
