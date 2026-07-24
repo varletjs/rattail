@@ -8,7 +8,7 @@ Returns a preset oxfmt (formatter) configuration object with opinionated default
 
 ## Documentation
 
-- [Repository](https://github.com/configurajs/vite-plus)
+- [Rattail repository](https://github.com/varletjs/rattail)
 
 ## Import
 
@@ -22,7 +22,9 @@ import { fmt } from 'rattail/vite-plus'
 import { fmt } from 'rattail/vite-plus'
 
 // Use in oxfmt.config.ts
-export default fmt()
+export default fmt({
+  ignores: ['fixtures/**'],
+})
 // Returns:
 // {
 //   semi: false,
@@ -30,19 +32,16 @@ export default fmt()
 //   singleQuote: true,
 //   sortImports: { newlinesBetween: false },
 //   sortTailwindcss: true,
+//   ignorePatterns: [...],
 // }
 ```
 
 ## Type declarations
 
 ```ts
-declare function fmt(): {
-  semi: false
-  printWidth: number
-  singleQuote: true
-  sortImports: {
-    newlinesBetween: false
-  }
-  sortTailwindcss: true
+interface FmtOptions {
+  ignores?: string[]
 }
+
+declare function fmt(options?: FmtOptions): OxfmtConfig
 ```
