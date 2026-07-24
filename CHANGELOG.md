@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/varletjs/rattail/compare/v2.0.9...v2.1.0) (2026-07-24)
+
+
+### Refactoring
+
+* update Vite Plus integration and improve linting/formatting configurations ([ef4fe01](https://github.com/varletjs/rattail/commit/ef4fe01bc4574d0f09c9e8acb5fce446e4025b9c))
+
 ## [2.0.9](https://github.com/varletjs/rattail/compare/v2.0.8...v2.0.9) (2026-05-25)
 
 
