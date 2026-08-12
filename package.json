@@ -1,6 +1,6 @@
 {
   "name": "rattail",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "A Vite+ oriented, AI Agent friendly front-end toolchain",
   "keywords": [
     "ai-agent",
@@ -122,17 +122,17 @@
     "esbuild": "^0.28.1",
     "jsdom": "^25.0.1",
     "oxc-minify": "^0.124.0",
-    "oxfmt": "0.60.0",
-    "oxlint": "1.75.0",
+    "oxfmt": "0.62.0",
+    "oxlint": "1.77.0",
     "tsx": "^4.21.0",
     "typescript": "5.3.3",
-    "vite-plus": "0.2.6",
+    "vite-plus": "0.2.9",
     "vitepress": "2.0.0-alpha.17"
   },
   "peerDependencies": {
-    "oxfmt": ">=0.60.0",
-    "oxlint": ">=1.75.0",
-    "vite-plus": ">=0.2.6"
+    "oxfmt": ">=0.62.0",
+    "oxlint": ">=1.77.0",
+    "vite-plus": ">=0.2.9"
   },
   "peerDependenciesMeta": {
     "oxfmt": {
