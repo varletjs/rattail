@@ -502,8 +502,11 @@ export type RattailUserConfigFn = (env: ConfigEnv) => RattailUserConfig | Promis
 
 export type RattailUserConfigExport = RattailUserConfig | Promise<RattailUserConfig> | RattailUserConfigFn
 
-export function defineConfig(config: RattailUserConfigExport): RattailUserConfig {
-  return defineVitePlusConfig(config as any)
+export function defineConfig<T extends RattailUserConfig>(config: T): T
+export function defineConfig<T extends Promise<RattailUserConfig>>(config: T): T
+export function defineConfig<T extends RattailUserConfigFn>(config: T): T
+export function defineConfig(config: RattailUserConfigExport): RattailUserConfigExport {
+  return defineVitePlusConfig(config as any) as RattailUserConfigExport
 }
 
 export function clean({ patterns }: { patterns?: string[] } = {}) {

@@ -1,4 +1,13 @@
+# [2.2.0](https://github.com/varletjs/rattail/compare/v2.1.2...v2.2.0) (2026-08-29)
+
+
+### Bug Fixes
+
+* improve type definitions for defineConfig and add typecheck test ([3f2ba7a](https://github.com/varletjs/rattail/commit/3f2ba7a00f101e3819c83a8ba312a63f2ebc8003))
+
 ## [2.1.2](https://github.com/varletjs/rattail/compare/v2.1.1...v2.1.2) (2026-08-12)
+
+## [2.1.1](https://github.com/varletjs/rattail/compare/v2.1.0...v2.1.1) (2026-07-24)
 
 
 ### Refactoring
