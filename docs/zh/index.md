@@ -5,6 +5,9 @@ hero:
   name: 'Rattail'
   text: '前端工具链'
   tagline: 面向 Vite+、AI Agent 友好的前端工具链
+  logo: /logo.svg
+  image:
+    src: /logo.svg
   actions:
     - theme: brand
       text: 快速开始
