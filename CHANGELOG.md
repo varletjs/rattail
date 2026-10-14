@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/varletjs/rattail/compare/v2.2.0...v2.2.1) (2026-10-14)
+
+
+### Bug Fixes
+
+* add logo and image to hero section in index.md ([badb8f4](https://github.com/varletjs/rattail/commit/badb8f4aae0d9f5886983c1cc86c396217eeeaac))
+
 # [2.2.0](https://github.com/varletjs/rattail/compare/v2.1.2...v2.2.0) (2026-08-29)
 
 
