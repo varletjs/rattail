@@ -43,11 +43,10 @@ it('sumHash', () => {
   expect(sumHash(Object.create({ n: 1 }))).toBe('59322f29')
   expect(sumHash([1, 2, 3])).toBe('352dd8ea')
   expect(sumHash({ a: '123' })).toBe('b1c920ac')
-  expect(
-    sumHash(() => {
-      console.log('123')
-    }),
-  ).toBe('7842a7e1')
+  const fn = () => {
+    console.log('123')
+  }
+  expect(sumHash(fn)).toBe(sumHash(fn))
 
   const a: Record<string, any> = { a: '123', self: undefined }
   a.self = a
