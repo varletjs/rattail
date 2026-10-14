@@ -120,7 +120,7 @@
   "devDependencies": {
     "@types/node": "^22.20.0",
     "@vitejs/plugin-vue": "6.0.8",
-    "@vitest/coverage-istanbul": "4.1.11",
+    "@vitest/coverage-istanbul": "5.0.3",
     "esbuild": "^0.28.1",
     "jsdom": "^25.0.1",
     "oxc-minify": "^0.124.0",
@@ -128,7 +128,7 @@
     "oxlint": "1.79.0",
     "tsx": "^4.21.0",
     "typescript": "5.9.3",
-    "vite-plus": "0.3.0",
+    "vite-plus": "1.1.0",
     "vitepress": "2.0.0-alpha.17"
   },
   "peerDependencies": {
@@ -150,5 +150,15 @@
   "engines": {
     "pnpm": ">=10.0.0"
   },
-  "packageManager": "pnpm@10.33.0"
+  "packageManager": "pnpm@10.33.0",
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowAny": [
+        "vite"
+      ],
+      "allowedVersions": {
+        "vite": "*"
+      }
+    }
+  }
 }
