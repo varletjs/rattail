@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@varlet/axle':
-        specifier: 1.0.2
-        version: 1.0.2(vue@3.5.32(typescript@5.9.3))
+        specifier: 1.1.0
+        version: 1.1.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(oxfmt@0.64.0(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)))(oxlint@1.79.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)))(typescript@5.9.3)(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3))(vue@3.5.32(typescript@5.9.3))
       '@varlet/release':
         specifier: ^2.2.1
         version: 2.2.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)
@@ -1664,6 +1664,12 @@ packages:
     peerDependencies:
       vue: ^3.2.0
 
+  '@varlet/axle@1.1.0':
+    resolution: {integrity: sha512-eaYA8rgkAlVzzHVLFp5DHRHptv0Sjf3Brk4RWX3+/KS2fw5Ca1ck1geT7bpTojDhuG2MYcbJKpKnIVeI7beeOQ==}
+    engines: {pnpm: '>=10.0.0'}
+    peerDependencies:
+      vue: ^3.2.0
+
   '@varlet/release@2.2.1':
     resolution: {integrity: sha512-Vm/PVr/8fsQ26+Q+c1q4boRVxnKr2iqLWfiNRIlb1ynpd/IgvHjf5z4B5ggDXwCCIxa3UZgevXODuUcubdmOkg==}
     engines: {node: ^20.19.0 || >=22.12.0, pnpm: '>=10.0'}
@@ -3062,6 +3068,22 @@ packages:
   rattail@1.8.3:
     resolution: {integrity: sha512-K/1EKe7TP0Y49ALwq1jeWKGcVDqGjwQQ9V3tFxGeMvCO/ab9P4PpgtE8tmBk1kMrXzloDaG4/3RJnQWq0V3A1A==}
     engines: {pnpm: '>=10.0.0'}
+
+  rattail@2.2.1:
+    resolution: {integrity: sha512-wA8w2OLfqpI61mPuCnKcc6MgMSDRmFq1+KACAGOYa67qJotW4zDbsbhmLIXuaukdhcrxpPfxbemw4hWJf07Vyg==}
+    engines: {pnpm: '>=10.0.0'}
+    hasBin: true
+    peerDependencies:
+      oxfmt: '>=0.64.0'
+      oxlint: '>=1.79.0'
+      vite-plus: '>=0.3.0'
+    peerDependenciesMeta:
+      oxfmt:
+        optional: true
+      oxlint:
+        optional: true
+      vite-plus:
+        optional: true
 
   react-is@17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
@@ -4641,6 +4663,25 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
+  '@varlet/axle@1.1.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(oxfmt@0.64.0(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)))(oxlint@1.79.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)))(typescript@5.9.3)(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3))(vue@3.5.32(typescript@5.9.3))':
+    dependencies:
+      axios: 1.7.3
+      crypto-js: 4.2.0
+      lodash: 4.17.21
+      qs: 6.15.1
+      rattail: 2.2.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(oxfmt@0.64.0(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)))(oxlint@1.79.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)))(typescript@5.9.3)(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3))(vue@3.5.32(typescript@5.9.3))
+      vue: 3.5.32(typescript@5.9.3)
+    transitivePeerDependencies:
+      - conventional-commits-filter
+      - conventional-commits-parser
+      - debug
+      - encoding
+      - oxfmt
+      - oxlint
+      - supports-color
+      - typescript
+      - vite-plus
+
   '@varlet/release@2.2.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)':
     dependencies:
       '@clack/prompts': 1.2.0
@@ -6054,6 +6095,31 @@ snapshots:
       uuid: 13.0.0
     transitivePeerDependencies:
       - debug
+      - vue
+
+  rattail@2.2.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(oxfmt@0.64.0(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)))(oxlint@1.79.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)))(typescript@5.9.3)(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3))(vue@3.5.32(typescript@5.9.3)):
+    dependencies:
+      '@varlet/axle': 1.0.2(vue@3.5.32(typescript@5.9.3))
+      '@varlet/release': 2.2.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)
+      api-farmer: 0.1.5(typescript@5.9.3)(vue@3.5.32(typescript@5.9.3))
+      commander: 13.1.0
+      js-cookie: 3.0.5
+      mitt: 3.0.1
+      rimraf: 6.0.1
+      ruler-factory: 0.0.14
+      unconfig: 7.5.0
+      uuid: 13.0.0
+    optionalDependencies:
+      oxfmt: 0.64.0(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3))
+      oxlint: 1.79.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3))
+      vite-plus: 1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)
+    transitivePeerDependencies:
+      - conventional-commits-filter
+      - conventional-commits-parser
+      - debug
+      - encoding
+      - supports-color
+      - typescript
       - vue
 
   react-is@17.0.2: {}

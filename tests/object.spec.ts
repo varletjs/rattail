@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vite-plus/test'
-import { deriveKey, mapObject, omit, omitBy, pick, pickBy, promiseWithResolvers, rekey, set } from '../src'
+import { deriveKey, get, mapObject, omit, omitBy, pick, pickBy, promiseWithResolvers, rekey, set } from '../src'
 import { objectEntries } from '../src/object/objectEntries'
 import { objectKeys } from '../src/object/objectKeys'
 
@@ -194,6 +194,28 @@ describe('promiseWithResolvers', () => {
     setTimeout(() => reject(new Error('test')))
     await expect(promise).rejects.toThrow('test')
   })
+})
+
+it('get', () => {
+  const object = { a: { b: [{ c: 1 }, { 'd.e': 2 }] }, f: null, 'g.h': 3, '': 4 }
+
+  expect(get(object, 'a.b.0.c')).toBe(1)
+  expect(get(object, 'a.b[0].c')).toBe(1)
+  expect(get(object, 'a.b[1]["d.e"]')).toBe(2)
+  expect(get(object, "a.b[1]['d.e']")).toBe(2)
+  expect(get(object, ['a', 'b', 0, 'c'])).toBe(1)
+  expect(get(object, ['a', 'b', 1, 'd.e'])).toBe(2)
+  expect(get(object, 'g.h')).toBe(3)
+  expect(get(object, '')).toBe(4)
+  expect(get(object, 'f')).toBe(null)
+  expect(get(object, 'f.x', 'default')).toBe('default')
+  expect(get(object, 'a.x.y', 'default')).toBe('default')
+  expect(get(object, ['a', 'x'])).toBe(undefined)
+  expect(get(object, [], 'default')).toBe('default')
+  expect(get(null, 'a', 'default')).toBe('default')
+  expect(get(undefined, ['a'])).toBe(undefined)
+  expect(get('abc', 'length')).toBe(3)
+  expect(get([[1, 2]], '[0][1]')).toBe(2)
 })
 
 it('set', () => {
