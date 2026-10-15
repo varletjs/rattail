@@ -11,6 +11,9 @@ export function baseRound(val: number, precision: number, fn: (val: number) => n
     return fn(val)
   }
 
-  const value = fn(`${val}e${precision}` as any)
-  return +`${value}e${-precision}`
+  const [base, exponent = '0'] = `${val}`.split('e')
+  const value = fn(+`${base}e${+exponent + precision}`)
+  const [roundedBase, roundedExponent = '0'] = `${value}`.split('e')
+
+  return +`${roundedBase}e${+roundedExponent - precision}`
 }

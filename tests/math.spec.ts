@@ -60,6 +60,10 @@ it('sumHash', () => {
 it('round', () => {
   expect(round(1.005)).toBe(1)
   expect(round(1.005, 2)).toBe(1.01)
+  expect(round(-1234.5678, 2)).toBe(-1234.57)
+  expect(round(1e21, 2)).toBe(1e21)
+  expect(round(-1e30, 2)).toBe(-1e30)
+  expect(round(1.23456e-7, 9)).toBe(1.23e-7)
 })
 
 it('floor', () => {

@@ -1,14 +1,23 @@
-# [2.3.0](https://github.com/varletjs/rattail/compare/v2.2.1...v2.3.0) (2026-10-15)
+## [2.3.1](https://github.com/varletjs/rattail/compare/v2.3.0...v2.3.1) (2026-10-15)
 
 
 ### Bug Fixes
 
-* add logo and image to hero section in index.md ([badb8f4](https://github.com/varletjs/rattail/commit/badb8f4aae0d9f5886983c1cc86c396217eeeaac))
+* update @varlet/axle to version 1.1.1 and enhance rounding and object retrieval functions ([1d64dd8](https://github.com/varletjs/rattail/commit/1d64dd8a4303d219f776df87ab67f819156ea328))
+
+# [2.3.0](https://github.com/varletjs/rattail/compare/v2.2.1...v2.3.0) (2026-10-15)
 
 
 ### Features
 
 * add get function for object path retrieval with default value support ([ccefbd5](https://github.com/varletjs/rattail/commit/ccefbd5ba075199310017cb470d8468d0f510f6e))
+
+## [2.2.1](https://github.com/varletjs/rattail/compare/v2.2.0...v2.2.1) (2026-10-14)
+
+
+### Bug Fixes
+
+* add logo and image to hero section in index.md ([badb8f4](https://github.com/varletjs/rattail/commit/badb8f4aae0d9f5886983c1cc86c396217eeeaac))
 
 # [2.2.0](https://github.com/varletjs/rattail/compare/v2.1.2...v2.2.0) (2026-08-29)
 

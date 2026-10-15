@@ -1,6 +1,6 @@
 {
   "name": "rattail",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "A Vite+ oriented, AI Agent friendly front-end toolchain",
   "keywords": [
     "ai-agent",
@@ -106,7 +106,7 @@
     "test": "vp test run --coverage"
   },
   "dependencies": {
-    "@varlet/axle": "1.1.0",
+    "@varlet/axle": "1.1.1",
     "@varlet/release": "^2.2.1",
     "api-farmer": "0.1.5",
     "commander": "^13.0.0",

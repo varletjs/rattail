@@ -216,6 +216,8 @@ it('get', () => {
   expect(get(undefined, ['a'])).toBe(undefined)
   expect(get('abc', 'length')).toBe(3)
   expect(get([[1, 2]], '[0][1]')).toBe(2)
+  expect(get({ 1: 'one' }, 1)).toBe('one')
+  expect(get(object, undefined as any, 'default')).toBe('default')
 })
 
 it('set', () => {
