@@ -1,7 +1,7 @@
-import { hasOwn, isString } from '../general'
+import { hasOwn, isArray, isString } from '../general'
 
-export function get<T = any>(object: any, path: string | (string | number)[], defaultValue?: T): T {
-  const keys = isString(path) ? (object != null && hasOwn(Object(object), path) ? [path] : parsePath(path)) : path
+export function get<T = any>(object: any, path: string | number | (string | number)[], defaultValue?: T): T {
+  const keys = toKeys(object, path)
 
   if (keys.length === 0) {
     return defaultValue as T
@@ -18,6 +18,18 @@ export function get<T = any>(object: any, path: string | (string | number)[], de
   }
 
   return value === undefined ? (defaultValue as T) : value
+}
+
+function toKeys(object: any, path: string | number | (string | number)[]) {
+  if (isString(path)) {
+    return object != null && hasOwn(Object(object), path) ? [path] : parsePath(path)
+  }
+
+  if (isArray(path)) {
+    return path
+  }
+
+  return path == null ? [] : [path]
 }
 
 function parsePath(path: string) {

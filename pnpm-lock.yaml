@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@varlet/axle':
-        specifier: 1.1.0
-        version: 1.1.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(oxfmt@0.64.0(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)))(oxlint@1.79.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)))(typescript@5.9.3)(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3))(vue@3.5.32(typescript@5.9.3))
+        specifier: 1.1.1
+        version: 1.1.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(oxfmt@0.64.0(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)))(oxlint@1.79.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)))(typescript@5.9.3)(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3))(vue@3.5.32(typescript@5.9.3))
       '@varlet/release':
         specifier: ^2.2.1
         version: 2.2.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)
@@ -1664,8 +1664,8 @@ packages:
     peerDependencies:
       vue: ^3.2.0
 
-  '@varlet/axle@1.1.0':
-    resolution: {integrity: sha512-eaYA8rgkAlVzzHVLFp5DHRHptv0Sjf3Brk4RWX3+/KS2fw5Ca1ck1geT7bpTojDhuG2MYcbJKpKnIVeI7beeOQ==}
+  '@varlet/axle@1.1.1':
+    resolution: {integrity: sha512-v3GdlA9rgRWfTmGUeqtDD7nmvphOedQS5AyigTOFMh1wjKfRnMcYeOPeHG+p0Y+jditO7l4THbMB46xWCrMOqw==}
     engines: {pnpm: '>=10.0.0'}
     peerDependencies:
       vue: ^3.2.0
@@ -4663,7 +4663,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@varlet/axle@1.1.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(oxfmt@0.64.0(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)))(oxlint@1.79.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)))(typescript@5.9.3)(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3))(vue@3.5.32(typescript@5.9.3))':
+  '@varlet/axle@1.1.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(oxfmt@0.64.0(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)))(oxlint@1.79.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)))(typescript@5.9.3)(vite-plus@1.1.0(@types/node@22.20.1)(@vitest/coverage-istanbul@5.0.3)(@vitest/ui@5.0.3(vitest@5.0.3))(esbuild@0.28.1)(jiti@2.6.1)(jsdom@25.0.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3))(vue@3.5.32(typescript@5.9.3))':
     dependencies:
       axios: 1.7.3
       crypto-js: 4.2.0
