@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import type { ReleaseCommandType } from '@varlet/release'
 import { Command } from 'commander'
 import { api } from './api'
 import { changelog } from './changelog'
@@ -46,6 +47,11 @@ program
   .option('--skip-changelog', 'Skip changelog generation')
   .option('--skip-git-tag', 'Skip git tag')
   .option('-c, --check-remote-version', 'Skip publish if the current version already exists on npm')
+  .option(
+    '--release-type <type>',
+    'Release type (patch, minor, major, prepatch, preminor, premajor), skip the release type prompt',
+  )
+  .option('-y, --yes', 'Skip refs and registry confirmation')
   .action(
     async (options: {
       npmTag?: string
@@ -54,6 +60,8 @@ program
       skipChangelog?: boolean
       skipGitTag?: boolean
       checkRemoteVersion?: boolean
+      releaseType?: ReleaseCommandType
+      yes?: boolean
     }) => {
       const config = (await getConfig()).release ?? {}
 
@@ -65,6 +73,8 @@ program
         ...(options.skipChangelog ? { skipChangelog: true } : {}),
         ...(options.skipGitTag ? { skipGitTag: true } : {}),
         ...(options.checkRemoteVersion ? { checkRemoteVersion: true } : {}),
+        ...(options.releaseType != null ? { releaseType: options.releaseType } : {}),
+        ...(options.yes ? { yes: true } : {}),
       })
     },
   )

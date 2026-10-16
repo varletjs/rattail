@@ -8,8 +8,8 @@ category: Vue
 
 ## Documentation
 
-- [README — API Definition Enhancement](https://github.com/varletjs/axle/blob/main/packages/axle/README.md#L419-L505)
-- [Source — `api.ts`](https://github.com/varletjs/axle/blob/main/packages/axle/src/api.ts)
+- [API Definition](https://axle.varletjs.org/guide/api-definition)
+- [Source — `api.ts`](https://github.com/varletjs/axle/blob/main/src/api.ts)
 
 ## Usage (pattern)
 
@@ -28,4 +28,4 @@ const [user] = getUser.use({ pathParams: { id: '1' } })
 ```
 
 - **`pathParams`**: object or getter; replaces `:key` segments in `url`.
-- **`use`** accepts the same watch / transform options as `useAxle` (see [vue-composition.md](vue-composition.md)).
+- **`use`** accepts the same options as `useAxle`, such as watch, transform, `abortPrevious` and polling (see [vue-composition.md](vue-composition.md)).

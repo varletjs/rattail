@@ -10,6 +10,7 @@ rt release --skip-npm-publish
 rt release --npm-tag beta
 rt release --skip-changelog --skip-git-tag
 rt release --check-remote-version --remote upstream
+rt release --release-type patch --yes
 ```
 
 ### 命令行参数
@@ -24,6 +25,8 @@ rt release --check-remote-version --remote upstream
 | `--skip-changelog` | 跳过 changelog 生成 |
 | `--skip-git-tag` | 跳过 git tag |
 | `-c, --check-remote-version` | 发布前检查 npm 远程版本，若版本已存在则退出流程 |
+| `--release-type <type>` | 发布类型（`patch`、`minor`、`major`、`prepatch`、`preminor`、`premajor`），跳过发布类型选择 |
+| `-y, --yes` | 跳过 refs 和 registry 确认 |
 
 ### 配置
 
@@ -60,5 +63,7 @@ await release({
 | `skipChangelog` | `boolean` | - | 跳过 changelog 生成 |
 | `skipGitTag` | `boolean` | - | 跳过 git tag |
 | `checkRemoteVersion` | `boolean` | - | 发布前检查 npm 远程版本，若版本已存在则跳过发布 |
+| `releaseType` | `'patch' \| 'minor' \| 'major' \| 'prepatch' \| 'preminor' \| 'premajor'` | - | 发布类型，跳过发布类型选择 |
+| `yes` | `boolean` | - | 跳过 refs 和 registry 确认，与 `releaseType` 一起使用时整个发布流程无需交互 |
 | `task` | `(newVersion, oldVersion) => Promise<void>` | - | 在版本号更新之后、npm 发布之前运行的自定义任务，如执行构建 |
 | `remote` | `string` | `origin` | git push 使用的 remote 名称，多数情况下无需修改 |

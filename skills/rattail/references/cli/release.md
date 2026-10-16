@@ -18,20 +18,25 @@ rt release --skip-npm-publish
 rt release --npm-tag beta
 rt release --skip-changelog --skip-git-tag
 rt release --check-remote-version --remote upstream
+rt release --release-type patch --yes
 ```
 
 This replaces the standalone `vr release` CLI. The command reads configuration from `rattail.release` in `vite.config.ts`. All config options (except `task`) can also be passed as CLI arguments. CLI arguments take priority over config.
 
 ## CLI Arguments
 
-| Argument                     | Description                                               |
-| ---------------------------- | --------------------------------------------------------- |
-| `-t, --npm-tag <tag>`        | npm dist-tag for publishing, e.g. `beta`, `next`          |
-| `-r, --remote <remote>`      | Git remote name for pushing                               |
-| `--skip-npm-publish`         | Skip npm publish                                          |
-| `--skip-changelog`           | Skip changelog generation                                 |
-| `--skip-git-tag`             | Skip git tag                                              |
-| `-c, --check-remote-version` | Skip publish if the current version already exists on npm |
+For a release without any prompt (e.g. from CI or an AI agent), pass both `--release-type` and `--yes`.
+
+| Argument                     | Description                                                                                                |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `-t, --npm-tag <tag>`        | npm dist-tag for publishing, e.g. `beta`, `next`                                                           |
+| `-r, --remote <remote>`      | Git remote name for pushing                                                                                |
+| `--skip-npm-publish`         | Skip npm publish                                                                                           |
+| `--skip-changelog`           | Skip changelog generation                                                                                  |
+| `--skip-git-tag`             | Skip git tag                                                                                               |
+| `-c, --check-remote-version` | Skip publish if the current version already exists on npm                                                  |
+| `--release-type <type>`      | Release type (`patch`, `minor`, `major`, `prepatch`, `preminor`, `premajor`), skip the release type prompt |
+| `-y, --yes`                  | Skip refs and registry confirmation                                                                        |
 
 ## Configuration
 
@@ -48,6 +53,8 @@ export default defineConfig({
       skipGitTag: false,
       npmTag: undefined,
       checkRemoteVersion: false,
+      releaseType: undefined,
+      yes: false,
       task: async (newVersion, oldVersion) => {
         // custom task after version bump
       },
@@ -58,15 +65,17 @@ export default defineConfig({
 
 ## Options (`ReleaseCommandOptions`)
 
-| Option               | Type                                        | Description                                 |
-| -------------------- | ------------------------------------------- | ------------------------------------------- |
-| `remote`             | `string`                                    | Git remote URL or name                      |
-| `skipNpmPublish`     | `boolean`                                   | Do not publish to npm                       |
-| `skipChangelog`      | `boolean`                                   | Skip changelog generation                   |
-| `skipGitTag`         | `boolean`                                   | Skip creating git tag                       |
-| `npmTag`             | `string`                                    | npm publish tag (e.g. `next`)               |
-| `checkRemoteVersion` | `boolean`                                   | Abort if npm already has same version       |
-| `task`               | `(newVersion, oldVersion) => Promise<void>` | Hook to run after version bump (e.g. build) |
+| Option               | Type                                                                      | Description                                 |
+| -------------------- | ------------------------------------------------------------------------- | ------------------------------------------- |
+| `remote`             | `string`                                                                  | Git remote URL or name                      |
+| `skipNpmPublish`     | `boolean`                                                                 | Do not publish to npm                       |
+| `skipChangelog`      | `boolean`                                                                 | Skip changelog generation                   |
+| `skipGitTag`         | `boolean`                                                                 | Skip creating git tag                       |
+| `npmTag`             | `string`                                                                  | npm publish tag (e.g. `next`)               |
+| `checkRemoteVersion` | `boolean`                                                                 | Abort if npm already has same version       |
+| `releaseType`        | `'patch' \| 'minor' \| 'major' \| 'prepatch' \| 'preminor' \| 'premajor'` | Skip the release type prompt                |
+| `yes`                | `boolean`                                                                 | Skip refs and registry confirmation         |
+| `task`               | `(newVersion, oldVersion) => Promise<void>`                               | Hook to run after version bump (e.g. build) |
 
 ## Priority
 

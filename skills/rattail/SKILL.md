@@ -180,6 +180,7 @@ import { isString, debounce, cloneDeep /* ... */ } from 'rattail'
 
 | Function                                                     | Description                                                                               |
 | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------- |
+| [`get`](references/get.md)                                   | Get the value at a given path of an object, with a default value for `undefined`.         |
 | [`set`](references/set.md)                                   | Set a value at a given path in an object, creating nested objects or arrays as needed.    |
 | [`pick`](references/pick.md)                                 | Pick object properties and construct a new object.                                        |
 | [`pickBy`](references/pickBy.md)                             | Extract object properties by a predicate function and construct a new object.             |
@@ -256,7 +257,7 @@ import { isString, debounce, cloneDeep /* ... */ } from 'rattail'
 | [`download`](references/download.md)                           | Trigger browser download, supporting downloading via file `url`, `Blob`, `File`.                              |
 | [`duration`](references/duration.md)                           | Creates a fluent duration builder that allows chaining time units to calculate total milliseconds or seconds. |
 | [`enumOf`](references/enumOf.md)                               | Enum utility with TS-friendly types. Built-in fields: `value`, `label`, `description`.                        |
-| [`storage`](references/storage.md)                             | Enhance `localStorage` and `sessionStorage`, support automatic JSON `stringify` and `parse`.                  |
+| [`storage`](references/storage.md)                             | Enhance `localStorage` and `sessionStorage`, and provide cookie-based storage via `createCookieStorage`.      |
 | [`classes`](references/classes.md)                             | Generates a list of class names based on a given condition.                                                   |
 | [`createNamespaceFn`](references/createNamespaceFn.md)         | Creates a namespace function for BEM-style naming.                                                            |
 | [`createCacheManager`](references/createCacheManager.md)       | Creates a simple in-memory cache manager with optional TTL support.                                           |
@@ -289,13 +290,13 @@ import { isString, debounce, cloneDeep /* ... */ } from 'rattail'
 
 Progressive HTTP request layer on top of **axios** for **Vue 3** (and plain JS for the core client), re-exported as a first-party integration. Three entry points:
 
-| Entry       | Import             | Purpose                                                             |
-| ----------- | ------------------ | ------------------------------------------------------------------- |
-| Core        | `rattail/axle`     | `createAxle`, types, `createMatcher`, helpers, interceptors         |
-| Vue         | `rattail/axle/use` | `createUseAxle`, `useValues`, `useHasLoading`, `useAverageProgress` |
-| API builder | `rattail/axle/api` | `createApi` — URL-bound `load` / `use` helpers                      |
+| Entry       | Import             | Purpose                                                     |
+| ----------- | ------------------ | ----------------------------------------------------------- |
+| Core        | `rattail/axle`     | `createAxle`, types, `createMatcher`, helpers, interceptors |
+| Vue         | `rattail/axle/use` | `createUseAxle`                                             |
+| API builder | `rattail/axle/api` | `createApi` — URL-bound `load` / `use` helpers              |
 
-**Upstream:** [`@varlet/axle`](https://github.com/varletjs/axle) · [README](https://github.com/varletjs/axle/blob/main/packages/axle/README.md) · [Chinese README](https://github.com/varletjs/axle/blob/main/packages/axle/README.zh-CN.md)
+**Upstream:** [`@varlet/axle`](https://github.com/varletjs/axle) · [Docs](https://axle.varletjs.org) · [Chinese docs](https://axle.varletjs.org/zh)
 
 **IMPORTANT:** Open [`references/axle/<topic>.md`](references/axle/core-client.md) for detailed API docs, type declarations, and usage examples.
 
@@ -314,7 +315,7 @@ axle.get('/url', { current: 1, pageSize: 10 }, { headers: {} })
 | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | `createAxle`, `AxleInstance`, shared `axios`, headers, runner overview | [references/axle/core-client.md](references/axle/core-client.md)                           |
 | GET/POST/… runners (`getBlob`, `postUrlEncode`, …)                     | [references/axle/request-runners.md](references/axle/request-runners.md)                   |
-| `createUseAxle` and composables                                        | [references/axle/vue-composition.md](references/axle/vue-composition.md)                   |
+| `createUseAxle` (abort previous, silent run, polling)                  | [references/axle/vue-composition.md](references/axle/vue-composition.md)                   |
 | `createApi` (`load`, `use`, path params)                               | [references/axle/api-factory.md](references/axle/api-factory.md)                           |
 | `matchPattern`, `createMatcher`, interceptors                          | [references/axle/interceptors-and-matcher.md](references/axle/interceptors-and-matcher.md) |
 | `withResponse`, `download`                                             | [references/axle/helpers.md](references/axle/helpers.md)                                   |

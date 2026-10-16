@@ -6,8 +6,8 @@ category: Utils
 
 ## Documentation
 
-- [README — Utils](https://github.com/varletjs/axle/blob/main/packages/axle/README.md#L182-L206)
-- [Source — `helper.ts`](https://github.com/varletjs/axle/blob/main/packages/axle/src/helper.ts)
+- [Utilities](https://axle.varletjs.org/guide/utilities)
+- [Source — `helper.ts`](https://github.com/varletjs/axle/blob/main/src/helper.ts)
 
 ## `withResponse`
 

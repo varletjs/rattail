@@ -8,8 +8,8 @@ category: Core
 
 ## Documentation
 
-- [README — QuickStart & config](https://github.com/varletjs/axle/blob/main/packages/axle/README.md#L8-L76)
-- [Source — `instance.ts`](https://github.com/varletjs/axle/blob/main/packages/axle/src/instance.ts)
+- [Getting Started](https://axle.varletjs.org/getting-started)
+- [Source — `instance.ts`](https://github.com/varletjs/axle/blob/main/src/instance.ts)
 
 ## Key points
 

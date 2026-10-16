@@ -15,8 +15,8 @@ Runners are functions `(url, params?, config?) => Promise<R>`. **Fetch** methods
 
 ## Documentation
 
-- [README — Axle & Axios Request Functions](https://github.com/varletjs/axle/blob/main/packages/axle/README.md#L78-L180)
-- [Source — `createFetchRunner` / `createModifyRunner`](https://github.com/varletjs/axle/blob/main/packages/axle/src/instance.ts#L114-L155)
+- [Request Functions](https://axle.varletjs.org/guide/request-functions)
+- [Source — `createFetchRunner` / `createModifyRunner`](https://github.com/varletjs/axle/blob/main/src/instance.ts#L114-L155)
 
 ## Example (README-style)
 

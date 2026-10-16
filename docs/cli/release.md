@@ -10,6 +10,7 @@ rt release --skip-npm-publish
 rt release --npm-tag beta
 rt release --skip-changelog --skip-git-tag
 rt release --check-remote-version --remote upstream
+rt release --release-type patch --yes
 ```
 
 ### CLI Arguments
@@ -24,6 +25,8 @@ All options can be passed as command-line arguments. CLI arguments take priority
 | `--skip-changelog` | Skip changelog generation |
 | `--skip-git-tag` | Skip git tag |
 | `-c, --check-remote-version` | Exit if the current version already exists on npm |
+| `--release-type <type>` | Release type (`patch`, `minor`, `major`, `prepatch`, `preminor`, `premajor`), skip the release type prompt |
+| `-y, --yes` | Skip refs and registry confirmation |
 
 ### Config
 
@@ -60,5 +63,7 @@ await release({
 | `skipChangelog` | `boolean` | - | Skip changelog generation |
 | `skipGitTag` | `boolean` | - | Skip git tag |
 | `checkRemoteVersion` | `boolean` | - | Check npm remote version before publishing, skip if version already exists |
+| `releaseType` | `'patch' \| 'minor' \| 'major' \| 'prepatch' \| 'preminor' \| 'premajor'` | - | Release type, skip the release type prompt |
+| `yes` | `boolean` | - | Skip refs and registry confirmation. Together with `releaseType`, the release runs without any prompt |
 | `task` | `(newVersion, oldVersion) => Promise<void>` | - | Custom task to run after version update but before npm publish, e.g. build |
 | `remote` | `string` | `origin` | Git remote name for pushing, rarely needs to be changed |
