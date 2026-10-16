@@ -17,9 +17,9 @@ category: Interceptors
 
 ## Documentation
 
-- [README — Built-in interceptor](https://github.com/varletjs/axle/blob/main/packages/axle/README.md#L208-L279)
-- [Source — `matcher.ts`](https://github.com/varletjs/axle/blob/main/packages/axle/src/matcher.ts)
-- [Source — `interceptors/`](https://github.com/varletjs/axle/tree/main/packages/axle/src/interceptors)
+- [Interceptors](https://axle.varletjs.org/guide/interceptors)
+- [Source — `matcher.ts`](https://github.com/varletjs/axle/blob/main/src/matcher.ts)
+- [Source — `interceptors/`](https://github.com/varletjs/axle/tree/main/src/interceptors)
 
 ## Built-in interceptors (from package root)
 
