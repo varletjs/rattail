@@ -11,6 +11,7 @@ import {
   randomColor,
   randomString,
   slash,
+  splitLines,
   upperFirst,
 } from '../src'
 
@@ -120,4 +121,36 @@ it('ensurePrefix', () => {
 it('ensureSuffix', () => {
   expect(ensureSuffix('abc', 'c')).toBe('abc')
   expect(ensureSuffix('ab', 'c')).toBe('abc')
+})
+
+describe('splitLines', () => {
+  it('splits by LF, CRLF and CR', () => {
+    expect(splitLines('a\nb\r\nc\rd')).toEqual(['a', 'b', 'c', 'd'])
+  })
+
+  it('keeps empty lines and whitespace by default', () => {
+    expect(splitLines(' a \n\n b ')).toEqual([' a ', '', ' b '])
+    expect(splitLines('')).toEqual([''])
+  })
+
+  it('trims each line', () => {
+    expect(splitLines(' a \n b ', { trim: true })).toEqual(['a', 'b'])
+  })
+
+  it('removes empty lines with compact', () => {
+    expect(splitLines('a\n\nb\n', { compact: true })).toEqual(['a', 'b'])
+    expect(splitLines('', { compact: true })).toEqual([])
+  })
+
+  it('keeps whitespace-only lines with compact alone', () => {
+    expect(splitLines('a\n   ', { compact: true })).toEqual(['a', '   '])
+  })
+
+  it('removes whitespace-only lines when combined with trim', () => {
+    expect(splitLines(' a \n   \n b \n', { trim: true, compact: true })).toEqual(['a', 'b'])
+  })
+
+  it('keeps the trailing empty line produced by a trailing line break', () => {
+    expect(splitLines('a\nb\n')).toEqual(['a', 'b', ''])
+  })
 })

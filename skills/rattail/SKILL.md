@@ -156,6 +156,7 @@ import { isString, debounce, cloneDeep /* ... */ } from 'rattail'
 | [`upperFirst`](references/upperFirst.md)     | Capitalize the `first letter` of a `string`, leaving the rest unchanged.                      |
 | [`lowerFirst`](references/lowerFirst.md)     | Lowercase the `first letter` of the `string` and keep the rest unchanged.                     |
 | [`slash`](references/slash.md)               | Convert all backslashes (`\`) in a path to forward slashes (`/`).                             |
+| [`splitLines`](references/splitLines.md)     | Split a `string` into lines, optionally trimming each line and removing empty ones.           |
 | [`ensurePrefix`](references/ensurePrefix.md) | Ensure that a prefix exists in the `string`, and add it if it does not exist.                 |
 | [`ensureSuffix`](references/ensureSuffix.md) | Ensure that a suffix exists in the `string`, and add it if it does not exist.                 |
 | [`maskString`](references/maskString.md)     | Mask part of a string with a specified character, keeping prefix and suffix visible.          |
@@ -208,6 +209,7 @@ import { isString, debounce, cloneDeep /* ... */ } from 'rattail'
 | [`xor`](references/xor.md)                           | XOR (Exclusive OR) the passed array and return a new `array`.                                                |
 | [`xorWith`](references/xorWith.md)                   | XOR (Exclusive OR) the passed array with custom comparison.                                                  |
 | [`groupBy`](references/groupBy.md)                   | Group the elements in a given `array` by a function's return value as the key.                               |
+| [`keyBy`](references/keyBy.md)                       | Creates an `object` keyed by a function's return value, optionally mapping each value.                       |
 | [`find`](references/find.md)                         | Finds the `first` or `last` element in an array that meets a condition, returning the element and its index. |
 | [`shuffle`](references/shuffle.md)                   | Randomly shuffles elements within an `array`.                                                                |
 | [`removeItem`](references/removeItem.md)             | Removes the first occurrence of a specific item from an `array`.                                             |

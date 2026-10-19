@@ -10,6 +10,7 @@ export const arrayItems = [
   { text: 'xor', link: '/array/xor' },
   { text: 'xorWith', link: '/array/xor-with' },
   { text: 'groupBy', link: '/array/group-by' },
+  { text: 'keyBy', link: '/array/key-by' },
   { text: 'find', link: '/array/find' },
   { text: 'shuffle', link: '/array/shuffle' },
   { text: 'removeItem', link: '/array/remove-item' },

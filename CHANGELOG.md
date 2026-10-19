@@ -1,3 +1,9 @@
+# [2.4.0](https://github.com/varletjs/rattail/compare/v2.3.2...v2.4.0) (2026-10-19)
+
+### Features
+
+* add `keyBy` and `splitLines` functions with documentation and tests ([7dcc6ae](https://github.com/varletjs/rattail/commit/7dcc6aeccde9f1f429f48630e676a895622f0a4e))
+
 ## [2.3.2](https://github.com/varletjs/rattail/compare/v2.3.1...v2.3.2) (2026-10-16)
 
 ### Features

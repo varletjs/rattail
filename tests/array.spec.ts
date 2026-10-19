@@ -8,6 +8,7 @@ import {
   groupBy,
   intersection,
   intersectionWith,
+  keyBy,
   normalizeToArray,
   removeArrayBlank,
   removeArrayEmpty,
@@ -233,4 +234,74 @@ it('xorWith', () => {
   expect(xorWith([{ num: 1 }, { num: 3 }], [{ num: 1 }, { num: 3 }], (a, b) => a.num === b.num)).toEqual([])
   expect(xorWith([{ num: 1 }, { num: 3 }], [], (a, b) => a.num === b.num)).toEqual([{ num: 1 }, { num: 3 }])
   expect(xorWith([], [{ num: 1 }, { num: 3 }], (a, b) => a.num === b.num)).toEqual([{ num: 1 }, { num: 3 }])
+})
+
+describe('keyBy', () => {
+  const users = [
+    { uuid: 'a', name: 'Alice' },
+    { uuid: 'b', name: 'Bob' },
+  ]
+
+  it('keys items by the return value of keyFn', () => {
+    expect(keyBy(users, (user) => user.uuid)).toEqual({
+      a: { uuid: 'a', name: 'Alice' },
+      b: { uuid: 'b', name: 'Bob' },
+    })
+  })
+
+  it('maps values with valueFn', () => {
+    expect(
+      keyBy(
+        users,
+        (user) => user.uuid,
+        (user) => user.name,
+      ),
+    ).toEqual({ a: 'Alice', b: 'Bob' })
+  })
+
+  it('passes index to both callbacks', () => {
+    expect(
+      keyBy(
+        ['x', 'y'],
+        (_, index) => `p${index}`,
+        (item, index) => `${item}${index}`,
+      ),
+    ).toEqual({ p0: 'x0', p1: 'y1' })
+  })
+
+  it('lets later items override earlier ones with the same key', () => {
+    expect(
+      keyBy(
+        [
+          { id: 1, value: 'a' },
+          { id: 1, value: 'b' },
+        ],
+        (item) => item.id,
+        (item) => item.value,
+      ),
+    ).toEqual({ 1: 'b' })
+  })
+
+  it('returns an empty object for an empty array', () => {
+    expect(keyBy([], (item) => String(item))).toEqual({})
+  })
+
+  it('stores __proto__ as an own property without changing the prototype', () => {
+    const result = keyBy(
+      [
+        { id: '__proto__', name: 'x' },
+        { id: 'a', name: 'y' },
+      ],
+      (item) => item.id,
+      (item) => item.name,
+    )
+    expect(Object.keys(result)).toEqual(['__proto__', 'a'])
+    expect(Object.getOwnPropertyDescriptor(result, '__proto__')?.value).toBe('x')
+    expect(Object.getPrototypeOf(result)).toBe(Object.prototype)
+  })
+
+  it('accepts readonly arrays', () => {
+    const items = [{ id: 'a' }] as const
+    expect(keyBy(items, (item) => item.id)).toEqual({ a: { id: 'a' } })
+  })
 })
