@@ -193,6 +193,7 @@ import { isString, debounce, cloneDeep /* ... */ } from 'rattail'
 | [`objectKeys`](references/objectKeys.md)                     | Get an array of keys from an object, with full TypeScript type support.                   |
 | [`objectEntries`](references/objectEntries.md)               | Get an array of key-value pairs from an object, with full TypeScript type support.        |
 | [`promiseWithResolvers`](references/promiseWithResolvers.md) | Returns an object containing a new Promise and two functions to `resolve` or `reject` it. |
+| [`stringifyStableJSON`](references/stringifyStableJSON.md)   | Serialize JSON with recursively sorted object keys and native value semantics.            |
 
 ### Array
 
@@ -231,16 +232,17 @@ import { isString, debounce, cloneDeep /* ... */ } from 'rattail'
 
 ### Function
 
-| Function                                     | Description                                                                              |
-| -------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| [`NOOP`](references/NOOP.md)                 | This method returns `undefined`.                                                         |
-| [`call`](references/call.md)                 | Call a single function or multiple functions and pass arguments to them.                 |
-| [`callOrReturn`](references/callOrReturn.md) | Calls a function with args if input is a function, otherwise returns the input directly. |
-| [`once`](references/once.md)                 | Creates a function that will only execute once.                                          |
-| [`debounce`](references/debounce.md)         | Create a `debounce` function that delays execution by `delay` ms after the last call.    |
-| [`throttle`](references/throttle.md)         | Create a throttle function that calls `fn` at most once every `delay` ms.                |
-| [`tryCall`](references/tryCall.md)           | Safely call a function and return an `[error, result]` tuple.                            |
-| [`tryAsyncCall`](references/tryAsyncCall.md) | Safely call an async function and return a `Promise<[error, result]>` tuple.             |
+| Function                                         | Description                                                                              |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| [`NOOP`](references/NOOP.md)                     | This method returns `undefined`.                                                         |
+| [`call`](references/call.md)                     | Call a single function or multiple functions and pass arguments to them.                 |
+| [`callOrReturn`](references/callOrReturn.md)     | Calls a function with args if input is a function, otherwise returns the input directly. |
+| [`once`](references/once.md)                     | Creates a function that will only execute once.                                          |
+| [`debounce`](references/debounce.md)             | Create a `debounce` function that delays execution by `delay` ms after the last call.    |
+| [`throttle`](references/throttle.md)             | Create a throttle function that calls `fn` at most once every `delay` ms.                |
+| [`tryCall`](references/tryCall.md)               | Safely call a function and return an `[error, result]` tuple.                            |
+| [`tryAsyncCall`](references/tryAsyncCall.md)     | Safely call an async function and return a `Promise<[error, result]>` tuple.             |
+| [`raceWithSignal`](references/raceWithSignal.md) | Wait for an asynchronous task to finish, or stop waiting when cancellation is requested. |
 
 ### File
 
@@ -263,6 +265,7 @@ import { isString, debounce, cloneDeep /* ... */ } from 'rattail'
 | [`classes`](references/classes.md)                             | Generates a list of class names based on a given condition.                                                   |
 | [`createNamespaceFn`](references/createNamespaceFn.md)         | Creates a namespace function for BEM-style naming.                                                            |
 | [`createCacheManager`](references/createCacheManager.md)       | Creates a simple in-memory cache manager with optional TTL support.                                           |
+| [`createKeyedTaskQueue`](references/createKeyedTaskQueue.md)   | Run tasks serially per key, allowing different keys to run concurrently.                                      |
 | [`raf`](references/raf.md)                                     | Creates a Promise-based `requestAnimationFrame` that resolves on the next frame.                              |
 | [`doubleRaf`](references/doubleRaf.md)                         | Creates a Promise-based double `requestAnimationFrame` that resolves after two frames.                        |
 | [`requestAnimationFrame`](references/requestAnimationFrame.md) | Provides a cross-browser compatible `requestAnimationFrame` function.                                         |

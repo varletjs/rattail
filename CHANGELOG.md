@@ -1,3 +1,9 @@
+# [2.5.0](https://github.com/varletjs/rattail/compare/v2.4.0...v2.5.0) (2026-10-30)
+
+### Features
+
+* add stringifyStableJSON and raceWithSignal functions ([063b12f](https://github.com/varletjs/rattail/commit/063b12f3c5334698504cb4daf59c1dbfd02a31e3))
+
 # [2.4.0](https://github.com/varletjs/rattail/compare/v2.3.2...v2.4.0) (2026-10-19)
 
 ### Features
