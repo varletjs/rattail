@@ -9,17 +9,29 @@ category: Function
 - [English](https://rattail.varletjs.org/function/race-with-signal)
 - [Chinese docs](https://rattail.varletjs.org/zh/function/race-with-signal)
 
-Waits for a promise or thenable while responding to an `AbortSignal`.
+Waits for an asynchronous task to finish, or stops waiting when a cancellation signal is received.
 
 ### Usage
 
 ```ts
-import { raceWithSignal } from 'rattail'
+import { delay, raceWithSignal } from 'rattail'
 
 const controller = new AbortController()
-const operation = fetch('/api/items', { signal: controller.signal })
-const result = await raceWithSignal(operation, { signal: controller.signal })
+const operation = delay(3000)
+
+setTimeout(() => {
+  controller.abort(new Error('Cancelled'))
+}, 100)
+
+try {
+  await raceWithSignal(operation, { signal: controller.signal })
+} catch (error) {
+  console.log(error)
+  // Error: Cancelled
+}
 ```
+
+After about 100 milliseconds, waiting stops and the `catch` block runs. The original 3-second delay continues.
 
 ### Arguments
 

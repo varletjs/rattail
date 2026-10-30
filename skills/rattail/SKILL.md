@@ -242,7 +242,7 @@ import { isString, debounce, cloneDeep /* ... */ } from 'rattail'
 | [`throttle`](references/throttle.md)             | Create a throttle function that calls `fn` at most once every `delay` ms.                |
 | [`tryCall`](references/tryCall.md)               | Safely call a function and return an `[error, result]` tuple.                            |
 | [`tryAsyncCall`](references/tryAsyncCall.md)     | Safely call an async function and return a `Promise<[error, result]>` tuple.             |
-| [`raceWithSignal`](references/raceWithSignal.md) | Wait for a promise or thenable until it settles or an AbortSignal aborts.                |
+| [`raceWithSignal`](references/raceWithSignal.md) | Wait for an asynchronous task to finish, or stop waiting when cancellation is requested. |
 
 ### File
 

@@ -1,16 +1,28 @@
 # raceWithSignal
 
-等待 Promise 或 thenable，同时响应 `AbortSignal` 取消信号。
+等待异步任务完成，收到取消信号时提前结束等待。
 
 ### 使用
 
 ```ts
-import { raceWithSignal } from 'rattail'
+import { delay, raceWithSignal } from 'rattail'
 
 const controller = new AbortController()
-const operation = fetch('/api/items', { signal: controller.signal })
-const result = await raceWithSignal(operation, { signal: controller.signal })
+const operation = delay(3000)
+
+setTimeout(() => {
+  controller.abort(new Error('Cancelled'))
+}, 100)
+
+try {
+  await raceWithSignal(operation, { signal: controller.signal })
+} catch (error) {
+  console.log(error)
+  // Error: Cancelled
+}
 ```
+
+约 100 毫秒后停止等待并进入 `catch`，原本的 3 秒延迟仍会继续。
 
 ### 参数
 
