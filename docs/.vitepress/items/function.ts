@@ -7,4 +7,5 @@ export const functionItems = [
   { text: 'once', link: '/function/once' },
   { text: 'debounce', link: '/function/debounce' },
   { text: 'throttle', link: '/function/throttle' },
+  { text: 'raceWithSignal', link: '/function/race-with-signal' },
 ]

@@ -22,4 +22,5 @@ export const utilItems = [
   { text: 'getAllParentScroller', link: '/util/get-all-parent-scroller' },
   { text: 'prettyJSONObject', link: '/util/pretty-JSON-object' },
   { text: 'tryParseJSON', link: '/util/try-parse-JSON' },
+  { text: 'createKeyedTaskQueue', link: '/util/create-keyed-task-queue' },
 ]

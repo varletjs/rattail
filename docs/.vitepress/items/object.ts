@@ -11,4 +11,5 @@ export const objectItems = [
   { text: 'objectKeys', link: '/object/object-keys' },
   { text: 'objectEntries', link: '/object/object-entries' },
   { text: 'promiseWithResolvers', link: '/object/promise-with-resolvers' },
+  { text: 'stringifyStableJSON', link: '/object/stringify-stable-json' },
 ]
