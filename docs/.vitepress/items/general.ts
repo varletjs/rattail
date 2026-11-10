@@ -32,6 +32,7 @@ export const generalItems = [
   { text: 'isEqual', link: '/general/is-equal' },
   { text: 'isEqualWith', link: '/general/is-equal-with' },
   { text: 'inBrowser', link: '/general/in-browser' },
+  { text: 'defaultDocument', link: '/general/default-document' },
   { text: 'inMobile', link: '/general/in-mobile' },
   { text: 'hasOwn', link: '/general/has-own' },
   { text: 'hasDuplicates', link: '/general/has-duplicates' },

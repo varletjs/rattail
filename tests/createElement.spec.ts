@@ -28,6 +28,35 @@ describe('createElement', () => {
     expect(createElement('span', { namespace: undefined }).namespaceURI).toBe('http://www.w3.org/1999/xhtml')
   })
 
+  it('supports flat aliases, custom attributes and null string properties', () => {
+    const label = createElement('label', { class: 'field', for: 'name', 'custom-id': 12 })
+    const empty = createElement('div', { id: null, className: null, missing: null })
+
+    expect(label.className).toBe('field')
+    expect(label.htmlFor).toBe('name')
+    expect(label.getAttribute('custom-id')).toBe('12')
+    expect(empty.hasAttribute('id')).toBe(false)
+    expect(empty.hasAttribute('class')).toBe(false)
+    expect(empty.hasAttribute('missing')).toBe(false)
+  })
+
+  it('preserves enumerated string values without boolean property coercion', () => {
+    const element = createElement('div', { draggable: 'false', spellcheck: 'false', translate: 'no' })
+
+    expect(element.draggable).toBe(false)
+    expect(element.getAttribute('spellcheck')).toBe('false')
+    expect(element.getAttribute('translate')).toBe('no')
+  })
+
+  it('keeps iframe sandbox and percentage dimensions as attributes', () => {
+    const iframe = createElement('iframe', { sandbox: 'allow-scripts' })
+    const image = createElement('img', { width: '100%', height: '50%' })
+
+    expect(iframe.getAttribute('sandbox')).toBe('allow-scripts')
+    expect(image.getAttribute('width')).toBe('100%')
+    expect(image.getAttribute('height')).toBe('50%')
+  })
+
   it('creates custom elements and dynamic HTML tag names', () => {
     const tag: string = 'custom-widget'
     const element = createElement(tag, { id: 'widget', textContent: 'ready' })
@@ -47,17 +76,15 @@ describe('createElement', () => {
 
   it('distinguishes boolean, enumerated, aria and data attributes', () => {
     const element = createElement('input', {
-      attributes: {
-        disabled: false,
-        required: true,
-        checked: false,
-        draggable: false,
-        'aria-hidden': false,
-        'data-enabled': true,
-        tabindex: 0,
-        missing: null,
-        ignored: undefined,
-      },
+      disabled: false,
+      required: true,
+      checked: false,
+      draggable: false,
+      'aria-hidden': false,
+      'data-enabled': true,
+      tabindex: 0,
+      missing: null,
+      ignored: undefined,
     })
 
     expect(element.disabled).toBe(false)
@@ -72,9 +99,9 @@ describe('createElement', () => {
     expect(element.hasAttribute('ignored')).toBe(false)
   })
 
-  it('lets explicit properties override initial attributes', () => {
+  it('keeps default and current form values distinct', () => {
     const input = createElement('input', {
-      attributes: { value: 'default', disabled: true, type: 'text' },
+      defaultValue: 'default',
       disabled: false,
       value: 'current',
       type: 'email',
@@ -88,9 +115,10 @@ describe('createElement', () => {
 
   it('handles media boolean attributes and leaves unprefixed attribute names in no namespace', () => {
     const video = createElement('video', {
-      attributes: { disablepictureinpicture: false, disableremoteplayback: true },
+      disablepictureinpicture: false,
+      disableremoteplayback: true,
     })
-    const element = createElement('div', { attributes: { xml: 'plain', xlink: 'plain' } })
+    const element = createElement('div', { xml: 'plain', xlink: 'plain' })
 
     expect(video.hasAttribute('disablepictureinpicture')).toBe(false)
     expect(video.getAttribute('disableremoteplayback')).toBe('')
@@ -100,8 +128,15 @@ describe('createElement', () => {
 
   it('supports object styles, custom properties, null clearing and dataset values', () => {
     const element = createElement('div', {
-      attributes: { style: 'color: blue; border-width: 1px', 'data-old': 'remove' },
-      style: { color: 'red', borderWidth: null, '--gap': 8, '--unused': null, width: undefined },
+      'data-old': 'remove',
+      style: {
+        cssText: 'color: blue; border-width: 1px',
+        color: 'red',
+        borderWidth: null,
+        '--gap': 8,
+        '--unused': null,
+        width: undefined,
+      },
       dataset: { userId: 42, enabled: false, old: null, ignored: undefined },
     })
 
@@ -124,10 +159,13 @@ describe('createElement', () => {
 
   it('does not mutate the supplied configuration or child arrays', () => {
     const style = Object.freeze({ color: 'red' })
-    const options = Object.freeze({ style, attributes: Object.freeze({ id: 'immutable' }) })
+    const options = Object.freeze({ style, id: 'immutable' })
     const children = Object.freeze(['text', null])
 
-    expect(createElement('div', options, children).outerHTML).toBe('<div id="immutable" style="color: red;">text</div>')
+    const element = createElement('div', options, children)
+    expect(element.id).toBe('immutable')
+    expect(element.style.color).toBe('red')
+    expect(element.textContent).toBe('text')
   })
 
   it('appends nested arrays, existing nodes and fragments, treating strings as text', () => {
@@ -151,6 +189,13 @@ describe('createElement', () => {
 
     expect(element.firstChild).toBe(child)
     expect(previous.childNodes.length).toBe(0)
+  })
+
+  it('normalizes single nodes, strings and numbers into child arrays', () => {
+    const child = createElement('span')
+    expect(createElement('div', {}, child).firstChild).toBe(child)
+    expect(createElement('p', {}, 'text').textContent).toBe('text')
+    expect(createElement('p', {}, 0).textContent).toBe('0')
   })
 
   it('accepts nodes from another browser realm', () => {
@@ -194,10 +239,10 @@ describe('createElement', () => {
     expect(create).toThrow('Specify only one')
   })
 
-  it('assigns native handlers and preserves native this binding', () => {
+  it('registers onXxx handlers and preserves native this binding', () => {
     const calls: unknown[] = []
     const button = createElement('button', {
-      onclick(event) {
+      onClick(event) {
         calls.push(this, event)
       },
     })
@@ -211,7 +256,12 @@ describe('createElement', () => {
     const click = vi.fn()
     const custom = vi.fn()
     const listener = { handleEvent: vi.fn() }
-    const button = createElement('button', { on: { click, 'user:ready': custom, focus: listener, blur: undefined } })
+    const button = createElement('button', {
+      onClick: click,
+      'on:user:ready': custom,
+      onFocus: listener,
+      onBlur: undefined,
+    })
 
     button.click()
     button.dispatchEvent(new CustomEvent('user:ready'))
@@ -233,19 +283,17 @@ describe('createElement', () => {
     }
 
     const event = new MouseEvent('click')
-    const button = createElement('button', { on: { click: new Listener() } })
+    const button = createElement('button', { onClick: new Listener() })
     button.dispatchEvent(event)
 
     expect(handler).toHaveBeenCalledExactlyOnceWith(event)
   })
 
-  it('preserves native this binding for event-map callbacks', () => {
+  it('preserves native this binding for onXxx callbacks', () => {
     let target: Element | undefined
     const button = createElement('button', {
-      on: {
-        click() {
-          target = this
-        },
+      onClick() {
+        target = this
       },
     })
 
@@ -259,9 +307,10 @@ describe('createElement', () => {
     const controller = new AbortController()
     const aborted = vi.fn()
     const passive = vi.fn((event: Event) => event.preventDefault())
-    const parent = createElement('div', { on: { click: [once, { once: true, capture: true }] } })
+    const parent = createElement('div', { onClick: [once, { once: true, capture: true }] })
     const child = createElement('button', {
-      on: { click: [aborted, { signal: controller.signal }], touchstart: [passive, { passive: true }] },
+      onClick: [aborted, { signal: controller.signal }],
+      onTouchstart: [passive, { passive: true }],
     })
     parent.append(child)
 
@@ -280,10 +329,58 @@ describe('createElement', () => {
   it('supports boolean capture options', () => {
     const capture = vi.fn()
     const button = createElement('button', {
-      on: { click: [capture, true] },
+      onClick: [capture, true],
     })
 
     button.click()
+    expect(capture).toHaveBeenCalledTimes(1)
+  })
+
+  it('parses Vue-style modifier suffixes and keeps their flags over tuple options', () => {
+    const click = vi.fn()
+    const booleanCapture = vi.fn()
+    const passive = vi.fn((event: Event) => event.preventDefault())
+    const button = createElement('button', {
+      onClickOnceCapture: [click, { once: false, capture: false }],
+      onTouchstartPassiveOnce: passive,
+    })
+    button.click()
+    button.click()
+    const event = new Event('touchstart', { cancelable: true })
+    button.dispatchEvent(event)
+    button.dispatchEvent(new Event('touchstart'))
+    const other = createElement('button', { onClickOnce: [booleanCapture, true] })
+    other.click()
+    other.click()
+
+    expect(click).toHaveBeenCalledTimes(1)
+    expect(passive).toHaveBeenCalledTimes(1)
+    expect(booleanCapture).toHaveBeenCalledTimes(1)
+    expect(event.defaultPrevented).toBe(false)
+  })
+
+  it('supports exact custom names and event names that equal a modifier', () => {
+    const custom = vi.fn()
+    const kebab = vi.fn()
+    const once = vi.fn()
+    const capture = vi.fn()
+    const element = createElement('div', {
+      'on:CustomReady': custom,
+      onMyEvent: kebab,
+      onOnce: once,
+      'on:Capture': capture,
+      onClick: null,
+    })
+    element.dispatchEvent(new Event('CustomReady'))
+    element.dispatchEvent(new Event('customready'))
+    element.dispatchEvent(new Event('my-event'))
+    element.dispatchEvent(new Event('once'))
+    element.dispatchEvent(new Event('Capture'))
+    element.click()
+
+    expect(custom).toHaveBeenCalledTimes(1)
+    expect(kebab).toHaveBeenCalledTimes(1)
+    expect(once).toHaveBeenCalledTimes(1)
     expect(capture).toHaveBeenCalledTimes(1)
   })
 
@@ -291,12 +388,12 @@ describe('createElement', () => {
     let prepared = false
     const src = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src')
     vi.spyOn(HTMLImageElement.prototype, 'src', 'set').mockImplementation(function (this: HTMLImageElement, value) {
-      prepared = this.crossOrigin === 'anonymous' && this.onload !== null
+      prepared = this.crossOrigin === 'anonymous'
       src?.set?.call(this, value)
       this.dispatchEvent(new Event('load'))
     })
     const load = vi.fn()
-    const image = createElement('img', { src: '/image.png', onload: load, crossOrigin: 'anonymous' })
+    const image = createElement('img', { src: '/image.png', onLoad: load, crossOrigin: 'anonymous' })
 
     expect(image.getAttribute('src')).toBe('/image.png')
     expect(prepared).toBe(true)
@@ -304,14 +401,17 @@ describe('createElement', () => {
   })
 
   it('creates SVG roots and namespaced children with exact tag casing', () => {
-    const gradient = createElement('linearGradient', { namespace: 'svg', attributes: { id: 'gradient' } })
+    const gradient = createElement('linearGradient', { namespace: 'svg', id: 'gradient' })
     const circle = createElement('circle', {
       namespace: 'svg',
-      attributes: { cx: 10, cy: 10, r: 8, 'stroke-width': 2 },
+      cx: 10,
+      cy: 10,
+      r: 8,
+      'stroke-width': 2,
       style: { fill: 'red' },
       dataset: { shape: 'circle' },
     })
-    const svg = createElement('svg', { attributes: { viewBox: '0 0 20 20' } }, [gradient, circle])
+    const svg = createElement('svg', { viewBox: '0 0 20 20' }, [gradient, circle])
 
     expect(svg).toBeInstanceOf(SVGSVGElement)
     expect(svg.namespaceURI).toBe('http://www.w3.org/2000/svg')
@@ -327,7 +427,7 @@ describe('createElement', () => {
 
   it('uses explicit namespaces for overlapping tag names and unknown SVG elements', () => {
     const htmlLink = createElement('a', { href: '/html' })
-    const svgLink = createElement('a', { namespace: 'svg', attributes: { href: '/svg' } })
+    const svgLink = createElement('a', { namespace: 'svg', href: '/svg' })
     const tag: string = 'custom-svg'
     const customSvg = createElement(tag, { namespace: 'svg' })
 
@@ -341,9 +441,12 @@ describe('createElement', () => {
   it('sets and removes namespaced attributes and preserves SVG false values', () => {
     const use = createElement('use', {
       namespace: 'svg',
-      attributes: { 'xlink:href': '#shape', 'xml:lang': 'en', xmlns: 'http://www.w3.org/2000/svg', hidden: false },
+      'xlink:href': '#shape',
+      'xml:lang': 'en',
+      xmlns: 'http://www.w3.org/2000/svg',
+      hidden: false,
     })
-    const cleared = createElement('use', { namespace: 'svg', attributes: { 'xlink:href': null } })
+    const cleared = createElement('use', { namespace: 'svg', 'xlink:href': null })
 
     expect(use.getAttributeNS('http://www.w3.org/1999/xlink', 'href')).toBe('#shape')
     expect(use.getAttributeNS('http://www.w3.org/XML/1998/namespace', 'lang')).toBe('en')
@@ -352,8 +455,23 @@ describe('createElement', () => {
     expect(cleared.getAttributeNS('http://www.w3.org/1999/xlink', 'href')).toBeNull()
   })
 
-  it('rejects readonly assignments supplied from JavaScript', () => {
-    expect(() => Reflect.apply(createElement, undefined, ['div', { clientWidth: 12 }])).toThrow('Cannot assign')
+  it('uses attributes for readonly form and list references', () => {
+    const input = createElement('input', { form: 'owner', list: 'choices' })
+    document.body.append(input)
+    expect(input.getAttribute('form')).toBe('owner')
+    expect(input.getAttribute('list')).toBe('choices')
+    expect(input.form).toBeNull()
+    expect(input.list).toBeNull()
+  })
+
+  it.each([
+    { on: { click: () => undefined } },
+    { attributes: { id: 'legacy' } },
+    { onclick: () => undefined },
+    { custom: {} },
+    { ['__proto__']: { polluted: true } },
+  ])('rejects legacy wrappers, lowercase handlers and nonscalar unknown attributes %j', (options) => {
+    expect(() => Reflect.apply(createElement, undefined, ['div', options])).toThrow(TypeError)
   })
 
   it.each([
@@ -361,9 +479,9 @@ describe('createElement', () => {
     { style: [] },
     { attributes: 'invalid' },
     { dataset: [] },
-    { on: { click: 1 } },
-    { on: { click: [() => undefined, 'invalid'] } },
-    { on: { click: {} } },
+    { onClick: 1 },
+    { onClick: [() => undefined, 'invalid'] },
+    { onClick: {} },
   ])('rejects invalid JavaScript configuration %j', (options) => {
     expect(() => Reflect.apply(createElement, undefined, ['div', options])).toThrow(TypeError)
   })

@@ -21,7 +21,7 @@ describe('createElement with native DOM listener options', () => {
     const controller = new dom.window.AbortController()
     controller.abort()
     const button = createElement('button', {
-      on: { click: [listener, { signal: controller.signal }] },
+      onClick: [listener, { signal: controller.signal }],
     })
 
     button.click()
@@ -34,10 +34,8 @@ describe('createElement with native DOM listener options', () => {
     const active = vi.fn()
     const controller = new dom.window.AbortController()
     const button = createElement('button', {
-      on: {
-        click: [aborted, { signal: dom.window.AbortSignal.abort() }],
-        focus: [active, { signal: controller.signal }],
-      },
+      onClick: [aborted, { signal: dom.window.AbortSignal.abort() }],
+      onFocus: [active, { signal: controller.signal }],
     })
 
     button.click()
