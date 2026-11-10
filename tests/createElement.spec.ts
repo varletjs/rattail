@@ -37,6 +37,14 @@ describe('createElement', () => {
     expectTypeOf(element).toEqualTypeOf<HTMLElement>()
   })
 
+  it('applies range bounds before current values regardless of configuration order', () => {
+    const textValue = createElement('input', { value: '150', type: 'range', min: '100', max: '200' })
+    const numericValue = createElement('input', { valueAsNumber: 150, type: 'range', min: '100', max: '200' })
+
+    expect(textValue.value).toBe('150')
+    expect(numericValue.valueAsNumber).toBe(150)
+  })
+
   it('distinguishes boolean, enumerated, aria and data attributes', () => {
     const element = createElement('input', {
       attributes: {
@@ -214,6 +222,21 @@ describe('createElement', () => {
     button.removeEventListener('click', click)
     button.click()
     expect(click).toHaveBeenCalledTimes(1)
+  })
+
+  it('accepts listener methods inherited from a prototype', () => {
+    const handler = vi.fn()
+    class Listener {
+      handleEvent(event: Event) {
+        handler(event)
+      }
+    }
+
+    const event = new MouseEvent('click')
+    const button = createElement('button', { on: { click: new Listener() } })
+    button.dispatchEvent(event)
+
+    expect(handler).toHaveBeenCalledExactlyOnceWith(event)
   })
 
   it('preserves native this binding for event-map callbacks', () => {

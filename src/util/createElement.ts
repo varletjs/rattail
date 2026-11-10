@@ -1,4 +1,5 @@
-import { isPlainObject } from '../general/isPlainObject'
+import { groupBy } from '../array/groupBy'
+import { isArray, isBoolean, isFunction, isNumber, isObject, isPlainObject, isString } from '../general'
 
 type WritableKeys<Value> = {
   [Key in keyof Value]-?: (<Item>() => Item extends Pick<Value, Key> ? 1 : 2) extends <Item>() => Item extends {
@@ -61,6 +62,7 @@ const booleanAttributes = new Set(
   ),
 )
 const resourceProperties = new Set(['src', 'srcset', 'srcSet', 'href', 'poster', 'data'])
+const valueProperties = new Set(['value', 'valueAsNumber', 'valueAsDate'])
 
 export function createElement<Tag extends keyof SVGElementTagNameMap>(
   tag: Tag,
@@ -95,19 +97,38 @@ export function createElement(tag: string, options: object = {}, children?: Elem
   }
 
   const entries: [string, unknown][] = Object.entries(options)
-  const content = entries.filter(
-    ([key, value]) => (key === 'innerHTML' || key === 'textContent') && value !== undefined,
+  const {
+    events = [],
+    content = [],
+    properties = [],
+    values = [],
+    resources = [],
+  } = groupBy(
+    entries.filter(
+      ([key, value]) => !['namespace', 'attributes', 'style', 'dataset', 'on'].includes(key) && value !== undefined,
+    ),
+    ([key]) => {
+      if (key.startsWith('on')) {
+        return 'events'
+      }
+
+      if (key === 'innerHTML' || key === 'textContent') {
+        return 'content'
+      }
+
+      if (resourceProperties.has(key)) {
+        return 'resources'
+      }
+
+      return valueProperties.has(key) ? 'values' : 'properties'
+    },
   )
   if (content.length > 1 || (content.length && children !== undefined)) {
     throw new TypeError('Specify only one of innerHTML, textContent or children.')
   }
 
   const element = namespace === 'svg' ? document.createElementNS(svgNamespace, tag) : document.createElement(tag)
-  const properties = entries.filter(
-    ([key, value]) => !['namespace', 'attributes', 'style', 'dataset', 'on'].includes(key) && value !== undefined,
-  )
-
-  for (const [key, value] of properties.filter(([key]) => key.startsWith('on'))) {
+  for (const [key, value] of events) {
     setProperty(element, key, value)
   }
 
@@ -117,11 +138,11 @@ export function createElement(tag: string, options: object = {}, children?: Elem
         continue
       }
 
-      const listener: unknown = Array.isArray(configured) ? configured[0] : configured
-      const listenerOptions: unknown = Array.isArray(configured) ? configured[1] : undefined
+      const listener: unknown = isArray(configured) ? configured[0] : configured
+      const listenerOptions: unknown = isArray(configured) ? configured[1] : undefined
       if (
         !isListener(listener) ||
-        (listenerOptions !== undefined && typeof listenerOptions !== 'boolean' && !isPlainObject(listenerOptions))
+        (listenerOptions !== undefined && !isBoolean(listenerOptions) && !isPlainObject(listenerOptions))
       ) {
         throw new TypeError('Invalid element event listener.')
       }
@@ -130,13 +151,16 @@ export function createElement(tag: string, options: object = {}, children?: Elem
     }
   }
 
-  const attributes = 'attributes' in options && options.attributes !== undefined ? getEntries(options.attributes) : []
-  for (const [name, value] of attributes.filter(([name]) => !resourceProperties.has(name))) {
+  const { initial = [], deferred = [] } = groupBy(
+    'attributes' in options && options.attributes !== undefined ? getEntries(options.attributes) : [],
+    ([name]) => (resourceProperties.has(name) ? 'deferred' : 'initial'),
+  )
+  for (const [name, value] of initial) {
     setAttribute(name, value)
   }
 
   if ('style' in options && options.style !== undefined) {
-    if (typeof options.style === 'string') {
+    if (isString(options.style)) {
       element.style.cssText = options.style
     } else {
       for (const [name, value] of getEntries(options.style)) {
@@ -169,19 +193,21 @@ export function createElement(tag: string, options: object = {}, children?: Elem
 
   appendChildren(children)
 
-  for (const [key, value] of properties
-    .filter(
-      ([key]) => !key.startsWith('on') && key !== 'innerHTML' && key !== 'textContent' && !resourceProperties.has(key),
-    )
-    .sort(([first], [second]) => Number(second === 'type') - Number(first === 'type'))) {
+  for (const [key, value] of properties.sort(
+    ([first], [second]) => Number(second === 'type') - Number(first === 'type'),
+  )) {
     setProperty(element, key, value)
   }
 
-  for (const [name, value] of attributes.filter(([name]) => resourceProperties.has(name))) {
+  for (const [key, value] of values) {
+    setProperty(element, key, value)
+  }
+
+  for (const [name, value] of deferred) {
     setAttribute(name, value)
   }
 
-  for (const [key, value] of properties.filter(([key]) => resourceProperties.has(key))) {
+  for (const [key, value] of resources) {
     setProperty(element, key, value)
   }
 
@@ -213,11 +239,11 @@ export function createElement(tag: string, options: object = {}, children?: Elem
   }
 
   function appendChildren(child: ElementChild) {
-    if (child == null || typeof child === 'boolean') {
+    if (child == null || isBoolean(child)) {
       return
     }
 
-    if (Array.isArray(child)) {
+    if (isArray(child)) {
       for (const item of child) {
         appendChildren(item)
       }
@@ -225,7 +251,7 @@ export function createElement(tag: string, options: object = {}, children?: Elem
       return
     }
 
-    if (typeof child === 'string' || typeof child === 'number') {
+    if (isString(child) || isNumber(child)) {
       element.appendChild(element.ownerDocument.createTextNode(String(child)))
 
       return
@@ -254,12 +280,9 @@ function setProperty(target: object, key: string, value: unknown) {
 }
 
 function isListener(value: unknown): value is EventListenerOrEventListenerObject {
-  return (
-    typeof value === 'function' ||
-    (typeof value === 'object' && value !== null && 'handleEvent' in value && typeof value.handleEvent === 'function')
-  )
+  return isFunction(value) || (isObject(value) && 'handleEvent' in value && isFunction(value.handleEvent))
 }
 
 function isNode(value: unknown): value is Node {
-  return typeof value === 'object' && value !== null && 'nodeType' in value && typeof value.nodeType === 'number'
+  return isObject(value) && 'nodeType' in value && isNumber(value.nodeType)
 }

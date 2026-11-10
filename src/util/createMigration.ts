@@ -1,3 +1,5 @@
+import { isFunction } from '../general/isFunction'
+
 export type MigrationStep = (value: unknown) => unknown
 
 export interface MigrationOptions {
@@ -13,12 +15,7 @@ export class MigrationError extends Error {
     options: { fromVersion?: number; toVersion: number; cause?: unknown },
   ) {
     super(
-      'Migration ' +
-        reason +
-        (options.fromVersion === undefined ? '' : ' from version ' + options.fromVersion) +
-        ' to version ' +
-        options.toVersion +
-        '.',
+      `Migration ${reason}${options.fromVersion === undefined ? '' : ` from version ${options.fromVersion}`} to version ${options.toVersion}.`,
       { cause: options.cause },
     )
     this.name = 'MigrationError'
@@ -42,7 +39,7 @@ export function createMigration({ currentVersion, migrations }: MigrationOptions
         throw new MigrationError('invalid-version', { toVersion: version })
       }
 
-      if (typeof migrate !== 'function') {
+      if (!isFunction(migrate)) {
         throw new TypeError('Migration step must be a function.')
       }
 
