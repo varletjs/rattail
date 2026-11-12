@@ -24,6 +24,9 @@ jobs:
       - name: Run linter
         run: pnpm lint
 
+      - name: Check types
+        run: pnpm test:types
+
       - name: Run test cases
         run: pnpm test
 

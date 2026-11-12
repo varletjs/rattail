@@ -102,9 +102,9 @@ lint({
   // 启用 Vitest 支持（默认：true）
   vitest: true,
   // 自定义规则，会覆盖预设规则
-  // （例如默认开启的 'import/no-cycle'，设为 'off' 即可关闭）
   rules: {
     'no-console': 'error',
+    'import/no-cycle': 'error',
   },
   // 额外的 overrides
   overrides: [

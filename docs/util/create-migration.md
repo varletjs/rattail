@@ -43,7 +43,7 @@ await migration.migrate({ value: 'Ada' })
 
 ### Method
 
-`migrate({ version, value })` returns a promise for `{ version: number; value: unknown }`. With `getVersion` configured, call `migrate({ value })` to detect the starting version. An explicit `version` takes precedence.
+`migrate({ version, value })` returns a promise for `{ version: number; value: unknown }`. With `getVersion` configured, call `migrate({ value })` to detect the starting version. An explicit `version` takes precedence. Use `satisfies MigrationOptions` when declaring the options separately so TypeScript retains the required `getVersion` property.
 
 Use `createMigration<Current>(options)` to declare the type of the returned `value`. The caller is responsible for ensuring the data matches `Current`.
 

@@ -32,7 +32,7 @@ const button = createElement(
 
 ### 注意事项
 
-- 用 `onClick` 绑定监听器，用 `onClick: [listener, { once: true }]` 设置监听选项。也支持 `onClickOnce` 等后缀。用 `'on:CustomReady'` 监听名称恰好为 `CustomReady` 的事件。
+- 用 `onClick` 绑定监听器，用 `onClick: [listener, { once: true }]` 设置监听选项。用 `'on:CustomReadyOnce'` 监听名称恰好为 `CustomReadyOnce` 的事件。
 - `style` 接受 CSS 字符串或样式对象。数据属性可通过 `dataset` 或 `'data-id'` 等字段设置。
 - `children` 中的字符串和数字作为文本插入，空值和布尔值会跳过。`children`、`textContent`、`innerHTML` 任选一种设置内容。
 - `svg` 标签自动创建 SVG 节点。其他 SVG 标签需要传入 `namespace: 'svg'`，例如 `createElement('circle', { namespace: 'svg', r: 8 })`。

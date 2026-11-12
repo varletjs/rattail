@@ -5,7 +5,7 @@ export type MigrationStep = (value: unknown) => unknown
 export interface MigrationOptions {
   currentVersion: number
   migrations: Readonly<Record<number, MigrationStep>>
-  getVersion?: (value: unknown) => number | undefined
+  getVersion?: (this: void, value: unknown) => number | undefined
 }
 
 type MigrationInput = { value: unknown; version?: number }

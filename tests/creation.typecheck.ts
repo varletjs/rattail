@@ -1,5 +1,5 @@
 import { expectTypeOf } from 'vite-plus/test'
-import { createElement, createMigration, type CreateElementOptions } from '../src'
+import { createElement, createMigration, type CreateElementOptions, type MigrationOptions } from '../src'
 
 const image = createElement('img', { src: '/image.png', loading: 'lazy', width: 32 })
 const circle = createElement('circle', { namespace: 'svg', r: 12 })
@@ -27,12 +27,12 @@ createElement('button', {
     },
     { once: true, passive: false },
   ],
-  onClickOnceCapture(event) {
-    expectTypeOf(event).toEqualTypeOf<PointerEvent>()
-  },
-  'on:custom:ready'(event) {
-    expectTypeOf(event).toEqualTypeOf<Event>()
-  },
+  'on:CustomReadyOnce': [
+    (event) => {
+      expectTypeOf(event).toEqualTypeOf<Event>()
+    },
+    { once: true },
+  ],
 })
 createElement('input', { form: 'owner', list: 'choices' })
 createElement('iframe', { sandbox: 'allow-scripts' })
@@ -84,8 +84,18 @@ const typedMigration = createMigration<Current>({ currentVersion: 1, migrations:
 const typedPending = typedMigration.migrate({ version: 1, value: stored })
 expectTypeOf(typedPending).toEqualTypeOf<Promise<{ version: number; value: Current }>>()
 
-const typedCustomMigration = createMigration<Current>({ currentVersion: 1, getVersion: () => 1, migrations: {} })
+const resolverOptions = { currentVersion: 1, getVersion: () => 1, migrations: {} } satisfies MigrationOptions
+const typedCustomMigration = createMigration<Current>(resolverOptions)
 expectTypeOf(typedCustomMigration.migrate({ value: stored })).toEqualTypeOf<typeof typedPending>()
+
+createMigration({
+  currentVersion: 1,
+  migrations: {},
+  getVersion() {
+    // @ts-expect-error the resolver runs without a receiver
+    return this.currentVersion
+  },
+})
 
 // @ts-expect-error specifying the result type still requires a version without a resolver
 typedMigration.migrate({ value: stored })

@@ -43,7 +43,7 @@ await migration.migrate({ value: 'Ada' })
 
 ### 方法
 
-`migrate({ version, value })` 返回包含 `{ version: number; value: unknown }` 的 Promise。配置 `getVersion` 后，可以调用 `migrate({ value })` 识别起始版本。显式传入的 `version` 优先。
+`migrate({ version, value })` 返回包含 `{ version: number; value: unknown }` 的 Promise。配置 `getVersion` 后，可以调用 `migrate({ value })` 识别起始版本。显式传入的 `version` 优先。单独声明配置时，可以用 `satisfies MigrationOptions` 保留 `getVersion` 已配置的类型信息。
 
 通过 `createMigration<Current>(options)` 指定返回的 `value` 类型。调用方负责确保数据符合 `Current`。
 

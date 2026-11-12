@@ -56,11 +56,8 @@ export type ElementEvent<EventType extends Event = Event> =
   | ElementListener<EventType>
   | readonly [ElementListener<EventType>, boolean | AddEventListenerOptions]
 
-type EventModifier = '' | 'Once' | 'Passive' | 'Capture'
-type EventSuffix = `${EventModifier}${EventModifier}${EventModifier}`
-
 export type ElementEvents = {
-  [Key in keyof GlobalEventHandlersEventMap as `on${Capitalize<Key>}${EventSuffix}`]?: ElementEvent<
+  [Key in keyof GlobalEventHandlersEventMap as `on${Capitalize<Key>}`]?: ElementEvent<
     GlobalEventHandlersEventMap[Key]
   > | null
 } & {
@@ -155,6 +152,7 @@ export function createElement(tag: string, options: object = {}, children?: Elem
     events = [],
     attributes = [],
     content = [],
+    selectProperties = [],
     properties = [],
     values = [],
     resources = [],
@@ -181,6 +179,10 @@ export function createElement(tag: string, options: object = {}, children?: Elem
         return 'attributes'
       }
 
+      if (element.tagName === 'SELECT' && (key === 'multiple' || key === 'size')) {
+        return 'selectProperties'
+      }
+
       return valueProperties.has(key) ? 'values' : 'properties'
     },
   )
@@ -199,14 +201,7 @@ export function createElement(tag: string, options: object = {}, children?: Elem
       throw new TypeError('Invalid element event listener.')
     }
 
-    const parsed = parseEvent(key)
-    element.addEventListener(
-      parsed.name,
-      listener,
-      Object.keys(parsed.options).length
-        ? { ...(isBoolean(listenerOptions) ? { capture: listenerOptions } : listenerOptions), ...parsed.options }
-        : listenerOptions,
-    )
+    element.addEventListener(key.startsWith('on:') ? key.slice(3) : kebabCase(key.slice(2)), listener, listenerOptions)
   }
 
   for (const [name, value] of attributes) {
@@ -239,6 +234,10 @@ export function createElement(tag: string, options: object = {}, children?: Elem
         element.dataset[name] = String(value)
       }
     }
+  }
+
+  for (const [key, value] of selectProperties) {
+    setElementProperty(key, value)
   }
 
   for (const [key, value] of content) {
@@ -361,23 +360,6 @@ export function createElement(tag: string, options: object = {}, children?: Elem
       element.appendChild(child)
     }
   }
-}
-
-function parseEvent(key: string) {
-  const options: AddEventListenerOptions = {}
-  let suffix: RegExpMatchArray | null
-
-  while ((suffix = key.match(/(Once|Passive|Capture)$/))) {
-    const prefixLength = key[2] === ':' ? 3 : 2
-    if (key.length === prefixLength + suffix[1].length) {
-      break
-    }
-
-    key = key.slice(0, -suffix[1].length)
-    Reflect.set(options, suffix[1].toLowerCase(), true)
-  }
-
-  return { name: key[2] === ':' ? key.slice(3) : kebabCase(key.slice(2)), options }
 }
 
 function getEntries(value: unknown): [string, unknown][] {
