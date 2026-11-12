@@ -45,6 +45,8 @@ await migration.migrate({ value: 'Ada' })
 
 `migrate({ version, value })` returns a promise for `{ version: number; value: unknown }`. With `getVersion` configured, call `migrate({ value })` to detect the starting version. An explicit `version` takes precedence.
 
+Use `createMigration<Current>(options)` to declare the type of the returned `value`. The caller is responsible for ensuring the data matches `Current`.
+
 ### Notes
 
 - A current-version value is returned as supplied. Invalid versions and missing steps reject before any migration step runs.

@@ -77,6 +77,19 @@ expectTypeOf(pending).toEqualTypeOf<Promise<{ version: number; value: unknown }>
 const customMigration = createMigration({ currentVersion: 1, getVersion: () => 1, migrations: {} })
 expectTypeOf(customMigration.migrate({ value: {} })).toEqualTypeOf<typeof pending>()
 
+type Current = { name: string }
+const stored: unknown = { name: 'Ada' }
+
+const typedMigration = createMigration<Current>({ currentVersion: 1, migrations: {} })
+const typedPending = typedMigration.migrate({ version: 1, value: stored })
+expectTypeOf(typedPending).toEqualTypeOf<Promise<{ version: number; value: Current }>>()
+
+const typedCustomMigration = createMigration<Current>({ currentVersion: 1, getVersion: () => 1, migrations: {} })
+expectTypeOf(typedCustomMigration.migrate({ value: stored })).toEqualTypeOf<typeof typedPending>()
+
+// @ts-expect-error specifying the result type still requires a version without a resolver
+typedMigration.migrate({ value: stored })
+
 // @ts-expect-error omitting the version requires a resolver
 migration.migrate({ value: {} })
 

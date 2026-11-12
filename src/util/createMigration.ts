@@ -9,7 +9,7 @@ export interface MigrationOptions {
 }
 
 type MigrationInput = { value: unknown; version?: number }
-type MigrationResult = { value: unknown; version: number }
+type MigrationResult<Current> = { value: Current; version: number }
 
 export type MigrationErrorReason = 'invalid-version' | 'unsupported-version' | 'missing-migration' | 'migration-failed'
 
@@ -31,13 +31,15 @@ export class MigrationError extends Error {
   readonly toVersion: number
 }
 
-export function createMigration(
+export function createMigration<Current = unknown>(
   options: MigrationOptions & { getVersion: NonNullable<MigrationOptions['getVersion']> },
 ): {
-  migrate(input: MigrationInput): Promise<MigrationResult>
+  migrate(input: MigrationInput): Promise<MigrationResult<Current>>
 }
-export function createMigration(options: MigrationOptions): {
-  migrate(input: MigrationInput & { version: number }): Promise<MigrationResult>
+export function createMigration<Current = unknown>(
+  options: MigrationOptions,
+): {
+  migrate(input: MigrationInput & { version: number }): Promise<MigrationResult<Current>>
 }
 export function createMigration({ currentVersion, migrations, getVersion }: MigrationOptions) {
   if (!Number.isSafeInteger(currentVersion) || currentVersion < 1) {
