@@ -9,6 +9,7 @@ it('creates the default lint config', () => {
   expect(config.plugins).toEqual(['eslint', 'oxc', 'unicorn', 'import', 'typescript', 'vue', 'vitest'])
   expect(config.categories).toEqual({ correctness: 'off' })
   expect(config.rules?.['vue/valid-define-props']).toBe('error')
+  expect(config.rules?.['import/no-cycle']).toBe('error')
   expect(config.ignorePatterns).toContain('**/node_modules')
   expect(config.overrides).toHaveLength(2)
 })
@@ -24,13 +25,14 @@ it('customizes lint contributions', () => {
     react: true,
     vitest: false,
     ignores: ['generated/**'],
-    rules: { eqeqeq: 'warn' },
+    rules: { eqeqeq: 'warn', 'import/no-cycle': 'off' },
     overrides: [override],
   })
 
   expect(config.plugins).toEqual(['eslint', 'oxc', 'unicorn', 'import', 'vue', 'react'])
   expect(config.rules?.['vue/no-deprecated-destroyed-lifecycle']).toBe('off')
   expect(config.rules?.eqeqeq).toBe('warn')
+  expect(config.rules?.['import/no-cycle']).toBe('off')
   expect(config.ignorePatterns).toContain('generated/**')
   expect(config.overrides?.at(-1)).toEqual(override)
 })

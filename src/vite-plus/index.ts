@@ -223,6 +223,7 @@ function createJsConfig(): LintConfigContribution {
       'import/no-duplicates': 'error',
       'import/no-mutable-exports': 'error',
       'import/no-self-import': 'error',
+      'import/no-cycle': 'error',
     },
   }
 }
