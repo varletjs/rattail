@@ -101,7 +101,8 @@ lint({
   react: false,
   // Enable Vitest support (default: true)
   vitest: true,
-  // Custom rules
+  // Custom rules, which override the preset rules
+  // (e.g. 'import/no-cycle' is enabled by default, set it to 'off' to disable)
   rules: {
     'no-console': 'error',
   },
