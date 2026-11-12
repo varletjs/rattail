@@ -1,6 +1,7 @@
 export * from './getGlobalThis'
 export * from './hasOwn'
 export * from './inBrowser'
+export * from './defaultDocument'
 export * from './inMobile'
 export * from './isArray'
 export * from './isArrayBuffer'

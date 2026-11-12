@@ -28,7 +28,7 @@ export default defineConfig({
 
   staged: staged(),
 
-  lint: lint(),
+  lint: lint({ rules: { 'import/no-cycle': 'error' } }),
 
   fmt: fmt({
     ignores: ['docs/**/*.md'],

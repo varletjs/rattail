@@ -1,4 +1,5 @@
-import { isBoolean, isString } from '../general'
+import { isBoolean } from '../general/isBoolean'
+import { isString } from '../general/isString'
 
 export function toNumber(val: number | string | boolean | undefined | null): number {
   if (val == null) {
