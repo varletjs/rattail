@@ -1,61 +1,52 @@
 # createMigration
 
-创建不依赖存储的迁移链，按连续的正整数格式版本逐级升级。
+按连续版本逐级升级数据。
 
 ### 使用
 
 ```ts
-import { createMigration, isNumber, isObject } from 'rattail'
+import { createMigration, isNumber, isObject, isString } from 'rattail'
 
 const migration = createMigration({
-  currentVersion: 3,
+  currentVersion: 2,
+  getVersion(value) {
+    if (isString(value)) {
+      return 1
+    }
+
+    if (isObject(value) && isNumber(value.schemaVersion)) {
+      return value.schemaVersion
+    }
+  },
   migrations: {
     2(value) {
-      if (!isNumber(value)) {
-        throw new TypeError('V1 must be a number')
+      if (!isString(value)) {
+        throw new TypeError('V1 must be a string')
       }
-      return { count: value }
-    },
-    async 3(value) {
-      if (!isObject(value) || !isNumber(value.count)) {
-        throw new TypeError('V2 must contain a count')
-      }
-      return { count: value.count, enabled: true }
+
+      return { schemaVersion: 2, name: value }
     },
   },
 })
 
-const result = await migration.migrate({ version: 1, value: 5 })
-// { version: 3, value: { count: 5, enabled: true } }
+await migration.migrate({ value: 'Ada' })
+// { version: 2, value: { schemaVersion: 2, name: 'Ada' } }
 ```
 
-### API
+### 配置
 
-| 字段 | 说明 |
+| 配置项 | 说明 |
 | --- | --- |
-| `currentVersion` | 目标格式版本，必须为正安全整数 |
-| `migrations` | 以目标版本为 key，`2` 表示 V1 → V2 |
-| `migrate({ version, value })` | 返回 `Promise<{ version: number; value: unknown }>` |
+| `currentVersion` | 目标版本，必须是正安全整数 |
+| `migrations` | 以目标版本为键的同步或异步迁移函数。键 `2` 表示从 V1 升级到 V2。 |
+| `getVersion` | 可选的同步函数，可读取自定义版本字段或按数据结构判断版本。无法识别时返回 `undefined`。 |
 
-迁移 key 必须是 `2` 到当前版本之间的规范整数。创建时保存回调快照，支持同步或异步返回。
+### 方法
 
-执行回调前先检查整段所需路径。输入已是当前版本时保留原始值引用。多次调用不共享执行状态；路径缺失时不会遍历无界整数区间。
+`migrate({ version, value })` 返回包含 `{ version: number; value: unknown }` 的 Promise。配置 `getVersion` 后，可以调用 `migrate({ value })` 识别起始版本。显式传入的 `version` 优先。
 
-### 错误
+### 注意事项
 
-`MigrationError` 继承 `Error`，包含 `reason`、`fromVersion`、`toVersion`、`cause`。
-
-| reason | 含义 |
-| --- | --- |
-| `invalid-version` | 当前、输入或注册的目标版本不合法 |
-| `unsupported-version` | 输入高于当前版本 |
-| `missing-migration` | 缺少所需的连续迁移步骤 |
-| `migration-failed` | 回调抛错或拒绝，`cause` 保留原始原因 |
-
-JavaScript 传入非函数回调时，创建阶段抛出 `TypeError`。步骤失败后立即停止。
-
-### 职责边界
-
-迁移函数负责旧数据校验、转换、新数据校验，包括业务指纹与关联关系。返回值保持 `unknown`，由调用方校验后使用。
-
-执行器不推测或修改 `value.formatVersion`，不复制数据、回滚回调修改、写文件、加锁或备份。迁移函数应保持确定性，持久化提交与重试由调用方负责。
+- 数据已经是当前版本时直接返回原值。版本无效或缺少迁移步骤时，会在执行任何步骤前报错。
+- 每一步负责校验并转换输入。需要持久化的版本字段由迁移函数写入返回值。
+- 迁移失败时抛出 `MigrationError`，包含 `reason` 和相关版本。回调抛错或拒绝时，可通过 `cause` 获取原始错误。

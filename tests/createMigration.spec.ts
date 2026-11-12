@@ -1,5 +1,5 @@
 import { describe, expect, expectTypeOf, it, vi } from 'vite-plus/test'
-import { createMigration, MigrationError, promiseWithResolvers, type MigrationStep } from '../src'
+import { createMigration, isNumber, isObject, MigrationError, promiseWithResolvers, type MigrationStep } from '../src'
 
 describe('createMigration', () => {
   it('keeps current values untouched without executing any step', async () => {
@@ -18,6 +18,73 @@ describe('createMigration', () => {
     const migration = createMigration({ currentVersion: 1, migrations: {} })
 
     expect(await migration.migrate({ version: 1, value: null })).toEqual({ version: 1, value: null })
+  })
+
+  it('resolves the source from a custom field and runs the remaining chain', async () => {
+    const value = { schemaVersion: 1, name: 'Ada' }
+    const getVersion = vi.fn((value: unknown) =>
+      isObject(value) && isNumber(value.schemaVersion) ? value.schemaVersion : undefined,
+    )
+    const migration = createMigration({
+      currentVersion: 3,
+      getVersion,
+      migrations: {
+        2: () => ({ name: 'Ada' }),
+        3: (value) => ({ schemaVersion: 3, profile: value }),
+      },
+    })
+
+    expect(await migration.migrate({ value })).toEqual({
+      version: 3,
+      value: { schemaVersion: 3, profile: { name: 'Ada' } },
+    })
+    expect(getVersion).toHaveBeenCalledExactlyOnceWith(value)
+  })
+
+  it('infers unversioned shapes and rejects an unknown shape before running a step', async () => {
+    const step = vi.fn(() => ({ name: 'Ada' }))
+    const migration = createMigration({
+      currentVersion: 2,
+      getVersion(value) {
+        if (typeof value === 'string') {
+          return 1
+        }
+
+        if (isObject(value) && 'name' in value) {
+          return 2
+        }
+      },
+      migrations: { 2: step },
+    })
+
+    await expect(migration.migrate({ value: {} })).rejects.toMatchObject({ reason: 'invalid-version', toVersion: 2 })
+    expect(step).not.toHaveBeenCalled()
+
+    const result = await migration.migrate({ value: 'Ada' })
+    expect(result).toEqual({ version: 2, value: { name: 'Ada' } })
+    expect((await migration.migrate({ value: result.value })).value).toBe(result.value)
+    expect(step).toHaveBeenCalledExactlyOnceWith('Ada')
+  })
+
+  it('uses an explicit version without invoking the resolver', async () => {
+    const getVersion = vi.fn(() => 3)
+    const migration = createMigration({ currentVersion: 2, getVersion, migrations: { 2: () => 'upgraded' } })
+
+    expect(await migration.migrate({ version: 1, value: 'source' })).toEqual({ version: 2, value: 'upgraded' })
+    expect(getVersion).not.toHaveBeenCalled()
+  })
+
+  it('preserves the cause when the version resolver throws', async () => {
+    const cause = new TypeError('Invalid source')
+    const migration = createMigration({
+      currentVersion: 1,
+      getVersion() {
+        throw cause
+      },
+      migrations: {},
+    })
+
+    await expect(migration.migrate({ value: null })).rejects.toMatchObject({ reason: 'invalid-version', cause })
   })
 
   it('orders steps by target version and passes each result to the next step', async () => {

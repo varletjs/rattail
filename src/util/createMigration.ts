@@ -5,7 +5,11 @@ export type MigrationStep = (value: unknown) => unknown
 export interface MigrationOptions {
   currentVersion: number
   migrations: Readonly<Record<number, MigrationStep>>
+  getVersion?: (value: unknown) => number | undefined
 }
+
+type MigrationInput = { value: unknown; version?: number }
+type MigrationResult = { value: unknown; version: number }
 
 export type MigrationErrorReason = 'invalid-version' | 'unsupported-version' | 'missing-migration' | 'migration-failed'
 
@@ -27,9 +31,21 @@ export class MigrationError extends Error {
   readonly toVersion: number
 }
 
-export function createMigration({ currentVersion, migrations }: MigrationOptions) {
+export function createMigration(
+  options: MigrationOptions & { getVersion: NonNullable<MigrationOptions['getVersion']> },
+): {
+  migrate(input: MigrationInput): Promise<MigrationResult>
+}
+export function createMigration(options: MigrationOptions): {
+  migrate(input: MigrationInput & { version: number }): Promise<MigrationResult>
+}
+export function createMigration({ currentVersion, migrations, getVersion }: MigrationOptions) {
   if (!Number.isSafeInteger(currentVersion) || currentVersion < 1) {
     throw new MigrationError('invalid-version', { toVersion: currentVersion })
+  }
+
+  if (getVersion !== undefined && !isFunction(getVersion)) {
+    throw new TypeError('Migration version resolver must be a function.')
   }
 
   const steps = Object.entries(migrations)
@@ -49,8 +65,16 @@ export function createMigration({ currentVersion, migrations }: MigrationOptions
 
   return { migrate }
 
-  async function migrate({ version, value }: { version: number; value: unknown }) {
-    if (!Number.isSafeInteger(version) || version < 1) {
+  async function migrate({ version, value }: MigrationInput) {
+    if (version === undefined && getVersion) {
+      try {
+        version = getVersion(value)
+      } catch (cause) {
+        throw new MigrationError('invalid-version', { toVersion: currentVersion, cause })
+      }
+    }
+
+    if (version === undefined || !Number.isSafeInteger(version) || version < 1) {
       throw new MigrationError('invalid-version', { fromVersion: version, toVersion: currentVersion })
     }
 

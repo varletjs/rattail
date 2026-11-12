@@ -74,6 +74,12 @@ const migration = createMigration({ currentVersion: 1, migrations: {} })
 const pending = migration.migrate({ version: 1, value: {} })
 expectTypeOf(pending).toEqualTypeOf<Promise<{ version: number; value: unknown }>>()
 
+const customMigration = createMigration({ currentVersion: 1, getVersion: () => 1, migrations: {} })
+expectTypeOf(customMigration.migrate({ value: {} })).toEqualTypeOf<typeof pending>()
+
+// @ts-expect-error omitting the version requires a resolver
+migration.migrate({ value: {} })
+
 // @ts-expect-error stored versions must be numbers
 migration.migrate({ version: '1', value: {} })
 // @ts-expect-error steps must accept unvalidated input

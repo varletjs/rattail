@@ -1,61 +1,52 @@
 # createMigration
 
-Creates a storage-independent chain of consecutive positive integer format versions.
+Upgrades a value through consecutive format versions.
 
 ### Usage
 
 ```ts
-import { createMigration, isNumber, isObject } from 'rattail'
+import { createMigration, isNumber, isObject, isString } from 'rattail'
 
 const migration = createMigration({
-  currentVersion: 3,
+  currentVersion: 2,
+  getVersion(value) {
+    if (isString(value)) {
+      return 1
+    }
+
+    if (isObject(value) && isNumber(value.schemaVersion)) {
+      return value.schemaVersion
+    }
+  },
   migrations: {
     2(value) {
-      if (!isNumber(value)) {
-        throw new TypeError('V1 must be a number')
+      if (!isString(value)) {
+        throw new TypeError('V1 must be a string')
       }
-      return { count: value }
-    },
-    async 3(value) {
-      if (!isObject(value) || !isNumber(value.count)) {
-        throw new TypeError('V2 must contain a count')
-      }
-      return { count: value.count, enabled: true }
+
+      return { schemaVersion: 2, name: value }
     },
   },
 })
 
-const result = await migration.migrate({ version: 1, value: 5 })
-// { version: 3, value: { count: 5, enabled: true } }
+await migration.migrate({ value: 'Ada' })
+// { version: 2, value: { schemaVersion: 2, name: 'Ada' } }
 ```
 
-### API
+### Options
 
-| Field | Description |
+| Option | Description |
 | --- | --- |
-| `currentVersion` | Target format, a positive safe integer |
-| `migrations` | Record keyed by target version; `2` means V1 → V2 |
-| `migrate({ version, value })` | Returns `Promise<{ version: number; value: unknown }>` |
+| `currentVersion` | Target version as a positive safe integer |
+| `migrations` | Sync or async steps keyed by target version. Key `2` upgrades V1 to V2. |
+| `getVersion` | Optional synchronous function that reads a version from a custom field or infers it from the value's shape. Return `undefined` for an unrecognized value. |
 
-Targets must be canonical integer keys from `2` through `currentVersion`. Callbacks are snapshotted at creation and may return synchronously or asynchronously.
+### Method
 
-The entire required path is checked before any callback runs. Current-version inputs return their original value reference. Invocations have independent execution state. Missing paths do not cause iteration through an unbounded integer range.
+`migrate({ version, value })` returns a promise for `{ version: number; value: unknown }`. With `getVersion` configured, call `migrate({ value })` to detect the starting version. An explicit `version` takes precedence.
 
-### Errors
+### Notes
 
-`MigrationError` extends `Error` with `reason`, `fromVersion`, `toVersion` and `cause`.
-
-| Reason | Meaning |
-| --- | --- |
-| `invalid-version` | Invalid current, input or registered target version |
-| `unsupported-version` | Input exceeds the current version |
-| `missing-migration` | Required consecutive step missing |
-| `migration-failed` | Callback threw or rejected; `cause` retains the failure |
-
-A nonfunction callback supplied from JavaScript throws `TypeError` during creation. A failed step stops the chain.
-
-### Responsibilities
-
-Callbacks own source validation, conversion and target validation, including domain checksums and relationships. Results remain `unknown` until the caller validates them.
-
-The executor does not infer or change `value.formatVersion`, clone values, roll back callback mutations, persist files, acquire locks or create backups. Keep callbacks deterministic; callers control durable commits and retries.
+- A current-version value is returned as supplied. Invalid versions and missing steps reject before any migration step runs.
+- Each step validates and transforms its input. Include any version field you want to persist in the returned value.
+- Failures reject with `MigrationError`, which includes a `reason` and version information. If a callback throws or rejects, `cause` contains its error.
