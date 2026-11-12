@@ -1,4 +1,4 @@
-import { clamp } from '../number'
+import { clamp } from '../number/clamp'
 
 export function chunk<T>(arr: T[], size = 1): T[][] {
   size = clamp(size, 1, arr.length)
