@@ -23,4 +23,6 @@ export const utilItems = [
   { text: 'prettyJSONObject', link: '/util/pretty-JSON-object' },
   { text: 'tryParseJSON', link: '/util/try-parse-JSON' },
   { text: 'createKeyedTaskQueue', link: '/util/create-keyed-task-queue' },
+  { text: 'createMigration', link: '/util/create-migration' },
+  { text: 'createElement', link: '/util/create-element' },
 ]
