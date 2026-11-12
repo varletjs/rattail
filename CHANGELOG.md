@@ -1,3 +1,14 @@
+# [2.6.0](https://github.com/varletjs/rattail/compare/v2.5.0...v2.6.0) (2026-11-12)
+
+### Bug Fixes
+
+* address pre-release review findings ([#55](https://github.com/varletjs/rattail/issues/55)) ([6160d2e](https://github.com/varletjs/rattail/commit/6160d2eeb8bbf7cd719f2f562ed5ed5bd36598a5))
+
+### Features
+
+* add createMigration, createElement and defaultDocument ([#52](https://github.com/varletjs/rattail/issues/52)) ([828e385](https://github.com/varletjs/rattail/commit/828e385c9e44ea4602095999168a1a9a575874b7))
+* **vite-plus:** enable import/no-cycle in the lint preset ([#54](https://github.com/varletjs/rattail/issues/54)) ([7d6d45e](https://github.com/varletjs/rattail/commit/7d6d45ec4e0c2583e874ad037413defb5e0245a6))
+
 # [2.5.0](https://github.com/varletjs/rattail/compare/v2.4.0...v2.5.0) (2026-10-30)
 
 ### Features
