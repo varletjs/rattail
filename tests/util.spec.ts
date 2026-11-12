@@ -376,7 +376,15 @@ it('download', () => {
 })
 
 describe('motion', () => {
-  it('start', async () => {
+  beforeEach(() => {
+    vi.useFakeTimers({ toFake: ['requestAnimationFrame', 'cancelAnimationFrame', 'performance'] })
+  })
+
+  afterEach(() => {
+    vi.useRealTimers()
+  })
+
+  it('start', () => {
     const frame = vi.fn()
     const onStateChange = vi.fn()
     const { start, getState } = motion({
@@ -390,15 +398,15 @@ describe('motion', () => {
     start()
     expect(getState()).toBe('running')
     expect(onStateChange).toHaveBeenLastCalledWith('running')
-    await delay(299)
+    vi.advanceTimersByTime(299)
     expect(getState()).toBe('running')
-    await delay(1 + 20)
+    vi.advanceTimersByTime(1 + 20)
     expect(getState()).toBe('finished')
     expect(onStateChange).toHaveBeenLastCalledWith('finished')
     expect(frame).toHaveBeenLastCalledWith({ value: 100, done: true })
   })
 
-  it('pause and restart', async () => {
+  it('pause and restart', () => {
     const frame = vi.fn()
     const onStateChange = vi.fn()
     const { start, pause, getState } = motion({
@@ -413,12 +421,12 @@ describe('motion', () => {
     pause()
     expect(getState()).toBe('paused')
     expect(onStateChange).toHaveBeenLastCalledWith('paused')
-    await delay(300 + 20)
+    vi.advanceTimersByTime(300 + 20)
     expect(getState()).toBe('paused')
     start()
-    await delay(299)
+    vi.advanceTimersByTime(299)
     expect(getState()).toBe('running')
-    await delay(1 + 20)
+    vi.advanceTimersByTime(1 + 20)
     expect(getState()).toBe('finished')
     expect(onStateChange).toHaveBeenLastCalledWith('finished')
     expect(frame).toHaveBeenLastCalledWith({ value: 100, done: true })
@@ -441,7 +449,7 @@ describe('motion', () => {
     expect(onStateChange).toHaveBeenLastCalledWith('pending')
   })
 
-  it('duration', async () => {
+  it('duration', () => {
     const frame = vi.fn()
     const onStateChange = vi.fn()
     const { start, getState } = motion({
@@ -456,15 +464,15 @@ describe('motion', () => {
     start()
     expect(getState()).toBe('running')
     expect(onStateChange).toHaveBeenLastCalledWith('running')
-    await delay(99)
+    vi.advanceTimersByTime(99)
     expect(getState()).toBe('running')
-    await delay(1 + 20)
+    vi.advanceTimersByTime(1 + 20)
     expect(getState()).toBe('finished')
     expect(onStateChange).toHaveBeenLastCalledWith('finished')
     expect(frame).toHaveBeenLastCalledWith({ value: 100, done: true })
   })
 
-  it('timingFunction', async () => {
+  it('timingFunction', () => {
     const frame = vi.fn()
     const { start } = motion({
       from: 0,
@@ -474,13 +482,13 @@ describe('motion', () => {
     })
 
     start()
-    await delay(20)
+    vi.advanceTimersByTime(20)
     expect(frame).toHaveBeenLastCalledWith({ value: 100, done: false })
-    await delay(300)
+    vi.advanceTimersByTime(300)
     expect(frame).toHaveBeenLastCalledWith({ value: 100, done: true })
   })
 
-  it('state', async () => {
+  it('state', () => {
     const frame = vi.fn()
     const onStateChange = vi.fn()
     const { start, reset, pause } = motion({
@@ -499,7 +507,7 @@ describe('motion', () => {
     expect(onStateChange).toBeCalledTimes(1)
     expect(onStateChange).toHaveBeenLastCalledWith('running')
 
-    await delay(100 + 20)
+    vi.advanceTimersByTime(100 + 20)
     expect(onStateChange).toBeCalledTimes(2)
     expect(onStateChange).toHaveBeenLastCalledWith('finished')
 

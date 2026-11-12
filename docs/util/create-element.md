@@ -32,7 +32,7 @@ Returns the created element. TypeScript infers the type for known tags, such as 
 
 ### Notes
 
-- Use `onClick` for a listener or `onClick: [listener, { once: true }]` for listener options. Suffixes such as `onClickOnce` also work. Use `'on:CustomReady'` to listen for the exact event name `CustomReady`.
+- Use `onClick` for a listener or `onClick: [listener, { once: true }]` for listener options.
 - Use `style` for CSS text or a style object. Use `dataset` or keys such as `'data-id'` for data attributes.
 - Strings and numbers in `children` become text. Empty values and booleans are skipped. Choose one of `children`, `textContent`, or `innerHTML` to set content.
 - The `svg` tag selects SVG automatically. For other SVG tags, pass `namespace: 'svg'`, as in `createElement('circle', { namespace: 'svg', r: 8 })`.

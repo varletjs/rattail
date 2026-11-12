@@ -224,6 +224,22 @@ describe('createElement', () => {
     expect(fromHtml.value).toBe('b')
   })
 
+  it('applies multiple and size before populating select options', () => {
+    const select = createElement('select', { multiple: true }, [
+      createElement('option', { value: 'a', selected: true }),
+      createElement('option', { value: 'b', selected: true }),
+    ])
+    const fromHtml = createElement('select', {
+      multiple: true,
+      innerHTML: '<option value="a" selected>A</option><option value="b" selected>B</option>',
+    })
+    const list = createElement('select', { size: 2 }, createElement('option', { value: 'a' }))
+
+    expect(Array.from(select.selectedOptions, (option) => option.value)).toEqual(['a', 'b'])
+    expect(Array.from(fromHtml.selectedOptions, (option) => option.value)).toEqual(['a', 'b'])
+    expect(list.selectedIndex).toBe(-1)
+  })
+
   it('supports textContent, innerHTML and empty children individually', () => {
     expect(createElement('div', { textContent: '<b>text</b>' }).innerHTML).toBe('&lt;b&gt;text&lt;/b&gt;')
     expect(createElement('div', { innerHTML: '<b>text</b>' }).firstElementChild?.tagName).toBe('B')
@@ -336,52 +352,53 @@ describe('createElement', () => {
     expect(capture).toHaveBeenCalledTimes(1)
   })
 
-  it('parses Vue-style modifier suffixes and keeps their flags over tuple options', () => {
-    const click = vi.fn()
-    const booleanCapture = vi.fn()
-    const passive = vi.fn((event: Event) => event.preventDefault())
-    const button = createElement('button', {
-      onClickOnceCapture: [click, { once: false, capture: false }],
-      onTouchstartPassiveOnce: passive,
-    })
-    button.click()
-    button.click()
-    const event = new Event('touchstart', { cancelable: true })
-    button.dispatchEvent(event)
-    button.dispatchEvent(new Event('touchstart'))
-    const other = createElement('button', { onClickOnce: [booleanCapture, true] })
-    other.click()
-    other.click()
+  it('passes inherited listener options through to the DOM', () => {
+    class CaptureOnce {
+      get capture() {
+        return true
+      }
 
-    expect(click).toHaveBeenCalledTimes(1)
-    expect(passive).toHaveBeenCalledTimes(1)
-    expect(booleanCapture).toHaveBeenCalledTimes(1)
-    expect(event.defaultPrevented).toBe(false)
+      get once() {
+        return true
+      }
+    }
+
+    const calls: string[] = []
+    const button = createElement('button', { onClick: () => calls.push('button') })
+    createElement('div', { onClick: [() => calls.push('parent'), new CaptureOnce()] }, button)
+
+    button.click()
+    button.click()
+
+    expect(calls).toEqual(['parent', 'button', 'button'])
   })
 
-  it('supports exact custom names and event names that equal a modifier', () => {
+  it('keeps event names intact and takes listener options from the tuple', () => {
     const custom = vi.fn()
     const kebab = vi.fn()
-    const once = vi.fn()
-    const capture = vi.fn()
+    const click = vi.fn()
     const element = createElement('div', {
-      'on:CustomReady': custom,
-      onMyEvent: kebab,
-      onOnce: once,
-      'on:Capture': capture,
-      onClick: null,
+      'on:CustomReadyOnce': [custom, { once: true }],
+      onMyEventOnce: kebab,
+      onClick: click,
     })
+
     element.dispatchEvent(new Event('CustomReady'))
-    element.dispatchEvent(new Event('customready'))
+    element.dispatchEvent(new Event('customreadyonce'))
     element.dispatchEvent(new Event('my-event'))
-    element.dispatchEvent(new Event('once'))
-    element.dispatchEvent(new Event('Capture'))
+    expect(custom).not.toHaveBeenCalled()
+    expect(kebab).not.toHaveBeenCalled()
+
+    element.dispatchEvent(new Event('CustomReadyOnce'))
+    element.dispatchEvent(new Event('CustomReadyOnce'))
+    element.dispatchEvent(new Event('my-event-once'))
+    element.dispatchEvent(new Event('my-event-once'))
+    element.click()
     element.click()
 
     expect(custom).toHaveBeenCalledTimes(1)
-    expect(kebab).toHaveBeenCalledTimes(1)
-    expect(once).toHaveBeenCalledTimes(1)
-    expect(capture).toHaveBeenCalledTimes(1)
+    expect(kebab).toHaveBeenCalledTimes(2)
+    expect(click).toHaveBeenCalledTimes(2)
   })
 
   it('installs handlers and request configuration before assigning resource URLs', () => {
