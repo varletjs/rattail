@@ -1,3 +1,9 @@
+## [2.6.1](https://github.com/varletjs/rattail/compare/v2.6.0...v2.6.1) (2026-11-16)
+
+### Bug Fixes
+
+* **copyText:** keep the temporary textarea inside focus traps ([#57](https://github.com/varletjs/rattail/issues/57)) ([bd22adc](https://github.com/varletjs/rattail/commit/bd22adca8baa5684bc08e40954a255c5676f58b7))
+
 # [2.6.0](https://github.com/varletjs/rattail/compare/v2.5.0...v2.6.0) (2026-11-12)
 
 ### Bug Fixes
