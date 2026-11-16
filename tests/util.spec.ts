@@ -331,6 +331,44 @@ describe('copyText', () => {
     execCommandMock.mockRestore()
   })
 
+  it('should insert the textarea next to the focused element and restore focus', () => {
+    const container = document.createElement('div')
+    const button = document.createElement('button')
+    container.appendChild(button)
+    document.body.appendChild(container)
+    button.focus()
+
+    let textAreaParent: HTMLElement | null = null
+    const execCommandMock = vi.fn().mockImplementation(() => {
+      textAreaParent = container.querySelector('textarea')?.parentElement ?? null
+      return true
+    })
+    document.execCommand = execCommandMock
+
+    copyText('Hello, world!')
+
+    expect(textAreaParent).toBe(container)
+    expect(container.querySelector('textarea')).toBeNull()
+    expect(document.activeElement).toBe(button)
+    container.remove()
+    execCommandMock.mockRestore()
+  })
+
+  it('should insert the textarea into body when nothing is focused', () => {
+    let textAreaParent: HTMLElement | null = null
+    const execCommandMock = vi.fn().mockImplementation(() => {
+      textAreaParent = document.querySelector('textarea')?.parentElement ?? null
+      return true
+    })
+    document.execCommand = execCommandMock
+
+    copyText('Hello, world!')
+
+    expect(textAreaParent).toBe(document.body)
+    expect(document.querySelector('textarea')).toBeNull()
+    execCommandMock.mockRestore()
+  })
+
   it('should not execute copy when no text is provided', () => {
     const execCommandMock = vi.fn()
     document.execCommand = execCommandMock
