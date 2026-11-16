@@ -217,6 +217,44 @@ it('groupBy', () => {
   })
 })
 
+it('groupBy with keys that exist on Object.prototype', () => {
+  const items = [
+    { tag: 'constructor' },
+    { tag: 'toString' },
+    { tag: 'js' },
+    { tag: 'constructor' },
+    { tag: 'hasOwnProperty' },
+  ]
+  const result = groupBy(items, (val) => val.tag)
+
+  expect(result).toEqual({
+    constructor: [{ tag: 'constructor' }, { tag: 'constructor' }],
+    toString: [{ tag: 'toString' }],
+    js: [{ tag: 'js' }],
+    hasOwnProperty: [{ tag: 'hasOwnProperty' }],
+  })
+  expect(Object.keys(result)).toEqual(['constructor', 'toString', 'js', 'hasOwnProperty'])
+})
+
+it('groupBy with __proto__ key', () => {
+  const result = groupBy([{ tag: '__proto__' }, { tag: 'js' }, { tag: '__proto__' }], (val) => val.tag)
+
+  expect(Object.keys(result)).toEqual(['__proto__', 'js'])
+  expect(Object.getOwnPropertyDescriptor(result, '__proto__')?.value).toEqual([
+    { tag: '__proto__' },
+    { tag: '__proto__' },
+  ])
+  expect(Object.getPrototypeOf(result)).toBe(Object.prototype)
+})
+
+it('groupBy with number and symbol keys', () => {
+  const sym = Symbol('group')
+  const result = groupBy([1, 2, 3], (val) => (val === 2 ? sym : val % 2))
+
+  expect(result[1]).toEqual([1, 3])
+  expect(result[sym]).toEqual([2])
+})
+
 it('xor', () => {
   expect(xor([])).toEqual([])
   expect(xor([1, 2])).toEqual([1, 2])
